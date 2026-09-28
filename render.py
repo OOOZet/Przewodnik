@@ -4,7 +4,7 @@ import os, sys, unicodedata
 from contextlib import contextmanager
 
 def main():
-  format_text_file('source.md')
+  format_text_file('source.xml')
 
 def format_text_file(path):
   log_info(f'Formatting {path!r}')
