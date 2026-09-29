@@ -1,10 +1,22 @@
 #!/usr/bin/env python3
 
-import os, sys, unicodedata
+import os, shutil, sys, unicodedata
 from contextlib import contextmanager
+from enum import auto, Enum
+from xml.etree import ElementTree
 
 def main():
   format_text_file('source.xml')
+
+  log_info('Creating build directory')
+  try:
+    shutil.rmtree('build')
+  except FileNotFoundError:
+    pass
+  os.mkdir('build')
+
+  preprocess_source(Target.discord)
+  preprocess_source(Target.download)
 
 def format_text_file(path):
   log_info(f'Formatting {path!r}')
@@ -53,6 +65,159 @@ def format_text_file(path):
         f.write(new)
       os.rename(f'{path}.new', path)
       log_notice('Overwritten')
+
+class Target(Enum):
+  discord = auto()
+  download = auto()
+
+def preprocess_source(target):
+  log_info(f'Preprocessing source for {target.name}')
+  with log_indent():
+    source = ElementTree.parse('source.xml')
+
+    log_info('Expanding conditionals')
+    expand_conditionals(source.getroot(), target)
+
+    log_info('Splitting text into paragraphs')
+    block_xpaths = [
+      './/answer',
+      './/footer',
+      './/list/item',
+      './/note',
+      './/preface',
+      './/subanswer',
+      './/todo',
+      './/warning',
+    ]
+    for xpath in block_xpaths:
+      for node in source.findall(xpath):
+        split_into_paragraphs(node)
+
+    log_info('Normalizing whitespace')
+    text_xpaths = {
+      './/emphasis',
+      './/important',
+      './/link',
+      './/paragraph',
+      './/ref',
+    }
+    for xpath in text_xpaths:
+      for node in source.findall(xpath):
+        normalize_whitespace(node)
+
+    source.write(f'build/{target.name}.xml')
+
+def expand_conditionals(parent, target):
+  i = 0
+  while i < len(parent):
+    child = parent[i]
+    expand_conditionals(child, target)
+    if not child.tag.endswith('-only'):
+      i += 1
+      continue
+
+    del parent[i]
+    is_kept = child.tag.removesuffix('-only') == target.name
+
+    if is_kept and child.text is not None:
+      if i == 0:
+        parent.text += child.text
+      else:
+        sibling = parent[i - 1]
+        sibling.tail = ('' if sibling.tail is None else sibling.tail) + child.text
+
+    if is_kept:
+      for grandchild in child:
+        parent.insert(i, grandchild)
+        i += 1
+
+    if child.tail is not None:
+      if i == 0:
+        parent.text += child.tail
+      else:
+        sibling = parent[i - 1]
+        sibling.tail = ('' if sibling.tail is None else sibling.tail) + child.tail
+
+def split_into_paragraphs(parent):
+  children = list(parent)
+  while len(parent) > 0:
+    del parent[0] # Ughh...
+
+  paragraph = None
+
+  def flush():
+    nonlocal paragraph
+    if paragraph is not None:
+      if len(paragraph) > 0:
+        paragraph[-1].tail = paragraph[-1].tail.rstrip()
+      else:
+        paragraph.text = paragraph.text.rstrip()
+      parent.append(paragraph)
+      paragraph = None
+
+  def begin():
+    nonlocal paragraph
+    if paragraph is None:
+      paragraph = ElementTree.Element('paragraph')
+      paragraph.text = ''
+
+  def append(text):
+    if text is None:
+      return
+
+    if paragraph is None:
+      text = text.lstrip()
+    elif len(paragraph) > 0:
+      text = paragraph[-1].tail + text
+      paragraph[-1].tail = ''
+    else:
+      text = paragraph.text + text
+      paragraph.text = ''
+
+    while text:
+      tail, sep, text = text.partition('\n\n')
+      begin()
+      if len(paragraph) > 0:
+        paragraph[-1].tail += tail
+      else:
+        paragraph.text += tail
+      if not sep:
+        break
+      text = text.lstrip()
+      flush()
+
+  append(parent.text)
+  parent.text = None
+  for child in children:
+    inline_tags = {
+      'emphasis',
+      'important',
+      'link',
+      'placeholder',
+      'ref',
+    }
+    block_or_inline_tags = {
+      'code',
+    }
+    if child.tag in inline_tags or paragraph is not None and child.tag in block_or_inline_tags:
+      begin()
+      paragraph.append(child)
+      text = child.tail
+      child.tail = ''
+      append(text)
+    else:
+      flush()
+      parent.append(child)
+      append(child.tail)
+      child.tail = None
+  flush()
+
+def normalize_whitespace(node):
+  if node.text is not None:
+    node.text = ' '.join(node.text.split())
+  for child in node:
+    if child.tail is not None:
+      child.tail = ' '.join(child.tail.split())
 
 def log_info(msg):
   log_any(msg, None)
