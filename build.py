@@ -1,22 +1,84 @@
 #!/usr/bin/env python3
 
-import os, shutil, sys, unicodedata
+import os, re, shutil, subprocess, sys, unicodedata
+from argparse import ArgumentParser
 from contextlib import contextmanager
+from datetime import datetime
 from enum import auto, Enum
+from hashlib import sha256
+from jinja2 import Environment, FileSystemLoader
+from threading import Event
+from watchdog.events import RegexMatchingEventHandler
+from watchdog.observers import Observer
 from xml.etree import ElementTree
 
 def main():
+  os.chdir(sys.path[0])
+  parser = ArgumentParser()
+  parser.add_argument('--watch', action='store_true')
+  args = parser.parse_args()
+  if args.watch:
+    watch()
+  else:
+    build()
+
+def watch():
+  change_event = Event()
+  class Handler(RegexMatchingEventHandler):
+    def on_any_event(self, event):
+      if event.event_type not in {'closed_no_write', 'modified', 'opened'}:
+        change_event.set()
+
+  observer = Observer()
+  observer.daemon = True
+  observer.schedule(Handler(ignore_regexes=[
+    r'\./\.git.*',
+    r'\./build.*',
+    r'\./README.md',
+    r'\./requirements.txt',
+  ]), '.', recursive=True)
+  observer.start()
+
+  try:
+    while True:
+      sys.stderr.write('\x1b[2J\x1b[1;1H')
+      log_info(f'Running build now at {datetime.now()}')
+      subprocess.run([__file__])
+      log_info('Waiting for changes to source files')
+      # We don't clear before building because formatting source.xml overwrites it.
+      change_event.clear()
+      change_event.wait()
+  except KeyboardInterrupt:
+    pass
+
+def build():
   format_text_file('source.xml')
 
   log_info('Creating build directory')
   try:
-    shutil.rmtree('build')
-  except FileNotFoundError:
+    os.mkdir('build')
+  except FileExistsError:
     pass
-  os.mkdir('build')
 
-  preprocess_source(Target.discord)
-  preprocess_source(Target.download)
+  log_info('Building for Discord')
+  with log_indent():
+    preprocess_source(Target.discord)
+
+  log_info('Building downloadable file')
+  with log_indent():
+    preprocess_source(Target.download)
+
+    render(Target.download)
+
+    log_info('Compiling download.typ')
+    typst = subprocess.run([
+      'typst', 'compile', 'build/download.typ',
+      '--root', '.',
+      '--font-path', 'fonts',
+      '--ignore-system-fonts', # Uncomment this, if you want to use fonts installed on your system.
+    ])
+    if typst.returncode != 0:
+      sys.exit(1)
 
 def format_text_file(path):
   log_info(f'Formatting {path!r}')
@@ -66,12 +128,8 @@ def format_text_file(path):
       os.rename(f'{path}.new', path)
       log_notice('Overwritten')
 
-class Target(Enum):
-  discord = auto()
-  download = auto()
-
 def preprocess_source(target):
-  log_info(f'Preprocessing source for {target.name}')
+  log_info(f'Preprocessing source')
   with log_indent():
     source = ElementTree.parse('source.xml')
 
@@ -104,6 +162,10 @@ def preprocess_source(target):
     for xpath in text_xpaths:
       for node in source.findall(xpath):
         normalize_whitespace(node)
+
+    log_info('Trimming whitespace in "code" nodes')
+    for node in source.findall('.//code'):
+      node.text = node.text.strip()
 
     source.write(f'build/{target.name}.xml')
 
@@ -214,10 +276,74 @@ def split_into_paragraphs(parent):
 
 def normalize_whitespace(node):
   if node.text is not None:
-    node.text = ' '.join(node.text.split())
+    node.text = re.sub(r'\s+', ' ', node.text)
   for child in node:
     if child.tail is not None:
-      child.tail = ' '.join(child.tail.split())
+      child.tail = re.sub(r'\s+', ' ', child.tail)
+
+def render(target):
+  template_name = {
+    Target.download: 'download.typ',
+  }[target]
+  log_info(f'Rendering {template_name}')
+
+  tree = ElementTree.parse(f'build/{target.name}.xml')
+  env = Environment(
+    loader=FileSystemLoader('templates'),
+    # Autoescaping escapes only HTML tags, which obviously
+    # is not only insufficient but also harmful to our needs.
+    autoescape=False,
+    lstrip_blocks=True,
+    trim_blocks=True,
+  )
+  def error(s):
+    raise Exception(s)
+  env.globals |= {
+    'datetime': datetime,
+    'error': error,
+    'repr': repr,
+  }
+  env.filters |= {
+    'escape_typst_line_markup': escape_typst_line_markup,
+    'escape_typst_markup': escape_typst_markup,
+    'escape_typst_string': escape_typst_string,
+    'human_date': human_date,
+  }
+
+  out = env.get_template(template_name).render(document=tree.getroot())
+  with open(f'build/{template_name}', 'w') as f:
+    f.write(out)
+
+def escape_typst_line_markup(text):
+  return re.sub(r'^(\s*)([+-/=]) ', r'\1\\\2 ', text)
+
+def escape_typst_markup(text):
+  return re.sub(r'([#$*<>@[\\\]_`~])', r'\\\1', text)
+
+def escape_typst_string(text):
+  return '"' + re.sub(r'(["\\])', r'\\\1', text) + '"'
+
+def human_date(iso_date):
+  months = [
+    'stycznia',
+    'lutego',
+    'marca',
+    'kwietnia',
+    'maja',
+    'czerwca',
+    'lipca',
+    'sierpnia',
+    'września',
+    'października',
+    'listopada',
+    'grudnia',
+  ]
+  dt = datetime.fromisoformat(iso_date)
+  return f'{dt.day} {months[dt.month - 1]} {dt.year}'
+
+class Target(Enum):
+  discord = auto()
+  download = auto()
 
 def log_info(msg):
   log_any(msg, None)

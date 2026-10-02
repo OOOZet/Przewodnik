@@ -2,12 +2,12 @@
 <document title='Przewodnik OOOZ'>
 
 <preface>
-<todo>Czy używać form żeńskich czasowników przeszłych II os.?</todo>
-
 Ten przewodnik przeznaczony jest przede wszystkim dla osób, które mogą wystartować w <link url='https://oi.edu.pl/'>Olimpiadzie Informatycznej</link> (OI) lub <link url='https://oij.edu.pl/'>Olimpiadzie Informatycznej Juniorów</link> (OIJ), czyli odpowiednio uczniów szkół średnich i podstawowych. Jego celem jest wprowadzenie czytelnika w uniwersum Olimpiady i szerszego "programowania sportowego" (z ang. "competitive programming") z punktu widzenia doświadczonego użytkownika Olimpiady Informatycznej oraz odpowiedzenie na częste pytania pojawiające się na <discord-only>tym serwerze</discord-only><download-only>publicznym serwerze Discord <link url='https://discord.gg/AMGxG4TvDS'>OKI OI OIJ Zjednoczenie</link></download-only>. W zamyśle ma służyć jako wszechstronny "przewodnik" dla każdego - odpowiadający zarówno na pytania kogoś, kto pierwszy raz słyszy o Olimpiadzie, jak i zaawansowanego olimpijczyka.
 </preface>
 
 <answer question='Czy warto wystartować w Olimpiadzie?'>
+<todo>Zanim ktoś zechce wystartować w Olimpiadzie, musi najpierw wiedzieć, na czym ona polega. Trzeba odpowiedzieć na to pytanie.</todo>
+
 <important>Tak, absolutnie.</important> Nawet jeśli uważasz, że jesteś na to za słaby, to doświadczenie i wiedza, które wyciągniesz ze startu, przydadzą ci się nie tylko w kolejnym starcie za rok, ale też w dalszym życiu. Zresztą jak masz coś osiągnąć, jeśli nawet nie zrobiłeś pierwszego kroku? I nawet jeśli ostatecznie nie osiągniesz swojego celu, to umiejętności, które zdobędziesz na Olimpiadzie, zostaną z tobą i przydadzą ci się nie tylko na studiach, ale też w twojej dalszej scieżce programisty. To już nie mówiąc o wszystkich <ref id='korzysci'>korzyściach</ref>, które płyną z ewentualnego sukcesu w Olimpiadzie.
 </answer>
 
@@ -32,8 +32,8 @@ Zakładamy, że "sukces" oznacza co najmniej tytuł finalisty.
 
 <subanswer subquestion='...OI?'>
 <list>
-<item><important>Wolny wstęp</important> (po zdaniu matur podstawowych) i pierwszeństwo <important>na studia informatyczne, matematyczne</important> <link url='https://oi.edu.pl/l/31oi_studia/'>i nie tylko</link>.</item>
-<item><link url='https://oi.edu.pl/l/33oi_miedzynarodowe/'><important>Szansa reprezentowania Polski</important></link> na Międzynarodowej Olimpiadzie Informatycznej (IOI), Bałtyckiej Olimpiadzie Informatycznej (BOI), Środkowoeuropejskiej Olimpiadzie Informatycznej (CEOI) lub Europejskiej Olimpiadzie Informatycznej Dziewczyn (EGOI).</item>
+<item><important>Wolny wstęp</important> (po zdaniu matur podstawowych) i pierwszeństwo <important>na studia informatyczne, matematyczne</important> <link url='https://oi.edu.pl/l/34oi_studia/'>i nie tylko</link>.</item>
+<item><link url='https://oi.edu.pl/l/34oi_miedzynarodowe/'><important>Szansa reprezentowania Polski</important></link> na Międzynarodowej Olimpiadzie Informatycznej (IOI), Bałtyckiej Olimpiadzie Informatycznej (BOI), Środkowoeuropejskiej Olimpiadzie Informatycznej (CEOI) lub Europejskiej Olimpiadzie Informatycznej Dziewczyn (EGOI).</item>
 <item><link url='https://oi.edu.pl/l/osiagniecia_olimpijczykow/'><important>Sukces zawodowy</important></link>. Umiejętności algorytmiczne są atrakcyjne dla rekruterów ze światowych firm technologicznych, a dawni olimpijczycy zasiadają obecnie na ich szczytach: <link url='https://oi.edu.pl/contestants/Jakub%20Pachocki/'>Jakub Pachocki</link> jest głównym naukowcem w OpenAI, <link url='https://oi.edu.pl/contestants/Tomasz%20Czajka/'>Tomasz Czajka</link> - współtwórcą oprogramowania sterującego rakietami SpaceX, <link url='https://oi.edu.pl/contestants/Maciej%20Popowicz/'>Maciej Popowicz</link> - współzałożycielem firmy Ten Square Games i portalu Nasza Klasa. Alternatywną ścieżką jest poświęcenie się pracy akademickiej.</item>
 <item>Darmowy udział w <link url='https://oi.edu.pl/l/33oi_ONTAK/'>obozie treningowym "ONTAK"</link> razem z innymi finalistami OI.</item>
 </list>
@@ -47,14 +47,14 @@ Tak, i na studiach i w pracy. Na studiach z oczywistych względów - Olimpiada j
 </answer>
 
 <answer question='Jak wystartować w...'>
-<note>Czasami zdarzają się nauczyciele, którym z różnych powodów nie chce się przeprowadzić Olimpiady w szkole. Jest to przykry stan rzeczy, że tacy ludzie zaniedbują swój zawodowy obowiązek dbania o rozwój naukowy młodzieży w dziedzinie, w której nauczają. W takich sytuacjach organizatorzy proszą o kontakt mailowy na adres <link url='mailto:olimpiada@oij.edu.pl'>olimpiada@oij.edu.pl</link> jeśli startujesz w OIJ (dla szkół podstawowych) i <link url='mailto:olimpiada@oi.edu.pl'>olimpiada@oi.edu.pl</link> jeśli startujesz w OI (dla szkół średnich). W świetle prawa szkoła nie może odmówić prośby ucznia o zarejestrowanie szkoły na Olimpiadę ani nie może odmówić przeprowadzenia testów Olimpiady w szkole.</note>
+<note>Czasami zdarzają się nauczyciele, którym z różnych powodów nie chce się przeprowadzić Olimpiady w szkole. W takich sytuacjach organizatorzy proszą o kontakt mailowy na adres <link url='mailto:olimpiada@oij.edu.pl'>olimpiada@oij.edu.pl</link>, jeśli startujesz w OIJ (dla szkół podstawowych), albo <link url='mailto:olimpiada@oi.edu.pl'>olimpiada@oi.edu.pl</link>, jeśli startujesz w OI (dla szkół średnich). W świetle prawa szkoła <important>nie może odmówić</important> prośby ucznia o zarejestrowanie szkoły na Olimpiadę ani nie może odmówić przeprowadzenia testów Olimpiady w szkole.</note>
 
 <subanswer subquestion='...OIJ?'>
-<warning>Poniższe daty obowiązują tylko w roku szkolnym <important>2026/2027</important>. Na stronie OIJ znajduje się <link url='https://oij.edu.pl/oij21/terminarz/'>dokładny terminarz dla niego</link>.</warning>
+<warning>Poniższe daty obowiązują tylko w roku szkolnym <important>2026/2027</important> (<link url='https://oij.edu.pl/oij21/terminarz/'>terminarz na stronie OIJ</link>).</warning>
 
 Przed wzięciem udziału w Olimpiadzie Informatycznej Juniorów trzeba się najpierw na nią zarejestrować. Na stronie OIJ znajduje się <link url='https://oij.edu.pl/oij21/rejestracja/'><important>szczegółowy poradnik</important></link>, jak to zrobić.
 
-Po zarejestrowaniu się wystarczy przyjść na pisemny test wiedzy w szkole <important>22 października o 12:00</important> i na test programistyczny na komputerze w szkole <important>9 grudnia</important>. Przed tym drugim trzeba przypomnieć sobie hasło do swojego konta na SIO2.
+Po zarejestrowaniu się wystarczy przyjść na pisemny test wiedzy w szkole <important>22 października o 12:00</important> i na test programistyczny na komputerze w szkole <important>9 grudnia</important>. Przed tym drugim musisz przypomnieć sobie hasło do swojego konta na SIO2.
 
 <note>Dobrym pomysłem jest zadbanie o to, aby twój koordynator szkolny pamiętał o przeprowadzeniu obu częsci szkolnych OIJ, żeby uniknąć przykrych sytuacji.</note>
 
@@ -64,15 +64,13 @@ Zwykle 2 tygodnie po zakończeniu ostatniej części na stronie OIJ pojawia się
 </subanswer>
 
 <subanswer subquestion='...OI?'>
-<todo>Link do rejestracji będzie działać dopiero 1 października.</todo>
-
-<warning>Poniższe daty obowiązują tylko w roku szkolnym <important>2026/2027</important>. Na stronie OI znajduje się <link url='https://oi.edu.pl/l/oi_terminarz/'>dokładny terminarz dla niego</link>.</warning>
+<warning>Poniższe daty obowiązują tylko w roku szkolnym <important>2026/2027</important> (<link url='https://oi.edu.pl/l/oi_terminarz/'>terminarz na stronie OI</link>).</warning>
 
 Przed wzięciem udziału w Olimpiadzie Informatycznej trzeba się najpierw na nią zarejestrować. Na stronie OI znajduje się <link url='https://oi.edu.pl/l/rejestracja/'><important>szczegółowy poradnik</important></link>, jak to zrobić.
 
-Po zarejestrowaniu się można od razu przystąpić do rozwiązywania zadań z tury zdalnej trwającej <important>od 12 października do 16 listopada</important>. Tu wystarczy siedzieć nad tymi zadaniami, trzymać je z tyłu głowy i próbować je rozwiązać samodzielnie wysyłając zgłoszenia na SIO2 w domu.
+Po zarejestrowaniu się można od razu przystąpić do rozwiązywania zadań z tury zdalnej trwającej <important>od 12 października do 16 listopada</important>. Tu wystarczy siedzieć nad tymi zadaniami, trzymać je z tyłu głowy i próbować rozwiązać je samodzielnie wysyłając zgłoszenia na SIO2 w domu.
 
-Po turze zdalnej odbędzie się tura szkolna <important>20 listopada</important> też polegająca na rozwiązywaniu zadań programistycznych, ale prostszych. Przed tym trzeba przypomnieć sobie hasło do swojego konta na SIO2.
+Po turze zdalnej odbędzie się tura szkolna <important>20 listopada</important> też polegająca na rozwiązywaniu zadań programistycznych, ale prostszych. Przed tym musisz przypomnieć sobie hasło do swojego konta na SIO2.
 
 <note>Dobrym pomysłem jest zadbanie o to, aby twój koordynator szkolny pamiętał o przeprowadzeniu tury szkolnej OI, żeby uniknąć przykrych sytuacji.</note>
 
@@ -94,7 +92,7 @@ Drugiego i trzeciego dnia odbywają się już zawody właściwe, które każdego
 
 W piątek tydzień po zawodach Komitet Główny spotyka się, aby ustalić i ogłosić próg do finału. Tego samego dnia wieczorem na stronie opublikowywana jest lista zakwalifikowanych do drugiego etapu.
 
-Trzeci etap jest podobny do drugiego o tyle, że w całości odbywa się w Warszawie, a nie w kilku okręgach. Zadań każdego dnia jest zwykle 3. Wyniki są podawane dzień po zakończeniu zawodów i nie przez internet, tylko na oficjalnej ceremonii zakończenia. Zakończenie jest zwykle poprzedzone serią wykładów, na której finaliści mają okazję posłuchać, jak osoby kiedyś lub wciąż związane z Olimpiadą rozmawiają o rzeczach innych niż zadania. Dodatkowo razem zakwaterowani są prawie wszyscy finaliści spoza Warszawy i czasami zaplanowane jest jedno wyjście rekreacyjne do kręgielni.
+Trzeci etap jest podobny do drugiego o tyle, że w całości odbywa się w Warszawie, a nie w kilku okręgach. Zadań każdego dnia jest zwykle 3, a nie 2. Wyniki są podawane dzień po zakończeniu zawodów i nie przez internet, tylko na oficjalnej ceremonii zakończenia. Zakończenie jest zwykle poprzedzone serią wykładów, na której finaliści mają okazję posłuchać, jak osoby kiedyś lub wciąż związane z Olimpiadą rozmawiają o rzeczach innych niż zadania. Dodatkowo razem zakwaterowani są prawie wszyscy finaliści spoza Warszawy i czasami zaplanowane jest wyjście rekreacyjne - na przykład do kręgielni.
 </subanswer>
 </answer>
 
@@ -156,7 +154,11 @@ Tak. W domu jest pełno rzeczy, które rozpraszają twoją uwagę od zadań, tak
 <answer question='Jakie algorytmy i techniki muszę znać na...'>
 <todo>linki</todo>
 
-Przy każdym algorytmie/technice są podane wszystkie zadania, do rozwiązania których był potrzebny, z podanych niżej przedziałów. Brane pod uwagę są tylko rozwiązania wzorcowe z oficjalnych omówień. Za część rozwiązania brany jest również dowód poprawności i złożoności. Jeśli czegoś w nich nie było, to nie ma go tutaj. Wkuwanie niepotrzebnych ci algorytmów to nie jest to. W szczególności jeśli interesuje cię tylko dostanie się do finału, możesz zignorować pozycje, przy których nie ma żadnych zadań z II etapu. Jednak to nie jest lista <emphasis>wszystkiego</emphasis>, co może się pojawić, a jedynie próba przewidzenia na podstawie wcześniejszych danych, co <emphasis>może</emphasis> się pojawić.
+Przy każdym algorytmie/technice są podane wszystkie zadania, do rozwiązania których był potrzebny, z podanych niżej przedziałów. Brane pod uwagę są tylko rozwiązania wzorcowe z oficjalnych omówień. Za część rozwiązania brany jest również dowód poprawności i złożoności. Jeśli czegoś w nich nie było, to nie ma go tutaj. Wkuwanie niepotrzebnych ci algorytmów to nie jest to. W szczególności jeśli interesuje cię tylko dostanie się do finału, możesz zignorować pozycje, przy których nie ma żadnych zadań z II etapu. Być może możesz też odpuścić sobie pozycje, które wystąpiły tylko raz.
+
+<warning>To nie jest lista <emphasis>wszystkiego</emphasis>, co może się pojawić, a jedynie próba przewidzenia na podstawie wcześniejszych danych, co <emphasis>może</emphasis> się pojawić.</warning>
+
+<note>Zalecamy uczenie się algorytmów od najczęstszych do najrzadszych, żeby poznać ich ważniejszą część, zanim nauka cię zmęczy.</note>
 
 <subanswer subquestion='...OIJ?'>
 Lista obejmuje drugie etapy od XIV do XX OIJ i finały od XIV do XVII OIJ.
@@ -305,11 +307,11 @@ Najlepiej jednak jest napisać <important>własną biblioteczkę</important>.
 
 <item>Oczywiście robienie ciągle tego samego bywa nie tylko żmudne, ale też umysłowo ograniczające, więc od czasu do czasu trzeba też porobić <emphasis>coś innego</emphasis>.</item>
 
-<item>Warto też czasami robić zadania, które robią twoi koledzy i koleżanki. Na kanale &lt;#876036802132185098&gt; znajdziesz zadania, które spodobały się im, i ty też możesz dzielić się fajnymi zadaniami na nim.</item>
+<item>Warto też czasami robić zadania, które robią twoi koledzy i koleżanki. Na kanale <discord-only>&lt;#876036802132185098&gt;</discord-only><download-only><code>#fajne-zadanka</code> na <link url='https://discord.gg/AMGxG4TvDS'>naszym serwerze Discord</link></download-only> znajdziesz zadania, które spodobały się im, i ty też możesz dzielić się fajnymi zadaniami na nim.</item>
 </list>
 </answer>
 
-<answer question='Jak trenować pod OI/OIJ?'>
+<answer question='Jak trenować pod Olimpiadę?'>
 Zakładając, że przyswoiłeś już wszystkie algorytmy i techniki spotykane na twojej wersji Olimpiady, jedyne co ci pozostało, to rozwiązywanie zadań ze jej starych edycji (<link url='https://oi.edu.pl/l/oi_zadania/'>zadania OI</link>, <link url='https://oij.edu.pl/zbior_zadan/'>zadania OIJ</link>). Jeśli zabraknie ci zadań z OI, to następnym najbardziej podobnym do nich zestawem zadań są zadania z obozów ONTAK dostępne na SIO2 w konkursach pod nazwą "Wiekuisty ONTAK".
 
 Bardzo dobrym sposobem na trening przed jakimkolwiek konkursem stacjonarnym są tak zwane "wirtualki", czyli symulacje jednego dnia zawodów z dokładnością co do czasu trwania, czasu rozpoczęcia, zestawu zadań, samodzielności pracy i odizolowania od innych ludzi i rozproszeń. W ten sposób możesz m.in. zweryfikować swoją strategię.
@@ -322,7 +324,7 @@ Zadania z nowych Olimpiad są od tych starszych łatwiejsze pod kątem wiedzy al
 </answer>
 
 <answer question='Jak zadania z OI różnią się od zadań z Codeforces?'>
-Rozwiązywanie zadania z OI to przygoda, w której musisz dokonać wiele małych obserwacji, podczas gdy zadania z Codeforces zwykle wymagają wpadnięcia na jeden duży pomysł. Zadania na Codeforces (może za wyjątkiem rund Educational) wymagają też znacznie mniejszej wiedzy algorytmicznej.
+Rozwiązywanie zadania z OI to przygoda, w której musisz dokonać wiele małych obserwacji, podczas gdy zadania z Codeforces zwykle wymagają wpadnięcia na jeden duży pomysł. Zadania na Codeforces (może za wyjątkiem rund Educational) wymagają też znacznie mniej wiedzy algorytmicznej.
 </answer>
 
 <answer question='Czy są gdzieś dostępne omówienia lub rozwiązania zadań z dawnych ONTAKów?'>
@@ -393,7 +395,7 @@ A czym w ogóle są te trzy rzeczy?
 <item><emphasis>Naiwny brut</emphasis> to rozwiązanie brutalne, które musi być jak najbardziej oczywiste i <important>niewykorzystujące żadnych spostrzeżeń</important>. Jeśli już na tym etapie popełnisz jakieś błędne założenie, to będzie cię to kosztować spokojnie co najmniej godzinę konkursu.</item>
 </list>
 
-<important>Dopiero gdy już będziesz miał gotową testerkę, generatorkę i naiwnego bruta do każdego zadania</important>, możesz przystąpić do "rozwiązywania zadań". Ale jak? Okazuje się, że organizatorzy zostawili w treści zadania zakodowaną instrukcję rozwiązywania zwaną "podzadaniami". <important>Robienie kolejnych podzadań prawie zawsze nakierowuje cię na pełne rozwiązanie.</important> Bardzo rzadko zdarza się na Olimpiadzie, że i-te podzadanie jest trudniejsze od podzadania j-tego (i &lt; j) albo że podzadania prowadzą do rowiązań zupełnie odmiennych od rozwiązania wzorcowego. To już pomijając fakt, że łatwiej jest zdobyć 50 punktów z podzadań niż 100 punktów za wzorcówkę.
+<important>Dopiero gdy już będziesz miał gotową testerkę, generatorkę i naiwnego bruta do każdego zadania, możesz przystąpić do "rozwiązywania zadań".</important> Ale jak? Okazuje się, że organizatorzy zostawili w treści zadania zakodowaną instrukcję rozwiązywania zwaną "podzadaniami". <important>Robienie kolejnych podzadań prawie zawsze nakierowuje cię na pełne rozwiązanie.</important> Bardzo rzadko zdarza się na Olimpiadzie, że i-te podzadanie jest trudniejsze od podzadania j-tego (i &lt; j) albo że podzadania prowadzą do rowiązań zupełnie odmiennych od rozwiązania wzorcowego. To już pomijając fakt, że łatwiej jest zdobyć 50 punktów z podzadań niż 100 punktów za wzorcówkę.
 
 Zanim zaczniesz implementować jakieś czasochłonne rozwiązanie, warto wpierw zatrzymać się i zastanowić się nad jego sensem w myśl przysłowia "<important>Pomyśl dwa razy, żeby nie klepać trzy razy.</important>".
 
@@ -420,7 +422,7 @@ Jako uzupełnienie <link url='https://oi.edu.pl/l/oi_jak_testowac/'>świetnego p
 
 Prawdziwą perełką debugowania w C++ jest <important>AddressSanitizer</important> aktywowany za pomocą flag kompilacji <code>-fsanitize=address,undefined -g</code>. Gdy tylko twój program naruszy granice przydzielonej mu pamięci (np. wychodząc poza zakres tablicy) lub doprowadzi do jednego z określonych w standardzie C++ "niezdefiniowanych zachowań" (np. integer overflow), AddressSanitizer wypisze dokładną przycznę błędu i jego miejsce w twoim kodzie oraz - dla błędów pamięci - zawartość stosu wywołań w chwili błędu z dokładnością co do linijki twojego kodu. Bez AddressSanitizera dostałbyś jedynie krótki komunikat "Naruszenie ochrony pamięci" w przypadku błedów pamięci lub nawet nie dostałbyś żadnego komunikatu w przypadku niezdefiniowanych zachowań.
 
-Przy debugowaniu za pomocą "printa" zalecane jest korzystanie z <important><link url='https://cppreference.com/cpp/io/cerr'><code>cerr</code></link> zamiast <code>cout</code></important> w C++ i <important><link url='https://docs.python.org/3/library/sys.html#sys.stderr'><code>sys.stderr.write</code></link> zamiast <code>print</code></important> w Python. Te alternatywne "printy" wypisują tekst do osobnego strumienia wyjściowego przeznaczonego na błędy, który nie jest brany pod uwagę przez sprawdzaczkę. To pozwoli uniknąć częstych błedów, w których zapomina się usunąć debugi przed wysłaniem kodu i dostaje się werdykt "błędna odpowiedź" marnując sobie przy tym jedno zgłoszenie lub co gorsza nadpisując sobie dodatni wynik na zadaniu na zero. Z tymi alternatywnymi funkcjami najgorszą możliwą konsekwencją przeoczenia debugów jest "przekroczenie limitu czasu", bo twój program zmarnował za dużo czasu na wypisanie niepotrzebnych debugów.
+Przy debugowaniu za pomocą "printa" zalecane jest korzystanie z <important><link url='https://cppreference.com/cpp/io/cerr'><code>cerr</code></link> zamiast <code>cout</code></important> w C++ i <important><code>print(..., file=</code><link url='https://docs.python.org/3/library/sys.html#sys.stderr'><code>sys.stderr</code></link><code>)</code></important> w Python. Te alternatywne "printy" wypisują tekst do osobnego strumienia wyjściowego przeznaczonego na błędy, który nie jest brany pod uwagę przez sprawdzaczkę. To pozwoli uniknąć częstych błedów, w których zapomina się usunąć debugi przed wysłaniem kodu i dostaje się werdykt "błędna odpowiedź" marnując sobie przy tym jedno zgłoszenie lub co gorsza nadpisując sobie dodatni wynik na zadaniu na zero. Z tymi alternatywnymi funkcjami najgorszą możliwą konsekwencją przeoczenia debugów jest "przekroczenie limitu czasu", bo twój program zmarnował za dużo czasu na wypisanie niepotrzebnych debugów.
 
 Poniżej <important>przykładowa testerka</important> napisana w języku Bash:
 
@@ -457,29 +459,36 @@ done
 </answer>
 
 <answer question='Jakie konkursy istnieją poza Olimpiadą?'>
-Dla wszystkich:
+<subanswer subquestion='Dla wszystkich'>
 <list>
 <item>Rundy na <link url='https://codeforces.com/contests'>Codeforces</link> - najbardziej znana platforma programowania sportowego na świecie; podzielone na trzy "dywizje"; średnio 2 rundy na tydzień</item>
 <item>Kontesty na <link url='https://atcoder.jp/contests/'>AtCoder</link> - szanowane na całym świecie za wysoką jakość zadań; podzielone na "Beginner", "Regular" i "Grand"; średnio 3 rundy na 2 tygodnie; checklista zadań: <link url='https://kenkoooo.com/atcoder/'>Kenkoooo</link></item>
 <item><link url='https://potyczki.mimuw.edu.pl/'>Potyczki Algorytmiczne</link> - coroczny ogólnopolski konkurs trwający cały tydzień i cieszący się sporym uznaniem wśród polskich algorytmików</item>
 </list>
+</subanswer>
 
-Dla uczniów:
+<subanswer subquestion='Dla uczniów'>
 <list>
 <item><link url='https://mistrzostwa.solve.edu.pl/'>Mistrzostwa Polski Szkół Średnich w Programowaniu Zespołowym</link> (MPSŚPZ) - coroczny konkurs drużynowy dla uczniów szkół średnich; stacjonarny we Wrocławiu z możliwością udziału zdalnego; poprzedzony serią internetowych turniejów kwalifikacyjnych; każda drużyna składa się z 3 osób z tej samej szkoły</item>
 <item><link url='https://mistrz-programowania.oki.org.pl/'>Mistrz Programowania</link> - coroczny konkurs organizowany przez OKI</item>
 <item><link url='https://solve.edu.pl/event'>Wrocławskie Sparingi Informatyczne</link> - podzielone na poziomy od finału OIJ aż do finału OI; zdalne z możliwością udziału stacjonarnego we Wrocławiu; sporadycznie organizowane w ciągu roku szkolnego</item>
 </list>
+</subanswer>
 
-Dla studentów:
+<subanswer subquestion='Dla studentów'>
 <list>
-<item><link url='https://amppz.edu.pl/'>Akademickie Mistrzostwa Polski w Programowaniu Zespołowym</link> (AMPPZ) - będące konkursem kwalifikującym do:</item>
+<item><link url='https://amppz.edu.pl/'>Akademickie Mistrzostwa Polski w Programowaniu Zespołowym</link> (AMPPZ) - będące konkursem kwalifikującym do...</item>
 <item><link url='https://icpc.global/'>International Collegiate Programming Contest</link> (ICPC) - studencki odpowiednik IOI</item>
 </list>
+</subanswer>
 </answer>
 
 <footer>
 Ten przewodnik został <download-only>stworzony przez i dla otwartej społeczności <link url='https://discord.gg/AMGxG4TvDS'>OKI OI OIJ Zjednoczenie</link> i</download-only> udostępniony na licencji <link url='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</link>. Znalezione błędy prosimy zgłaszać na <link url='https://github.com/OOOZet/Przewodnik/issues'>GitHubie</link> lub na <discord-only>&lt;#708664789970452490&gt;</discord-only><download-only><link url='https://discord.gg/AMGxG4TvDS'>Discordzie</link></download-only>. Do powstania przewodnika bezpośrednio przyczynili się: <placeholder for='contributors'/>.
+
+<todo>Czy używać form żeńskich czasowników przeszłych II os.?</todo>
+
+<todo>Ujednolicić konstrukcje imperatywne do zwykłego czasownika w trybie rozkazującym.</todo>
 </footer>
 
 <contributor name='Karol "digitcrusher" Łacina' discord-id='536253933778370580' website='https://lacina.io/' contribution='wszystko'/>

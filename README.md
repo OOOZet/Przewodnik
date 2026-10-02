@@ -2,10 +2,16 @@
 
 Najnowszy build przewodnika można znaleźć na kanale `#przewodnik` na [naszym serwerze Discord](https://discord.gg/AMGxG4TvDS).
 
+## Buildowanie
+
+1. Zainstaluj programy Git LFS, Python 3 oraz [Typst](https://typst.app/open-source/#download).
+2. Zainstaluj potrzebne pakiety w Pythonie za pomocą `pip3 install -r requirements.txt`.
+3. Uruchom `./build.py --watch`. Od teraz przewodnik będzie buildowany po każdej zmianie w plikach źródłowych. Jeśli chcesz tylko jednorazowo zbuildować przewodnik, to usuń opcję `--watch`.
+
 ## Praca z treścią
 
 > [!WARNING]
-> Z każdą nową edycja przewodnika trzeba zaktualizować daty i linki w pytaniu "Jak wystartować w…" i "Jak wygląda drugi i trzeci etap…".
+> Z każdą nową edycja przewodnika trzeba zaktualizować daty i linki w pytaniu "Jakie korzyści przynosi sukces w...", "Jak wystartować w…" i "Jak wygląda drugi i trzeci etap…".
 
 Ze względu na to, iż przewodnik jest wydawany w dwóch zupełnie niepodobnych formach prezentacji (Discordowy Markdown i Typst), zastosowany został bardzo wyraźny podział na warstwę semantyczną i warstwę prezentacji dokumentu. Całość tej pierwszej znajduje się w pliku `source.xml` i, jak można się domyśleć, jest ona napisana w XML-u - języku spokrewnionym z HTML-em, ale mniej odjechanym. Sam XML oczywiście nie definiuje, jakie są typy znaczników; to robi użytkownik, czyli w tym przypadku my. Znaczniki dostępne w `source.xml` zostały opisane poniżej.
 
@@ -84,7 +90,15 @@ Przewodnik ma przede wszystkim charakter informacyjny - ma przekazać najważnie
 
 Znaczna część wiedzy olimpijskiej, którą posiadają uczniowie ze szkół olimpijskich, przekazywana jest im od starszych kolegów lub studentów, którzy prowadzą zajęcia w ich szkołach. Chodzi tu konkretnie o tę wiedzę *nietechniczną*, czyli np. strategie na zawody, syllabus itp. Uczniowie spoza takich wielkich ośrodków są z tego powodu już na start w gorszym położeniu tylko i wyłącznie ze względu na szkołę, do której uczęszczają, gdyż nawet jeśli takie informacje siedzą gdzieś w internecie, to i tak są one fragmentaryczne lub nawet sprzeczne ze sobą i zebranie całej treści, która znajduje się w tym przewodniku, byłoby bardzo trudne i czasochłonne - o wiele bardziej niż by to było opłacalne. Zebranie wszystkich tajników programowania sportowego w jedno miejsce pozwoli *wszystkim* zainteresowanym szybciej wdrażać się w jego świat.
 
+---
+
 Przykłady użycia algorytmiki w pytaniu o przydatności umiejętności algorytmicznych powinny być rzeczami, z których czytelnik korzysta na co dzień. Powinny linkować do dokładnych wytłumaczeń tych algorytmów, nie tylko dla celów dydaktycznych, ale też żeby czytelnik zobaczył na własne oczy te algorytmy, których istnienie próbujemy mu sprzedać.
+
+---
+
+Opis tego, jak wygląda drugi i trzeci etap Olimpiady, nie ma charakteru informacyjnego, a bardziej przypomina opowieść kolegi. Chcemy w nim dokładnie zobrazować czytelnikowi, jak wyglądają dalsze etapy Olimpiady z perspektywy prawdziwego uczestnika. To jest też element "wprowadzania go w świat Olimpiady".
+
+---
 
 Lista wymaganych algorytmów i technik jest prawdopodobnie najbardziej kontrowersyjną i niedopracowaną częścią tego przewodnika. Każda lista tego typu wymaga podjęcia jakiś decyzji projektowych. Najbardziej kluczowe naszej listy są zawarte już w samym sformułowaniu pytania i w krótkim paragrafie znajdującym się pod nim. Choć tak, jak one są napisane w tekście, nie wyjaśnia za bardzo, *dlaczego* są takie, a nie inne. Czytelnikowi zostały przedstawione bardziej techniczne decyzje projektowe samej listy - coś w stylu specyfikacji, która pozwoli przyszłym odkrywcom listy ocenić, czym ta lista w ogóle i dlaczego mieliby jej zaufać, że wiarygodnie odpowiada na stawione pytanie i nie jest przysłowiowo wyciągnieta z czapy.
 
@@ -98,7 +112,19 @@ Poniżej prezentujemy i tłumaczymy trzy największe wady naszej listy:
 
 3. Kolejny aspekt, który wymagał pewnego stopnia subiektywnej opinii było stwierdzenie, czy dane omówienie zakłada użycie pewnego algorytmu. W przypadkach, gdy omówienie przedstawiało wiele rozwiązań wzorcowych, staraliśmy oprzeć się na tym, które jest prostsze - to znaczy wymaga mniej sztuczek albo wymaga algorytmów, które są bardziej elementarne. Przykładowo z omówienia zadania *Ciąg binarny* wybraliśmy rozwiązanie oparte na trwałym drzewie przedziałowym i odrzuciliśmy te oparte na Wavelet Tree, gdyż… no cóż - Wavelet Tree to nisza, a ogólna technika utrwalania przydaje się - jeśli nie "wszędzie" - to "wszędziej" niż Wavelet Tree. Czasami omówienia opisują istniejący algorytm udając, że jest to coś nowego. Przykład: DFT w zadaniu *Wielomian*. Czasami w ten sposób opisują coś, co w czasie ich powstania jeszcze nie miało nazwy. Przykład: drzewa wirtualne w zadaniu *Kolacje*.
 
+Szczególnie kontrowersyjnym elementem listy okazał się podział czy też posortowanie algorytmów według "przydatności" - a raczej jego brak. Powód takiej decyzji jest zgodny z ogólną filozofią, jaką przyjęliśmy w tworzeniu tej listy - **czyli ograniczeniem czysto subiektownych decyzji**. "Przydatność" algorytmu jest *bardzo* subiektywną metryką:
+
+Pierwszą lepszą definicją "przydatności" algorytmu jest liczba zadań, w których się pojawił. No i tuż już od razu dochodzimy do rozdroża, bo co z zadaniami z finałów? Czy je też powinniśmy wliczać do tej metryki? Na finałach w ostatnich latach zwykle pojawia się znacznie więcej algorytmów niż na drugim etapie. Dla kogoś, kto celuje tylko w przejście drugiego etapu, takie algorytmy z finału są zupełnie nieprzydatne. A dla kogoś, kto celuje w wygranie OI, znajomość takich algorytmów może być kluczowa. Nieważne, którą opcję byś wybrał, i tak jedna z tych dwóch osób by tylko straciła na twojej decyzji.
+
+Kolejnym pytaniem, na które musielibyśmy odpowiedzieć w definicji "przydatności", jest to, czy odsuwamy na bok algorytmy, które nie pojawiły się w ostatnich kilku latach - bo bardziej spostrzegawczy zawodnicy wiedzą, że w tych ostatnich kilku latach (mniej więcej od czasów pandemii koronawirusa) zadania OI zaczęły się robić bardziej ad-hocowe z mniejszym naciskiem na wiedzę algorytmiczną. To oczywiście oznacza, że ta wiedza jest mniej przydatna na Olimpiadzie.
+
+A czemu na przykład wyraźnym przeskokiem w "przydatności" algorytmu nie miałoby być to, czy pojawił się co najnmiej dwa razy, czy tylko raz? Przecież raz to mógł być przypadek, a dwa razy - świadoma decyzja, i wtedy uczestnik mógłby podczas nauki odrzucać takie nieprzydatne jednorazowe algorytmy i uczyć się wszystkich co najmniej dwurazowych.
+
+**Zamiast podejmować te wszystkie decyzje za czytelnika, wolimy przedstawić mu nasze rady i dostarczyć mu jak najwięcej informacji, aby sam mógł podjąć odpowiednią dla siebie decyzję.**
+
 Jako notatkę dla przyszłych analizujących omówienia zostawiamy poniższą listę pojęć, na które warto uważać czytając omówienia: Arytmetyka modularna (bardziej dla OIJ), Dziel i zwyciężaj, Funkcja low, Kolejka monotoniczna, Najkrótsze ścieżki pomiędzy każdą parą, Najkrótsze ścieżki z jednego źródła z ujemnymi wagami krawędzi, Mosty i punkty artykulacji, Normalizacja wektorów o współrzędnych całkowitych, Odwrotność modularna, Przekorzenianie w programowaniu dynamicznym na drzewie, Rozkład grafu funkcyjnego, Stars and bars, Średnica drzewa, Wzór Stirlinga. Dodatkowa lista, którą można się zainspirować, znajduje się [w biblioteczce digitcrushera](https://github.com/digitcrusher/algorytmy#algorytmy).
+
+---
 
 Pomysły na przyszłe odpowiedzi na pytania:
 - coś o tym, że dziewczyny też biorą udział w Olimpiadzie
@@ -109,3 +135,9 @@ Pomysły na przyszłe odpowiedzi na pytania:
 - "Które etapy OI odpowiadają którym etapom OIJ pod względem trudności?"
 - coś o (braku) przydatności Pythona na OI
 - "Przez co muszę przejść żeby dostać się na IOI lub EJOI?"
+
+## Praca z wyglądem
+
+Przestrzenią kolorów, w której pracujemy, jest Oklab w cylindrycznym układzie współrzędnych (Oklch). Pod żadnym pozorem nie używaj sRGB ani innych percepcyjnie niejednorodnych przestrzeni.
+
+Zestaw ikon, który używamy to Google Material Symbols. Ich wyszukiwarkę znajdziesz [tutaj](https://fonts.google.com/icons). W repozytorium jest ustalona wersja tej czcionki, więc jeśli ikonka na stronie wygląda inaczej w zbuildowanym dokumencie, to oznacza, że pewnie trzeba zaktualizować czcionkę w repozytorium.
