@@ -37,23 +37,44 @@ Poniżej jest warstwa semantyczna przykładowego dokumentu prezentująca wszystk
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<document title='Tytuł dokumentu' version='(opcjonalnie) Data wydania dokumentu w formacie YYYY-MM-DD'>
+<document
+  title='Tytuł dokumentu'
+  version='(opcjonalnie) Data wydania dokumentu w formacie YYYY-MM-DD'>
+
   <preface>
-    Wstęp dokumentu. <discord-only>Tekst widoczny tylko na Discordzie.</discord-only> <download-only>Tekst widoczny tylko w wydaniu pobieranym.</download-only>
+    Wstęp dokumentu.
+    <discord-only>Tekst widoczny tylko na Discordzie.</discord-only>
+    <download-only>Tekst widoczny tylko w wydaniu pobieranym.</download-only>
   </preface>
-  <answer question='Treść pytania?' id='jakies-pytanie'>
-    <todo>Notatka autorów dokumentu dla nich samych, co trzeba dopisać, zmienić, poprawić...</todo>
-    Przykładowe zdanie z <important>ważną informacją</important>, <code>kodem</code>, <emphasis>wymawianym naciskiem na słowo lub krótką frazę</emphasis> oraz <link url='https://example.com'>linkiem</link>.
+
+  <!-- Pytania są dzielone na dwie kategorie: "ważne" i mniej ważne. -->
+  <answer question='Treść pytania?' id='jakies-pytanie' important='yes'>
+    <todo>
+      Notatka autorów dokumentu dla nich samych, co trzeba dopisać, zmienić,
+      poprawić...
+    </todo>
+
+    Przykładowe zdanie z <important>ważną informacją</important>, <code>kodem
+    </code>, <emphasis>wymawianym naciskiem na słowo lub krótką frazę</emphasis>
+    oraz <link url='https://example.com'>linkiem</link>.
 
     Kolejne paragrafy są oddzielane od siebie dwoma znakami nowej linii.
     Paragrafy mogą być rozbite na kilka kolejnych linii.
-    Znaczniki, które mogą występować tylko w kontekście block, nie muszą być oddzielane dwoma znakami nowej linii od paragrafów.
-    <note>Informacja, która niekoniecznie jest <emphasis>ważna</emphasis>, ale którą warto zapamiętać.</note>
-    <warning>Ostrzeżenie.</warning>
+    Znaczniki, które mogą występować tylko w kontekście block, nie muszą być
+    oddzielane dwoma znakami nowej linii od paragrafów.
+    <note>
+      Informacja, która niekoniecznie jest <emphasis>ważna</emphasis>, ale którą
+      warto zapamiętać.
+    </note>
+    <warning>
+      Ostrzeżenie.
+    </warning>
     Blok kodu:
 
     <code lang='bash'>
-      echo Musisz oddzielić go dwoma nowymi liniami od okalających paragrafów, gdyż może również występować w kontekście inline tak, jak to zostało zaprezentowane wyżej. Dostępne języki to bash i cpp.
+      echo Musisz oddzielić go dwoma nowymi liniami od okalających paragrafów, \
+           gdyż może również występować w kontekście inline tak, jak to \
+           zostało zaprezentowane wyżej. Dostępne języki to bash i cpp.
     </code>
 
     Tekst po bloku kodu.
@@ -68,8 +89,14 @@ Poniżej jest warstwa semantyczna przykładowego dokumentu prezentująca wszystk
       </item>
     </list>
   </answer>
-  <answer question='O co pytać na…' id='Do pytań można dodawać ID, do którego można później się odnosić za pomocą <ref>.'>
-    Na początku pytania z podpytaniami może być tekst. <ref id='jakies-pytanie'>O! Link do pytania!</ref>
+
+  <answer
+    question='O co pytać na…'
+    id='Do pytań można dodawać ID, do którego można później się odnosić za
+        pomocą <ref>.'>
+
+    Na początku pytania z podpytaniami może być tekst. <ref
+    id='jakies-pytanie'>O! Link do pytania!</ref>
     <subanswer subquestion='…SIO2?'>
       ...
     </subanswer>
@@ -77,10 +104,21 @@ Poniżej jest warstwa semantyczna przykładowego dokumentu prezentująca wszystk
       ...
     </subanswer>
   </answer>
+
   <footer>
-    Stopka dokumentu. W wydaniu pobieranym faktycznie jest na dole dokumentu, a na Discordzie jest wsadzana do opisu kanału. Znacznik <placeholder for='contributors'/> zostanie podczas renderowania zastąpiony listą contributorów pooddzielaną przecinkami. Na Discordzie będą wzmianki użytkowników, a w wydaniu pobieranym będą ich nazwy z opcjonalnym linkiem do ich strony.
+    Stopka dokumentu. W wydaniu pobieranym faktycznie jest na dole dokumentu,
+    a na Discordzie jest wsadzana do opisu kanału. Znacznik <placeholder
+    for='contributors'/> zostanie podczas renderowania zastąpiony listą
+    contributorów pooddzielaną przecinkami. Na Discordzie będą wzmianki
+    użytkowników, a w wydaniu pobieranym będą ich nazwy z opcjonalnym linkiem do
+    ich strony.
   </footer>
-  <contributor name='Imię "Pseudonim" Nazwisko' discord-id='Jego ID użytkownika na Discordzie' website='(opcjonalnie) Link do jego strony internetowej' contribution='Krótki opis jego wkładu w powstanie przewodnika'/>
+
+  <contributor
+    name='Imię "Pseudonim" Nazwisko'
+    discord-id='Jego ID użytkownika na Discordzie'
+    website='(opcjonalnie) Link do jego strony internetowej'
+    contribution='Krótki opis jego wkładu w powstanie przewodnika'/>
 </document>
 ```
 
@@ -89,6 +127,8 @@ Poniżej jest warstwa semantyczna przykładowego dokumentu prezentująca wszystk
 Przewodnik ma przede wszystkim charakter informacyjny - ma przekazać najważniejsze informacje. Nie chcemy zanudzać czytelnika długimi wywodami, które też są obciążeniem dla nas, gdyż trzeba dbać o ich aktualność.
 
 Znaczna część wiedzy olimpijskiej, którą posiadają uczniowie ze szkół olimpijskich, przekazywana jest im od starszych kolegów lub studentów, którzy prowadzą zajęcia w ich szkołach. Chodzi tu konkretnie o tę wiedzę *nietechniczną*, czyli np. strategie na zawody, syllabus itp. Uczniowie spoza takich wielkich ośrodków są z tego powodu już na start w gorszym położeniu tylko i wyłącznie ze względu na szkołę, do której uczęszczają, gdyż nawet jeśli takie informacje siedzą gdzieś w internecie, to i tak są one fragmentaryczne lub nawet sprzeczne ze sobą i zebranie całej treści, która znajduje się w tym przewodniku, byłoby bardzo trudne i czasochłonne - o wiele bardziej niż by to było opłacalne. Zebranie wszystkich tajników programowania sportowego w jedno miejsce pozwoli *wszystkim* zainteresowanym szybciej wdrażać się w jego świat.
+
+Aby lepiej dotrzeć do czytelnika, staramy się pisać zadania w taki sposób, aby bezpośrednio zwracały się do niego. To, jakie emocje i myśli wzbudzimy w nim, jest o wiele ważniejsze niż gramatyka czy składnia. Wstęp oraz pierwsze trzy pytania muszą być szczególnie kontrolowane pod względem skuteczności przekazu (użytych słów, ich nacechowania, spójności zdań itd.) - bo są najważniejsze. Drugą rzeczą, która polepsza przekaz, są *przykłady*. Dobrze jest skupić się na konkretach, które pozwolą czytelnikowi zobaczyć coś na własne oczy, zamiast na abstrakcyjnych opisach.
 
 ---
 
@@ -103,6 +143,8 @@ Opis tego, jak wygląda drugi i trzeci etap Olimpiady, nie ma charakteru informa
 Lista wymaganych algorytmów i technik jest prawdopodobnie najbardziej kontrowersyjną i niedopracowaną częścią tego przewodnika. Każda lista tego typu wymaga podjęcia jakiś decyzji projektowych. Najbardziej kluczowe naszej listy są zawarte już w samym sformułowaniu pytania i w krótkim paragrafie znajdującym się pod nim. Choć tak, jak one są napisane w tekście, nie wyjaśnia za bardzo, *dlaczego* są takie, a nie inne. Czytelnikowi zostały przedstawione bardziej techniczne decyzje projektowe samej listy - coś w stylu specyfikacji, która pozwoli przyszłym odkrywcom listy ocenić, czym ta lista w ogóle i dlaczego mieliby jej zaufać, że wiarygodnie odpowiada na stawione pytanie i nie jest przysłowiowo wyciągnieta z czapy.
 
 Przykładowo ograniczenie się tylko do *oficjalnych* omówień zapewnia, że lista nie jest subiektywnym wymysłem autora. Każdy bardzo dobrze wie, że istnieją zadania, które można rozwiązać albo standardowymi metodami, które jednak mogą wymagać od zawodnika trochę zastanowienia się, albo bezmyślnie jakimś niszowym chińskim trikiem z bloga na Codeforces. Pierwsza opcja nas zupełnie satysfakcjonuje, gdyż jest to lista *wymaganych* algorytmów, a nie *fajnych/przydatnych* algorytmów.
+
+Ponadto oficjalne omówienia dają nam wgląd w to, co siedzi autorom zadań w głowach. Jeśli układając zadanie pomyśleli o tym, żeby to było zadanie na algorytm XYZ, to bardzo możliwe jest, że w przyszłości znowu wymyślą zadanie na algorytm XYZ. Może nawet już takie wymyślili i teraz czeka ono w shortliście.
 
 Poniżej prezentujemy i tłumaczymy trzy największe wady naszej listy:
 

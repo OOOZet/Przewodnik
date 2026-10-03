@@ -2,13 +2,40 @@
 <document title='Przewodnik OOOZ'>
 
 <preface>
-Ten przewodnik przeznaczony jest przede wszystkim dla osób, które mogą wystartować w <link url='https://oi.edu.pl/'>Olimpiadzie Informatycznej</link> (OI) lub <link url='https://oij.edu.pl/'>Olimpiadzie Informatycznej Juniorów</link> (OIJ), czyli odpowiednio uczniów szkół średnich i podstawowych. Jego celem jest wprowadzenie czytelnika w uniwersum Olimpiady i szerszego "programowania sportowego" (z ang. "competitive programming") z punktu widzenia doświadczonego użytkownika Olimpiady Informatycznej oraz odpowiedzenie na częste pytania pojawiające się na <discord-only>tym serwerze</discord-only><download-only>publicznym serwerze Discord <link url='https://discord.gg/AMGxG4TvDS'>OKI OI OIJ Zjednoczenie</link></download-only>. W zamyśle ma służyć jako wszechstronny "przewodnik" dla każdego - odpowiadający zarówno na pytania kogoś, kto pierwszy raz słyszy o Olimpiadzie, jak i zaawansowanego olimpijczyka.
+Ten przewodnik adresowany jest do wszystkich osób, które mogą wystartować w <link url='https://oi.edu.pl/'>Olimpiadzie Informatycznej</link> (OI) lub <link url='https://oij.edu.pl/'>Olimpiadzie Informatycznej Juniorów</link> (OIJ), czyli uczniów szkół średnich i podstawowych. Jego celem jest wprowadzenie czytelnika w uniwersum Olimpiady z perspektywy doświadczonego uczestnika oraz odpowiedzenie na częste pytania pojawiające się na <discord-only>tym serwerze</discord-only><download-only>publicznym serwerze Discord <link url='https://discord.gg/AMGxG4TvDS'>OKI OI OIJ Zjednoczenie</link></download-only>. W zamyśle ma służyć jako wszechstronny "przewodnik", który będzie towarzyszyć ci w twojej olimpijskiej przygodzie zarówno teraz, gdy być może pierwszy raz słyszysz o Olimpiadzie, jak i później, gdy będziesz walczyć o pierwsze miejsce. <important>Jeśli pierwszy raz słyszysz o OI, prosimy przeczytaj przynajmniej 3 pierwsze odpowiedzi na pytania.</important>
 </preface>
 
-<answer question='Czy warto wystartować w Olimpiadzie?'>
-<todo>Zanim ktoś zechce wystartować w Olimpiadzie, musi najpierw wiedzieć, na czym ona polega. Trzeba odpowiedzieć na to pytanie.</todo>
+<answer question='Na czym polega Olimpiada?' important='yes'>
+Olimpiada kręci się w zasadzie wokół jednej rzeczy: rozwiązywaniu <emphasis>zadań algorytmicznych</emphasis>. Zadanie algorytmiczne polega na napisaniu krótkiego programu w C++ lub Python, który wczytuje dane w formacie określonym w zadaniu, przetwarza je wedle algorytmu wymyślonego przez ciebie, a następnie wypisuje dane, których sens i związek z danymi wejściowymi też jest określony w zadaniu. To oczywiście implikuje, że nie musisz wymyślać dokładnie tego samego algorytmu co inni.
 
-<important>Tak, absolutnie.</important> Nawet jeśli uważasz, że jesteś na to za słaby, to doświadczenie i wiedza, które wyciągniesz ze startu, przydadzą ci się nie tylko w kolejnym starcie za rok, ale też w dalszym życiu. Zresztą jak masz coś osiągnąć, jeśli nawet nie zrobiłeś pierwszego kroku? I nawet jeśli ostatecznie nie osiągniesz swojego celu, to umiejętności, które zdobędziesz na Olimpiadzie, zostaną z tobą i przydadzą ci się nie tylko na studiach, ale też w twojej dalszej scieżce programisty. To już nie mówiąc o wszystkich <ref id='korzysci'>korzyściach</ref>, które płyną z ewentualnego sukcesu w Olimpiadzie.
+<todo>Przykładowe zadanie. Musi być <emphasis>fajne</emphasis>.</todo>
+
+...i sprawdzaczka nagradza twoją pracę napisem "AC" na zielonym tle.
+</answer>
+
+<answer question='Czy warto wystartować w Olimpiadzie?' important='yes'>
+<important>Tak, absolutnie.</important> Jako zachęte dla finalistów przewidziane są <ref id='korzysci'>różne przywileje</ref> - spojrzyj na nie. Jeśli wciąż uważasz, że jesteś za słaby na jakieś olimpiady, to doświadczenie i wiedza, które wyciągniesz ze startu, przydadzą ci się nie tylko w kolejnym starcie za rok, ale też w dalszym życiu. Zresztą jak masz coś osiągnąć, jeśli nawet nie zrobiłeś pierwszego kroku? I nawet jeśli ostatecznie nie osiągniesz swojego celu, to umiejętności, które zdobędziesz na Olimpiadzie, zostaną z tobą i <ref id='przydatnosc-algorytmiki'>przydadzą ci się</ref> nie tylko na studiach, ale też w twojej dalszej scieżce programisty.
+</answer>
+
+<answer question='Jakie korzyści przynosi sukces w...' id='korzysci'>
+Zakładamy, że "sukces" oznacza co najmniej tytuł finalisty.
+
+<subanswer subquestion='...OIJ?'>
+<list>
+<item><important>Wolny wstęp</important> i pierwszeństwo na dowolny profil <important>do dowolnej szkoły średniej</important>.</item>
+<item><important>Szansa reprezentowania Polski</important> na Europejskiej Olimpiadzie Informatycznej Juniorów (EJOI).</item>
+<item>Solidny fundament do kolejnych sukcesów w "dużej" Olimpiadzie Informatycznej.</item>
+</list>
+</subanswer>
+
+<subanswer subquestion='...OI?'>
+<list>
+<item><important>Wolny wstęp</important> (po zdaniu matur podstawowych) i pierwszeństwo <important>na studia informatyczne, matematyczne</important> <link url='https://oi.edu.pl/l/34oi_studia/'>i nie tylko</link>.</item>
+<item><link url='https://oi.edu.pl/l/osiagniecia_olimpijczykow/'><important>Sukces zawodowy</important></link>. Umiejętności algorytmiczne są atrakcyjne dla rekruterów ze światowych firm technologicznych, a dawni olimpijczycy zasiadają obecnie na ich szczytach: <link url='https://oi.edu.pl/contestants/Jakub%20Pachocki/'>Jakub Pachocki</link> jest głównym naukowcem w OpenAI, <link url='https://oi.edu.pl/contestants/Tomasz%20Czajka/'>Tomasz Czajka</link> - współtwórcą oprogramowania sterującego rakietami SpaceX, <link url='https://oi.edu.pl/contestants/Maciej%20Popowicz/'>Maciej Popowicz</link> - współzałożycielem firmy Ten Square Games i portalu Nasza Klasa. Alternatywną ścieżką jest poświęcenie się pracy akademickiej, w której dawni olimpijczycy są świetni.</item>
+<item><link url='https://oi.edu.pl/l/34oi_miedzynarodowe/'><important>Szansa reprezentowania Polski</important></link> na Międzynarodowej Olimpiadzie Informatycznej (IOI), Bałtyckiej Olimpiadzie Informatycznej (BOI), Środkowoeuropejskiej Olimpiadzie Informatycznej (CEOI) lub Europejskiej Olimpiadzie Informatycznej Dziewczyn (EGOI).</item>
+<item>Darmowy udział w <link url='https://oi.edu.pl/l/33oi_ONTAK/'>obozie treningowym "ONTAK"</link> razem z innymi finalistami OI.</item>
+</list>
+</subanswer>
 </answer>
 
 <answer question='Czy wcześniejsza styczność z programowaniem nieolimpijskim może się przydać?'>
@@ -19,34 +46,13 @@ Tak. Jeśli umiesz już programować w C++ lub innym języku, to masz już za so
 Niekoniecznie. W zadaniach olimpijskich ma się przeważnie do czynienia z <link url='https://pl.wikipedia.org/wiki/Matematyka_dyskretna'>dyskretnymi</link> obiektami matematycznymi takimi jak grafy reprezentujące sieć dróg Bajtocji, czasochłonne zadania domowa z różnych przedmiotów, które Bajtek musi zrobić w kolejnych dniach tygodnia, czy <link url='https://pl.wikipedia.org/wiki/Lemmings_(gra_komputerowa)'>lemingi</link> chodzące po i spadające z jednej długiej platformy, a do wymyślania na przykład algorytmów zachłannych trzeba mieć tylko dobrą intuicję, co się najbardziej opłaca w różnych sytuacjach.
 </answer>
 
-<answer question='Jakie korzyści przynosi sukces w...' id='korzysci'>
-Zakładamy, że "sukces" oznacza co najmniej tytuł finalisty.
-
-<subanswer subquestion='...OIJ?'>
-<list>
-<item><important>Wolny wstęp</important> i pierwszeństwo na dowolny profil <important>do dowolnej szkoły średniej</important>.</item>
-<item><important>Szansa reprezentowania Polski</important> na Europejskiej Olimpiadzie Informatycznej Juniorów (EJOI).</item>
-<item>Stanowi solidny fundament do kolejnych sukcesów w "dużej" Olimpiadzie Informatycznej.</item>
-</list>
-</subanswer>
-
-<subanswer subquestion='...OI?'>
-<list>
-<item><important>Wolny wstęp</important> (po zdaniu matur podstawowych) i pierwszeństwo <important>na studia informatyczne, matematyczne</important> <link url='https://oi.edu.pl/l/34oi_studia/'>i nie tylko</link>.</item>
-<item><link url='https://oi.edu.pl/l/34oi_miedzynarodowe/'><important>Szansa reprezentowania Polski</important></link> na Międzynarodowej Olimpiadzie Informatycznej (IOI), Bałtyckiej Olimpiadzie Informatycznej (BOI), Środkowoeuropejskiej Olimpiadzie Informatycznej (CEOI) lub Europejskiej Olimpiadzie Informatycznej Dziewczyn (EGOI).</item>
-<item><link url='https://oi.edu.pl/l/osiagniecia_olimpijczykow/'><important>Sukces zawodowy</important></link>. Umiejętności algorytmiczne są atrakcyjne dla rekruterów ze światowych firm technologicznych, a dawni olimpijczycy zasiadają obecnie na ich szczytach: <link url='https://oi.edu.pl/contestants/Jakub%20Pachocki/'>Jakub Pachocki</link> jest głównym naukowcem w OpenAI, <link url='https://oi.edu.pl/contestants/Tomasz%20Czajka/'>Tomasz Czajka</link> - współtwórcą oprogramowania sterującego rakietami SpaceX, <link url='https://oi.edu.pl/contestants/Maciej%20Popowicz/'>Maciej Popowicz</link> - współzałożycielem firmy Ten Square Games i portalu Nasza Klasa. Alternatywną ścieżką jest poświęcenie się pracy akademickiej.</item>
-<item>Darmowy udział w <link url='https://oi.edu.pl/l/33oi_ONTAK/'>obozie treningowym "ONTAK"</link> razem z innymi finalistami OI.</item>
-</list>
-</subanswer>
-</answer>
-
-<answer question='Czy umiejętności algorytmiczne przydają się później w życiu?'>
+<answer question='Czy umiejętności algorytmiczne przydają się później w życiu?' id='przydatnosc-algorytmiki'>
 <todo>Więcej przykładów z linkami. Może binsearch po wyniku z GTK?</todo>
 
-Tak, i na studiach i w pracy. Na studiach z oczywistych względów - Olimpiada jest silnie skoncentrowana na teorii i rozwiązywaniu problemów teoretycznych (nieinżynieryjnych) oraz jest układana przez tych samych ludzi, których prowadzą zajęcia na najlepszych uniwersytetach w kraju. W pracy również, jeśli będziesz pracować nad programami, które muszą szybko przetwarzać dużo danych, czyli na przykład <link url='https://zed.dev/blog/zed-decoded-rope-sumtree'>edytory tekstu</link> lub oprogramowanie do przetwarzania dźwięku. Bezmyślne kopiowanie kodu może wtedy nie wystarczyć.
+Tak, i na studiach i w pracy. Na studiach z oczywistych względów - Olimpiada jest silnie skoncentrowana na rozwiązywaniu problemów teoretycznych (nieinżynieryjnych) i jest układana przez tych samych ludzi, którzy prowadzą zajęcia na najlepszych uniwersytetach w kraju. W pracy również - jeśli będziesz pracować nad programami, które muszą szybko przetwarzać dużo danych, czyli na przykład <link url='https://zed.dev/blog/zed-decoded-rope-sumtree'>edytory tekstu</link> lub oprogramowanie do przetwarzania dźwięku. Bezmyślne kopiowanie kodu może wtedy nie wystarczyć.
 </answer>
 
-<answer question='Jak wystartować w...'>
+<answer question='Jak wystartować w...' important='yes'>
 <note>Czasami zdarzają się nauczyciele, którym z różnych powodów nie chce się przeprowadzić Olimpiady w szkole. W takich sytuacjach organizatorzy proszą o kontakt mailowy na adres <link url='mailto:olimpiada@oij.edu.pl'>olimpiada@oij.edu.pl</link>, jeśli startujesz w OIJ (dla szkół podstawowych), albo <link url='mailto:olimpiada@oi.edu.pl'>olimpiada@oi.edu.pl</link>, jeśli startujesz w OI (dla szkół średnich). W świetle prawa szkoła <important>nie może odmówić</important> prośby ucznia o zarejestrowanie szkoły na Olimpiadę ani nie może odmówić przeprowadzenia testów Olimpiady w szkole.</note>
 
 <subanswer subquestion='...OIJ?'>
@@ -90,16 +96,16 @@ Zawody drugiego stopnia Olimpiady Informatycznej trwają trzy dni w środku lute
 
 Drugiego i trzeciego dnia odbywają się już zawody właściwe, które każdego dnia trwają od 9:00 do 14:00. Na każdej rundzie zawodnicy otrzymują do samodzielnego rozwiązania zwykle 2 zadania - podobne jak na turze zdalnej, ale oczywiście trudniejsze. W trakcie konkursu zawodnicy mogą wychodzić do bufetu ze słodkimi przekąskami i zdrowszymi kanapkami. Po każdym dniu zadania mogą zostać omówione lokalnie na żywo w zależności od poziomu możliwości ośrodka. Wieczorem otrzymują wgląd do swoich wyników z danego dnia. Po ostatnim omówieniu jest lokalne zakończenie, na którym każdy dostaje pamiątkową koszulkę.
 
-W piątek tydzień po zawodach Komitet Główny spotyka się, aby ustalić i ogłosić próg do finału. Tego samego dnia wieczorem na stronie opublikowywana jest lista zakwalifikowanych do drugiego etapu.
+W piątek tydzień po zawodach Komitet Główny spotyka się, aby ustalić i ogłosić próg do finału. Tego samego dnia wieczorem na stronie opublikowywana jest lista zakwalifikowanych do finału.
 
 Trzeci etap jest podobny do drugiego o tyle, że w całości odbywa się w Warszawie, a nie w kilku okręgach. Zadań każdego dnia jest zwykle 3, a nie 2. Wyniki są podawane dzień po zakończeniu zawodów i nie przez internet, tylko na oficjalnej ceremonii zakończenia. Zakończenie jest zwykle poprzedzone serią wykładów, na której finaliści mają okazję posłuchać, jak osoby kiedyś lub wciąż związane z Olimpiadą rozmawiają o rzeczach innych niż zadania. Dodatkowo razem zakwaterowani są prawie wszyscy finaliści spoza Warszawy i czasami zaplanowane jest wyjście rekreacyjne - na przykład do kręgielni.
 </subanswer>
 </answer>
 
-<answer question='Jak zacząć zupełnie od zera?'>
-W skrócie musisz nauczyć się przekładać intencje na kod w C++ (ewentualnie w Python), poznać algorytmy i techniki spotykane na twojej Olimpiadzie i stopniowo trenować umiejętność rozwiązywania problemów algorytmicznych właśnie to robiąc.
+<answer question='Jak zacząć zupełnie od zera?' important='yes'>
+W skrócie musisz nauczyć się przekładać intencje na kod w C++ (ewentualnie w Python), poznać <ref id='sylabus'>algorytmy i techniki</ref> spotykane na twojej Olimpiadzie i stopniowo <ref id='trenowanie'>trenować</ref> umiejętność rozwiązywania problemów algorytmicznych właśnie to robiąc.
 
-Samemu trudno jest zebrać wszystkie potrzebne informacje (dlatego powstał ten przewodnik) i ułożyć plan nauki, dlatego polecamy uczyć się podążając jednym z <ref id='kursy'>wielu gotowych kursów</ref>.
+Samemu trudno jest zebrać wszystkie potrzebne informacje (m.in. dlatego powstał ten przewodnik) i ułożyć plan nauki, dlatego polecamy uczyć się podążając jednym z <ref id='kursy'>wielu gotowych kursów</ref>.
 </answer>
 
 <answer question='Jakie są kursy/obozy przygotowujące do Olimpiady?' id='kursy'>
@@ -116,9 +122,9 @@ Powyższe kursy oczywiście możesz robić sam w domu. <important>Nie należy je
 <list>
 <item><link url='https://talent.edu.pl/obozy'>Obozy Stowarzyszenia Talent</link> z kilkoma grupami od poziomu podstaw programowania aż do poziomu olimpiad międzynarodowych, zwykle organizowane 4 razy w roku: na przełomie stycznia i lutego, w marcu, na przełomie lipca i sierpnia, oraz na końcu września.</item>
 <item><link url='https://talent.edu.pl/skn'>Kółka Stowarzyszenia Talent</link> w LO 3 Gdynia z podobnym zróznicowaniem grup jak wyżej.</item>
-<item>Obozy OKI organizowane co roku w lato.</item>
+<item><link url='https://oki.org.pl/wakacyjny-oboz-oki/'>Obozy OKI</link> organizowane co roku w lato, podzielone na <ref id='zajecia-oki'>podobne grupy jak kółka</ref>.</item>
 <item><link url='https://wwi.staszic.waw.pl/'>Wakacyjne Warsztaty Informatyczne</link> (WWI) organizowane co roku na końcu sierpnia przez LO 14 Warszawa, również ze zróżnicowanym poziomem.</item>
-<item><link url='https://map.org.pl/obozy'>Obozy projektu MAP</link>.</item>
+<item><link url='https://map.org.pl/wsparcie-uczniow/obozy-naukowe'>Obozy projektu MAP</link>.</item>
 <item>Zamknięte kółka i obozy organizowane w szkołach olimpijskich i zwykle wspierane przez lokalne uczelnie. Jeśli masz blisko do którejkolwiek ze szkół z co najmniej 10 osobami w ostatnim drugim etapie OI, to warto spróbować skontaktować się z nią. W zależności od ich postawy mogą twoją prośbę albo zignorować albo przyjąć z otwartymi ramionami. Ja osobiście widziałem po kilka kolegów spoza mojego miasta na obozach szkolnych.</item>
 </list>
 </subanswer>
@@ -151,7 +157,7 @@ Tak. W domu jest pełno rzeczy, które rozpraszają twoją uwagę od zadań, tak
 <link url='https://cppreference.com/'>cppreference.com</link>. Nie tylko dlatego, że jest najlepsza, ale też jest jedyną dostępną na konkursach - zazwyczaj w wersji offline, bez wyszukiwarki.
 </answer>
 
-<answer question='Jakie algorytmy i techniki muszę znać na...'>
+<answer question='Jakie algorytmy i techniki muszę znać na...' important='yes' id='sylabus'>
 <todo>linki</todo>
 
 Przy każdym algorytmie/technice są podane wszystkie zadania, do rozwiązania których był potrzebny, z podanych niżej przedziałów. Brane pod uwagę są tylko rozwiązania wzorcowe z oficjalnych omówień. Za część rozwiązania brany jest również dowód poprawności i złożoności. Jeśli czegoś w nich nie było, to nie ma go tutaj. Wkuwanie niepotrzebnych ci algorytmów to nie jest to. W szczególności jeśli interesuje cię tylko dostanie się do finału, możesz zignorować pozycje, przy których nie ma żadnych zadań z II etapu. Być może możesz też odpuścić sobie pozycje, które wystąpiły tylko raz.
@@ -311,12 +317,14 @@ Najlepiej jednak jest napisać <important>własną biblioteczkę</important>.
 </list>
 </answer>
 
-<answer question='Jak trenować pod Olimpiadę?'>
-Zakładając, że przyswoiłeś już wszystkie algorytmy i techniki spotykane na twojej wersji Olimpiady, jedyne co ci pozostało, to rozwiązywanie zadań ze jej starych edycji (<link url='https://oi.edu.pl/l/oi_zadania/'>zadania OI</link>, <link url='https://oij.edu.pl/zbior_zadan/'>zadania OIJ</link>). Jeśli zabraknie ci zadań z OI, to następnym najbardziej podobnym do nich zestawem zadań są zadania z obozów ONTAK dostępne na SIO2 w konkursach pod nazwą "Wiekuisty ONTAK".
+<answer question='Jak trenować pod Olimpiadę?' important='yes' id='trenowanie'>
+Zakładając, że przyswoiłeś już wszystkie algorytmy i techniki spotykane na twojej wersji Olimpiady, jedyne co ci pozostało, to rozwiązywanie zadań z jej starych edycji (<link url='https://oi.edu.pl/l/oi_zadania/'>zadania OI</link>, <link url='https://oij.edu.pl/zbior_zadan/'>zadania OIJ</link>).
 
-Bardzo dobrym sposobem na trening przed jakimkolwiek konkursem stacjonarnym są tak zwane "wirtualki", czyli symulacje jednego dnia zawodów z dokładnością co do czasu trwania, czasu rozpoczęcia, zestawu zadań, samodzielności pracy i odizolowania od innych ludzi i rozproszeń. W ten sposób możesz m.in. zweryfikować swoją strategię.
+Bardzo dobrym sposobem na trening przed jakimkolwiek konkursem stacjonarnym są tak zwane "wirtualki", czyli symulacje jednego dnia zawodów z dokładnością co do czasu trwania, czasu rozpoczęcia, zestawu zadań, samodzielności pracy i odizolowania od innych ludzi i rozproszeń. W ten sposób możesz m.in. zweryfikować swoją <ref id='strategia'>strategię</ref>.
 
 Najlepszym narzędziem do ćwiczenia przed testem wiedzy OIJ jest <link url='https://testy.oij.edu.pl/'>oficjalna platforma treningowa</link>, która automatycznie losuje zestaw pytań taki jak na prawdziwym teście i odmierza czas na jego rozwiązanie.
+
+Jeśli zabraknie ci zadań z OI, to następnym najbardziej podobnym do nich zestawem zadań są zadania z obozów ONTAK dostępne na SIO2 w konkursach pod nazwą "Wiekuisty ONTAK".
 </answer>
 
 <answer question='Jak zadania ze starszych edycji OI różnią się od aktualnych?'>
@@ -331,7 +339,7 @@ Rozwiązywanie zadania z OI to przygoda, w której musisz dokonać wiele małych
 Niestety nie. Nic jednak nie powstrzymuje ciebie przed samodzielnym rozwiązaniem jednego z zadań i spisaniem swojego rozwiązania dla użytku innych. <important>Krok po kroku uzbierałby się przyzwoity zbiór omówień zadań z ONTAKów.</important>
 </answer>
 
-<answer question='Jak robić zadania, żeby wynieść z tego jak najwięcej?'>
+<answer question='Jak robić zadania, żeby wynieść z tego jak najwięcej?' important='yes'>
 <todo>Trzeba zmierzyć poziom prawdy w tej odpowiedzi sięgając po opinię innych.</todo>
 
 Celem robienia zadań, nie jest zrobienie ich jak najwięcej - nieważne jak bardzo satysfakcjonująca może być ściana pełna zielonych OK-ejek. Celem robienia zadań jest ustawienie twojego mózgu tak, aby po pierwsze <emphasis>potrafił</emphasis> rozwiązywać podobne zadania w przyszłości i po drugie rozwiązywał je szybciej. <important>To wymaga stopniowego zauważania kolejnych schematów i wzorców, którymi kierują się twórcy zadań.</important> Do tego musisz nie tylko wpadać na rozwiązania, ale też analizować w jaki sposób, do nich doszedłeś albo nie doszedłeś.
@@ -340,7 +348,7 @@ Jeśli od razu wpadłeś na rozwiązanie zadania i omówienie się z tobą zgadz
 
 Gdy nie jesteś w stanie rozwiązać jakiegoś zadania - to znaczy: mimo iż w danym momencie aktywnie starasz się jakoś je ugryźć, ale od N minut nie wpadłeś na żaden pomysł - to zajrzyj do opracowania, przeczytaj pierwszą wskazówkę do tego zadania, na którą jeszcze sam nie wpadłeś (lub nie przeczytałeś wcześniej), i z tym nowym spojrzeniem kontynuuj samodzielne myślenie nad zadaniem. Ta procedura w zamyśle jest powtarzalna. Jeśli twoje opracowanie akurat nie jest podzielone na wskazówki, to zacznij czytać je od początku i zatrzymaj się <emphasis>od razu</emphasis>, gdy napotkasz jakieś podejście, nad którym jeszcze sam nie myślałeś.
 
-Jeśli chodzi o samą wartość N, to na początek może być ona niska - równa 10 - gdyż lepiej się po prostu <emphasis>nauczyć</emphasis> fundamentalnych technik, niż na nowo odkrywać Amerykę. Po pokonaniu tego pierwszego etapu N może być równe 60. A jeśli jesteś już profesjonalistą i celujesz w wygranie OI, to spokojnie N minut >= 1 dzień.
+Jeśli chodzi o samą wartość N, to na początek może być ona niska - równa 10 - gdyż lepiej się po prostu <emphasis>nauczyć</emphasis> fundamentalnych technik, niż na nowo odkrywać Amerykę. Po pokonaniu tego pierwszego etapu N może być równe 60. A jeśli jesteś już profesjonalistą i celujesz w wygranie OI, to spokojnie N minut &gt;= 1 dzień.
 
 Dobrze też nauczyć się rozpoznawać, kiedy twój mózg faktycznie angażuje się w rozwiązanie zadania, a kiedy po prostu siedzisz przed nim bezczynnie. Jeśli widzisz, że jesteś w tym drugim stanie, lepiej zrób sobie przerwę, zamiast spojlerować sobie zadanie czytając kolejne wskazówki zgodnie z wyżej opisaną procedurą.
 
@@ -363,7 +371,7 @@ Większość ludzi pracując nad tym samym przez długi okres czasu przestaje od
 Drugim typem wypalenia się jest to krótkoterminowe - spowodowane zbyt długim i nieprzerwanym myśleniem o jednej rzeczy. Jeśli czujesz, że masz już dość i nie idzie ci już tak szybko jak na początku sesji rozwiązywania zadań, to zajmij mózg czymś tak, abyś zupełnie zapomniał o zadaniach i nie miał nawet z tyłu głowy świadomości, że musisz robić zadania. To jest podobna czynność jak ta opisana w <ref id='przed-zawodami'>poniższym pytaniu</ref>.
 </answer>
 
-<answer question='Jak przygotować się od razu przed zawodami?' id='przed-zawodami'>
+<answer question='Jak przygotować się od razu przed zawodami?' important='yes' id='przed-zawodami'>
 <note>Te rady są prawdziwe dla wszystkich ważnych dla ciebie konkursów.</note>
 
 Kilka dni przed zawodami powtórz sobie wszystkie algorytmy, techniki i podejścia, których się dotąd nauczyłeś lub które sobie zanotowałeś. <important>Nie powtarzaj ani nie ucz się niczego od razu przed zawodami</important>, bo później będziesz widzieć to tam, gdzie tego nie ma.
@@ -371,7 +379,7 @@ Kilka dni przed zawodami powtórz sobie wszystkie algorytmy, techniki i podejśc
 <important>Przed dniem zawodów zrób sobie co najmniej jeden pełny dzień, w który nie będziesz w ogóle myśleć o zadaniach i utrzymaj to aż do startu zawodów.</important> To jest po to, aby zregenerować swoje chęci i cierpliwość do zadań. Żeby osiągnąć ten stan umysłu, będziesz musiał zająć myśli czymś innym: aktywnością sportową, filmem, spotkaniem z przyjaciółmi, grą komputerową lub czymkolwiek innym, co lubisz. <important>Jeśli konkurs jest rozbity na kilka dni, taką samą abstynencję od zadań przyjmij również pomiędzy jego kolejnymi częściami.</important>
 </answer>
 
-<answer question='Jaka jest najlepsza strategia na drugim etapie...'>
+<answer question='Jaka jest najlepsza strategia na drugim etapie...' important='yes' id='strategia'>
 <note>Poniższe strategie są skuteczne również na finale.</note>
 
 <subanswer subquestion='...OIJ?'>
@@ -395,7 +403,9 @@ A czym w ogóle są te trzy rzeczy?
 <item><emphasis>Naiwny brut</emphasis> to rozwiązanie brutalne, które musi być jak najbardziej oczywiste i <important>niewykorzystujące żadnych spostrzeżeń</important>. Jeśli już na tym etapie popełnisz jakieś błędne założenie, to będzie cię to kosztować spokojnie co najmniej godzinę konkursu.</item>
 </list>
 
-<important>Dopiero gdy już będziesz miał gotową testerkę, generatorkę i naiwnego bruta do każdego zadania, możesz przystąpić do "rozwiązywania zadań".</important> Ale jak? Okazuje się, że organizatorzy zostawili w treści zadania zakodowaną instrukcję rozwiązywania zwaną "podzadaniami". <important>Robienie kolejnych podzadań prawie zawsze nakierowuje cię na pełne rozwiązanie.</important> Bardzo rzadko zdarza się na Olimpiadzie, że i-te podzadanie jest trudniejsze od podzadania j-tego (i &lt; j) albo że podzadania prowadzą do rowiązań zupełnie odmiennych od rozwiązania wzorcowego. To już pomijając fakt, że łatwiej jest zdobyć 50 punktów z podzadań niż 100 punktów za wzorcówkę.
+<important>Dopiero gdy już będziesz miał gotową testerkę, generatorkę i naiwnego bruta do każdego zadania, możesz przystąpić do "rozwiązywania zadań".</important> Ale jak? Okazuje się, że organizatorzy zostawili w treści zadania zakodowaną instrukcję rozwiązywania zwaną "podzadaniami". <important>Robienie kolejnych podzadań prawie zawsze nakierowuje cię na pełne rozwiązanie.</important> Nie musisz każdego implementować; wystarczy, że rozwiążesz je na kartce. Bardzo rzadko zdarza się na Olimpiadzie, że i-te podzadanie jest trudniejsze od podzadania j-tego (i &lt; j) albo że podzadania prowadzą do rowiązań zupełnie odmiennych od rozwiązania wzorcowego. To już pomijając fakt, że łatwiej jest zdobyć 50 punktów z podzadań niż 100 punktów za wzorcówkę.
+
+<todo>A co z robieniem sobie przerw w trakcie rozwiązywania zadań?</todo>
 
 Zanim zaczniesz implementować jakieś czasochłonne rozwiązanie, warto wpierw zatrzymać się i zastanowić się nad jego sensem w myśl przysłowia "<important>Pomyśl dwa razy, żeby nie klepać trzy razy.</important>".
 
@@ -417,12 +427,12 @@ Od początku najnowszej inkarnacji OIJ próg wahał się od 70 do 150 punktów.
 </subanswer>
 </answer>
 
-<answer question='Jak testować rozwiązania?' id='testowanie'>
-Jako uzupełnienie <link url='https://oi.edu.pl/l/oi_jak_testowac/'>świetnego poradnika o testowaniu ze strony OI</link> i powyższej najlepszej strategii na drugim etapie, przestawiamy tutaj bardziej techniczną stronę testowania rozwiązań:
+<answer question='Jak testować rozwiązania?' important='yes' id='testowanie'>
+Jako uzupełnienie <link url='https://oi.edu.pl/l/oi_jak_testowac/'>świetnego poradnika o testowaniu ze strony OI</link> i powyższej <ref id='strategia'>najlepszej strategii na drugim etapie</ref>, przestawiamy tutaj bardziej techniczną stronę testowania rozwiązań:
 
 Prawdziwą perełką debugowania w C++ jest <important>AddressSanitizer</important> aktywowany za pomocą flag kompilacji <code>-fsanitize=address,undefined -g</code>. Gdy tylko twój program naruszy granice przydzielonej mu pamięci (np. wychodząc poza zakres tablicy) lub doprowadzi do jednego z określonych w standardzie C++ "niezdefiniowanych zachowań" (np. integer overflow), AddressSanitizer wypisze dokładną przycznę błędu i jego miejsce w twoim kodzie oraz - dla błędów pamięci - zawartość stosu wywołań w chwili błędu z dokładnością co do linijki twojego kodu. Bez AddressSanitizera dostałbyś jedynie krótki komunikat "Naruszenie ochrony pamięci" w przypadku błedów pamięci lub nawet nie dostałbyś żadnego komunikatu w przypadku niezdefiniowanych zachowań.
 
-Przy debugowaniu za pomocą "printa" zalecane jest korzystanie z <important><link url='https://cppreference.com/cpp/io/cerr'><code>cerr</code></link> zamiast <code>cout</code></important> w C++ i <important><code>print(..., file=</code><link url='https://docs.python.org/3/library/sys.html#sys.stderr'><code>sys.stderr</code></link><code>)</code></important> w Python. Te alternatywne "printy" wypisują tekst do osobnego strumienia wyjściowego przeznaczonego na błędy, który nie jest brany pod uwagę przez sprawdzaczkę. To pozwoli uniknąć częstych błedów, w których zapomina się usunąć debugi przed wysłaniem kodu i dostaje się werdykt "błędna odpowiedź" marnując sobie przy tym jedno zgłoszenie lub co gorsza nadpisując sobie dodatni wynik na zadaniu na zero. Z tymi alternatywnymi funkcjami najgorszą możliwą konsekwencją przeoczenia debugów jest "przekroczenie limitu czasu", bo twój program zmarnował za dużo czasu na wypisanie niepotrzebnych debugów.
+Przy debugowaniu za pomocą "printa" zalecane jest korzystanie z <important><link url='https://cppreference.com/cpp/io/cerr'><code>cerr</code></link> zamiast <code>cout</code></important> w C++ i <important><code>print(..., file=</code><link url='https://docs.python.org/3/library/sys.html#sys.stderr'><code>sys.stderr</code></link><code>)</code></important> w Python. Te alternatywne "printy" wypisują tekst do osobnego strumienia wyjściowego przeznaczonego na błędy, który nie jest brany pod uwagę przez sprawdzaczkę. To pozwoli uniknąć częstych błedów, w których zapomina się usunąć debugi przed wysłaniem kodu i dostaje się werdykt "błędna odpowiedź" marnując sobie przy tym jedno zgłoszenie lub co gorsza nadpisując sobie dodatni wynik na zadaniu na 0 (na OI i OIJ na szczęście to się nie wydarzy). Z tymi alternatywnymi funkcjami najgorszą możliwą konsekwencją przeoczenia debugów jest "przekroczenie limitu czasu", bo twój program zmarnował za dużo czasu na wypisanie niepotrzebnych debugów.
 
 Poniżej <important>przykładowa testerka</important> napisana w języku Bash:
 
@@ -461,24 +471,24 @@ done
 <answer question='Jakie konkursy istnieją poza Olimpiadą?'>
 <subanswer subquestion='Dla wszystkich'>
 <list>
-<item>Rundy na <link url='https://codeforces.com/contests'>Codeforces</link> - najbardziej znana platforma programowania sportowego na świecie; podzielone na trzy "dywizje"; średnio 2 rundy na tydzień</item>
-<item>Kontesty na <link url='https://atcoder.jp/contests/'>AtCoder</link> - szanowane na całym świecie za wysoką jakość zadań; podzielone na "Beginner", "Regular" i "Grand"; średnio 3 rundy na 2 tygodnie; checklista zadań: <link url='https://kenkoooo.com/atcoder/'>Kenkoooo</link></item>
-<item><link url='https://potyczki.mimuw.edu.pl/'>Potyczki Algorytmiczne</link> - coroczny ogólnopolski konkurs trwający cały tydzień i cieszący się sporym uznaniem wśród polskich algorytmików</item>
+<item>Rundy na <link url='https://codeforces.com/contests'>Codeforces</link> - najbardziej znana platforma programowania sportowego na świecie; podzielone trudnością na trzy "dywizje"; średnio 2 rundy na tydzień.</item>
+<item>Kontesty na <link url='https://atcoder.jp/contests/'>AtCoder</link> - szanowane na całym świecie za wysoką jakość zadań; podzielone trudnością na "Beginner", "Regular" i "Grand"; średnio 3 rundy na 2 tygodnie; checklista zadań: <link url='https://kenkoooo.com/atcoder/'>Kenkoooo</link>.</item>
+<item><link url='https://potyczki.mimuw.edu.pl/'>Potyczki Algorytmiczne</link> - coroczny ogólnopolski konkurs trwający cały tydzień i cieszący się sporym uznaniem wśród polskich algorytmików.</item>
 </list>
 </subanswer>
 
 <subanswer subquestion='Dla uczniów'>
 <list>
-<item><link url='https://mistrzostwa.solve.edu.pl/'>Mistrzostwa Polski Szkół Średnich w Programowaniu Zespołowym</link> (MPSŚPZ) - coroczny konkurs drużynowy dla uczniów szkół średnich; stacjonarny we Wrocławiu z możliwością udziału zdalnego; poprzedzony serią internetowych turniejów kwalifikacyjnych; każda drużyna składa się z 3 osób z tej samej szkoły</item>
-<item><link url='https://mistrz-programowania.oki.org.pl/'>Mistrz Programowania</link> - coroczny konkurs organizowany przez OKI</item>
-<item><link url='https://solve.edu.pl/event'>Wrocławskie Sparingi Informatyczne</link> - podzielone na poziomy od finału OIJ aż do finału OI; zdalne z możliwością udziału stacjonarnego we Wrocławiu; sporadycznie organizowane w ciągu roku szkolnego</item>
+<item><link url='https://mistrzostwa.solve.edu.pl/'>Mistrzostwa Polski Szkół Średnich w Programowaniu Zespołowym</link> (MPSŚPZ) - coroczny konkurs drużynowy dla uczniów szkół średnich; stacjonarny we Wrocławiu z możliwością udziału zdalnego; poprzedzony serią internetowych turniejów kwalifikacyjnych; każda drużyna składa się z 3 osób z tej samej szkoły.</item>
+<item><link url='https://mistrz-programowania.oki.org.pl/'>Mistrz Programowania</link> - coroczny konkurs organizowany przez OKI.</item>
+<item><link url='https://solve.edu.pl/event'>Wrocławskie Sparingi Informatyczne</link> - podzielone na poziomy od finału OIJ aż do finału OI; zdalne z możliwością udziału stacjonarnego we Wrocławiu; sporadycznie organizowane w ciągu roku szkolnego.</item>
 </list>
 </subanswer>
 
 <subanswer subquestion='Dla studentów'>
 <list>
 <item><link url='https://amppz.edu.pl/'>Akademickie Mistrzostwa Polski w Programowaniu Zespołowym</link> (AMPPZ) - będące konkursem kwalifikującym do...</item>
-<item><link url='https://icpc.global/'>International Collegiate Programming Contest</link> (ICPC) - studencki odpowiednik IOI</item>
+<item><link url='https://icpc.global/'>International Collegiate Programming Contest</link> (ICPC) - studencki odpowiednik IOI.</item>
 </list>
 </subanswer>
 </answer>
@@ -489,6 +499,10 @@ Ten przewodnik został <download-only>stworzony przez i dla otwartej społeczno�
 <todo>Czy używać form żeńskich czasowników przeszłych II os.?</todo>
 
 <todo>Ujednolicić konstrukcje imperatywne do zwykłego czasownika w trybie rozkazującym.</todo>
+
+<todo>Jakaś grafika w tle na pierwszej stronie.</todo>
+
+<todo>Wydanie w formie strony internetowej.</todo>
 </footer>
 
 <contributor name='Karol "digitcrusher" Łacina' discord-id='536253933778370580' website='https://lacina.io/' contribution='wszystko'/>

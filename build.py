@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 
-import os, re, shutil, subprocess, sys, unicodedata
+import os, re, subprocess, sys, unicodedata
 from argparse import ArgumentParser
 from contextlib import contextmanager
 from datetime import datetime
 from enum import auto, Enum
-from hashlib import sha256
 from jinja2 import Environment, FileSystemLoader
 from threading import Event
 from watchdog.events import RegexMatchingEventHandler
@@ -33,7 +32,7 @@ def watch():
   observer.daemon = True
   observer.schedule(Handler(ignore_regexes=[
     r'\./\.git.*',
-    r'\./build.*',
+    r'\./build/.*',
     r'\./README.md',
     r'\./requirements.txt',
   ]), '.', recursive=True)

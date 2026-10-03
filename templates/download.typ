@@ -110,6 +110,7 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 #show heading.where(level: 1): set text(size: 16pt)
 #show heading.where(level: 2): set text(size: 14pt)
 #show raw: set text(font: "Roboto Mono", weight: 320, size: 10.26pt)
+#show raw.where(block: true): set text(weight: 330)
 #show title: set text(font: heading-font, size: 30pt)
 
 // Spacing
@@ -136,9 +137,9 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
   width: 100%,
   inset: block-inset,
   [
-    #text(fill: color.oklch(70%, 80%, hue), size: 8pt, font: heading-font, strong([
+    #block(sticky: true, text(fill: color.oklch(70%, 80%, hue), size: 8pt, font: heading-font, strong([
       #text(font: "Material Symbols Sharp", variations: (FILL: 1), baseline: 1pt, icon) #hint
-    ]))
+    ])))
     #v(0.9em, weak: true)
     #content
   ]
@@ -177,14 +178,21 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 
   #section-break()
 
-  #show outline.entry: it => link(it.element.location(), it.indented(it.prefix(), it.body()))
+  #show outline.entry: it => {
+    let loc = it.element.location()
+    let metadata = query(selector(metadata).within(loc)).at(0).value
+    let result = link(loc, it.indented(it.prefix(), it.body()))
+    if metadata.important { strong(result) } else { result }
+  }
   #outline(depth: 1)
 ]
 
 #pagebreak()
 
 {% for node in document.findall('answer') %}
-= {{ render_text(node.attrib['question']) }}
+= {{ render_text(node.attrib['question']) }} #metadata(
+  (important: {{ (node.attrib.get('important') == 'yes') | lower }}),
+)
   {% if 'id' in node.attrib %}
 #label({{ node.attrib['id'] | escape_typst_string }})
   {% endif %}
