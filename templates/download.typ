@@ -146,6 +146,9 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 )
 #let note(content) = highlight-block(260deg, [\u{e88e}], [Pamiętaj...], content)
 #let warning(content) = highlight-block(80deg, [\u{e002}], [Uważaj!], content)
+{% if 'version' in document.attrib %}
+#let todo(content) = none
+{% else %}
 #let todo(content) = block(
   fill: tiling(size: (1cm, 1cm), {
     place(square(fill: black, width: 100%))
@@ -161,6 +164,7 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
     content
   },
 )
+{% endif %}
 #show ">=": [≥]
 
 #align(center)[

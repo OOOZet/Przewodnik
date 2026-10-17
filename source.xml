@@ -24,6 +24,7 @@ Zakładamy, że "sukces" oznacza co najmniej tytuł finalisty.
 <list>
 <item><important>Wolny wstęp</important> i pierwszeństwo na dowolny profil <important>do dowolnej szkoły średniej</important>.</item>
 <item><important>Szansa reprezentowania Polski</important> na Europejskiej Olimpiadzie Informatycznej Juniorów (EJOI).</item>
+<item>Darmowy udział w "Małym ONTAK-u" - wspólnym obozie treningowym dla ok. 1/4 najlepszych finalistów.</item>
 <item>Solidny fundament do kolejnych sukcesów w "dużej" Olimpiadzie Informatycznej.</item>
 </list>
 </subanswer>
@@ -47,9 +48,7 @@ Niekoniecznie. W zadaniach olimpijskich ma się przeważnie do czynienia z <link
 </answer>
 
 <answer question='Czy umiejętności algorytmiczne przydają się później w życiu?' id='przydatnosc-algorytmiki'>
-<todo>Więcej przykładów z linkami. Może binsearch po wyniku z GTK?</todo>
-
-Tak, i na studiach i w pracy. Na studiach z oczywistych względów - Olimpiada jest silnie skoncentrowana na rozwiązywaniu problemów teoretycznych (nieinżynieryjnych) i jest układana przez tych samych ludzi, którzy prowadzą zajęcia na najlepszych uniwersytetach w kraju. W pracy również - jeśli będziesz pracować nad programami, które muszą szybko przetwarzać dużo danych, czyli na przykład <link url='https://zed.dev/blog/zed-decoded-rope-sumtree'>edytory tekstu</link> lub oprogramowanie do przetwarzania dźwięku. Bezmyślne kopiowanie kodu może wtedy nie wystarczyć.
+Tak, i na studiach i w pracy. Na studiach z oczywistych względów: Olimpiada jest silnie skoncentrowana na rozwiązywaniu problemów teoretycznych (nieinżynieryjnych) i jest układana przez tych samych ludzi, którzy prowadzą zajęcia na najlepszych uniwersytetach w kraju. W pracy również - jeśli będziesz pracować nad programami, które muszą szybko przetwarzać dużo danych - ale nie tylko (przykłady: <link url='https://sigmetrics.org/sigmetrics2024/tutorials/Tutorial_Network_Clustering.pdf'>analizy powiązań i sieci</link>, bazy danych (<link url='http://blog.notdot.net/2012/09/Dam-Cool-Algorithms-Cardinality-Estimation'>1.1</link>, <link url='https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/40671.pdf'>1.2</link>, <link url='https://www3.cs.stonybrook.edu/~bender/newpub/2015-BenderFaJa-login-wods.pdf'>2</link>), <link url='https://gitlab.gnome.org/GNOME/gtk/-/blob/bf215906ff1e0aeaf0b0668e641cbd4098ca47d8/gtk/gtklistbox.c#L2701'>biblioteki UI</link>, <link url='https://zed.dev/blog/zed-decoded-rope-sumtree'>edytory tekstu</link>, grafika komputerowa (<link url='https://twobithistory.org/2019/11/06/doom-bsp.html'>1.1</link>, <link url='https://www.youtube.com/watch?v=yTRzfKh4Tg0'>1.2</link>), kompresja danych (<link url='https://www.hanshq.net/zip.html#lz'>1</link>, <link url='https://www.cs.cmu.edu/~15451-f18/lectures/lec25-bwt.pdf'>2.1</link>, <link url='https://cp-algorithms.com/string/suffix-array.html'>2.2</link>), <link url='https://www.youtube.com/watch?v=kS-CGkiPetQ'>mapy z nawigacją</link>, przetwarzanie dźwięku lub obrazu (<link url='https://cp-algorithms.com/algebra/fft.html'>1.1</link>, <link url='https://jezzamon.com/fourier/'>1.2</link>, <link url='https://towardsdatascience.com/the-fourier-transform-4-putting-the-fft-to-work-38dd84dc814/'>1.3</link>, <link url='https://www.youtube.com/watch?v=aqa6vyGSdos'>1.4</link>), routery (<link url='https://www2.ic.uff.br/~michael/kr1999/4-network/4_02-algor.htm'>1</link>, <link url='https://www.math.unipd.it/~scquizza/papers/PanduranganRS18b.pdf'>2</link>), symulacje fizyczne (<link url='https://www.realtimerendering.com/Real-Time_Rendering_4th-Collision_Detection.pdf'>1</link>, <link url='https://box2d.org/files/ErinCatto_DynamicBVH_Full.pdf'>2</link>), systemy operacyjne (<link url='https://lwn.net/Articles/184495/'>1</link>, <link url='https://lwn.net/Articles/845507/'>2</link>, <link url='https://lwn.net/Articles/612021/'>3</link>), systemy plików (<link url='https://www.kernel.org/doc/ols/2002/ols2002-pages-425-438.pdf'>1</link>, <link url='https://web.archive.org/web/20200710065929/https://dominoweb.draco.res.ibm.com/reports/rj10501.pdf'>2.1</link>, <link url='https://web.archive.org/web/20210419135111/https://dominoweb.draco.res.ibm.com/reports/h-0245.pdf'>2.2</link>), <link url='https://en.wikipedia.org/wiki/PageRank#Algorithm'>wyszukiwarki internetowe</link>). Bezmyślne kopiowanie kodu może wtedy nie wystarczyć.
 </answer>
 
 <answer question='Jak wystartować w...' important='yes'>
@@ -62,7 +61,7 @@ Przed wzięciem udziału w Olimpiadzie Informatycznej Juniorów trzeba się najp
 
 Po zarejestrowaniu się wystarczy przyjść na pisemny test wiedzy w szkole <important>22 października o 12:00</important> i na test programistyczny na komputerze w szkole <important>9 grudnia</important>. Przed tym drugim musisz przypomnieć sobie hasło do swojego konta na SIO2.
 
-<note>Dobrym pomysłem jest zadbanie o to, aby twój koordynator szkolny pamiętał o przeprowadzeniu obu częsci szkolnych OIJ, żeby uniknąć przykrych sytuacji.</note>
+<note>Dobrym pomysłem jest zadbanie o to, aby twój koordynator szkolny pamiętał o przeprowadzeniu obu częsci szkolnych OIJ. Tak unikniesz przykrych sytuacji.</note>
 
 <important>Pomiędzy tymi dwoma częściami szkolnymi</important> odbywa się część zdalna pisana w domu na SIO2 i trwająca całe półtorej miesiąca. Tu wystarczy siedzieć nad tymi zadaniami, trzymać je z tyłu głowy i próbować je rozwiązać samodzielnie wysyłając zgłoszenia na SIO2.
 
@@ -78,13 +77,13 @@ Po zarejestrowaniu się można od razu przystąpić do rozwiązywania zadań z t
 
 Po turze zdalnej odbędzie się tura szkolna <important>20 listopada</important> też polegająca na rozwiązywaniu zadań programistycznych, ale prostszych. Przed tym musisz przypomnieć sobie hasło do swojego konta na SIO2.
 
-<note>Dobrym pomysłem jest zadbanie o to, aby twój koordynator szkolny pamiętał o przeprowadzeniu tury szkolnej OI, żeby uniknąć przykrych sytuacji.</note>
+<note>Dobrym pomysłem jest zadbanie o to, aby twój koordynator szkolny pamiętał o przeprowadzeniu tury szkolnej OI. Tak unikniesz przykrych sytuacji.</note>
 
 Zwykle 2.5 tygodnia po zakończeniu ostatniej tury na stronie OI pojawia się ogłoszenie z progiem punktowym i listą zakwalifikowanych do drugiego etapu.
 </subanswer>
 </answer>
 
-<answer question='Jak wygląda drugi i trzeci etap...'>
+<answer question='Jak wygląda drugi etap i finał...'>
 <subanswer subquestion='...OIJ?'>
 <todo>Potrzebny jest ktoś, kto faktycznie uczestniczył w stacjonarnym drugim etapie OIJ.</todo>
 
@@ -96,7 +95,7 @@ Zawody drugiego stopnia Olimpiady Informatycznej trwają trzy dni w środku lute
 
 Drugiego i trzeciego dnia odbywają się już zawody właściwe, które każdego dnia trwają od 9:00 do 14:00. Na każdej rundzie zawodnicy otrzymują do samodzielnego rozwiązania zwykle 2 zadania - podobne jak na turze zdalnej, ale oczywiście trudniejsze. W trakcie konkursu zawodnicy mogą wychodzić do bufetu ze słodkimi przekąskami i zdrowszymi kanapkami. Po każdym dniu zadania mogą zostać omówione lokalnie na żywo w zależności od poziomu możliwości ośrodka. Wieczorem otrzymują wgląd do swoich wyników z danego dnia. Po ostatnim omówieniu jest lokalne zakończenie, na którym każdy dostaje pamiątkową koszulkę.
 
-W piątek tydzień po zawodach Komitet Główny spotyka się, aby ustalić i ogłosić próg do finału. Tego samego dnia wieczorem na stronie opublikowywana jest lista zakwalifikowanych do finału.
+W piątek tydzień po zawodach Komitet Główny spotyka się, aby ustalić i ogłosić próg do finału. Tego samego dnia wieczorem na stronie opublikowywana jest lista zakwalifikowanych do trzeciego etapu.
 
 Trzeci etap jest podobny do drugiego o tyle, że w całości odbywa się w Warszawie, a nie w kilku okręgach. Zadań każdego dnia jest zwykle 3, a nie 2. Wyniki są podawane dzień po zakończeniu zawodów i nie przez internet, tylko na oficjalnej ceremonii zakończenia. Zakończenie jest zwykle poprzedzone serią wykładów, na której finaliści mają okazję posłuchać, jak osoby kiedyś lub wciąż związane z Olimpiadą rozmawiają o rzeczach innych niż zadania. Dodatkowo razem zakwaterowani są prawie wszyscy finaliści spoza Warszawy i czasami zaplanowane jest wyjście rekreacyjne - na przykład do kręgielni.
 </subanswer>
@@ -108,7 +107,7 @@ W skrócie musisz nauczyć się przekładać intencje na kod w C++ (ewentualnie 
 Samemu trudno jest zebrać wszystkie potrzebne informacje (m.in. dlatego powstał ten przewodnik) i ułożyć plan nauki, dlatego polecamy uczyć się podążając jednym z <ref id='kursy'>wielu gotowych kursów</ref>.
 </answer>
 
-<answer question='Jakie są kursy/obozy przygotowujące do Olimpiady?' id='kursy'>
+<answer question='Jakie są kursy/obozy przygotowujące do Olimpiady?' important='yes' id='kursy'>
 <subanswer subquestion='Samodzielnie'>
 <list>
 <item>Oficjalny <link url='https://kurs.oi.edu.pl/'>kurs OI</link> do nauki podstaw algorytmiki i C++</item>
@@ -494,7 +493,7 @@ done
 </answer>
 
 <footer>
-Ten przewodnik został <download-only>stworzony przez i dla otwartej społeczności <link url='https://discord.gg/AMGxG4TvDS'>OKI OI OIJ Zjednoczenie</link> i</download-only> udostępniony na licencji <link url='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</link>. Znalezione błędy prosimy zgłaszać na <link url='https://github.com/OOOZet/Przewodnik/issues'>GitHubie</link> lub na <discord-only>&lt;#708664789970452490&gt;</discord-only><download-only><link url='https://discord.gg/AMGxG4TvDS'>Discordzie</link></download-only>. Do powstania przewodnika bezpośrednio przyczynili się: <placeholder for='contributors'/>.
+Ten przewodnik został <download-only>stworzony przez i dla otwartej społeczności <link url='https://discord.gg/AMGxG4TvDS'>OKI OI OIJ Zjednoczenie</link> i</download-only> udostępniony na licencji <link url='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</link>. Znalezione błędy prosimy zgłaszać na <link url='https://github.com/OOOZet/Przewodnik/issues'>GitHubie</link> lub na <discord-only>&lt;#708664789970452490&gt;</discord-only><download-only><link url='https://discord.gg/AMGxG4TvDS'>Discordzie</link></download-only>. Do powstania tej wersji przewodnika bezpośrednio przyczynili się: <placeholder for='contributors'/>.
 
 <todo>Czy używać form żeńskich czasowników przeszłych II os.?</todo>
 

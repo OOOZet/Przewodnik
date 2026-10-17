@@ -130,15 +130,17 @@ Znaczna część wiedzy olimpijskiej, którą posiadają uczniowie ze szkół ol
 
 Aby lepiej dotrzeć do czytelnika, staramy się pisać zadania w taki sposób, aby bezpośrednio zwracały się do niego. To, jakie emocje i myśli wzbudzimy w nim, jest o wiele ważniejsze niż gramatyka czy składnia. Wstęp oraz pierwsze trzy pytania muszą być szczególnie kontrolowane pod względem skuteczności przekazu (użytych słów, ich nacechowania, spójności zdań itd.) - bo są najważniejsze. Drugą rzeczą, która polepsza przekaz, są *przykłady*. Dobrze jest skupić się na konkretach, które pozwolą czytelnikowi zobaczyć coś na własne oczy, zamiast na abstrakcyjnych opisach.
 
----
+Poniżej znajdują się komentarzę do poszczególnych pytań.
+
+### "Czy umiejętności algorytmiczne przydają się później w życiu?"
 
 Przykłady użycia algorytmiki w pytaniu o przydatności umiejętności algorytmicznych powinny być rzeczami, z których czytelnik korzysta na co dzień. Powinny linkować do dokładnych wytłumaczeń tych algorytmów, nie tylko dla celów dydaktycznych, ale też żeby czytelnik zobaczył na własne oczy te algorytmy, których istnienie próbujemy mu sprzedać.
 
----
+### "Jak wygląda drugi etap i finał…"
 
 Opis tego, jak wygląda drugi i trzeci etap Olimpiady, nie ma charakteru informacyjnego, a bardziej przypomina opowieść kolegi. Chcemy w nim dokładnie zobrazować czytelnikowi, jak wyglądają dalsze etapy Olimpiady z perspektywy prawdziwego uczestnika. To jest też element "wprowadzania go w świat Olimpiady".
 
----
+### "Jakie algorytmy i techniki muszę znać na…"
 
 Lista wymaganych algorytmów i technik jest prawdopodobnie najbardziej kontrowersyjną i niedopracowaną częścią tego przewodnika. Każda lista tego typu wymaga podjęcia jakiś decyzji projektowych. Najbardziej kluczowe naszej listy są zawarte już w samym sformułowaniu pytania i w krótkim paragrafie znajdującym się pod nim. Choć tak, jak one są napisane w tekście, nie wyjaśnia za bardzo, *dlaczego* są takie, a nie inne. Czytelnikowi zostały przedstawione bardziej techniczne decyzje projektowe samej listy - coś w stylu specyfikacji, która pozwoli przyszłym odkrywcom listy ocenić, czym ta lista w ogóle i dlaczego mieliby jej zaufać, że wiarygodnie odpowiada na stawione pytanie i nie jest przysłowiowo wyciągnieta z czapy.
 
@@ -166,7 +168,7 @@ A czemu na przykład wyraźnym przeskokiem w "przydatności" algorytmu nie miał
 
 Jako notatkę dla przyszłych analizujących omówienia zostawiamy poniższą listę pojęć, na które warto uważać czytając omówienia: Arytmetyka modularna (bardziej dla OIJ), Dziel i zwyciężaj, Funkcja low, Kolejka monotoniczna, Najkrótsze ścieżki pomiędzy każdą parą, Najkrótsze ścieżki z jednego źródła z ujemnymi wagami krawędzi, Mosty i punkty artykulacji, Normalizacja wektorów o współrzędnych całkowitych, Odwrotność modularna, Przekorzenianie w programowaniu dynamicznym na drzewie, Rozkład grafu funkcyjnego, Stars and bars, Średnica drzewa, Wzór Stirlinga. Dodatkowa lista, którą można się zainspirować, znajduje się [w biblioteczce digitcrushera](https://github.com/digitcrusher/algorytmy#algorytmy).
 
----
+### Todo
 
 Pomysły na przyszłe odpowiedzi na pytania:
 - coś o tym, że dziewczyny też biorą udział w Olimpiadzie
