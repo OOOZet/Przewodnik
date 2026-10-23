@@ -112,6 +112,7 @@ Samemu trudno jest zebrać wszystkie potrzebne informacje (m.in. dlatego powsta�
 <list>
 <item>Oficjalny <link url='https://kurs.oi.edu.pl/'>kurs OI</link> do nauki podstaw algorytmiki i C++</item>
 <item><link url='https://usaco.guide/'>USACO Guide</link> - obszerny oficjalny kurs amerykańskiego odpowiednika OI</item>
+<item><link url='https://cses.fi/book/book.pdf'>Competitive Programmer's Handbook</link> - książkowy kurs od zera do IOI</item>
 </list>
 
 Powyższe kursy oczywiście możesz robić sam w domu. <important>Nie należy jednak lekceważyć znaczenia kontaktu społecznego w trakcie nauki i tego, jak bardzo motywująca jest sama świadomość, że masz wokół siebie ludzi, którzy zajmują się tym samym, co ty.</important> Dlatego też liczba kursów i obozów na żywo z innymi ludźmi jest większa:
@@ -278,18 +279,22 @@ Lista obejmuje drugie etapy i finały od XIV do XXXIII OI z wyjątkiem zadania O
 </answer>
 
 <answer question='Skąd uczyć się algorytmów i sztuczek?'>
-Standardową pierwszą odpowiedzią jest <link url='https://cp-algorithms.com/'>CP-Algorithms</link>. Jeśli tam czegoś nie ma, to zwykle znajdziesz to opisane w jakimś blogu na Codeforces. Blogi i posty na Codeforces ogólnie są głównym forum dyskusyjnym i źródłem nowości w świecie programowania sportowego.
+Standardową pierwszą odpowiedzią jest <link url='https://cp-algorithms.com/'>CP-Algorithms</link>. Drugą odpowiedzią jest <link url='https://usaco.guide/'>USACO Guide</link>. Jeśli ani tu ani tam czegoś nie ma, to zwykle znajdziesz to opisane w jakimś blogu na Codeforces (<link url='https://codeforces.com/catalog'>katalog najlepszych</link>). Blogi i posty na Codeforces ogólnie są głównym forum dyskusyjnym i źródłem nowości w świecie programowania sportowego.
 
-Alternatywnym źródłem jest darmowa książka "<link url='https://kostka.dev/sp/'>Sports Programming in Practice</link>" autorstwa Bartosza Kostki, w której opisuje bardziej zaawansowane techniki takie jak równoległe wyszukiwanie binarne czy matroidy na przykładowych zadaniach.
+Alternatywnymi źródłami są:
+<list>
+<item><link url='https://cses.fi/book/book.pdf'>Competitive Programmer's Handbook</link> - kurs od zera do IOI, który siłą rzeczy musi po drodze tłumaczyć wiele algorytmów.</item>
+<item><link url='https://kostka.dev/sp/'>Sports Programming in Practice</link> - opisuje na przykładowych zadaniach bardziej zaawansowane techniki takie jak równoległe wyszukiwanie binarne, drzewa wavelet czy matroidy.</item>
+</list>
 </answer>
 
 <answer question='Jak sprawdzić, czy umiem dany algorytm lub sztuczkę?'>
-Odpowiedzią jest <link url='https://cses.fi/problemset/'>CSES Problem Set</link>. Tam całym założeniem każdego zadania oprócz tych ostatnich jest właśnie zastosowanie jakiegoś algorytmu lub sztuczki i zwykle nie mają one więcej głębi. Podobną funkcję pełni też <link url='https://judge.yosupo.jp/'>Library Checker</link>, który jak nazwa wskazuje, służy do weryfikowania biblioteczek.
+Odpowiedzią jest <link url='https://cses.fi/problemset/'>CSES Problem Set</link>. Tam całym założeniem każdego zadania oprócz tych ostatnich jest właśnie zastosowanie jakiegoś algorytmu lub sztuczki i zwykle nie mają one więcej głębi. Podobną funkcję pełni też <link url='https://judge.yosupo.jp/'>Library Checker</link>, który jak nazwa wskazuje, służy do weryfikowania biblioteczek. Jeśli potrzebujesz trochę bardziej wyrafinowanych zadań, to na <link url='https://cp-algorithms.com/'>CP-Algorithms</link> i <link url='https://usaco.guide/'>USACO Guide</link> zwykle są podlinkowane zadania dla danej techniki.
 </answer>
 
 <answer question='Gdzie mogę znaleźć implementacje algorytmów?'>
 <list>
-<item>Jeśli się uczysz, to <link url='https://cp-algorithms.com/'>CP-Algorithms</link> zawiera też przykładowe implementacje.</item>
+<item>Jeśli się uczysz, to <link url='https://cp-algorithms.com/'>CP-Algorithms</link> i <link url='https://usaco.guide/'>USACO Guide</link> zawierają też przykładowe implementacje.</item>
 
 <item>
 Jeśli jesteś <emphasis>absolutnie</emphasis> pewien, że dobrze rozumiesz i potrafisz napisać z głowy dany algorytm, ale jesteś zbyt leniwy lub po prostu pisanie z palca maksymalnych ważonych skojarzeń w grafie ogólnym nie opłaca ci się czasowo na konteście, to możesz skorzystać z ogólnodostępnych "biblioteczek" takich jak:
