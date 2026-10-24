@@ -157,7 +157,7 @@ Tak. W domu jest pełno rzeczy, które rozpraszają twoją uwagę od zadań, tak
 </answer>
 
 <answer question='Jakie algorytmy i techniki muszę znać na...' important='yes' id='sylabus'>
-Przy każdym algorytmie/technice są podane wszystkie zadania, do rozwiązania których był potrzebny, z podanych niżej przedziałów. Brane pod uwagę są tylko rozwiązania wzorcowe z oficjalnych omówień. Za część rozwiązania brany jest również dowód poprawności i złożoności. Jeśli czegoś w nich nie było, to nie ma go tutaj. Wkuwanie niepotrzebnych ci algorytmów to nie jest to. W szczególności jeśli interesuje cię tylko dostanie się do finału, możesz zignorować pozycje, przy których nie ma żadnych zadań z II etapu. Być może możesz też odpuścić sobie pozycje, które wystąpiły tylko raz.
+Przy każdym algorytmie/technice są podane wszystkie zadania, do rozwiązania których był potrzebny, z podanych niżej przedziałów. <download-only>Zadania z drugich etapów są oznaczone kolorem żółtym, a z finałów - czerwonym. Próbne zadania mają wyblakły odcień.</download-only> Brane pod uwagę są tylko rozwiązania wzorcowe z oficjalnych omówień. Za część rozwiązania brany jest również dowód poprawności i złożoności. Jeśli czegoś w nich nie było, to nie ma go tutaj. Wkuwanie niepotrzebnych ci algorytmów to nie jest to. W szczególności jeśli interesuje cię tylko dostanie się do finału, możesz zignorować pozycje, przy których nie ma żadnych zadań z drugiego etapu. Być może możesz też odpuścić sobie pozycje, które wystąpiły tylko raz.
 
 <warning>To nie jest lista <emphasis>wszystkiego</emphasis>, co może się pojawić, a jedynie próba przewidzenia na podstawie wcześniejszych danych, co <emphasis>może</emphasis> się pojawić.</warning>
 
@@ -167,112 +167,112 @@ Przy każdym algorytmie/technice są podane wszystkie zadania, do rozwiązania k
 Lista obejmuje drugie etapy od XIV do XX OIJ i finały od XIV do XVII OIJ.
 
 <list>
-<item>Algorytmy zachłanne <link url='https://usaco.guide/bronze/intro-greedy'>[1]</link> <link url='https://usaco.guide/silver/greedy-sorting'>[2]</link> - próbny II etap: Piraci (XIX OIJ) - II etap: Zespoły (XV OIJ), Najmniejsza suma (XVI OIJ), Labirynty (XVII OIJ), Przekształcenie potęgowe (XIX OIJ) - próbny finał: Kulki (XV OIJ) - finał: Ciężarówki (XV OIJ), Agar.io (XVI OIJ), Ciężarówki II (XVI OIJ), Antypalindrom (XVII OIJ), Zbiór klocków (XVII OIJ), Hanoi-nawiasowania (XVII OIJ)</item>
-<item><link url='https://pl.wikipedia.org/wiki/Szereg_harmoniczny#Ci%C4%85g_liczb_harmonicznych'>Asymptotyka ciągu liczb harmonicznych</link> - II etap: Ciąg rosnący (XVIII OIJ)</item>
-<item><link url='https://pl.wikipedia.org/wiki/Funkcja_licz%C4%85ca_liczby_pierwsze#W%C5%82a%C5%9Bciwo%C5%9Bci[1]'>Asymptotyka funkcji liczącej liczby pierwsze</link> - finał: Stabilny ciąg (XVI OIJ)</item>
-<item><link url='https://usaco.guide/bronze/complete-rec#backtracking'>Backtracking</link> - finał: Piramida liczbowa (XVII OIJ)</item>
-<item><link url='https://usaco.guide/silver/two-pointers#sliding-window'>Gąsienica</link> - II etap: Największy plus (XV OIJ), Scrabble (XVIII OIJ) - finał: Boty (XVII OIJ)</item>
-<item>Kolejka priorytetowa <link url='https://cppreference.com/cpp/container/priority_queue'>[C++]</link> <link url='https://docs.python.org/3/library/heapq.html'>[Python]</link> - II etap: Usuwanka (XIV OIJ), Labirynty (XVII OIJ)</item>
-<item>Mapa <link url='https://cppreference.com/cpp/container/map'>[C++]</link> - II etap: Lizak (XVI OIJ) - finał: Ustawianie gońca (XVII OIJ)</item>
-<item><link url='https://usaco.guide/gold/divisibility#gcd--lcm'>NWD i NWW</link> - próbny II etap: Złośliwiec (XX OIJ) - II etap: Zygzak (XIV OIJ)</item>
-<item><link url='https://cp-algorithms.com/dynamic_programming/intro-to-dp.html'>Programowanie dynamiczne</link> - II etap: Wycieczka górska (XX OIJ) - finał: Antytrójkątowe pudełko (XV OIJ), Ciężarówki (XV OIJ), Stabilny ciąg (XVI OIJ)</item>
-<item><link url='https://codeforces.com/blog/entry/20935'>Programowanie dynamiczne na drzewie</link> - finał: Boty (XVII OIJ)</item>
-<item><link url='https://cp-algorithms.com/algebra/factorization.html#trial-division'>Rozkład na czynniki pierwsze</link> - próbny II etap: Czekolada (XV OIJ) - II etap: Przekształcenie potęgowe (XIX OIJ)</item>
-<item><link url='https://usaco.guide/gold/divisibility#problem-cses-1713'>Rozkład na czynniki pierwsze z sitem</link> - finał: Stabilny ciąg (XVI OIJ)</item>
-<item>Set <link url='https://cppreference.com/cpp/container/set'>[C++]</link> i multiset <link url='https://cppreference.com/cpp/container/multiset'>[C++]</link> - próbny II etap: Różnorodność (XV OIJ) - II etap: Płoty (XV OIJ), Spóźnienia (XX OIJ)</item>
-<item><link url='https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html'>Sito liczb pierwszych</link> - finał: Stabilny ciąg (XVI OIJ)</item>
-<item>Sortowanie <link url='https://cppreference.com/cpp/algorithm/sort'>[C++]</link> <link url='https://docs.python.org/3/howto/sorting.html'>[Python]</link> - próbny II etap: Różnorodność (XV OIJ), Praca zdalna (XVI OIJ) - II etap: Zespoły (XV OIJ), Najmniejsza suma (XVI OIJ), Wycieczka górska (XX OIJ) - finał: Liczby silne (XV OIJ), Antytrójkątowe pudełko (XV OIJ), Ciężarówki (XV OIJ), Agar.io (XVI OIJ), Ciężarówki II (XVI OIJ)</item>
-<item><link url='https://oi.edu.pl/l/oi31_2_tel/'>Sortowanie ciągów</link> - II etap: Skracanie słów (XIX OIJ)</item>
-<item><link url='https://usaco.guide/silver/prefix-sums'>Sumy prefiksowe</link> - próbny II etap: Notowania akcji (XIV OIJ) - II etap: Spóźnienia (XX OIJ) - finał: Liczby silne (XV OIJ), Antytrójkątowe pudełko (XV OIJ)</item>
-<item><link url='https://cp-algorithms.com/data_structures/disjoint_set_union.html'>Union-Find</link> - finał: Ciężarówki II (XVI OIJ)</item>
-<item><link url='https://cp-algorithms.com/algebra/fibonacci-numbers.html'>Własności ciągu Fibonacciego</link> - II etap: Domino Fibonacciego (XIX OIJ)</item>
-<item><link url='https://cp-algorithms.com/combinatorics/binomial-coefficients.html'>Własności symbolu Newtona</link> - finał: Piramida liczbowa (XVII OIJ)</item>
-<item><link url='https://cp-algorithms.com/num_methods/binary_search.html'>Wyszukiwanie binarne</link> - finał: Liczby silne (XV OIJ)</item>
-<item><link url='https://cp-algorithms.com/num_methods/binary_search.html#binary-search-on-the-answer'>Wyszukiwanie binarne po wyniku</link> - II etap: Największy plus (XV OIJ) - finał: Boty (XVII OIJ)</item>
+<item>Algorytmy zachłanne <link url='https://usaco.guide/bronze/intro-greedy'>[1]</link> <link url='https://usaco.guide/silver/greedy-sorting'>[2]</link> - próbny II etap: <problem id='oij19-2-arr'/> - II etap: <problem id='oij15-2-zes'/>, <problem id='oij16-2-naj'/>, <problem id='oij17-2-lab'/>, <problem id='oij19-2-ppr'/> - próbny finał: <problem id='oij15-3-kul'/> - finał: <problem id='oij15-3-cie'/>, <problem id='oij16-3-aga'/>, <problem id='oij16-3-cie'/>, <problem id='oij17-3-ant'/>, <problem id='oij17-3-zbi'/>, <problem id='oij17-3-han'/></item>
+<item><link url='https://pl.wikipedia.org/wiki/Szereg_harmoniczny#Ci%C4%85g_liczb_harmonicznych'>Asymptotyka ciągu liczb harmonicznych</link> - II etap: <problem id='oij18-2-ros'/></item>
+<item><link url='https://pl.wikipedia.org/wiki/Funkcja_licz%C4%85ca_liczby_pierwsze#W%C5%82a%C5%9Bciwo%C5%9Bci[1]'>Asymptotyka funkcji liczącej liczby pierwsze</link> - finał: <problem id='oij16-3-sta'/></item>
+<item><link url='https://usaco.guide/bronze/complete-rec#backtracking'>Backtracking</link> - finał: <problem id='oij17-3-pir'/></item>
+<item><link url='https://usaco.guide/silver/two-pointers#sliding-window'>Gąsienica</link> - II etap: <problem id='oij15-2-plu'/>, <problem id='oij18-2-scr'/> - finał: <problem id='oij17-3-bot'/></item>
+<item>Kolejka priorytetowa <link url='https://cppreference.com/cpp/container/priority_queue'>[C++]</link> <link url='https://docs.python.org/3/library/heapq.html'>[Python]</link> - II etap: <problem id='oij14-2-usu'/>, <problem id='oij17-2-lab'/></item>
+<item>Mapa <link url='https://cppreference.com/cpp/container/map'>[C++]</link> - II etap: <problem id='oij16-2-liz'/> - finał: <problem id='oij17-3-gon'/></item>
+<item><link url='https://usaco.guide/gold/divisibility#gcd--lcm'>NWD i NWW</link> - próbny II etap: <problem id='oij20-2-zlo'/> - II etap: <problem id='oij14-2-zyg'/></item>
+<item><link url='https://cp-algorithms.com/dynamic_programming/intro-to-dp.html'>Programowanie dynamiczne</link> - II etap: <problem id='oij20-2-wyc'/> - finał: <problem id='oij15-3-ant'/>, <problem id='oij15-3-cie'/>, <problem id='oij16-3-sta'/></item>
+<item><link url='https://codeforces.com/blog/entry/20935'>Programowanie dynamiczne na drzewie</link> - finał: <problem id='oij17-3-bot'/></item>
+<item><link url='https://cp-algorithms.com/algebra/factorization.html#trial-division'>Rozkład na czynniki pierwsze</link> - próbny II etap: <problem id='oij15-2-cze'/> - II etap: <problem id='oij19-2-ppr'/></item>
+<item><link url='https://usaco.guide/gold/divisibility#problem-cses-1713'>Rozkład na czynniki pierwsze z sitem</link> - finał: <problem id='oij16-3-sta'/></item>
+<item>Set <link url='https://cppreference.com/cpp/container/set'>[C++]</link> i multiset <link url='https://cppreference.com/cpp/container/multiset'>[C++]</link> - próbny II etap: <problem id='oij15-2-roz'/> - II etap: <problem id='oij15-2-plo'/>, <problem id='oij20-2-spo'/></item>
+<item><link url='https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html'>Sito liczb pierwszych</link> - finał: <problem id='oij16-3-sta'/></item>
+<item>Sortowanie <link url='https://cppreference.com/cpp/algorithm/sort'>[C++]</link> <link url='https://docs.python.org/3/howto/sorting.html'>[Python]</link> - próbny II etap: <problem id='oij15-2-roz'/>, <problem id='oij16-2-pra'/> - II etap: <problem id='oij15-2-zes'/>, <problem id='oij16-2-naj'/>, <problem id='oij20-2-wyc'/> - finał: <problem id='oij15-3-sil'/>, <problem id='oij15-3-ant'/>, <problem id='oij15-3-cie'/>, <problem id='oij16-3-aga'/>, <problem id='oij16-3-cie'/></item>
+<item><link url='https://oi.edu.pl/l/oi31_2_tel/'>Sortowanie ciągów</link> - II etap: <problem id='oij19-2-skr'/></item>
+<item><link url='https://usaco.guide/silver/prefix-sums'>Sumy prefiksowe</link> - próbny II etap: <problem id='oij14-2-not'/> - II etap: <problem id='oij20-2-spo'/> - finał: <problem id='oij15-3-sil'/>, <problem id='oij15-3-ant'/></item>
+<item><link url='https://cp-algorithms.com/data_structures/disjoint_set_union.html'>Union-Find</link> - finał: <problem id='oij16-3-cie'/></item>
+<item><link url='https://cp-algorithms.com/algebra/fibonacci-numbers.html'>Własności ciągu Fibonacciego</link> - II etap: <problem id='oij19-2-fib'/></item>
+<item><link url='https://cp-algorithms.com/combinatorics/binomial-coefficients.html'>Własności symbolu Newtona</link> - finał: <problem id='oij17-3-pir'/></item>
+<item><link url='https://cp-algorithms.com/num_methods/binary_search.html'>Wyszukiwanie binarne</link> - finał: <problem id='oij15-3-sil'/></item>
+<item><link url='https://cp-algorithms.com/num_methods/binary_search.html#binary-search-on-the-answer'>Wyszukiwanie binarne po wyniku</link> - II etap: <problem id='oij15-2-plu'/> - finał: <problem id='oij17-3-bot'/></item>
 </list>
 </subanswer>
 
 <subanswer subquestion='...OI?'>
-Lista obejmuje drugie etapy i finały od XIV do XXXIII OI z wyjątkiem zadania Ogrodzenie (XXXII OI), do którego omówienie nie jest dostępne. Ogranicza się tylko do ostatnich 10 lat, gdyż Olimpiada ma obecnie tendencję do stawania się bardziej ad-hoc. <important>Pomijamy tutaj kilka algorytmów z OIJ, gdyż są zbyt podstawowe, więc algorytmy i techniki na OIJ też musisz znać.</important>
+Lista obejmuje drugie etapy i finały od XIV do XXXIII OI z wyjątkiem zadania <problem id='oi32-ogr'/>, do którego omówienie nie jest dostępne. Ogranicza się tylko do ostatnich 10 lat, gdyż Olimpiada ma obecnie tendencję do stawania się bardziej ad-hoc. <important>Pomijamy tutaj kilka algorytmów z OIJ, gdyż są zbyt podstawowe, więc algorytmy i techniki na OIJ też musisz znać.</important>
 
 <list>
-<item><link url='https://cp-algorithms.com/graph/01_bfs.html'>0-1 BFS</link> - II etap: Bomberman (XXIX OI)</item>
-<item><link url='https://cp-algorithms.com/graph/2SAT.html'>2-SAT</link> - finał: Remont (XXVI OI)</item>
-<item><link url='https://cp-algorithms.com/algebra/euclid-algorithm.html'>Algorytm Euklidesa</link> - próbny finał: Kolekcjoner bajtemonów 2 (XXVIII OI)</item>
-<item>Algorytm hybrydowy (wybieranie algorytmu w zależności od danych wejściowych) - finał: Szum (XXXII OI)</item>
-<item><link url='https://cp-algorithms.com/graph/mst_prim.html'>Algorytm Prima</link> - finał: Redukcja połączeń (XXXII OI)</item>
-<item>Algorytmy zachłanne <link url='https://usaco.guide/bronze/intro-greedy'>[1]</link> <link url='https://usaco.guide/silver/greedy-sorting'>[2]</link> - próbny II etap: Przelewy (XXV OI), Kontrwywiad (XXXIII OI) - II etap: Konduktor (XXV OI), Tomik poezji (XXV OI), Gwiazdy (XXVI OI), Pakowanie plecaka (XXVIII OI), Liczniki (XXXI OI), Rycerz (XXXI OI), Pojemniki (XXXI OI) - próbny finał: Dostawca pizzy (XXIV OI) - finał: Wyjścia ewakuacyjne (XXXI OI)</item>
-<item><link url='https://pl.wikipedia.org/wiki/Szereg_harmoniczny#Ci%C4%85g_liczb_harmonicznych'>Asymptotyka ciągu liczb harmonicznych</link> - próbny finał: Kolekcjoner bajtemonów 2 (XXVIII OI)</item>
-<item><link url='https://pl.wikipedia.org/wiki/Funkcja_licz%C4%85ca_liczby_pierwsze#W%C5%82a%C5%9Bciwo%C5%9Bci[1]'>Asymptotyka funkcji liczącej liczby pierwsze</link> - finał: Suma liczb pierwszych (XXVIII OI)</item>
-<item><link url='https://usaco.guide/bronze/complete-rec#backtracking'>Backtracking</link> - II etap: Trudny dylemat przedszkolanina (XXVII OI) - finał: Waga (XXIX OI)</item>
-<item><link url='https://cp-algorithms.com/graph/breadth-first-search.html'>BFS</link> - II etap: Zamek (XXIV OI), Rycerz (XXXI OI) - finał: Midas (XXIV OI), Długie podróże (XXVI OI), Skoczek (XXX OI)</item>
-<item><link url='https://codeforces.com/blog/entry/74847'>Binary lifting</link> - II etap: Kolacje (XXVI OI)</item>
-<item><link url='https://cppreference.com/cpp/utility/bitset'>Bitset</link> - próbny II etap: Wirus (XXX OI) - II etap: Drwale (XXX OI), Wykaz dróg (XXXIII OI) - finał: Waga (XXIX OI)</item>
-<item><link url='https://usaco.guide/plat/centroid#centroids'>Centroid</link> - II etap: Gra w kolorowanie (XXX OI)</item>
-<item><link url='https://cp-algorithms.com/graph/centroid_decomposition.html'>Dekompozycja centroidalna</link> - próbny finał: Nawigacja samochodowa (XXX OI)</item>
-<item><link url='https://cp-algorithms.com/graph/depth-first-search.html'>DFS</link> - próbny II etap: Przelewy (XXV OI), Kontrwywiad (XXXIII OI) - II etap: Szablon Bajtogrodu (XXVIII OI), Sekretna siatka szpiegowska (XXXII OI), Dwukolorowe drzewo (XXXIII OI) - próbny finał: Dostawca pizzy (XXIV OI) - finał: Szpiedzy (XXXII OI)</item>
-<item><link url='https://codeforces.com/blog/entry/77096'>Digit DP</link> - II etap: Suma cyfr (XXIV OI) - finał: Dyscyplina (XXXIII OI)</item>
-<item><link url='https://en.wikipedia.org/wiki/Decision_tree_model'>Drzewo decyzyjne</link> - finał: Waga (XXIX OI)</item>
-<item><link url='https://codeforces.com/blog/entry/68138'>Drzewo DFS</link> - II etap: Osiedla (XXVI OI) - finał: Wyścig kolarski (XXXI OI)</item>
-<item><link url='https://cp-algorithms.com/data_structures/fenwick.html'>Drzewo Fenwicka</link> - próbny II etap: Rozliczenia (XXVI OI)</item>
-<item><link url='https://www.youtube.com/watch?v=PBKYoNYwFwk'>Drzewa przedziałowe punkt-przedział i przedział-punkt</link> - próbny II etap: Kontrwywiad (XXXIII OI) - II etap: Wielki Upadek (XXVII OI), Konkurs tańca towarzyskiego (XXIX OI), Gra w kolorowanie (XXX OI), Porządki (XXXII OI) - próbny finał: Kolekcjoner bajtemonów 2 (XXVIII OI) - finał: Rozdroża parzystości (XXIV OI), Turniej trójinformatyczny (XXV OI), Dwa długie lizaki (XXV OI), Surowa zima (XXVIII OI), Komunikacja międzyplanetarna (XXVIII OI), Przyjaciele i wrogowie (XXXII OI), Zliczanie Z (XXXIII OI)</item>
-<item><link url='https://codeforces.com/blog/entry/140066'>Drzewa wirtualne</link> - II etap: Kolacje (XXVI OI)</item>
-<item><link url='https://codeforces.com/blog/entry/72626'>Drzewo przedziałowe przedział-przedział (niekoniecznie z leniwą propagacją)</link> - II etap: Przekaźniki telekomunikacyjne (XXV OI), Pakowanie plecaka (XXVIII OI) - finał: Oceny (XXIV OI), Wyścigi (XXVI OI), Rzeki (XXIX OI)</item>
-<item><link url='https://cp-algorithms.com/data_structures/segment_tree.html#range-updates-lazy-propagation'>Drzewo przedziałowe przedział-przedział z leniwą propagacją</link> - finał: Wybredny bajtazar (XXIX OI), NWW (XXX OI), Deszcze meteorów (XXXIII OI)</item>
-<item><link url='https://cp-algorithms.com/string/aho_corasick.html#construction-of-the-trie'>Drzewo trie</link> - II etap: Drzewo czwórkowe (XXVII OI), Szablon Bajtogrodu (XXVIII OI)</item>
-<item><link url='https://usaco.guide/silver/two-pointers'>Dwa wskaźniki</link> - finał: Nawiasowania (XXVIII OI)</item>
-<item><link url='https://cp-algorithms.com/graph/bipartite-check.html'>Dwukolorowanie grafu</link> - finał: Sieć społecznościowa (XXX OI), Szpiedzy (XXXII OI)</item>
-<item><link url='https://cp-algorithms.com/algebra/fft.html'>Dyskretna transformata Fouriera</link> - finał: Wielomian (XXV OI)</item>
-<item><link url='https://en.wikipedia.org/wiki/Euler_tour_technique'>Euler tour</link> - II etap: Konkurs tańca towarzyskiego (XXIX OI)</item>
-<item><link url='https://cp-algorithms.com/algebra/phi-function.html'>Funkcja φ Eulera</link> - II etap: Liczby względnie pierwsze (XXIX OI)</item>
-<item><link url='https://cp-algorithms.com/string/z-function.html'>Funkcja Z</link> - finał: Szablon 2 (XXIX OI)</item>
-<item><link url='https://usaco.guide/silver/two-pointers#sliding-window'>Gąsienica</link> - II etap: Wielki Upadek (XXVII OI) - finał: Suma liczb pierwszych (XXVIII OI)</item>
-<item><link url='https://cp-algorithms.com/string/string-hashing.html'>Haszowanie</link> - II etap: Drzewo genealogiczne (XXXII OI)</item>
-<item>Iloczyn <link url='https://cp-algorithms.com/geometry/basic-geometry.html#dot-product'>skalarny</link> i <link url='https://cp-algorithms.com/geometry/basic-geometry.html#cross-product'>wektorowy</link> - finał: Ogrodzenie (XXV OI), Komunikacja międzyplanetarna (XXVIII OI), Tort (XXX OI)</item>
-<item><link url='https://usaco.guide/silver/sorting-custom#coordinate-compression'>Kompresja współrzędnych</link> - II etap: Drzewo czwórkowe (XXVII OI) - finał: Deszcze meteorów (XXXIII OI), Zliczanie Z (XXXIII OI)</item>
-<item><link url='https://cp-algorithms.com/algebra/divisors.html#number-of-divisors'>Liczba dzielników</link> - II etap: Trudny dylemat przedszkolanina (XXVII OI) - finał: Liczby kompletne (XXV OI), Lokacja miasta (XXXII OI)</item>
-<item><link url='https://brilliant.org/wiki/linearity-of-expectation/'>Liniowość wartości oczekiwanej</link> - finał: Licytacje (XXXIII OI)</item>
-<item><link url='https://pl.wikipedia.org/wiki/Macierz_obrotu#W_2_wymiarach'>Macierz obrotu</link> - finał: Komunikacja międzyplanetarna (XXVIII OI), Zliczanie Z (XXXIII OI)</item>
-<item>Maski bitowe <link url='https://cses.fi/book/book.pdf#chapter.10'>[1]</link> <link url='https://cp-algorithms.com/algebra/all-submasks.html'>[2]</link> - II etap: Marudny Bajtazar (XXVII OI), Wspinaczka (XXX OI), Rycerz (XXXI OI), Podział na anagramy (XXXII OI) - finał: Rozdroża parzystości (XXIV OI), Bukmacher (XXXI OI), Dyscyplina (XXXIII OI)</item>
-<item><link url='https://cp-algorithms.com/graph/all-pair-shortest-path-floyd-warshall.html'>Macierz osiągalności</link> - II etap: Wykaz dróg (XXXIII OI)</item>
-<item>Maksymalny zbiór niezależny w grafie dwudzielnym <link url='https://oi.edu.pl/l/oi30_3_sie/'>[1]</link> <link url='https://cp-algorithms.com/graph/kuhn_maximum_bipartite_matching.html'>[2]</link> <link url='https://en.wikipedia.org/wiki/K%C5%91nig%27s_theorem_(graph_theory)'>[3]</link> - finał: Sieć społecznościowa (XXX OI)</item>
-<item><link url='https://en.wikipedia.org/wiki/Merge_sort'>Merge sort</link> - finał: Turniej trójinformatyczny (XXV OI), Permutacje (XXXI OI)</item>
-<item><link url='https://cp-algorithms.com/combinatorics/inclusion-exclusion.html'>Metoda włączeń i wyłączeń</link> - II etap: Liczby względnie pierwsze (XXIX OI)</item>
-<item><link url='https://en.wikipedia.org/wiki/Minimax#Combinatorial_game_theory'>Min-max</link> - finał: Skoczek (XXX OI)</item>
-<item><link url='https://cp-algorithms.com/graph/mst_kruskal_with_dsu.html'>Minimalne drzewo rozpinające</link> - finał: Rozdroża parzystości (XXIV OI)</item>
-<item><link url='https://usaco.guide/plat/merging'>Mniejszy do większego</link> - finał: Redukcja połączeń (XXXII OI)</item>
-<item><link url='https://cp-algorithms.com/graph/dijkstra.html'>Najkrótsze ścieżki z jednego źródła</link> - II etap: Kolacje (XXVI OI)</item>
-<item><link url='https://github.com/digitcrusher/algorytmy/blob/d45ec41/algo/graph/shortest_path.hpp#L24'>Najkrótsze ścieżki z jednego źródła w skierowanym grafie acyklicznym</link> - finał: Droga do domu (XXVIII OI)</item>
-<item><link url='https://cp-algorithms.com/graph/lca_binary_lifting.html'>Najniższy wspólny przodek</link> - finał: Wyścig kolarski (XXXI OI)</item>
-<item><link url='https://codeforces.com/blog/entry/19771'>Odpowiadanie na zapytania offline</link> - II etap: Kontenery (XXIV OI), Kolacje (XXVI OI), Konkurs tańca towarzyskiego (XXIX OI), Ciąg binarny (XXXI OI) - finał: Laptopy (XXX OI), NWW (XXX OI)</item>
-<item><link url='https://codeforces.com/blog/entry/96713'>Podział względem pierwiastka</link> - II etap: Kontenery (XXIV OI) - finał: Impreza (XXXII OI)</item>
-<item>Pre-order i post-order <link url='https://www.youtube.com/watch?v=weANP6rubWA'>[1]</link> - próbny II etap: Kontrwywiad (XXXIII OI) - II etap: Drzewo czwórkowe (XXVII OI) - finał: Rozdroża parzystości (XXIV OI)</item>
-<item>Preprocessing przed wysłaniem na sprawdzaczkę - II etap: Trudny dylemat przedszkolanina (XXVII OI) - finał: Waga (XXIX OI)</item>
-<item><link url='https://cp-algorithms.com/dynamic_programming/knapsack.html'>Problem plecakowy</link> - II etap: Drwale (XXX OI)</item>
-<item><link url='https://cp-algorithms.com/dynamic_programming/intro-to-dp.html'>Programowanie dynamiczne</link> - próbny II etap: Projekt planszy (XXVIII OI), Impreza krasnali 2 (XXIX OI) - II etap: Drogi rowerowe (XXV OI), Konduktor (XXV OI), Wagony (XXX OI), Drwale (XXX OI), Wspinaczka (XXX OI), Podział na anagramy (XXXII OI) - próbny finał: Stacje benzynowe (XXXI OI) - finał: Zapiekanki (XXIV OI), Kucharz (XXIV OI), Ogrodzenie (XXV OI), Zjazd obieżyświatów (XXVI OI), Gra w dzielniki (XXVI OI), Laptopy (XXX OI), Bukmacher (XXXI OI), Skarb (XXXI OI), Szum (XXXII OI), Przyjaciele i wrogowie (XXXII OI), Deszcze meteorów (XXXIII OI)</item>
-<item><link url='https://codeforces.com/blog/entry/108615'>Programowanie dynamiczne jako mnożenie macierzy</link> - finał: Zjazd obieżyświatów (XXVI OI)</item>
-<item><link url='https://codeforces.com/blog/entry/20935'>Programowanie dynamiczne na drzewie</link> - próbny II etap: Wakacje Bajtazara (XXVII OI) - II etap: Agenci (XXIX OI) - finał: Rozdroża parzystości (XXIV OI), Park linowy (XXX OI), Wyjścia ewakuacyjne (XXXI OI)</item>
-<item><link url='https://usaco.guide/adv/random'>Randomizacja</link> - finał: Długie podróże (XXVI OI), Szum (XXXII OI)</item>
-<item><link url='https://usaco.guide/plat/matrix-expo'>Rekurencja liniowa jako mnożenie macierzy</link> - próbny II etap: Wirus (XXX OI)</item>
-<item><link url='https://cp-algorithms.com/algebra/factorization.html#trial-division'>Rozkład na czynniki pierwsze</link> - II etap: Liczby względnie pierwsze (XXIX OI)</item>
-<item><link url='https://cp-algorithms.com/graph/strongly-connected-components.html'>Silnie spójne składowe</link> - II etap: Drogi rowerowe (XXV OI)</item>
-<item><link url='https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html'>Sito liczb pierwszych</link> - finał: Liczby kompletne (XXV OI)</item>
-<item><link url='https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html#segmented-sieve'>Sito segmentowe</link> - finał: Suma liczb pierwszych (XXVIII OI)</item>
-<item><link url='https://oi.edu.pl/l/oi31_2_tel/'>Sortowanie ciągów</link> - próbny II etap: Telefony (XXXI OI)</item>
-<item><link url='https://codeforces.com/blog/entry/72815'>Sortowanie kątowe</link> - próbny finał: Dwa pionki (XXV OI) - finał: Lokacja miasta (XXXII OI)</item>
-<item><link url='https://en.wikipedia.org/wiki/Bucket_sort'>Sortowanie kubełkowe</link> - finał: Liczby kompletne (XXV OI)</item>
-<item><link url='https://codeforces.com/blog/entry/101010'>Sortowanie poddrzew</link> - II etap: Drzewo genealogiczne (XXXII OI)</item>
-<item><link url='https://cp-algorithms.com/graph/topological-sort.html'>Sortowanie topologiczne</link> - II etap: Drogi rowerowe (XXV OI), Zdjęcia krasnali (XXVIII OI)</item>
-<item><link url='https://cp-algorithms.com/dynamic_programming/intro-to-dp.html#speeding-up-fibonacci-with-dynamic-programming-memoization'>Spamiętywanie</link> - II etap: Wagony (XXX OI) - finał: Waga (XXIX OI), Skoczek (XXX OI)</item>
-<item><link url='https://cp-algorithms.com/geometry/minkowski.html'>Suma Minkowskiego wielokątów wypukłych</link> - finał: Lokacja miasta (XXXII OI)</item>
-<item><link url='https://cp-algorithms.com/algebra/binary-exp.html'>Szybkie potęgowanie</link> - próbny II etap: Wirus (XXX OI) - finał: Zjazd obieżyświatów (XXVI OI), Żyrandol (XXXI OI)</item>
-<item><link url='https://cp-algorithms.com/data_structures/disjoint_set_union.html'>Union-Find</link> - finał: Rozbudowa Bajtocji (XXXIII OI)</item>
-<item><link url='https://cp-algorithms.com/data_structures/segment_tree.html#preserving-the-history-of-its-values-persistent-segment-tree'>Utrwalanie drzewiastych struktur danych</link> - II etap: Ciąg binarny (XXXI OI)</item>
-<item><link url='https://oi.edu.pl/l/oi33_3_dys/'>Ważone twierdzenie Halla</link> - finał: Dyscyplina (XXXIII OI)</item>
-<item><link url='https://cp-algorithms.com/data_structures/segment_tree.html#counting-zero-search-kth'>Wyszukiwanie binarne na drzewie przedziałowym</link> - II etap: Wielki Upadek (XXVII OI), Ciąg binarny (XXXI OI)</item>
-<item><link url='https://cp-algorithms.com/num_methods/binary_search.html#binary-search-on-the-answer'>Wyszukiwanie binarne po wyniku</link> - II etap: Liczby względnie pierwsze (XXIX OI), Podział na anagramy (XXXII OI) - finał: Zjazd obieżyświatów (XXVI OI), Ornitolog (XXVI OI), Meteory (XXIX OI), Park linowy (XXX OI), Tort (XXX OI), Dyscyplina (XXXIII OI)</item>
-<item><link url='https://usaco.guide/plat/sweep-line'>Zamiatanie</link> - II etap: Zamek (XXIV OI) - próbny finał: Dwa pionki (XXV OI) - finał: Turniej trójinformatyczny (XXV OI), Dwa długie lizaki (XXV OI), Komunikacja międzyplanetarna (XXVIII OI), Meteory (XXIX OI), Tort (XXX OI), Zliczanie Z (XXXIII OI)</item>
-<item>Zmiana układu współrzędnych <link url='https://cp-algorithms.com/geometry/manhattan-distance.html#rotating-the-points-and-chebyshev-distance'>[1]</link> - II etap: Spotkanie na Bajhattanie (XXXIII OI) - finał: Komunikacja międzyplanetarna (XXVIII OI), Zliczanie Z (XXXIII OI)</item>
+<item><link url='https://cp-algorithms.com/graph/01_bfs.html'>0-1 BFS</link> - II etap: <problem id='oi29-bom'/></item>
+<item><link url='https://cp-algorithms.com/graph/2SAT.html'>2-SAT</link> - finał: <problem id='oi26-rem'/></item>
+<item><link url='https://cp-algorithms.com/algebra/euclid-algorithm.html'>Algorytm Euklidesa</link> - próbny finał: <problem id='oi28-kol'/></item>
+<item>Algorytm hybrydowy (wybieranie algorytmu w zależności od danych wejściowych) - finał: <problem id='oi32-szu'/></item>
+<item><link url='https://cp-algorithms.com/graph/mst_prim.html'>Algorytm Prima</link> - finał: <problem id='oi32-red'/></item>
+<item>Algorytmy zachłanne <link url='https://usaco.guide/bronze/intro-greedy'>[1]</link> <link url='https://usaco.guide/silver/greedy-sorting'>[2]</link> - próbny II etap: <problem id='oi25-prz'/>, <problem id='oi33-kon'/> - II etap: <problem id='oi25-kon'/>, <problem id='oi25-tom'/>, <problem id='oi26-gwi'/>, <problem id='oi28-ple'/>, <problem id='oi31-lic'/>, <problem id='oi31-ryc'/>, <problem id='oi31-poj'/> - próbny finał: <problem id='oi24-piz'/> - finał: <problem id='oi31-wyj'/></item>
+<item><link url='https://pl.wikipedia.org/wiki/Szereg_harmoniczny#Ci%C4%85g_liczb_harmonicznych'>Asymptotyka ciągu liczb harmonicznych</link> - próbny finał: <problem id='oi28-kol'/></item>
+<item><link url='https://pl.wikipedia.org/wiki/Funkcja_licz%C4%85ca_liczby_pierwsze#W%C5%82a%C5%9Bciwo%C5%9Bci[1]'>Asymptotyka funkcji liczącej liczby pierwsze</link> - finał: <problem id='oi28-sum'/></item>
+<item><link url='https://usaco.guide/bronze/complete-rec#backtracking'>Backtracking</link> - II etap: <problem id='oi27-tru'/> - finał: <problem id='oi29-wag'/></item>
+<item><link url='https://cp-algorithms.com/graph/breadth-first-search.html'>BFS</link> - II etap: <problem id='oi24-zam'/>, <problem id='oi31-ryc'/> - finał: <problem id='oi24-mid'/>, <problem id='oi26-dlu'/>, <problem id='oi30-sko'/></item>
+<item><link url='https://codeforces.com/blog/entry/74847'>Binary lifting</link> - II etap: <problem id='oi26-kol'/></item>
+<item><link url='https://cppreference.com/cpp/utility/bitset'>Bitset</link> - próbny II etap: <problem id='oi30-wir'/> - II etap: <problem id='oi30-drw'/>, <problem id='oi33-wyk'/> - finał: <problem id='oi29-wag'/></item>
+<item><link url='https://usaco.guide/plat/centroid#centroids'>Centroid</link> - II etap: <problem id='oi30-gra'/></item>
+<item><link url='https://cp-algorithms.com/graph/centroid_decomposition.html'>Dekompozycja centroidalna</link> - próbny finał: <problem id='oi30-naw'/></item>
+<item><link url='https://cp-algorithms.com/graph/depth-first-search.html'>DFS</link> - próbny II etap: <problem id='oi25-prz'/>, <problem id='oi33-kon'/> - II etap: <problem id='oi28-sza'/>, <problem id='oi32-sss'/>, <problem id='oi33-dwu'/> - próbny finał: <problem id='oi24-piz'/> - finał: <problem id='oi32-szp'/></item>
+<item><link url='https://codeforces.com/blog/entry/77096'>Digit DP</link> - II etap: <problem id='oi24-sum'/> - finał: <problem id='oi33-dys'/></item>
+<item><link url='https://en.wikipedia.org/wiki/Decision_tree_model'>Drzewo decyzyjne</link> - finał: <problem id='oi29-wag'/></item>
+<item><link url='https://codeforces.com/blog/entry/68138'>Drzewo DFS</link> - II etap: <problem id='oi26-osi'/> - finał: <problem id='oi31-wys'/></item>
+<item><link url='https://cp-algorithms.com/data_structures/fenwick.html'>Drzewo Fenwicka</link> - próbny II etap: <problem id='oi26-roz'/></item>
+<item><link url='https://www.youtube.com/watch?v=PBKYoNYwFwk'>Drzewa przedziałowe punkt-przedział i przedział-punkt</link> - próbny II etap: <problem id='oi33-kon'/> - II etap: <problem id='oi27-wie'/>, <problem id='oi29-kon'/>, <problem id='oi30-gra'/>, <problem id='oi32-por'/> - próbny finał: <problem id='oi28-kol'/> - finał: <problem id='oi24-roz'/>, <problem id='oi25-tur'/>, <problem id='oi25-ddl'/>, <problem id='oi28-sur'/>, <problem id='oi28-kom'/>, <problem id='oi32-piw'/>, <problem id='oi33-zli'/></item>
+<item><link url='https://codeforces.com/blog/entry/140066'>Drzewa wirtualne</link> - II etap: <problem id='oi26-kol'/></item>
+<item><link url='https://codeforces.com/blog/entry/72626'>Drzewo przedziałowe przedział-przedział (niekoniecznie z leniwą propagacją)</link> - II etap: <problem id='oi25-tel'/>, <problem id='oi28-ple'/> - finał: <problem id='oi24-oce'/>, <problem id='oi26-wys'/>, <problem id='oi29-rze'/></item>
+<item><link url='https://cp-algorithms.com/data_structures/segment_tree.html#range-updates-lazy-propagation'>Drzewo przedziałowe przedział-przedział z leniwą propagacją</link> - finał: <problem id='oi29-wyb'/>, <problem id='oi30-nww'/>, <problem id='oi33-des'/></item>
+<item><link url='https://cp-algorithms.com/string/aho_corasick.html#construction-of-the-trie'>Drzewo trie</link> - II etap: <problem id='oi27-czw'/>, <problem id='oi28-sza'/></item>
+<item><link url='https://usaco.guide/silver/two-pointers'>Dwa wskaźniki</link> - finał: <problem id='oi28-naw'/></item>
+<item><link url='https://cp-algorithms.com/graph/bipartite-check.html'>Dwukolorowanie grafu</link> - finał: <problem id='oi30-sie'/>, <problem id='oi32-szp'/></item>
+<item><link url='https://cp-algorithms.com/algebra/fft.html'>Dyskretna transformata Fouriera</link> - finał: <problem id='oi25-wie'/></item>
+<item><link url='https://en.wikipedia.org/wiki/Euler_tour_technique'>Euler tour</link> - II etap: <problem id='oi29-kon'/></item>
+<item><link url='https://cp-algorithms.com/algebra/phi-function.html'>Funkcja φ Eulera</link> - II etap: <problem id='oi29-lic'/></item>
+<item><link url='https://cp-algorithms.com/string/z-function.html'>Funkcja Z</link> - finał: <problem id='oi29-sza'/></item>
+<item><link url='https://usaco.guide/silver/two-pointers#sliding-window'>Gąsienica</link> - II etap: <problem id='oi27-wie'/> - finał: <problem id='oi28-sum'/></item>
+<item><link url='https://cp-algorithms.com/string/string-hashing.html'>Haszowanie</link> - II etap: <problem id='oi32-drz'/></item>
+<item>Iloczyn <link url='https://cp-algorithms.com/geometry/basic-geometry.html#dot-product'>skalarny</link> i <link url='https://cp-algorithms.com/geometry/basic-geometry.html#cross-product'>wektorowy</link> - finał: <problem id='oi25-ogr'/>, <problem id='oi28-kom'/>, <problem id='oi30-tor'/></item>
+<item><link url='https://usaco.guide/silver/sorting-custom#coordinate-compression'>Kompresja współrzędnych</link> - II etap: <problem id='oi27-czw'/> - finał: <problem id='oi33-des'/>, <problem id='oi33-zli'/></item>
+<item><link url='https://cp-algorithms.com/algebra/divisors.html#number-of-divisors'>Liczba dzielników</link> - II etap: <problem id='oi27-tru'/> - finał: <problem id='oi25-kom'/>, <problem id='oi32-lok'/></item>
+<item><link url='https://brilliant.org/wiki/linearity-of-expectation/'>Liniowość wartości oczekiwanej</link> - finał: <problem id='oi33-lic'/></item>
+<item><link url='https://pl.wikipedia.org/wiki/Macierz_obrotu#W_2_wymiarach'>Macierz obrotu</link> - finał: <problem id='oi28-kom'/>, <problem id='oi33-zli'/></item>
+<item>Maski bitowe <link url='https://cses.fi/book/book.pdf#chapter.10'>[1]</link> <link url='https://cp-algorithms.com/algebra/all-submasks.html'>[2]</link> - II etap: <problem id='oi27-mar'/>, <problem id='oi30-wsp'/>, <problem id='oi31-ryc'/>, <problem id='oi32-ana'/> - finał: <problem id='oi24-roz'/>, <problem id='oi31-buk'/>, <problem id='oi33-dys'/></item>
+<item><link url='https://cp-algorithms.com/graph/all-pair-shortest-path-floyd-warshall.html'>Macierz osiągalności</link> - II etap: <problem id='oi33-wyk'/></item>
+<item>Maksymalny zbiór niezależny w grafie dwudzielnym <link url='https://oi.edu.pl/l/oi30_3_sie/'>[1]</link> <link url='https://cp-algorithms.com/graph/kuhn_maximum_bipartite_matching.html'>[2]</link> <link url='https://en.wikipedia.org/wiki/K%C5%91nig%27s_theorem_(graph_theory)'>[3]</link> - finał: <problem id='oi30-sie'/></item>
+<item><link url='https://en.wikipedia.org/wiki/Merge_sort'>Merge sort</link> - finał: <problem id='oi25-tur'/>, <problem id='oi31-per'/></item>
+<item><link url='https://cp-algorithms.com/combinatorics/inclusion-exclusion.html'>Metoda włączeń i wyłączeń</link> - II etap: <problem id='oi29-lic'/></item>
+<item><link url='https://en.wikipedia.org/wiki/Minimax#Combinatorial_game_theory'>Min-max</link> - finał: <problem id='oi30-sko'/></item>
+<item><link url='https://cp-algorithms.com/graph/mst_kruskal_with_dsu.html'>Minimalne drzewo rozpinające</link> - finał: <problem id='oi24-roz'/></item>
+<item><link url='https://usaco.guide/plat/merging'>Mniejszy do większego</link> - finał: <problem id='oi32-red'/></item>
+<item><link url='https://cp-algorithms.com/graph/dijkstra.html'>Najkrótsze ścieżki z jednego źródła</link> - II etap: <problem id='oi26-kol'/></item>
+<item><link url='https://github.com/digitcrusher/algorytmy/blob/d45ec41/algo/graph/shortest_path.hpp#L24'>Najkrótsze ścieżki z jednego źródła w skierowanym grafie acyklicznym</link> - finał: <problem id='oi28-dro'/></item>
+<item><link url='https://cp-algorithms.com/graph/lca_binary_lifting.html'>Najniższy wspólny przodek</link> - finał: <problem id='oi31-wys'/></item>
+<item><link url='https://codeforces.com/blog/entry/19771'>Odpowiadanie na zapytania offline</link> - II etap: <problem id='oi24-kon'/>, <problem id='oi26-kol'/>, <problem id='oi29-kon'/>, <problem id='oi31-cia'/> - finał: <problem id='oi30-lap'/>, <problem id='oi30-nww'/></item>
+<item><link url='https://codeforces.com/blog/entry/96713'>Podział względem pierwiastka</link> - II etap: <problem id='oi24-kon'/> - finał: <problem id='oi32-imp'/></item>
+<item>Pre-order i post-order <link url='https://www.youtube.com/watch?v=weANP6rubWA'>[1]</link> - próbny II etap: <problem id='oi33-kon'/> - II etap: <problem id='oi27-czw'/> - finał: <problem id='oi24-roz'/></item>
+<item>Preprocessing przed wysłaniem na sprawdzaczkę - II etap: <problem id='oi27-tru'/> - finał: <problem id='oi29-wag'/></item>
+<item><link url='https://cp-algorithms.com/dynamic_programming/knapsack.html'>Problem plecakowy</link> - II etap: <problem id='oi30-drw'/></item>
+<item><link url='https://cp-algorithms.com/dynamic_programming/intro-to-dp.html'>Programowanie dynamiczne</link> - próbny II etap: <problem id='oi28-pro'/>, <problem id='oi29-im2'/> - II etap: <problem id='oi25-dro'/>, <problem id='oi25-kon'/>, <problem id='oi30-wag'/>, <problem id='oi30-drw'/>, <problem id='oi30-wsp'/>, <problem id='oi32-ana'/> - próbny finał: <problem id='oi31-sta'/> - finał: <problem id='oi24-zap'/>, <problem id='oi24-kuc'/>, <problem id='oi25-ogr'/>, <problem id='oi26-zja'/>, <problem id='oi26-gra'/>, <problem id='oi30-lap'/>, <problem id='oi31-buk'/>, <problem id='oi31-ska'/>, <problem id='oi32-szu'/>, <problem id='oi32-piw'/>, <problem id='oi33-des'/></item>
+<item><link url='https://codeforces.com/blog/entry/108615'>Programowanie dynamiczne jako mnożenie macierzy</link> - finał: <problem id='oi26-zja'/></item>
+<item><link url='https://codeforces.com/blog/entry/20935'>Programowanie dynamiczne na drzewie</link> - próbny II etap: <problem id='oi27-wak'/> - II etap: <problem id='oi29-age'/> - finał: <problem id='oi24-roz'/>, <problem id='oi30-par'/>, <problem id='oi31-wyj'/></item>
+<item><link url='https://usaco.guide/adv/random'>Randomizacja</link> - finał: <problem id='oi26-dlu'/>, <problem id='oi32-szu'/></item>
+<item><link url='https://usaco.guide/plat/matrix-expo'>Rekurencja liniowa jako mnożenie macierzy</link> - próbny II etap: <problem id='oi30-wir'/></item>
+<item><link url='https://cp-algorithms.com/algebra/factorization.html#trial-division'>Rozkład na czynniki pierwsze</link> - II etap: <problem id='oi29-lic'/></item>
+<item><link url='https://cp-algorithms.com/graph/strongly-connected-components.html'>Silnie spójne składowe</link> - II etap: <problem id='oi25-dro'/></item>
+<item><link url='https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html'>Sito liczb pierwszych</link> - finał: <problem id='oi25-kom'/></item>
+<item><link url='https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html#segmented-sieve'>Sito segmentowe</link> - finał: <problem id='oi28-sum'/></item>
+<item><link url='https://oi.edu.pl/l/oi31_2_tel/'>Sortowanie ciągów</link> - próbny II etap: <problem id='oi31-tel'/></item>
+<item><link url='https://codeforces.com/blog/entry/72815'>Sortowanie kątowe</link> - próbny finał: <problem id='oi25-dwa'/> - finał: <problem id='oi32-lok'/></item>
+<item><link url='https://en.wikipedia.org/wiki/Bucket_sort'>Sortowanie kubełkowe</link> - finał: <problem id='oi25-kom'/></item>
+<item><link url='https://codeforces.com/blog/entry/101010'>Sortowanie poddrzew</link> - II etap: <problem id='oi32-drz'/></item>
+<item><link url='https://cp-algorithms.com/graph/topological-sort.html'>Sortowanie topologiczne</link> - II etap: <problem id='oi25-dro'/>, <problem id='oi28-zdj'/></item>
+<item><link url='https://cp-algorithms.com/dynamic_programming/intro-to-dp.html#speeding-up-fibonacci-with-dynamic-programming-memoization'>Spamiętywanie</link> - II etap: <problem id='oi30-wag'/> - finał: <problem id='oi29-wag'/>, <problem id='oi30-sko'/></item>
+<item><link url='https://cp-algorithms.com/geometry/minkowski.html'>Suma Minkowskiego wielokątów wypukłych</link> - finał: <problem id='oi32-lok'/></item>
+<item><link url='https://cp-algorithms.com/algebra/binary-exp.html'>Szybkie potęgowanie</link> - próbny II etap: <problem id='oi30-wir'/> - finał: <problem id='oi26-zja'/>, <problem id='oi31-zyr'/></item>
+<item><link url='https://cp-algorithms.com/data_structures/disjoint_set_union.html'>Union-Find</link> - finał: <problem id='oi33-rzb'/></item>
+<item><link url='https://cp-algorithms.com/data_structures/segment_tree.html#preserving-the-history-of-its-values-persistent-segment-tree'>Utrwalanie drzewiastych struktur danych</link> - II etap: <problem id='oi31-cia'/></item>
+<item><link url='https://oi.edu.pl/l/oi33_3_dys/'>Ważone twierdzenie Halla</link> - finał: <problem id='oi33-dys'/></item>
+<item><link url='https://cp-algorithms.com/data_structures/segment_tree.html#counting-zero-search-kth'>Wyszukiwanie binarne na drzewie przedziałowym</link> - II etap: <problem id='oi27-wie'/>, <problem id='oi31-cia'/></item>
+<item><link url='https://cp-algorithms.com/num_methods/binary_search.html#binary-search-on-the-answer'>Wyszukiwanie binarne po wyniku</link> - II etap: <problem id='oi29-lic'/>, <problem id='oi32-ana'/> - finał: <problem id='oi26-zja'/>, <problem id='oi26-orn'/>, <problem id='oi29-met'/>, <problem id='oi30-par'/>, <problem id='oi30-tor'/>, <problem id='oi33-dys'/></item>
+<item><link url='https://usaco.guide/plat/sweep-line'>Zamiatanie</link> - II etap: <problem id='oi24-zam'/> - próbny finał: <problem id='oi25-dwa'/> - finał: <problem id='oi25-tur'/>, <problem id='oi25-ddl'/>, <problem id='oi28-kom'/>, <problem id='oi29-met'/>, <problem id='oi30-tor'/>, <problem id='oi33-zli'/></item>
+<item>Zmiana układu współrzędnych <link url='https://cp-algorithms.com/geometry/manhattan-distance.html#rotating-the-points-and-chebyshev-distance'>[1]</link> - II etap: <problem id='oi33-spo'/> - finał: <problem id='oi28-kom'/>, <problem id='oi33-zli'/></item>
 </list>
 </subanswer>
 </answer>

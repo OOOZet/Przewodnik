@@ -29,6 +29,7 @@ Istnieją dwa różne "konteksty" tekstu, w których mogą występować znacznik
 | `list`          |         ❌         |         ✅        |  *Zawiera tylko `item`*  |
 | `note`          |         ❌         |         ✅        |          Block           |
 | `placeholder`   |         ✅         |         ❌        |   *Nie wprowadza nic*    |
+| `problem`       |         ✅         |         ❌        |   *Nie wprowadza nic*    |
 | `ref`           |         ✅         |         ❌        |          Inline          |
 | `todo`          |         ❌         |         ✅        |          Block           |
 | `warning`       |         ❌         |         ✅        |          Block           |
@@ -55,7 +56,8 @@ Poniżej jest warstwa semantyczna przykładowego dokumentu prezentująca wszystk
     </todo>
 
     Przykładowe zdanie z <important>ważną informacją</important>, <code>kodem
-    </code>, <emphasis>wymawianym naciskiem na słowo lub krótką frazę</emphasis>
+    </code>, <emphasis>wymawianym naciskiem na słowo lub krótką frazę
+    </emphasis>, <problem id='oi10-mal'/> (nazwą zadania z linkiem i kolorem)
     oraz <link url='https://example.com'>linkiem</link>.
 
     Kolejne paragrafy są oddzielane od siebie dwoma znakami nowej linii.

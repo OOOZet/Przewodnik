@@ -1,0 +1,660 @@
+id,name,competition,stage,url
+oi1-ana,Anagramy,I OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-1
+oi1-kwa,Suma kwadratów cyfr,I OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-1
+oi1-mak,Nasycanie makrofanów,I OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-1
+oi1-pio,Pionki,I OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-1
+oi1-prs,Przepustowość sieci,I OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-1
+oi1-prz,Przedsięwzięcie,I OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-1
+oi1-spo,Sponsor,I OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-1
+oi1-tro,Trójkąty,I OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-1
+oi1-wah,Wahania akcji na giełdzie,I OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-1
+oi1-wys,Wyspy na trójkątnej sieci,I OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-1
+oi10-aut,Autostrady,X OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-cia,Ciągi bez zająknięć,X OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-cze,Czekolada,X OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-gra,Gra w dzielniki,X OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-kaf,Kafelki,X OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-kry,Kryształ,X OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-lic,Liczby Przesmyków,X OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-mal,Małpki,X OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-mas,Mastermind II,X OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-ply,Płytki drukowane,X OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-pol,Połączenia,X OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-prz,Przemytnicy,X OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-ska,Skarb,X OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-sum,Sumy,X OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-tas,Tasowanie,X OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi10-tro,Trójmian,X OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-10
+oi11-bra,Bramki,XI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-gra,Gra,XI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-jas,Jaskinia,XI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-kag,Kaglony,XI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-mak,Maksymalne rzędy permutacji,XI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-mis,Misie-Patysie,XI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-mos,Most,XI OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-pin,PIN-kod,XI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-prz,Przeprawa,XI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-szn,Sznurki,XI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-szp,Szpiedzy,XI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-tur,Turniej,XI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-wsc,Wschód-Zachód,XI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-wys,Wyspy,XI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-zaw,Zawody,XI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi11-zga,Zgadywanka,XI OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-11
+oi12-akc,Akcja komandosów,XII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-aut,Autobus,XII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-ban,Banknoty,XII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-bnk,Bankomat,XII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-dwa,Dwa przyjęcia,XII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-dwu,Dwuszereg,XII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-dzi,Dziuple,XII OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-kos,Kości,XII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-lot,Lot na Marsa,XII OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-lus,Lustrzana pułapka,XII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-pra,Prawoskrętny wielbłąd,XII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-pun,Punkty,XII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-sam,Samochodziki,XII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-ska,Skarbonki,XII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-sko,Skoczki,XII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-sum,Sumy Fibonacciego,XII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi12-sza,Szablon,XII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-12
+oi13-est,Estetyczny tekst,XIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-kra,Krążki,XIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-kry,Kryształy,XIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-lis,Listonosz,XIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-mag,Magazyn,XIII OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-met,Metro,XIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-mis,Misie,XIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-naj,Najazd,XIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-okr,Okresy słów,XIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-ork,Orka,XIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-pal,Palindromy,XIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-pro,Profesor Szu,XIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-szk,Szkoły,XIII OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-tan,Tańce w kółkach,XIII OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-tet,Tetris 3D,XIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-zab,Żaby,XIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi13-zos,Zosia,XIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-13
+oi14-atr,Atrakcje turystyczne,XIV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-biu,Biura,XIV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-drz,Drzewa,XIV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-egz,Egzamin na prawo jazdy,XIV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-gaz,Gazociągi,XIV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-grz,Grzbiety i doliny,XIV OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-klo,Klocki,XIV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-kol,Koleje,XIV OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-meg,Megalopolis,XIV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-odw,Odważniki,XIV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-osi,Osie symetrii,XIV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-pow,Powódź,XIV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-ska,Skalniak,XIV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-tet,Tetris Attack,XIV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-wag,Waga czwórkowa,XIV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi14-zap,Zapytania,XIV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-14
+oi15-bbb,BBB,XV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-blo,Blokada,XV OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-clo,Cło,XV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-klo,Klocki,XV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-kup,Kupno gruntu,XV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-lam,Lampki,XV OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-maf,Mafia,XV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-per,Permutacja,XV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-pla,Plakatowanie,XV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-poc,Pociągi,XV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-pod,Podział królestwa,XV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-rob,Robinson,XV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-sta,Stacja,XV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-szk,Szklana pułapka,XV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-tro,Trójkąty,XV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi15-uci,Ucieczka,XV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-15
+oi16-arc,Architekci,XVI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-gas,Gaśnice,XVI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-kam,Kamyki,XVI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-kod,Kod,XVI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-kon,Konduktor,XVI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-lyz,Łyżwy,XVI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-pos,Poszukiwania,XVI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-prb,Przechadzka Bajtusia,XVI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-prz,Przyspieszenie algorytmu,XVI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-slo,Słonie,XVI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-slw,Słowa,XVI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-str,Straż pożarna,XVI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-tab,Tablice,XVI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-wie,Wiedźmak,XVI OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-wsp,Wyspa,XVI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi16-wys,Wyspy na trójkątnej sieci,XVI OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-16
+oi17-ant,Antysymetria,XVII OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-cho,Chomiki,XVII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-gil,Gildie,XVII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-gra,Gra w minima,XVII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-jed,Jedynki,XVII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-klo,Klocki,XVII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-kol,Kolej,XVII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-kor,Korale,XVII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-lat,Latarnia,XVII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-mon,Monotoniczność,XVII OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-mos,Mosty,XVII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-naj,Najdzielniejszy dzielnik,XVII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-owc,Owce,XVII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-pil,Piloci,XVII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-tel,Teleporty,XVII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-tes,Test na inteligencję,XVII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi17-zab,Żabka,XVII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-17
+oi18-dyn,Dynamit,XVIII OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-imp,Impreza,XVIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-ins,Inspekcja,XVIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-kon,Konspiracja,XVIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-liz,Lizak,XVIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-met,Meteory,XVIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-okr,Okresowość,XVIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-pat,Patyczki,XVIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-pio,Piorunochron,XVIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-pro,Konkurs programistyczny,XVIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-prz,Przekładanka,XVIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-rot,Rotacje na drzewie,XVIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-roz,Różnica,XVIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-sej,Sejf,XVIII OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-smi,Śmieci,XVIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-tem,Temperatura,XVIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi18-wyk,Wykres,XVIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-18
+oi19-bez,Bezpieczeństwo minimalistyczne,XIX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-bon,Bony,XIX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-fes,Festyn,XIX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-hur,Hurtownia,XIX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-lic,Licytacja,XIX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-lit,Litery,XIX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-odl,Odległość,XIX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-okr,Okropny wiersz,XIX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-pen,Pensje,XIX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-pre,Prefiksufiks,XIX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-ran,Randka,XIX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-roz,Rozkład Fibonacciego,XIX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-squ,Squarki,XIX OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-stu,Studnia,XIX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-sza,Szatnia,XIX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-tou,Tour de Bajtocja,XIX OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi19-wyr,Wyrównywanie terenu,XIX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-19
+oi2-drz,Drzewa,II OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-2
+oi2-jed,Jedynki i zera,II OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-2
+oi2-kod,Kodowanie permutacji,II OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-2
+oi2-kpk,Klub Prawoskrętnych Kierowców,II OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-2
+oi2-mud,Mudstock Bis,II OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-2
+oi2-obc,Obchodzenie drzewa skokami,II OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-2
+oi2-opt,Optymalizacja dysku,II OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-2
+oi2-pal,Palindromy,II OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-2
+oi2-poc,Pochylnia,II OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-2
+oi2-skl,Składanie słów,II OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-2
+oi2-sza,Pokrywanie szachownicy,II OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-2
+oi2-sze,Szeregowanie czynności,II OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-2
+oi2-tro,Trójkąty,II OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-2
+oi2-wie,Wielokąt,II OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-2
+oi20-baj,Bajtokomputer,XX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-cen,Cennik,XX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-gdz,Gdzie jest jedynka?,XX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-gob,Gobeliny,XX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-gra,Gra Tower Defense,XX OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-ins,Inspektor,XX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-kon,Konewka,XX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-lab,Labirynt,XX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-lan,Łańcuch kolorowy,XX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-las,Laser,XX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-luk,Łuk triumfalny,XX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-mor,Morskie opowieści,XX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-mul,Multidrink,XX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-pol,Polaryzacja,XX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-spa,Spacer,XX OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-tak,Taksówki,XX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi20-usu,Usuwanka,XX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-20
+oi21-bar,Bar sałatkowy,XXI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-doo,Dookoła świata,XXI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-far,FarmerCraft,XXI OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-hot,Hotele,XXI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-kar,Karty,XXI OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-klo,Klocki,XXI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-kur,Kurierzy,XXI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-lam,Lampy słoneczne,XXI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-mro,Mrowisko,XXI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-pan,Panele słoneczne,XXI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-prz,Przestępcy,XXI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-pta,Ptaszek,XXI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-raj,Rajd,XXI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-sup,Superkomputer,XXI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-tur,Turystyka,XXI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-waz,Wąż,XXI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi21-zal,Załadunek,XXI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-21
+oi22-cza,Czarnoksiężnicy okrągłego stołu,XXII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-kin,Kinoman,XXII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-kol,Kolekcjoner Bajtemonów,XXII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-kur,Kurs szybkiego czytania,XXII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-kwa,Kwadraty,XXII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-las,Łasuchy,XXII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-log,Logistyka,XXII OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-mod,Modernizacja autostrady,XXII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-myj,Myjnie,XXII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-odw,Odwiedziny,XXII OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-pie,Pieczęć,XXII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-pod,Podział naszyjnika,XXII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-pus,Pustynia,XXII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-tab,Tablice kierunkowe,XXII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-trz,Trzy wieże,XXII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-wil,Wilcze doły,XXII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi22-wyc,Wycieczki,XXII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-22
+oi23-ark,Arkanoid,XXIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-dro,Drogi zmiennokierunkowe,XXIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-hyd,Hydrorozgrywka,XXIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-klu,Klubowicze,XXIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-kor,Korale,XXIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-nad,Nadajniki,XXIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-nie,Niebanalne podróże,XXIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-nim,Nim z utrudnieniem,XXIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-par,Park wodny,XXIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-pos,Posłaniec,XXIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-pra,Pracowity Jaś,XXIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-prd,Parada,XXIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-row,Równoważne programy,XXIII OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-swi,Świąteczny łańcuch,XXIII OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-wca,Wcale nie Nim,XXIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-zaj,Zająknięcia,XXIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi23-zyw,Żywopłot,XXIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-23
+oi24-fla,Flappy Bird,XXIV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-kon,Kontenery,XXIV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-kuc,Kucharz,XXIV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-mid,Midas,XXIV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-oce,Oceny,XXIV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-piz,Dostawca pizzy,XXIV OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-pod,Podzielność,XXIV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-rep,Reprezentacje różnicowe,XXIV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-roz,Rozdroża parzystości,XXIV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-sab,Sabotaż,XXIV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-str,Strajki,XXIV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-sum,Suma cyfr,XXIV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-tur,Turysta,XXIV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-zam,Zamek,XXIV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-zap,Zapiekanki,XXIV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi24-zaw,Zawody sportowe,XXIV OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-24
+oi25-ddl,Dwa długie lizaki,XXV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-dro,Drogi rowerowe,XXV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-dwa,Dwa pionki,XXV OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-kom,Liczby kompletne,XXV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-kon,Konduktor,XXV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-ogr,Ogrodzenie,XXV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-pio,Pionek,XXV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-pla,Plan metra,XXV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-pow,Powódź,XXV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-pra,Prawnicy,XXV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-prz,Przelewy,XXV OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-roz,Różnorodność,XXV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-tak,Taksówki,XXV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-tel,Przekaźniki telekomunikacyjne,XXV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-tom,Tomik poezji,XXV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-trz,Trzy wieże 2,XXV OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-tur,Turniej trójinformatyczny,XXV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi25-wie,Wielomian,XXV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-25
+oi26-cyk,Przesunięcie cykliczne,XXVI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-dlu,Długie podróże,XXVI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-gra,Gra w dzielniki,XXVI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-gwi,Gwiazdy,XXVI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-klu,Klubowicze 2,XXVI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-kol,Kolacje,XXVI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-met,Metro,XXVI OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-nie,Niedbałość,XXVI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-orn,Ornitolog,XXVI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-osi,Osiedla,XXVI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-par,Para naszyjników,XXVI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-pod,Podciągi,XXVI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-rem,Remont,XXVI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-rob,Robocik,XXVI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-roz,Rozliczenia,XXVI OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-wys,Wyścigi,XXVI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi26-zja,Zjazd obieżyświatów,XXVI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-26
+oi27-czw,Drzewo czwórkowe,XXVII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-27
+oi27-mar,Marudny Bajtazar,XXVII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-27
+oi27-nww,Najmniejsza wspólna wielokrotność,XXVII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-27
+oi27-pis,Pisarze,XXVII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-27
+oi27-pom,Pomniejszenie,XXVII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-27
+oi27-prz,Przedszkole,XXVII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-27
+oi27-tru,Trudny dylemat przedszkolanina,XXVII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-27
+oi27-ukl,Układ scalony,XXVII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-27
+oi27-wak,Wakacje Bajtazara,XXVII OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-27
+oi27-wie,Wielki Upadek,XXVII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-27
+oi28-cuk,Cukiernia,XXVIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-dro,Droga do domu,XXVIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-gan,Gang Biciaków,XXVIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-gra,Gra platformowa,XXVIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-kol,Kolekcjoner Bajtemonów 2,XXVIII OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-kom,Komunikacja międzyplanetarna,XXVIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-les,Les Bitérables,XXVIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-lic,Licznik długu,XXVIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-naw,Nawiasowania,XXVIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-pla,Plażowicze,XXVIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-ple,Pakowanie plecaka,XXVIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-pro,Projekt planszy,XXVIII OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-sum,Suma liczb pierwszych,XXVIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-sur,Surowa zima,XXVIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-sza,Szablon Bajtogrodu,XXVIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-tab,Tablica binarna,XXVIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi28-zdj,Zdjęcia krasnali,XXVIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-28
+oi29-age,Agenci,XXIX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-arm,Armia klonów,XXIX OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-bom,Bomberman,XXIX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-dom,Domino,XXIX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-dru,Druk,XXIX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-glo,Głosowanie,XXIX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-im2,Impreza krasnali 2,XXIX OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-imp,Impreza krasnali,XXIX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-kon,Konkurs tańca towarzyskiego,XXIX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-lic,Liczby względnie pierwsze,XXIX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-met,Meteory,XXIX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-mon,Montażysta,XXIX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-rze,Rzeki,XXIX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-sza,Szablon 2,XXIX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-ukl,Układanie kart,XXIX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-wag,Waga,XXIX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-wyb,Wybredny Bajtazar,XXIX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi29-zer,Zera i jedynki,XXIX OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-29
+oi3-age,Agenci,III OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-3
+oi3-gon,Gońcy,III OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-3
+oi3-haz,Hazard,III OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-3
+oi3-kul,Kule,III OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-3
+oi3-mok,Mokra robota,III OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-3
+oi3-mon,Pięć monet,III OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-3
+oi3-nie,Nieatakujące się skoczki,III OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-3
+oi3-per,Permutacje antyarytmetyczne,III OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-3
+oi3-pre,Pręty,III OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-3
+oi3-slo,Słowa Fibonacciego,III OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-3
+oi3-wie,Wieże,III OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-3
+oi3-wyr,Wyrównywanie słów,III OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-3
+oi3-zam,Zamek,III OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-3
+oi30-drw,Drwale,XXX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-gra,Gra w kolorowanie,XXX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-kol,Kolorowy wąż,XXX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-lap,Laptopy,XXX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-naw,Nawigacja samochodowa,XXX OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-nww,NWW,XXX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-par,Park linowy,XXX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-ply,Płytkie nawiasowania,XXX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-poc,Pociąg towarowy,XXX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-sie,Sieć społecznościowa,XXX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-sko,Skoczek,XXX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-tor,Tort,XXX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-wag,Wagony,XXX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-wir,Wirus,XXX OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-wsp,Wspinaczka,XXX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-wyp,Wyprzedzanie,XXX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi30-zbo,Zboże,XXX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-30
+oi31-bud,Budowa lotniska,XXXI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-buk,Bukmacher,XXXI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-cia,Ciąg binarny,XXXI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-cza,CzatBBB,XXXI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-lic,Liczniki,XXXI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-per,Permutacje,XXXI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-poj,Pojemniki,XXXI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-prz,Przyciski,XXXI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-ryc,Rycerz,XXXI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-sat,Satelity,XXXI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-ska,Skarb,XXXI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-sta,Stacje benzynowe,XXXI OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-tel,Telefony,XXXI OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-wyj,Wyjścia ewakuacyjne,XXXI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-wys,Wyścig kolarski,XXXI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-zap,Zapobiegliwy student,XXXI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi31-zyr,Żyrandol,XXXI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-31
+oi32-ana,Podział na anagramy,XXXII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-bit,Bitada,XXXII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-drz,Drzewo genealogiczne,XXXII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-imp,Impreza,XXXII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-kas,Kasyno,XXXII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-lok,Lokacja miasta,XXXII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-ogr,Ogrodzenie,XXXII OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-piw,Przyjaciele i wrogowie,XXXII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-por,Porządki,XXXII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-red,Redukcja połączeń,XXXII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-sch,Schody,XXXII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-spr,Sprawiedliwy podział,XXXII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-sss,Sekretna siatka szpiegowska,XXXII OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-szp,Szpiedzy,XXXII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-szu,Szum,XXXII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-usu,Usuwanie,XXXII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-wal,Walki,XXXII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi32-zam,Zamek cykliczny,XXXII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-32
+oi33-bag,Bagaż podręczny,XXXIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-des,Deszcze meteorów,XXXIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-dos,Dostawy,XXXIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-dwu,Dwukolorowe drzewo,XXXIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-dys,Dyscyplina,XXXIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-han,Hanoj,XXXIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-kon,Kontrwywiad,XXXIII OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-laz,Łazik kosmiczny,XXXIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-lic,Licytacje,XXXIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-pro,Prognoza pogody,XXXIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-prz,Przeglądarka internetowa,XXXIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-rpk,Rozwiązanie pokojowe,XXXIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-rzb,Rozbudowa Bajtocji,XXXIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-sil,Siłownia dla początkujących,XXXIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-spo,Spotkanie na Bajhattanie,XXXIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-ste,Steganografia,XXXIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-ukr,Ukryte drzewo,XXXIII OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-wyk,Wykaz dróg,XXXIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-wyr,Wyrażenie arytmetyczne,XXXIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi33-zli,Zliczanie Z,XXXIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-33
+oi4-add,Addon,IV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi4-ali,Alibaba,IV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi4-gen,Genotypy,IV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi4-kaj,Kajaki,IV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi4-lic,Liczba wyborów symetrycznych,IV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi4-liz,Liczba zbiorów n-k-specjalnych,IV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi4-lot,Lotniska,IV OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi4-pal,Paliwo,IV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi4-rek,Rekurencyjna mrówka,IV OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi4-rez,Rezerwacja sal wykładowych,IV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi4-sko,Skok w bok,IV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi4-tan,Tanie podróże,IV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi4-tro,Trójkąty jednobarwne,IV OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi4-wia,Wiarygodność świadków,IV OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi4-xor,Bramki XOR,IV OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-4
+oi5-abs,AB-słowa,V OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-ban,Bankomaty,V OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-gon,Gonitwa,V OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-gra,Gra Ulama,V OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-lam,Łamane płaskie,V OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-mal,Pracownia malarska,V OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-naj,Najlżejszy język,V OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-okn,Okno,V OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-pak,Pakowanie kontenerów,V OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-ple,Płetwonurek,V OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-pro,Prostokąty,V OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-row,Równanie na słowach,V OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-sie,Sieć dróg,V OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-sum,Suma ciągu jedynkowego,V OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-ukl,Układy asemblerowe,V OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi5-wie,Wielokąt,V OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-5
+oi6-bit,Bitmapa,VI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi6-gra,Gra w wielokąty,VI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi6-gro,Grotołazi,VI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi6-lod,Lodowisko,VI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi6-lun,Lunatyk,VI OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi6-mag,Magazynier,VI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi6-map,Mapa,VI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi6-mon,Monocyfrowe reprezentacje,VI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi6-mus,Muszkieterowie,VI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi6-olt,Ołtarze,VI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi6-pie,Pierwotek abstrakcyjny,VI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi6-pus,Puste prostopadłościany,VI OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi6-rak,Rakiety,VI OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi6-tro,Trójkolorowe drzewa binarne,VI OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi6-wod,Woda,VI OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-6
+oi7-age,Agenci,VII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi7-aut,Automorfizmy,VII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi7-bro,Gdzie zbudować browar?,VII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi7-jaj,Jajka,VII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi7-kod,Kod,VII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi7-lab,Labirynt studni,VII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi7-lol,Lollobrygida,VII OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi7-nar,Narciarze,VII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi7-pas,Paski,VII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi7-pod,Podpisy,VII OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi7-pol,Po-łamana,VII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi7-pow,Powtórzenia,VII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi7-pro,Promocja,VII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi7-tro,Trójramienny dźwig,VII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi7-wir,Wirusy,VII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-7
+oi8-ant,Liczby antypierwsze,VIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi8-ban,Bank,VIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi8-gol,Gorszy Goldbach,VIII OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi8-gra,Gra w zielone,VIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi8-kop,Kopalnia złota,VIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi8-lan,Łańcuch,VIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi8-map,Mapa gęstości,VIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi8-mro,Mrówki i biedronka,VIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi8-pch,Wędrowni treserzy pcheł,VIII OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi8-pod,Podróż,VIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi8-por,Porównywanie naszyjników,VIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi8-prz,Przedziały,VIII OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi8-spo,Spokojna komisja,VIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi8-wys,Wyspa,VIII OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi8-zwi,Zwiedzanie miasta,VIII OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-8
+oi9-dzi,Działka,IX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-izo,Izolator,IX OI,próbny II etap,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-kol,Koleje,IX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-kom,Komiwojażer Bajtazar,IX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-kur,Kurort narciarski,IX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-lic,Liczby B-gładkie,IX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-min,Minusy,IX OI,próbny finał,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-nar,Narciarze,IX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-naw,Nawiasy,IX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-pro,Protokoły,IX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-sup,Superskoczek,IX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-szy,Szyfr,IX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-wag,Waga,IX OI,finał,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-wyl,Wyliczanka,IX OI,II etap,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-wys,Wyspa,IX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-9
+oi9-zam,Zamek,IX OI,I etap,https://oi.edu.pl/l/oi_zadania/#oi-9
+oij14-1-bas,Basen,XIV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-14
+oij14-1-dek,Deski kontratakują,XIV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-14
+oij14-1-des,Deski,XIV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-14
+oij14-1-hax,H4x0r,XIV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-14
+oij14-1-hur,Hurra!,XIV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-14
+oij14-1-kwa,Próg kwalifikacyjny,XIV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-14
+oij14-1-lic,Liczbowy proces,XIV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-14
+oij14-1-min,Minusy,XIV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-14
+oij14-1-par,Liczby parzystocyfrowe,XIV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-14
+oij14-1-pec,Liczby pechowe,XIV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-14
+oij14-1-poz,Poziome serca,XIV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-14
+oij14-1-ser,Serca,XIV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-14
+oij14-2-not,Notowania akcji,XIV OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-14
+oij14-2-pos,Posiadłość,XIV OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-14
+oij14-2-spa,Spacery po drzewie binarnym,XIV OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-14
+oij14-2-spe,Speedrun,XIV OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-14
+oij14-2-usu,Usuwanka,XIV OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-14
+oij14-2-zmi,Zmiennoliterowe słowo,XIV OIJ,próbny II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-14
+oij14-2-zyg,Zygzak,XIV OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-14
+oij15-1-lic,Najmniejsza liczba,XV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-15
+oij15-1-oij,OIJ,XV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-15
+oij15-1-opt,Optymalizacja mandatów,XV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-15
+oij15-1-pro,Programy,XV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-15
+oij15-1-psi,… albo psikus!,XV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-15
+oij15-1-slo,Liczby słownie,XV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-15
+oij15-1-sum,Dwukrotność sumy cyfr,XV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-15
+oij15-1-tyr,Tyrolka,XV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-15
+oij15-1-zeg,Zegarek,XV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-15
+oij15-1-zmi,Zmiennoliterowe słowo II,XV OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-15
+oij15-2-cze,Czekolada,XV OIJ,próbny II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-15
+oij15-2-plo,Płoty,XV OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-15
+oij15-2-plu,Największy plus,XV OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-15
+oij15-2-roz,Różnorodność,XV OIJ,próbny II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-15
+oij15-2-zes,Zespoły,XV OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-15
+oij15-3-ant,Antytrójkątowe pudełko,XV OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-15
+oij15-3-cie,Ciężarówki,XV OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-15
+oij15-3-kul,Kulki,XV OIJ,próbny finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-15
+oij15-3-pio,Pionki,XV OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-15
+oij15-3-sil,Liczby silne,XV OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-15
+oij16-1-ant,Antypalindrom,XVI OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-16
+oij16-1-far,Farma,XVI OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-16
+oij16-1-kla,Klapki na obcasach,XVI OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-16
+oij16-1-mno,Mnożenie,XVI OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-16
+oij16-1-ocz,Oczko,XVI OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-16
+oij16-1-pin,Pinezki,XVI OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-16
+oij16-1-pre,Prezenty,XVI OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-16
+oij16-1-puz,Puzzle,XVI OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-16
+oij16-1-ska,Skarpetki,XVI OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-16
+oij16-1-wyc,Wycinka drzew,XVI OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-16
+oij16-2-liz,Lizak,XVI OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-16
+oij16-2-mec,Wynik meczu,XVI OIJ,próbny II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-16
+oij16-2-naj,Najmniejsza suma,XVI OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-16
+oij16-2-naw,Nawiasowania,XVI OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-16
+oij16-2-pra,Praca zdalna,XVI OIJ,próbny II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-16
+oij16-3-aga,Agar.io,XVI OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-16
+oij16-3-cie,Ciężarówki II,XVI OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-16
+oij16-3-sta,Stabilny ciąg,XVI OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-16
+oij16-3-tro,Rysowanie trójkątów,XVI OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-16
+oij16-3-zag,Zaginiona litera,XVI OIJ,próbny finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-16
+oij17-1-bie,Biegacze,XVII OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-17
+oij17-1-col,Problem Collatza,XVII OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-17
+oij17-1-kro,Przesuwanie króla,XVII OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-17
+oij17-1-log,Wioska logiki,XVII OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-17
+oij17-1-pod,Podzielność przez 9,XVII OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-17
+oij17-1-pre,Prestiżowe zawody,XVII OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-17
+oij17-2-dra,Drabina z nici,XVII OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-17
+oij17-2-ful,Fulle,XVII OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-17
+oij17-2-lab,Labirynty,XVII OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-17
+oij17-3-ant,Antypalindrom,XVII OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-17
+oij17-3-bot,Boty,XVII OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-17
+oij17-3-gon,Ustawianie gońca,XVII OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-17
+oij17-3-han,Hanoi-nawiasowania,XVII OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-17
+oij17-3-lic,Liczby,XVII OIJ,próbny finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-17
+oij17-3-pir,Piramida liczbowa,XVII OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-17
+oij17-3-zbi,Zbiór klocków,XVII OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-17
+oij18-1-art,Artykuły prawne,XVIII OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-18
+oij18-1-bal,Idealny bałwan,XVIII OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-18
+oij18-1-cia,Różnorodny ciąg,XVIII OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-18
+oij18-1-dom,Domek,XVIII OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-18
+oij18-1-oij,OIJ,XVIII OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-18
+oij18-1-pod,Podzielność,XVIII OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-18
+oij18-2-kul,Kulturalna kolejka,XVIII OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-18
+oij18-2-par,Parzysta suma,XVIII OIJ,próbny II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-18
+oij18-2-ros,Ciąg rosnący,XVIII OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-18
+oij18-2-scr,Scrabble,XVIII OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-18
+oij18-3-bit,Bity,XVIII OIJ,próbny finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-18
+oij18-3-cie,Ciężarówki III,XVIII OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-18
+oij18-3-pod,Podzielność kontratakuje,XVIII OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-18
+oij18-3-prz,Przygody Smoka Bajtazara,XVIII OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-18
+oij18-3-ref,Reforma drogowa,XVIII OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-18
+oij18-3-skl,Sklej++,XVIII OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-18
+oij18-3-sor,Bezbłędne sortowanie,XVIII OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-18
+oij19-1-fig,Pole figury I,XIX OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-19
+oij19-1-lic,Liczby niepotęgowe,XIX OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-19
+oij19-1-num,Numery telefonów,XIX OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-19
+oij19-1-pol,Pole figury II,XIX OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-19
+oij19-1-prz,Przekształcanie liczby,XIX OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-19
+oij19-1-ryb,Sklep rybny,XIX OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-19
+oij19-1-tel,Nowy telewizor,XIX OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-19
+oij19-2-arr,Piraci,XIX OIJ,próbny II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-19
+oij19-2-fib,Domino Fibonacciego,XIX OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-19
+oij19-2-ppr,Przekształcenie potęgowe,XIX OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-19
+oij19-2-skr,Skracanie słów,XIX OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-19
+oij19-3-fig,Figura szachowa,XIX OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-19
+oij19-3-odc,Dwa odcinki,XIX OIJ,próbny finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-19
+oij19-3-par,Kompatybilna para,XIX OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-19
+oij19-3-pod,Podzielność kontratakuje po raz kolejny,XIX OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-19
+oij19-3-sor,Sortowanie,XIX OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-19
+oij19-3-spi,Spirala,XIX OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-19
+oij19-3-szp,Szpiedzy,XIX OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-19
+oij20-1-chw,Chwasty,XX OIJ,próbny I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-20
+oij20-1-kab,Kabelki,XX OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-20
+oij20-1-mag,Kwadrat magiczny,XX OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-20
+oij20-1-par,Parzysta suma,XX OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-20
+oij20-1-pod,Podzielność iloczynu,XX OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-20
+oij20-1-row,Równoległobok,XX OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-20
+oij20-1-rwn,Równanie,XX OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-20
+oij20-1-zkl,Zesputa klawiatura,XX OIJ,I etap,https://oij.edu.pl/zbior_zadan/etap1/#oij-20
+oij20-2-ilo,Podzielność iloczynu II,XX OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-20
+oij20-2-spo,Spóźnienia,XX OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-20
+oij20-2-wyc,Wycieczka górska,XX OIJ,II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-20
+oij20-2-zlo,Złośliwiec,XX OIJ,próbny II etap,https://oij.edu.pl/zbior_zadan/etap2/#oij-20
+oij20-3-dio,Diody,XX OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-20
+oij20-3-kar,Karty,XX OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-20
+oij20-3-kbd,Kabelki 2,XX OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-20
+oij20-3-kur,Kurka Bajtosia,XX OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-20
+oij20-3-phn,Prawie Hanoi,XX OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-20
+oij20-3-pil,Podzielność Iloczynu III,XX OIJ,próbny finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-20
+oij20-3-tab,Tabelka,XX OIJ,finał,https://oij.edu.pl/zbior_zadan/etap3/#oij-20

@@ -52,6 +52,8 @@
     {{ placeholder_values[node.attrib['for']] }}
   {%- elif node.tag == 'ref' -%}
     #link(label({{ node.attrib['id'] | escape_typst_string }}))[{{ render_inlines(node) }}]
+  {%- elif node.tag == 'problem' -%}
+    #problem({{ node.attrib['id'] | escape_typst_string }})
   {%- else %}
     {{ error('Unknown inline tag: ' ~ repr(node.tag)) }}
   {% endif %}
@@ -116,6 +118,7 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 // Spacing
 #let block-inset = 1em
 #let section-break() = v(1.5cm, weak: true)
+#set highlight(extent: 0.1em)
 #set par(spacing: 1.4em)
 #show heading: set block(above: 1.2em, below: 1em)
 
@@ -165,6 +168,19 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
   },
 )
 {% endif %}
+#let problems = csv("../problems.csv", row-type: dictionary).map(x => (x.id, x)).to-dict()
+#let problem(id) = {
+  let problem = problems.at(id)
+  let color = (
+    "próbny II etap": color.oklch(95%, 20%, 100deg),
+    "II etap":        color.oklch(90%, 50%, 100deg),
+    "próbny finał":   color.oklch(95%, 20%, 20deg),
+    "finał":          color.oklch(90%, 50%, 20deg),
+  ).at(problem.stage, default: none)
+  show: rest => link(problem.url, rest)
+  set text(fill: black) if color != none
+  highlight(fill: color)[#problem.name (#problem.competition)]
+}
 #show ">=": [≥]
 
 #align(center)[

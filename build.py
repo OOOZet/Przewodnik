@@ -255,6 +255,7 @@ def split_into_paragraphs(parent):
       'important',
       'link',
       'placeholder',
+      'problem',
       'ref',
     }
     block_or_inline_tags = {
