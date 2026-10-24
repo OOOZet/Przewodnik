@@ -167,28 +167,28 @@ Przy każdym algorytmie/technice są podane wszystkie zadania, do rozwiązania k
 Lista obejmuje drugie etapy od XIV do XX OIJ i finały od XIV do XVII OIJ.
 
 <list>
-<item>Algorytmy zachłanne <link url='https://usaco.guide/bronze/intro-greedy'>[1]</link> <link url='https://usaco.guide/silver/greedy-sorting'>[2]</link> - próbny II etap: <problem id='oij19-2-arr'/> - II etap: <problem id='oij15-2-zes'/>, <problem id='oij16-2-naj'/>, <problem id='oij17-2-lab'/>, <problem id='oij19-2-ppr'/> - próbny finał: <problem id='oij15-3-kul'/> - finał: <problem id='oij15-3-cie'/>, <problem id='oij16-3-aga'/>, <problem id='oij16-3-cie'/>, <problem id='oij17-3-ant'/>, <problem id='oij17-3-zbi'/>, <problem id='oij17-3-han'/></item>
-<item><link url='https://pl.wikipedia.org/wiki/Szereg_harmoniczny#Ci%C4%85g_liczb_harmonicznych'>Asymptotyka ciągu liczb harmonicznych</link> - II etap: <problem id='oij18-2-ros'/></item>
-<item><link url='https://pl.wikipedia.org/wiki/Funkcja_licz%C4%85ca_liczby_pierwsze#W%C5%82a%C5%9Bciwo%C5%9Bci[1]'>Asymptotyka funkcji liczącej liczby pierwsze</link> - finał: <problem id='oij16-3-sta'/></item>
-<item><link url='https://usaco.guide/bronze/complete-rec#backtracking'>Backtracking</link> - finał: <problem id='oij17-3-pir'/></item>
-<item><link url='https://usaco.guide/silver/two-pointers#sliding-window'>Gąsienica</link> - II etap: <problem id='oij15-2-plu'/>, <problem id='oij18-2-scr'/> - finał: <problem id='oij17-3-bot'/></item>
-<item>Kolejka priorytetowa <link url='https://cppreference.com/cpp/container/priority_queue'>[C++]</link> <link url='https://docs.python.org/3/library/heapq.html'>[Python]</link> - II etap: <problem id='oij14-2-usu'/>, <problem id='oij17-2-lab'/></item>
-<item>Mapa <link url='https://cppreference.com/cpp/container/map'>[C++]</link> - II etap: <problem id='oij16-2-liz'/> - finał: <problem id='oij17-3-gon'/></item>
-<item><link url='https://usaco.guide/gold/divisibility#gcd--lcm'>NWD i NWW</link> - próbny II etap: <problem id='oij20-2-zlo'/> - II etap: <problem id='oij14-2-zyg'/></item>
-<item><link url='https://cp-algorithms.com/dynamic_programming/intro-to-dp.html'>Programowanie dynamiczne</link> - II etap: <problem id='oij20-2-wyc'/> - finał: <problem id='oij15-3-ant'/>, <problem id='oij15-3-cie'/>, <problem id='oij16-3-sta'/></item>
-<item><link url='https://codeforces.com/blog/entry/20935'>Programowanie dynamiczne na drzewie</link> - finał: <problem id='oij17-3-bot'/></item>
-<item><link url='https://cp-algorithms.com/algebra/factorization.html#trial-division'>Rozkład na czynniki pierwsze</link> - próbny II etap: <problem id='oij15-2-cze'/> - II etap: <problem id='oij19-2-ppr'/></item>
-<item><link url='https://usaco.guide/gold/divisibility#problem-cses-1713'>Rozkład na czynniki pierwsze z sitem</link> - finał: <problem id='oij16-3-sta'/></item>
-<item>Set <link url='https://cppreference.com/cpp/container/set'>[C++]</link> i multiset <link url='https://cppreference.com/cpp/container/multiset'>[C++]</link> - próbny II etap: <problem id='oij15-2-roz'/> - II etap: <problem id='oij15-2-plo'/>, <problem id='oij20-2-spo'/></item>
-<item><link url='https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html'>Sito liczb pierwszych</link> - finał: <problem id='oij16-3-sta'/></item>
-<item>Sortowanie <link url='https://cppreference.com/cpp/algorithm/sort'>[C++]</link> <link url='https://docs.python.org/3/howto/sorting.html'>[Python]</link> - próbny II etap: <problem id='oij15-2-roz'/>, <problem id='oij16-2-pra'/> - II etap: <problem id='oij15-2-zes'/>, <problem id='oij16-2-naj'/>, <problem id='oij20-2-wyc'/> - finał: <problem id='oij15-3-sil'/>, <problem id='oij15-3-ant'/>, <problem id='oij15-3-cie'/>, <problem id='oij16-3-aga'/>, <problem id='oij16-3-cie'/></item>
-<item><link url='https://oi.edu.pl/l/oi31_2_tel/'>Sortowanie ciągów</link> - II etap: <problem id='oij19-2-skr'/></item>
-<item><link url='https://usaco.guide/silver/prefix-sums'>Sumy prefiksowe</link> - próbny II etap: <problem id='oij14-2-not'/> - II etap: <problem id='oij20-2-spo'/> - finał: <problem id='oij15-3-sil'/>, <problem id='oij15-3-ant'/></item>
-<item><link url='https://cp-algorithms.com/data_structures/disjoint_set_union.html'>Union-Find</link> - finał: <problem id='oij16-3-cie'/></item>
-<item><link url='https://cp-algorithms.com/algebra/fibonacci-numbers.html'>Własności ciągu Fibonacciego</link> - II etap: <problem id='oij19-2-fib'/></item>
-<item><link url='https://cp-algorithms.com/combinatorics/binomial-coefficients.html'>Własności symbolu Newtona</link> - finał: <problem id='oij17-3-pir'/></item>
-<item><link url='https://cp-algorithms.com/num_methods/binary_search.html'>Wyszukiwanie binarne</link> - finał: <problem id='oij15-3-sil'/></item>
-<item><link url='https://cp-algorithms.com/num_methods/binary_search.html#binary-search-on-the-answer'>Wyszukiwanie binarne po wyniku</link> - II etap: <problem id='oij15-2-plu'/> - finał: <problem id='oij17-3-bot'/></item>
+<item>Algorytmy zachłanne <link url='https://usaco.guide/bronze/intro-greedy'>[1]</link> <link url='https://usaco.guide/silver/greedy-sorting'>[2]</link> - <problem id='oij19-2-arr'/>, <problem id='oij15-2-zes'/>, <problem id='oij16-2-naj'/>, <problem id='oij17-2-lab'/>, <problem id='oij19-2-ppr'/>, <problem id='oij15-3-kul'/>, <problem id='oij15-3-cie'/>, <problem id='oij16-3-aga'/>, <problem id='oij16-3-cie'/>, <problem id='oij17-3-ant'/>, <problem id='oij17-3-zbi'/>, <problem id='oij17-3-han'/></item>
+<item><link url='https://pl.wikipedia.org/wiki/Szereg_harmoniczny#Ci%C4%85g_liczb_harmonicznych'>Asymptotyka ciągu liczb harmonicznych</link> - <problem id='oij18-2-ros'/></item>
+<item><link url='https://pl.wikipedia.org/wiki/Funkcja_licz%C4%85ca_liczby_pierwsze#W%C5%82a%C5%9Bciwo%C5%9Bci[1]'>Asymptotyka funkcji liczącej liczby pierwsze</link> - <problem id='oij16-3-sta'/></item>
+<item><link url='https://usaco.guide/bronze/complete-rec#backtracking'>Backtracking</link> - <problem id='oij17-3-pir'/></item>
+<item><link url='https://usaco.guide/silver/two-pointers#sliding-window'>Gąsienica</link> - <problem id='oij15-2-plu'/>, <problem id='oij18-2-scr'/>, <problem id='oij17-3-bot'/></item>
+<item>Kolejka priorytetowa <link url='https://cppreference.com/cpp/container/priority_queue'>[C++]</link> <link url='https://docs.python.org/3/library/heapq.html'>[Python]</link> - <problem id='oij14-2-usu'/>, <problem id='oij17-2-lab'/></item>
+<item>Mapa <link url='https://cppreference.com/cpp/container/map'>[C++]</link> - <problem id='oij16-2-liz'/>, <problem id='oij17-3-gon'/></item>
+<item><link url='https://usaco.guide/gold/divisibility#gcd--lcm'>NWD i NWW</link> - <problem id='oij20-2-zlo'/>, <problem id='oij14-2-zyg'/></item>
+<item><link url='https://cp-algorithms.com/dynamic_programming/intro-to-dp.html'>Programowanie dynamiczne</link> - <problem id='oij20-2-wyc'/>, <problem id='oij15-3-ant'/>, <problem id='oij15-3-cie'/>, <problem id='oij16-3-sta'/></item>
+<item><link url='https://codeforces.com/blog/entry/20935'>Programowanie dynamiczne na drzewie</link> - <problem id='oij17-3-bot'/></item>
+<item><link url='https://cp-algorithms.com/algebra/factorization.html#trial-division'>Rozkład na czynniki pierwsze</link> - <problem id='oij15-2-cze'/>, <problem id='oij19-2-ppr'/></item>
+<item><link url='https://usaco.guide/gold/divisibility#problem-cses-1713'>Rozkład na czynniki pierwsze z sitem</link> - <problem id='oij16-3-sta'/></item>
+<item>Set <link url='https://cppreference.com/cpp/container/set'>[C++]</link> i multiset <link url='https://cppreference.com/cpp/container/multiset'>[C++]</link> - <problem id='oij15-2-roz'/>, <problem id='oij15-2-plo'/>, <problem id='oij20-2-spo'/></item>
+<item><link url='https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html'>Sito liczb pierwszych</link> - <problem id='oij16-3-sta'/></item>
+<item>Sortowanie <link url='https://cppreference.com/cpp/algorithm/sort'>[C++]</link> <link url='https://docs.python.org/3/howto/sorting.html'>[Python]</link> - <problem id='oij15-2-roz'/>, <problem id='oij16-2-pra'/>, <problem id='oij15-2-zes'/>, <problem id='oij16-2-naj'/>, <problem id='oij20-2-wyc'/>, <problem id='oij15-3-sil'/>, <problem id='oij15-3-ant'/>, <problem id='oij15-3-cie'/>, <problem id='oij16-3-aga'/>, <problem id='oij16-3-cie'/></item>
+<item><link url='https://oi.edu.pl/l/oi31_2_tel/'>Sortowanie ciągów</link> - <problem id='oij19-2-skr'/></item>
+<item><link url='https://usaco.guide/silver/prefix-sums'>Sumy prefiksowe</link> - <problem id='oij14-2-not'/>, <problem id='oij20-2-spo'/>, <problem id='oij15-3-sil'/>, <problem id='oij15-3-ant'/></item>
+<item><link url='https://cp-algorithms.com/data_structures/disjoint_set_union.html'>Union-Find</link> - <problem id='oij16-3-cie'/></item>
+<item><link url='https://cp-algorithms.com/algebra/fibonacci-numbers.html'>Własności ciągu Fibonacciego</link> - <problem id='oij19-2-fib'/></item>
+<item><link url='https://cp-algorithms.com/combinatorics/binomial-coefficients.html'>Własności symbolu Newtona</link> - <problem id='oij17-3-pir'/></item>
+<item><link url='https://cp-algorithms.com/num_methods/binary_search.html'>Wyszukiwanie binarne</link> - <problem id='oij15-3-sil'/></item>
+<item><link url='https://cp-algorithms.com/num_methods/binary_search.html#binary-search-on-the-answer'>Wyszukiwanie binarne po wyniku</link> - <problem id='oij15-2-plu'/>, <problem id='oij17-3-bot'/></item>
 </list>
 </subanswer>
 
@@ -196,83 +196,83 @@ Lista obejmuje drugie etapy od XIV do XX OIJ i finały od XIV do XVII OIJ.
 Lista obejmuje drugie etapy i finały od XIV do XXXIII OI z wyjątkiem zadania <problem id='oi32-ogr'/>, do którego omówienie nie jest dostępne. Ogranicza się tylko do ostatnich 10 lat, gdyż Olimpiada ma obecnie tendencję do stawania się bardziej ad-hoc. <important>Pomijamy tutaj kilka algorytmów z OIJ, gdyż są zbyt podstawowe, więc algorytmy i techniki na OIJ też musisz znać.</important>
 
 <list>
-<item><link url='https://cp-algorithms.com/graph/01_bfs.html'>0-1 BFS</link> - II etap: <problem id='oi29-bom'/></item>
-<item><link url='https://cp-algorithms.com/graph/2SAT.html'>2-SAT</link> - finał: <problem id='oi26-rem'/></item>
-<item><link url='https://cp-algorithms.com/algebra/euclid-algorithm.html'>Algorytm Euklidesa</link> - próbny finał: <problem id='oi28-kol'/></item>
-<item>Algorytm hybrydowy (wybieranie algorytmu w zależności od danych wejściowych) - finał: <problem id='oi32-szu'/></item>
-<item><link url='https://cp-algorithms.com/graph/mst_prim.html'>Algorytm Prima</link> - finał: <problem id='oi32-red'/></item>
-<item>Algorytmy zachłanne <link url='https://usaco.guide/bronze/intro-greedy'>[1]</link> <link url='https://usaco.guide/silver/greedy-sorting'>[2]</link> - próbny II etap: <problem id='oi25-prz'/>, <problem id='oi33-kon'/> - II etap: <problem id='oi25-kon'/>, <problem id='oi25-tom'/>, <problem id='oi26-gwi'/>, <problem id='oi28-ple'/>, <problem id='oi31-lic'/>, <problem id='oi31-ryc'/>, <problem id='oi31-poj'/> - próbny finał: <problem id='oi24-piz'/> - finał: <problem id='oi31-wyj'/></item>
-<item><link url='https://pl.wikipedia.org/wiki/Szereg_harmoniczny#Ci%C4%85g_liczb_harmonicznych'>Asymptotyka ciągu liczb harmonicznych</link> - próbny finał: <problem id='oi28-kol'/></item>
-<item><link url='https://pl.wikipedia.org/wiki/Funkcja_licz%C4%85ca_liczby_pierwsze#W%C5%82a%C5%9Bciwo%C5%9Bci[1]'>Asymptotyka funkcji liczącej liczby pierwsze</link> - finał: <problem id='oi28-sum'/></item>
-<item><link url='https://usaco.guide/bronze/complete-rec#backtracking'>Backtracking</link> - II etap: <problem id='oi27-tru'/> - finał: <problem id='oi29-wag'/></item>
-<item><link url='https://cp-algorithms.com/graph/breadth-first-search.html'>BFS</link> - II etap: <problem id='oi24-zam'/>, <problem id='oi31-ryc'/> - finał: <problem id='oi24-mid'/>, <problem id='oi26-dlu'/>, <problem id='oi30-sko'/></item>
-<item><link url='https://codeforces.com/blog/entry/74847'>Binary lifting</link> - II etap: <problem id='oi26-kol'/></item>
-<item><link url='https://cppreference.com/cpp/utility/bitset'>Bitset</link> - próbny II etap: <problem id='oi30-wir'/> - II etap: <problem id='oi30-drw'/>, <problem id='oi33-wyk'/> - finał: <problem id='oi29-wag'/></item>
-<item><link url='https://usaco.guide/plat/centroid#centroids'>Centroid</link> - II etap: <problem id='oi30-gra'/></item>
-<item><link url='https://cp-algorithms.com/graph/centroid_decomposition.html'>Dekompozycja centroidalna</link> - próbny finał: <problem id='oi30-naw'/></item>
-<item><link url='https://cp-algorithms.com/graph/depth-first-search.html'>DFS</link> - próbny II etap: <problem id='oi25-prz'/>, <problem id='oi33-kon'/> - II etap: <problem id='oi28-sza'/>, <problem id='oi32-sss'/>, <problem id='oi33-dwu'/> - próbny finał: <problem id='oi24-piz'/> - finał: <problem id='oi32-szp'/></item>
-<item><link url='https://codeforces.com/blog/entry/77096'>Digit DP</link> - II etap: <problem id='oi24-sum'/> - finał: <problem id='oi33-dys'/></item>
-<item><link url='https://en.wikipedia.org/wiki/Decision_tree_model'>Drzewo decyzyjne</link> - finał: <problem id='oi29-wag'/></item>
-<item><link url='https://codeforces.com/blog/entry/68138'>Drzewo DFS</link> - II etap: <problem id='oi26-osi'/> - finał: <problem id='oi31-wys'/></item>
-<item><link url='https://cp-algorithms.com/data_structures/fenwick.html'>Drzewo Fenwicka</link> - próbny II etap: <problem id='oi26-roz'/></item>
-<item><link url='https://www.youtube.com/watch?v=PBKYoNYwFwk'>Drzewa przedziałowe punkt-przedział i przedział-punkt</link> - próbny II etap: <problem id='oi33-kon'/> - II etap: <problem id='oi27-wie'/>, <problem id='oi29-kon'/>, <problem id='oi30-gra'/>, <problem id='oi32-por'/> - próbny finał: <problem id='oi28-kol'/> - finał: <problem id='oi24-roz'/>, <problem id='oi25-tur'/>, <problem id='oi25-ddl'/>, <problem id='oi28-sur'/>, <problem id='oi28-kom'/>, <problem id='oi32-piw'/>, <problem id='oi33-zli'/></item>
-<item><link url='https://codeforces.com/blog/entry/140066'>Drzewa wirtualne</link> - II etap: <problem id='oi26-kol'/></item>
-<item><link url='https://codeforces.com/blog/entry/72626'>Drzewo przedziałowe przedział-przedział (niekoniecznie z leniwą propagacją)</link> - II etap: <problem id='oi25-tel'/>, <problem id='oi28-ple'/> - finał: <problem id='oi24-oce'/>, <problem id='oi26-wys'/>, <problem id='oi29-rze'/></item>
-<item><link url='https://cp-algorithms.com/data_structures/segment_tree.html#range-updates-lazy-propagation'>Drzewo przedziałowe przedział-przedział z leniwą propagacją</link> - finał: <problem id='oi29-wyb'/>, <problem id='oi30-nww'/>, <problem id='oi33-des'/></item>
-<item><link url='https://cp-algorithms.com/string/aho_corasick.html#construction-of-the-trie'>Drzewo trie</link> - II etap: <problem id='oi27-czw'/>, <problem id='oi28-sza'/></item>
-<item><link url='https://usaco.guide/silver/two-pointers'>Dwa wskaźniki</link> - finał: <problem id='oi28-naw'/></item>
-<item><link url='https://cp-algorithms.com/graph/bipartite-check.html'>Dwukolorowanie grafu</link> - finał: <problem id='oi30-sie'/>, <problem id='oi32-szp'/></item>
-<item><link url='https://cp-algorithms.com/algebra/fft.html'>Dyskretna transformata Fouriera</link> - finał: <problem id='oi25-wie'/></item>
-<item><link url='https://en.wikipedia.org/wiki/Euler_tour_technique'>Euler tour</link> - II etap: <problem id='oi29-kon'/></item>
-<item><link url='https://cp-algorithms.com/algebra/phi-function.html'>Funkcja φ Eulera</link> - II etap: <problem id='oi29-lic'/></item>
-<item><link url='https://cp-algorithms.com/string/z-function.html'>Funkcja Z</link> - finał: <problem id='oi29-sza'/></item>
-<item><link url='https://usaco.guide/silver/two-pointers#sliding-window'>Gąsienica</link> - II etap: <problem id='oi27-wie'/> - finał: <problem id='oi28-sum'/></item>
-<item><link url='https://cp-algorithms.com/string/string-hashing.html'>Haszowanie</link> - II etap: <problem id='oi32-drz'/></item>
-<item>Iloczyn <link url='https://cp-algorithms.com/geometry/basic-geometry.html#dot-product'>skalarny</link> i <link url='https://cp-algorithms.com/geometry/basic-geometry.html#cross-product'>wektorowy</link> - finał: <problem id='oi25-ogr'/>, <problem id='oi28-kom'/>, <problem id='oi30-tor'/></item>
-<item><link url='https://usaco.guide/silver/sorting-custom#coordinate-compression'>Kompresja współrzędnych</link> - II etap: <problem id='oi27-czw'/> - finał: <problem id='oi33-des'/>, <problem id='oi33-zli'/></item>
-<item><link url='https://cp-algorithms.com/algebra/divisors.html#number-of-divisors'>Liczba dzielników</link> - II etap: <problem id='oi27-tru'/> - finał: <problem id='oi25-kom'/>, <problem id='oi32-lok'/></item>
-<item><link url='https://brilliant.org/wiki/linearity-of-expectation/'>Liniowość wartości oczekiwanej</link> - finał: <problem id='oi33-lic'/></item>
-<item><link url='https://pl.wikipedia.org/wiki/Macierz_obrotu#W_2_wymiarach'>Macierz obrotu</link> - finał: <problem id='oi28-kom'/>, <problem id='oi33-zli'/></item>
-<item>Maski bitowe <link url='https://cses.fi/book/book.pdf#chapter.10'>[1]</link> <link url='https://cp-algorithms.com/algebra/all-submasks.html'>[2]</link> - II etap: <problem id='oi27-mar'/>, <problem id='oi30-wsp'/>, <problem id='oi31-ryc'/>, <problem id='oi32-ana'/> - finał: <problem id='oi24-roz'/>, <problem id='oi31-buk'/>, <problem id='oi33-dys'/></item>
-<item><link url='https://cp-algorithms.com/graph/all-pair-shortest-path-floyd-warshall.html'>Macierz osiągalności</link> - II etap: <problem id='oi33-wyk'/></item>
-<item>Maksymalny zbiór niezależny w grafie dwudzielnym <link url='https://oi.edu.pl/l/oi30_3_sie/'>[1]</link> <link url='https://cp-algorithms.com/graph/kuhn_maximum_bipartite_matching.html'>[2]</link> <link url='https://en.wikipedia.org/wiki/K%C5%91nig%27s_theorem_(graph_theory)'>[3]</link> - finał: <problem id='oi30-sie'/></item>
-<item><link url='https://en.wikipedia.org/wiki/Merge_sort'>Merge sort</link> - finał: <problem id='oi25-tur'/>, <problem id='oi31-per'/></item>
-<item><link url='https://cp-algorithms.com/combinatorics/inclusion-exclusion.html'>Metoda włączeń i wyłączeń</link> - II etap: <problem id='oi29-lic'/></item>
-<item><link url='https://en.wikipedia.org/wiki/Minimax#Combinatorial_game_theory'>Min-max</link> - finał: <problem id='oi30-sko'/></item>
-<item><link url='https://cp-algorithms.com/graph/mst_kruskal_with_dsu.html'>Minimalne drzewo rozpinające</link> - finał: <problem id='oi24-roz'/></item>
-<item><link url='https://usaco.guide/plat/merging'>Mniejszy do większego</link> - finał: <problem id='oi32-red'/></item>
-<item><link url='https://cp-algorithms.com/graph/dijkstra.html'>Najkrótsze ścieżki z jednego źródła</link> - II etap: <problem id='oi26-kol'/></item>
-<item><link url='https://github.com/digitcrusher/algorytmy/blob/d45ec41/algo/graph/shortest_path.hpp#L24'>Najkrótsze ścieżki z jednego źródła w skierowanym grafie acyklicznym</link> - finał: <problem id='oi28-dro'/></item>
-<item><link url='https://cp-algorithms.com/graph/lca_binary_lifting.html'>Najniższy wspólny przodek</link> - finał: <problem id='oi31-wys'/></item>
-<item><link url='https://codeforces.com/blog/entry/19771'>Odpowiadanie na zapytania offline</link> - II etap: <problem id='oi24-kon'/>, <problem id='oi26-kol'/>, <problem id='oi29-kon'/>, <problem id='oi31-cia'/> - finał: <problem id='oi30-lap'/>, <problem id='oi30-nww'/></item>
-<item><link url='https://codeforces.com/blog/entry/96713'>Podział względem pierwiastka</link> - II etap: <problem id='oi24-kon'/> - finał: <problem id='oi32-imp'/></item>
-<item>Pre-order i post-order <link url='https://www.youtube.com/watch?v=weANP6rubWA'>[1]</link> - próbny II etap: <problem id='oi33-kon'/> - II etap: <problem id='oi27-czw'/> - finał: <problem id='oi24-roz'/></item>
-<item>Preprocessing przed wysłaniem na sprawdzaczkę - II etap: <problem id='oi27-tru'/> - finał: <problem id='oi29-wag'/></item>
-<item><link url='https://cp-algorithms.com/dynamic_programming/knapsack.html'>Problem plecakowy</link> - II etap: <problem id='oi30-drw'/></item>
-<item><link url='https://cp-algorithms.com/dynamic_programming/intro-to-dp.html'>Programowanie dynamiczne</link> - próbny II etap: <problem id='oi28-pro'/>, <problem id='oi29-im2'/> - II etap: <problem id='oi25-dro'/>, <problem id='oi25-kon'/>, <problem id='oi30-wag'/>, <problem id='oi30-drw'/>, <problem id='oi30-wsp'/>, <problem id='oi32-ana'/> - próbny finał: <problem id='oi31-sta'/> - finał: <problem id='oi24-zap'/>, <problem id='oi24-kuc'/>, <problem id='oi25-ogr'/>, <problem id='oi26-zja'/>, <problem id='oi26-gra'/>, <problem id='oi30-lap'/>, <problem id='oi31-buk'/>, <problem id='oi31-ska'/>, <problem id='oi32-szu'/>, <problem id='oi32-piw'/>, <problem id='oi33-des'/></item>
-<item><link url='https://codeforces.com/blog/entry/108615'>Programowanie dynamiczne jako mnożenie macierzy</link> - finał: <problem id='oi26-zja'/></item>
-<item><link url='https://codeforces.com/blog/entry/20935'>Programowanie dynamiczne na drzewie</link> - próbny II etap: <problem id='oi27-wak'/> - II etap: <problem id='oi29-age'/> - finał: <problem id='oi24-roz'/>, <problem id='oi30-par'/>, <problem id='oi31-wyj'/></item>
-<item><link url='https://usaco.guide/adv/random'>Randomizacja</link> - finał: <problem id='oi26-dlu'/>, <problem id='oi32-szu'/></item>
-<item><link url='https://usaco.guide/plat/matrix-expo'>Rekurencja liniowa jako mnożenie macierzy</link> - próbny II etap: <problem id='oi30-wir'/></item>
-<item><link url='https://cp-algorithms.com/algebra/factorization.html#trial-division'>Rozkład na czynniki pierwsze</link> - II etap: <problem id='oi29-lic'/></item>
-<item><link url='https://cp-algorithms.com/graph/strongly-connected-components.html'>Silnie spójne składowe</link> - II etap: <problem id='oi25-dro'/></item>
-<item><link url='https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html'>Sito liczb pierwszych</link> - finał: <problem id='oi25-kom'/></item>
-<item><link url='https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html#segmented-sieve'>Sito segmentowe</link> - finał: <problem id='oi28-sum'/></item>
-<item><link url='https://oi.edu.pl/l/oi31_2_tel/'>Sortowanie ciągów</link> - próbny II etap: <problem id='oi31-tel'/></item>
-<item><link url='https://codeforces.com/blog/entry/72815'>Sortowanie kątowe</link> - próbny finał: <problem id='oi25-dwa'/> - finał: <problem id='oi32-lok'/></item>
-<item><link url='https://en.wikipedia.org/wiki/Bucket_sort'>Sortowanie kubełkowe</link> - finał: <problem id='oi25-kom'/></item>
-<item><link url='https://codeforces.com/blog/entry/101010'>Sortowanie poddrzew</link> - II etap: <problem id='oi32-drz'/></item>
-<item><link url='https://cp-algorithms.com/graph/topological-sort.html'>Sortowanie topologiczne</link> - II etap: <problem id='oi25-dro'/>, <problem id='oi28-zdj'/></item>
-<item><link url='https://cp-algorithms.com/dynamic_programming/intro-to-dp.html#speeding-up-fibonacci-with-dynamic-programming-memoization'>Spamiętywanie</link> - II etap: <problem id='oi30-wag'/> - finał: <problem id='oi29-wag'/>, <problem id='oi30-sko'/></item>
-<item><link url='https://cp-algorithms.com/geometry/minkowski.html'>Suma Minkowskiego wielokątów wypukłych</link> - finał: <problem id='oi32-lok'/></item>
-<item><link url='https://cp-algorithms.com/algebra/binary-exp.html'>Szybkie potęgowanie</link> - próbny II etap: <problem id='oi30-wir'/> - finał: <problem id='oi26-zja'/>, <problem id='oi31-zyr'/></item>
-<item><link url='https://cp-algorithms.com/data_structures/disjoint_set_union.html'>Union-Find</link> - finał: <problem id='oi33-rzb'/></item>
-<item><link url='https://cp-algorithms.com/data_structures/segment_tree.html#preserving-the-history-of-its-values-persistent-segment-tree'>Utrwalanie drzewiastych struktur danych</link> - II etap: <problem id='oi31-cia'/></item>
-<item><link url='https://oi.edu.pl/l/oi33_3_dys/'>Ważone twierdzenie Halla</link> - finał: <problem id='oi33-dys'/></item>
-<item><link url='https://cp-algorithms.com/data_structures/segment_tree.html#counting-zero-search-kth'>Wyszukiwanie binarne na drzewie przedziałowym</link> - II etap: <problem id='oi27-wie'/>, <problem id='oi31-cia'/></item>
-<item><link url='https://cp-algorithms.com/num_methods/binary_search.html#binary-search-on-the-answer'>Wyszukiwanie binarne po wyniku</link> - II etap: <problem id='oi29-lic'/>, <problem id='oi32-ana'/> - finał: <problem id='oi26-zja'/>, <problem id='oi26-orn'/>, <problem id='oi29-met'/>, <problem id='oi30-par'/>, <problem id='oi30-tor'/>, <problem id='oi33-dys'/></item>
-<item><link url='https://usaco.guide/plat/sweep-line'>Zamiatanie</link> - II etap: <problem id='oi24-zam'/> - próbny finał: <problem id='oi25-dwa'/> - finał: <problem id='oi25-tur'/>, <problem id='oi25-ddl'/>, <problem id='oi28-kom'/>, <problem id='oi29-met'/>, <problem id='oi30-tor'/>, <problem id='oi33-zli'/></item>
-<item>Zmiana układu współrzędnych <link url='https://cp-algorithms.com/geometry/manhattan-distance.html#rotating-the-points-and-chebyshev-distance'>[1]</link> - II etap: <problem id='oi33-spo'/> - finał: <problem id='oi28-kom'/>, <problem id='oi33-zli'/></item>
+<item><link url='https://cp-algorithms.com/graph/01_bfs.html'>0-1 BFS</link> - <problem id='oi29-bom'/></item>
+<item><link url='https://cp-algorithms.com/graph/2SAT.html'>2-SAT</link> - <problem id='oi26-rem'/></item>
+<item><link url='https://cp-algorithms.com/algebra/euclid-algorithm.html'>Algorytm Euklidesa</link> - <problem id='oi28-kol'/></item>
+<item>Algorytm hybrydowy (wybieranie algorytmu w zależności od danych wejściowych) - <problem id='oi32-szu'/></item>
+<item><link url='https://cp-algorithms.com/graph/mst_prim.html'>Algorytm Prima</link> - <problem id='oi32-red'/></item>
+<item>Algorytmy zachłanne <link url='https://usaco.guide/bronze/intro-greedy'>[1]</link> <link url='https://usaco.guide/silver/greedy-sorting'>[2]</link> - <problem id='oi25-prz'/>, <problem id='oi33-kon'/>, <problem id='oi25-kon'/>, <problem id='oi25-tom'/>, <problem id='oi26-gwi'/>, <problem id='oi28-ple'/>, <problem id='oi31-lic'/>, <problem id='oi31-ryc'/>, <problem id='oi31-poj'/>, <problem id='oi24-piz'/>, <problem id='oi31-wyj'/></item>
+<item><link url='https://pl.wikipedia.org/wiki/Szereg_harmoniczny#Ci%C4%85g_liczb_harmonicznych'>Asymptotyka ciągu liczb harmonicznych</link> - <problem id='oi28-kol'/></item>
+<item><link url='https://pl.wikipedia.org/wiki/Funkcja_licz%C4%85ca_liczby_pierwsze#W%C5%82a%C5%9Bciwo%C5%9Bci[1]'>Asymptotyka funkcji liczącej liczby pierwsze</link> - <problem id='oi28-sum'/></item>
+<item><link url='https://usaco.guide/bronze/complete-rec#backtracking'>Backtracking</link> - <problem id='oi27-tru'/>, <problem id='oi29-wag'/></item>
+<item><link url='https://cp-algorithms.com/graph/breadth-first-search.html'>BFS</link> - <problem id='oi24-zam'/>, <problem id='oi31-ryc'/>, <problem id='oi24-mid'/>, <problem id='oi26-dlu'/>, <problem id='oi30-sko'/></item>
+<item><link url='https://codeforces.com/blog/entry/74847'>Binary lifting</link> - <problem id='oi26-kol'/></item>
+<item><link url='https://cppreference.com/cpp/utility/bitset'>Bitset</link> - <problem id='oi30-wir'/>, <problem id='oi30-drw'/>, <problem id='oi33-wyk'/>, <problem id='oi29-wag'/></item>
+<item><link url='https://usaco.guide/plat/centroid#centroids'>Centroid</link> - <problem id='oi30-gra'/></item>
+<item><link url='https://cp-algorithms.com/graph/centroid_decomposition.html'>Dekompozycja centroidalna</link> - <problem id='oi30-naw'/></item>
+<item><link url='https://cp-algorithms.com/graph/depth-first-search.html'>DFS</link> - <problem id='oi25-prz'/>, <problem id='oi33-kon'/>, <problem id='oi28-sza'/>, <problem id='oi32-sss'/>, <problem id='oi33-dwu'/>, <problem id='oi24-piz'/>, <problem id='oi32-szp'/></item>
+<item><link url='https://codeforces.com/blog/entry/77096'>Digit DP</link> - <problem id='oi24-sum'/>, <problem id='oi33-dys'/></item>
+<item><link url='https://en.wikipedia.org/wiki/Decision_tree_model'>Drzewo decyzyjne</link> - <problem id='oi29-wag'/></item>
+<item><link url='https://codeforces.com/blog/entry/68138'>Drzewo DFS</link> - <problem id='oi26-osi'/>, <problem id='oi31-wys'/></item>
+<item><link url='https://cp-algorithms.com/data_structures/fenwick.html'>Drzewo Fenwicka</link> - <problem id='oi26-roz'/></item>
+<item><link url='https://www.youtube.com/watch?v=PBKYoNYwFwk'>Drzewa przedziałowe punkt-przedział i przedział-punkt</link> - <problem id='oi33-kon'/>, <problem id='oi27-wie'/>, <problem id='oi29-kon'/>, <problem id='oi30-gra'/>, <problem id='oi32-por'/>, <problem id='oi28-kol'/>, <problem id='oi24-roz'/>, <problem id='oi25-tur'/>, <problem id='oi25-ddl'/>, <problem id='oi28-sur'/>, <problem id='oi28-kom'/>, <problem id='oi32-piw'/>, <problem id='oi33-zli'/></item>
+<item><link url='https://codeforces.com/blog/entry/140066'>Drzewa wirtualne</link> - <problem id='oi26-kol'/></item>
+<item><link url='https://codeforces.com/blog/entry/72626'>Drzewo przedziałowe przedział-przedział (niekoniecznie z leniwą propagacją)</link> - <problem id='oi25-tel'/>, <problem id='oi28-ple'/>, <problem id='oi24-oce'/>, <problem id='oi26-wys'/>, <problem id='oi29-rze'/></item>
+<item><link url='https://cp-algorithms.com/data_structures/segment_tree.html#range-updates-lazy-propagation'>Drzewo przedziałowe przedział-przedział z leniwą propagacją</link> - <problem id='oi29-wyb'/>, <problem id='oi30-nww'/>, <problem id='oi33-des'/></item>
+<item><link url='https://cp-algorithms.com/string/aho_corasick.html#construction-of-the-trie'>Drzewo trie</link> - <problem id='oi27-czw'/>, <problem id='oi28-sza'/></item>
+<item><link url='https://usaco.guide/silver/two-pointers'>Dwa wskaźniki</link> - <problem id='oi28-naw'/></item>
+<item><link url='https://cp-algorithms.com/graph/bipartite-check.html'>Dwukolorowanie grafu</link> - <problem id='oi30-sie'/>, <problem id='oi32-szp'/></item>
+<item><link url='https://cp-algorithms.com/algebra/fft.html'>Dyskretna transformata Fouriera</link> - <problem id='oi25-wie'/></item>
+<item><link url='https://en.wikipedia.org/wiki/Euler_tour_technique'>Euler tour</link> - <problem id='oi29-kon'/></item>
+<item><link url='https://cp-algorithms.com/algebra/phi-function.html'>Funkcja φ Eulera</link> - <problem id='oi29-lic'/></item>
+<item><link url='https://cp-algorithms.com/string/z-function.html'>Funkcja Z</link> - <problem id='oi29-sza'/></item>
+<item><link url='https://usaco.guide/silver/two-pointers#sliding-window'>Gąsienica</link> - <problem id='oi27-wie'/>, <problem id='oi28-sum'/></item>
+<item><link url='https://cp-algorithms.com/string/string-hashing.html'>Haszowanie</link> - <problem id='oi32-drz'/></item>
+<item>Iloczyn <link url='https://cp-algorithms.com/geometry/basic-geometry.html#dot-product'>skalarny</link> i <link url='https://cp-algorithms.com/geometry/basic-geometry.html#cross-product'>wektorowy</link> - <problem id='oi25-ogr'/>, <problem id='oi28-kom'/>, <problem id='oi30-tor'/></item>
+<item><link url='https://usaco.guide/silver/sorting-custom#coordinate-compression'>Kompresja współrzędnych</link> - <problem id='oi27-czw'/>, <problem id='oi33-des'/>, <problem id='oi33-zli'/></item>
+<item><link url='https://cp-algorithms.com/algebra/divisors.html#number-of-divisors'>Liczba dzielników</link> - <problem id='oi27-tru'/>, <problem id='oi25-kom'/>, <problem id='oi32-lok'/></item>
+<item><link url='https://brilliant.org/wiki/linearity-of-expectation/'>Liniowość wartości oczekiwanej</link> - <problem id='oi33-lic'/></item>
+<item><link url='https://pl.wikipedia.org/wiki/Macierz_obrotu#W_2_wymiarach'>Macierz obrotu</link> - <problem id='oi28-kom'/>, <problem id='oi33-zli'/></item>
+<item>Maski bitowe <link url='https://cses.fi/book/book.pdf#chapter.10'>[1]</link> <link url='https://cp-algorithms.com/algebra/all-submasks.html'>[2]</link> - <problem id='oi27-mar'/>, <problem id='oi30-wsp'/>, <problem id='oi31-ryc'/>, <problem id='oi32-ana'/>, <problem id='oi24-roz'/>, <problem id='oi31-buk'/>, <problem id='oi33-dys'/></item>
+<item><link url='https://cp-algorithms.com/graph/all-pair-shortest-path-floyd-warshall.html'>Macierz osiągalności</link> - <problem id='oi33-wyk'/></item>
+<item>Maksymalny zbiór niezależny w grafie dwudzielnym <link url='https://oi.edu.pl/l/oi30_3_sie/'>[1]</link> <link url='https://cp-algorithms.com/graph/kuhn_maximum_bipartite_matching.html'>[2]</link> <link url='https://en.wikipedia.org/wiki/K%C5%91nig%27s_theorem_(graph_theory)'>[3]</link> - <problem id='oi30-sie'/></item>
+<item><link url='https://en.wikipedia.org/wiki/Merge_sort'>Merge sort</link> - <problem id='oi25-tur'/>, <problem id='oi31-per'/></item>
+<item><link url='https://cp-algorithms.com/combinatorics/inclusion-exclusion.html'>Metoda włączeń i wyłączeń</link> - <problem id='oi29-lic'/></item>
+<item><link url='https://en.wikipedia.org/wiki/Minimax#Combinatorial_game_theory'>Min-max</link> - <problem id='oi30-sko'/></item>
+<item><link url='https://cp-algorithms.com/graph/mst_kruskal_with_dsu.html'>Minimalne drzewo rozpinające</link> - <problem id='oi24-roz'/></item>
+<item><link url='https://usaco.guide/plat/merging'>Mniejszy do większego</link> - <problem id='oi32-red'/></item>
+<item><link url='https://cp-algorithms.com/graph/dijkstra.html'>Najkrótsze ścieżki z jednego źródła</link> - <problem id='oi26-kol'/></item>
+<item><link url='https://github.com/digitcrusher/algorytmy/blob/d45ec41/algo/graph/shortest_path.hpp#L24'>Najkrótsze ścieżki z jednego źródła w skierowanym grafie acyklicznym</link> - <problem id='oi28-dro'/></item>
+<item><link url='https://cp-algorithms.com/graph/lca_binary_lifting.html'>Najniższy wspólny przodek</link> - <problem id='oi31-wys'/></item>
+<item><link url='https://codeforces.com/blog/entry/19771'>Odpowiadanie na zapytania offline</link> - <problem id='oi24-kon'/>, <problem id='oi26-kol'/>, <problem id='oi29-kon'/>, <problem id='oi31-cia'/>, <problem id='oi30-lap'/>, <problem id='oi30-nww'/></item>
+<item><link url='https://codeforces.com/blog/entry/96713'>Podział względem pierwiastka</link> - <problem id='oi24-kon'/>, <problem id='oi32-imp'/></item>
+<item>Pre-order i post-order <link url='https://www.youtube.com/watch?v=weANP6rubWA'>[1]</link> - <problem id='oi33-kon'/>, <problem id='oi27-czw'/>, <problem id='oi24-roz'/></item>
+<item>Preprocessing przed wysłaniem na sprawdzaczkę - <problem id='oi27-tru'/>, <problem id='oi29-wag'/></item>
+<item><link url='https://cp-algorithms.com/dynamic_programming/knapsack.html'>Problem plecakowy</link> - <problem id='oi30-drw'/></item>
+<item><link url='https://cp-algorithms.com/dynamic_programming/intro-to-dp.html'>Programowanie dynamiczne</link> - <problem id='oi28-pro'/>, <problem id='oi29-im2'/>, <problem id='oi25-dro'/>, <problem id='oi25-kon'/>, <problem id='oi30-wag'/>, <problem id='oi30-drw'/>, <problem id='oi30-wsp'/>, <problem id='oi32-ana'/>, <problem id='oi31-sta'/>, <problem id='oi24-zap'/>, <problem id='oi24-kuc'/>, <problem id='oi25-ogr'/>, <problem id='oi26-zja'/>, <problem id='oi26-gra'/>, <problem id='oi30-lap'/>, <problem id='oi31-buk'/>, <problem id='oi31-ska'/>, <problem id='oi32-szu'/>, <problem id='oi32-piw'/>, <problem id='oi33-des'/></item>
+<item><link url='https://codeforces.com/blog/entry/108615'>Programowanie dynamiczne jako mnożenie macierzy</link> - <problem id='oi26-zja'/></item>
+<item><link url='https://codeforces.com/blog/entry/20935'>Programowanie dynamiczne na drzewie</link> - <problem id='oi27-wak'/>, <problem id='oi29-age'/>, <problem id='oi24-roz'/>, <problem id='oi30-par'/>, <problem id='oi31-wyj'/></item>
+<item><link url='https://usaco.guide/adv/random'>Randomizacja</link> - <problem id='oi26-dlu'/>, <problem id='oi32-szu'/></item>
+<item><link url='https://usaco.guide/plat/matrix-expo'>Rekurencja liniowa jako mnożenie macierzy</link> - <problem id='oi30-wir'/></item>
+<item><link url='https://cp-algorithms.com/algebra/factorization.html#trial-division'>Rozkład na czynniki pierwsze</link> - <problem id='oi29-lic'/></item>
+<item><link url='https://cp-algorithms.com/graph/strongly-connected-components.html'>Silnie spójne składowe</link> - <problem id='oi25-dro'/></item>
+<item><link url='https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html'>Sito liczb pierwszych</link> - <problem id='oi25-kom'/></item>
+<item><link url='https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html#segmented-sieve'>Sito segmentowe</link> - <problem id='oi28-sum'/></item>
+<item><link url='https://oi.edu.pl/l/oi31_2_tel/'>Sortowanie ciągów</link> - <problem id='oi31-tel'/></item>
+<item><link url='https://codeforces.com/blog/entry/72815'>Sortowanie kątowe</link> - <problem id='oi25-dwa'/>, <problem id='oi32-lok'/></item>
+<item><link url='https://en.wikipedia.org/wiki/Bucket_sort'>Sortowanie kubełkowe</link> - <problem id='oi25-kom'/></item>
+<item><link url='https://codeforces.com/blog/entry/101010'>Sortowanie poddrzew</link> - <problem id='oi32-drz'/></item>
+<item><link url='https://cp-algorithms.com/graph/topological-sort.html'>Sortowanie topologiczne</link> - <problem id='oi25-dro'/>, <problem id='oi28-zdj'/></item>
+<item><link url='https://cp-algorithms.com/dynamic_programming/intro-to-dp.html#speeding-up-fibonacci-with-dynamic-programming-memoization'>Spamiętywanie</link> - <problem id='oi30-wag'/>, <problem id='oi29-wag'/>, <problem id='oi30-sko'/></item>
+<item><link url='https://cp-algorithms.com/geometry/minkowski.html'>Suma Minkowskiego wielokątów wypukłych</link> - <problem id='oi32-lok'/></item>
+<item><link url='https://cp-algorithms.com/algebra/binary-exp.html'>Szybkie potęgowanie</link> - <problem id='oi30-wir'/>, <problem id='oi26-zja'/>, <problem id='oi31-zyr'/></item>
+<item><link url='https://cp-algorithms.com/data_structures/disjoint_set_union.html'>Union-Find</link> - <problem id='oi33-rzb'/></item>
+<item><link url='https://cp-algorithms.com/data_structures/segment_tree.html#preserving-the-history-of-its-values-persistent-segment-tree'>Utrwalanie drzewiastych struktur danych</link> - <problem id='oi31-cia'/></item>
+<item><link url='https://oi.edu.pl/l/oi33_3_dys/'>Ważone twierdzenie Halla</link> - <problem id='oi33-dys'/></item>
+<item><link url='https://cp-algorithms.com/data_structures/segment_tree.html#counting-zero-search-kth'>Wyszukiwanie binarne na drzewie przedziałowym</link> - <problem id='oi27-wie'/>, <problem id='oi31-cia'/></item>
+<item><link url='https://cp-algorithms.com/num_methods/binary_search.html#binary-search-on-the-answer'>Wyszukiwanie binarne po wyniku</link> - <problem id='oi29-lic'/>, <problem id='oi32-ana'/>, <problem id='oi26-zja'/>, <problem id='oi26-orn'/>, <problem id='oi29-met'/>, <problem id='oi30-par'/>, <problem id='oi30-tor'/>, <problem id='oi33-dys'/></item>
+<item><link url='https://usaco.guide/plat/sweep-line'>Zamiatanie</link> - <problem id='oi24-zam'/>, <problem id='oi25-dwa'/>, <problem id='oi25-tur'/>, <problem id='oi25-ddl'/>, <problem id='oi28-kom'/>, <problem id='oi29-met'/>, <problem id='oi30-tor'/>, <problem id='oi33-zli'/></item>
+<item>Zmiana układu współrzędnych <link url='https://cp-algorithms.com/geometry/manhattan-distance.html#rotating-the-points-and-chebyshev-distance'>[1]</link> - <problem id='oi33-spo'/>, <problem id='oi28-kom'/>, <problem id='oi33-zli'/></item>
 </list>
 </subanswer>
 </answer>
