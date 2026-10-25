@@ -2,10 +2,10 @@
 <document title='Przewodnik OOOZ'>
 
 <preface>
-Ten przewodnik adresowany jest do wszystkich osób, które mogą wystartować w <link url='https://oi.edu.pl/'>Olimpiadzie Informatycznej</link> (OI) lub <link url='https://oij.edu.pl/'>Olimpiadzie Informatycznej Juniorów</link> (OIJ), czyli uczniów szkół średnich i podstawowych. Jego celem jest wprowadzenie czytelnika w uniwersum Olimpiady z perspektywy doświadczonego uczestnika oraz odpowiedzenie na częste pytania pojawiające się na <discord-only>tym serwerze</discord-only><download-only>publicznym serwerze Discord <link url='https://discord.gg/AMGxG4TvDS'>OKI OI OIJ Zjednoczenie</link></download-only>. W zamyśle ma służyć jako wszechstronny "przewodnik", który będzie towarzyszyć ci w twojej olimpijskiej przygodzie zarówno teraz, gdy być może pierwszy raz słyszysz o Olimpiadzie, jak i później, gdy będziesz walczyć o pierwsze miejsce. <important>Jeśli pierwszy raz słyszysz o OI, prosimy przeczytaj przynajmniej 3 pierwsze odpowiedzi na pytania.</important>
+Ten przewodnik adresowany jest do wszystkich osób, które mogą wystartować w <link url='https://oi.edu.pl/'>Olimpiadzie Informatycznej</link> (OI) lub <link url='https://oij.edu.pl/'>Olimpiadzie Informatycznej Juniorów</link> (OIJ), czyli uczniów szkół średnich i podstawowych. Jego celem jest wprowadzenie czytelnika w uniwersum Olimpiady z perspektywy doświadczonego uczestnika oraz odpowiedzenie na częste pytania pojawiające się na <discord-only>tym serwerze</discord-only><external-only>publicznym serwerze Discord <link url='https://discord.gg/AMGxG4TvDS'>OKI OI OIJ Zjednoczenie</link></external-only>. W zamyśle ma służyć jako wszechstronny "przewodnik", który będzie towarzyszyć ci w twojej olimpijskiej przygodzie zarówno teraz, gdy być może pierwszy raz słyszysz o Olimpiadzie, jak i później, gdy będziesz walczyć o pierwsze miejsce. <important>Jeśli pierwszy raz słyszysz o OI, prosimy przeczytaj przynajmniej 3 pierwsze odpowiedzi na pytania.</important>
 </preface>
 
-<answer question='Na czym polega Olimpiada?' important='yes'>
+<answer question='Na czym polega Olimpiada?' important='yes' id='na-czym-polega-olimpiada'>
 Olimpiada kręci się w zasadzie wokół jednej rzeczy: rozwiązywaniu <emphasis>zadań algorytmicznych</emphasis>. Zadanie algorytmiczne polega na napisaniu krótkiego programu w C++ lub Python, który wczytuje dane w formacie określonym w zadaniu, przetwarza je wedle algorytmu wymyślonego przez ciebie, a następnie wypisuje dane, których sens i związek z danymi wejściowymi też jest określony w zadaniu. To oczywiście implikuje, że nie musisz wymyślać dokładnie tego samego algorytmu co inni.
 
 <todo>Przykładowe zadanie. Musi być <emphasis>fajne</emphasis>.</todo>
@@ -13,7 +13,7 @@ Olimpiada kręci się w zasadzie wokół jednej rzeczy: rozwiązywaniu <emphasis
 ...i sprawdzaczka nagradza twoją pracę napisem "AC" na zielonym tle.
 </answer>
 
-<answer question='Czy warto wystartować w Olimpiadzie?' important='yes'>
+<answer question='Czy warto wystartować w Olimpiadzie?' important='yes' id='czy-warto'>
 <important>Tak, absolutnie.</important> Jako zachęte dla finalistów przewidziane są <ref id='korzysci'>różne przywileje</ref> - spojrzyj na nie. Jeśli wciąż uważasz, że jesteś za słaby na jakieś olimpiady, to doświadczenie i wiedza, które wyciągniesz ze startu, przydadzą ci się nie tylko w kolejnym starcie za rok, ale też w dalszym życiu. Zresztą jak masz coś osiągnąć, jeśli nawet nie zrobiłeś pierwszego kroku? I nawet jeśli ostatecznie nie osiągniesz swojego celu, to umiejętności, które zdobędziesz na Olimpiadzie, zostaną z tobą i <ref id='przydatnosc-algorytmiki'>przydadzą ci się</ref> nie tylko na studiach, ale też w twojej dalszej scieżce programisty.
 </answer>
 
@@ -39,11 +39,11 @@ Zakładamy, że "sukces" oznacza co najmniej tytuł finalisty.
 </subanswer>
 </answer>
 
-<answer question='Czy wcześniejsza styczność z programowaniem nieolimpijskim może się przydać?'>
+<answer question='Czy wcześniejsza styczność z programowaniem nieolimpijskim może się przydać?' id='programowanie-nieolimpijskie'>
 Tak. Jeśli umiesz już programować w C++ lub innym języku, to masz już za sobą ciężki etap próbowania zrozumieć, jak przełożyć myśli na instrukcje komputera. A jeśli jesteś nawet niezły w programowaniu, to pewnie twoje umiejętności rozwiązywania problemów też są nawet niezłe, a właśnie to się liczy na Olimpiadzie. <link url='https://lacina.io/'>Ja</link> tak <link url='https://oij.edu.pl/olimpiada/zwyciezcy/'>miałem</link>.
 </answer>
 
-<answer question='Czy do Olimpiady trzeba być dobrym z matematyki?'>
+<answer question='Czy do Olimpiady trzeba być dobrym z matematyki?' id='matematyka'>
 Niekoniecznie. W zadaniach olimpijskich ma się przeważnie do czynienia z <link url='https://pl.wikipedia.org/wiki/Matematyka_dyskretna'>dyskretnymi</link> obiektami matematycznymi takimi jak grafy reprezentujące sieć dróg Bajtocji, czasochłonne zadania domowa z różnych przedmiotów, które Bajtek musi zrobić w kolejnych dniach tygodnia, czy <link url='https://pl.wikipedia.org/wiki/Lemmings_(gra_komputerowa)'>lemingi</link> chodzące po i spadające z jednej długiej platformy, a do wymyślania na przykład algorytmów zachłannych trzeba mieć tylko dobrą intuicję, co się najbardziej opłaca w różnych sytuacjach.
 </answer>
 
@@ -51,7 +51,7 @@ Niekoniecznie. W zadaniach olimpijskich ma się przeważnie do czynienia z <link
 Tak, i na studiach i w pracy. Na studiach z oczywistych względów: Olimpiada jest silnie skoncentrowana na rozwiązywaniu problemów teoretycznych (nieinżynieryjnych) i jest układana przez tych samych ludzi, którzy prowadzą zajęcia na najlepszych uniwersytetach w kraju. W pracy również - jeśli będziesz pracować nad programami, które muszą szybko przetwarzać dużo danych - ale nie tylko (przykłady: <link url='https://sigmetrics.org/sigmetrics2024/tutorials/Tutorial_Network_Clustering.pdf'>analizy powiązań i sieci</link>, bazy danych (<link url='http://blog.notdot.net/2012/09/Dam-Cool-Algorithms-Cardinality-Estimation'>1.1</link>, <link url='https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/40671.pdf'>1.2</link>, <link url='https://www3.cs.stonybrook.edu/~bender/newpub/2015-BenderFaJa-login-wods.pdf'>2</link>), <link url='https://gitlab.gnome.org/GNOME/gtk/-/blob/bf215906ff1e0aeaf0b0668e641cbd4098ca47d8/gtk/gtklistbox.c#L2701'>biblioteki UI</link>, <link url='https://zed.dev/blog/zed-decoded-rope-sumtree'>edytory tekstu</link>, grafika komputerowa (<link url='https://twobithistory.org/2019/11/06/doom-bsp.html'>1.1</link>, <link url='https://www.youtube.com/watch?v=yTRzfKh4Tg0'>1.2</link>), kompresja danych (<link url='https://www.hanshq.net/zip.html#lz'>1</link>, <link url='https://www.cs.cmu.edu/~15451-f18/lectures/lec25-bwt.pdf'>2.1</link>, <link url='https://cp-algorithms.com/string/suffix-array.html'>2.2</link>), <link url='https://www.youtube.com/watch?v=kS-CGkiPetQ'>mapy z nawigacją</link>, przetwarzanie dźwięku lub obrazu (<link url='https://cp-algorithms.com/algebra/fft.html'>1.1</link>, <link url='https://jezzamon.com/fourier/'>1.2</link>, <link url='https://towardsdatascience.com/the-fourier-transform-4-putting-the-fft-to-work-38dd84dc814/'>1.3</link>, <link url='https://www.youtube.com/watch?v=aqa6vyGSdos'>1.4</link>), routery (<link url='https://www2.ic.uff.br/~michael/kr1999/4-network/4_02-algor.htm'>1</link>, <link url='https://www.math.unipd.it/~scquizza/papers/PanduranganRS18b.pdf'>2</link>), symulacje fizyczne (<link url='https://www.realtimerendering.com/Real-Time_Rendering_4th-Collision_Detection.pdf'>1</link>, <link url='https://box2d.org/files/ErinCatto_DynamicBVH_Full.pdf'>2</link>), systemy operacyjne (<link url='https://lwn.net/Articles/184495/'>1</link>, <link url='https://lwn.net/Articles/845507/'>2</link>, <link url='https://lwn.net/Articles/612021/'>3</link>), systemy plików (<link url='https://www.kernel.org/doc/ols/2002/ols2002-pages-425-438.pdf'>1</link>, <link url='https://web.archive.org/web/20200710065929/https://dominoweb.draco.res.ibm.com/reports/rj10501.pdf'>2.1</link>, <link url='https://web.archive.org/web/20210419135111/https://dominoweb.draco.res.ibm.com/reports/h-0245.pdf'>2.2</link>), <link url='https://en.wikipedia.org/wiki/PageRank#Algorithm'>wyszukiwarki internetowe</link>). Bezmyślne kopiowanie kodu może wtedy nie wystarczyć.
 </answer>
 
-<answer question='Jak wystartować w...' important='yes'>
+<answer question='Jak wystartować w...' important='yes' id='jak-wystartowac'>
 <note>Czasami zdarzają się nauczyciele, którym z różnych powodów nie chce się przeprowadzić Olimpiady w szkole. W takich sytuacjach organizatorzy proszą o kontakt mailowy na adres <link url='mailto:olimpiada@oij.edu.pl'>olimpiada@oij.edu.pl</link>, jeśli startujesz w OIJ (dla szkół podstawowych), albo <link url='mailto:olimpiada@oi.edu.pl'>olimpiada@oi.edu.pl</link>, jeśli startujesz w OI (dla szkół średnich). W świetle prawa szkoła <important>nie może odmówić</important> prośby ucznia o zarejestrowanie szkoły na Olimpiadę ani nie może odmówić przeprowadzenia testów Olimpiady w szkole.</note>
 
 <subanswer subquestion='...OIJ?'>
@@ -83,7 +83,7 @@ Zwykle 2.5 tygodnia po zakończeniu ostatniej tury na stronie OI pojawia się og
 </subanswer>
 </answer>
 
-<answer question='Jak wygląda drugi etap i finał...'>
+<answer question='Jak wygląda drugi etap i finał...' id='drugi-etap-i-final'>
 <subanswer subquestion='...OIJ?'>
 <todo>Potrzebny jest ktoś, kto faktycznie uczestniczył w stacjonarnym drugim etapie OIJ.</todo>
 
@@ -101,7 +101,7 @@ Trzeci etap jest podobny do drugiego o tyle, że w całości odbywa się w Warsz
 </subanswer>
 </answer>
 
-<answer question='Jak zacząć zupełnie od zera?' important='yes'>
+<answer question='Jak zacząć zupełnie od zera?' important='yes' id='jak-zaczac'>
 W skrócie musisz nauczyć się przekładać intencje na kod w C++ (ewentualnie w Python), poznać <ref id='sylabus'>algorytmy i techniki</ref> spotykane na twojej Olimpiadzie i stopniowo <ref id='trenowanie'>trenować</ref> umiejętność rozwiązywania problemów algorytmicznych właśnie to robiąc.
 
 Samemu trudno jest zebrać wszystkie potrzebne informacje (m.in. dlatego powstał ten przewodnik) i ułożyć plan nauki, dlatego polecamy uczyć się podążając jednym z <ref id='kursy'>wielu gotowych kursów</ref>.
@@ -148,16 +148,16 @@ Powyższe kursy oczywiście możesz robić sam w domu. <important>Nie należy je
 Jeśli kilka z powyższych opisów zdaje się odpowiadać twoim potrzebom, to nie ma żadnej przeszkody w uczestniczeniu w wielu zajęciach na raz. Jeśli nie jesteś pewien, czy wybrać łatwiejsze czy trudniejsze zajęcia, to najpierw wybierz te trudniejsze i jeśli na nich przekonasz się, że są dla ciebie za trudne, to wtedy przerzuć się na łatwiejsze.
 </answer>
 
-<answer question='Czy jeżdżenie na obozy informatyczne to dobry pomysł?'>
+<answer question='Czy jeżdżenie na obozy informatyczne to dobry pomysł?' id='jezdzenie-na-obozy'>
 Tak. W domu jest pełno rzeczy, które rozpraszają twoją uwagę od zadań, takich jak szkoła, rodzina, gry typu wideo czy śmieszne filmiki o liczbie 67, mango i musztardzie. Obozy informatyczne odcinają cię od nich wysyłając cię w odizolowane miejsca na ziemi takie jak Władysławowo czy Krzyżowa, gdzie razem z innymi musisz przetrwać kilka dni kontestów, omówień i innych aktywności obozowych. Obozy to też czas, w którym dzieje się najwięcej integracji społecznej wśród ludzi o podobnych zainteresowaniach jak ty i na nich poznaje się dużo algorytmicznych znajomych.
 </answer>
 
-<answer question='Jaka dokumentacja C++?'>
+<answer question='Jaka dokumentacja C++?' id='dokumentacja-cpp'>
 <link url='https://cppreference.com/'>cppreference.com</link>. Nie tylko dlatego, że jest najlepsza, ale też jest jedyną dostępną na konkursach - zazwyczaj w wersji offline, bez wyszukiwarki.
 </answer>
 
 <answer question='Jakie algorytmy i techniki muszę znać na...' important='yes' id='sylabus'>
-Przy każdym algorytmie/technice są podane wszystkie zadania, do rozwiązania których był potrzebny, z podanych niżej przedziałów. <download-only>Zadania z drugich etapów są oznaczone kolorem żółtym, a z finałów - czerwonym. Próbne zadania mają wyblakły odcień.</download-only> Brane pod uwagę są tylko rozwiązania wzorcowe z oficjalnych omówień. Za część rozwiązania brany jest również dowód poprawności i złożoności. Jeśli czegoś w nich nie było, to nie ma go tutaj. Wkuwanie niepotrzebnych ci algorytmów to nie jest to. W szczególności jeśli interesuje cię tylko dostanie się do finału, możesz zignorować pozycje, przy których nie ma żadnych zadań z drugiego etapu. Być może możesz też odpuścić sobie pozycje, które wystąpiły tylko raz.
+Przy każdym algorytmie/technice są podane wszystkie zadania, do rozwiązania których był potrzebny, z podanych niżej przedziałów. <external-only>Zadania z drugich etapów są oznaczone kolorem żółtym, a z finałów - czerwonym. Próbne zadania mają wyblakły odcień.</external-only> Brane pod uwagę są tylko rozwiązania wzorcowe z oficjalnych omówień. Za część rozwiązania brany jest również dowód poprawności i złożoności. Jeśli czegoś w nich nie było, to nie ma go tutaj. Wkuwanie niepotrzebnych ci algorytmów to nie jest to. W szczególności jeśli interesuje cię tylko dostanie się do finału, możesz zignorować pozycje, przy których nie ma żadnych zadań z drugiego etapu. Być może możesz też odpuścić sobie pozycje, które wystąpiły tylko raz.
 
 <warning>To nie jest lista <emphasis>wszystkiego</emphasis>, co może się pojawić, a jedynie próba przewidzenia na podstawie wcześniejszych danych, co <emphasis>może</emphasis> się pojawić.</warning>
 
@@ -277,7 +277,7 @@ Lista obejmuje drugie etapy i finały od XIV do XXXIII OI z wyjątkiem zadania <
 </subanswer>
 </answer>
 
-<answer question='Skąd uczyć się algorytmów i sztuczek?'>
+<answer question='Skąd uczyć się algorytmów i sztuczek?' id='omowienia-algorytmow'>
 Standardową pierwszą odpowiedzią jest <link url='https://cp-algorithms.com/'>CP-Algorithms</link>. Drugą odpowiedzią jest <link url='https://usaco.guide/'>USACO Guide</link>. Jeśli ani tu ani tam czegoś nie ma, to zwykle znajdziesz to opisane w jakimś blogu na Codeforces (<link url='https://codeforces.com/catalog'>katalog najlepszych</link>). Blogi i posty na Codeforces ogólnie są głównym forum dyskusyjnym i źródłem nowości w świecie programowania sportowego.
 
 Alternatywnymi źródłami są:
@@ -287,11 +287,11 @@ Alternatywnymi źródłami są:
 </list>
 </answer>
 
-<answer question='Jak sprawdzić, czy umiem dany algorytm lub sztuczkę?'>
+<answer question='Jak sprawdzić, czy umiem dany algorytm lub sztuczkę?' id='czy-umiem-algorytm'>
 Odpowiedzią jest <link url='https://cses.fi/problemset/'>CSES Problem Set</link>. Tam całym założeniem każdego zadania oprócz tych ostatnich jest właśnie zastosowanie jakiegoś algorytmu lub sztuczki i zwykle nie mają one więcej głębi. Podobną funkcję pełni też <link url='https://judge.yosupo.jp/'>Library Checker</link>, który jak nazwa wskazuje, służy do weryfikowania biblioteczek. Jeśli potrzebujesz trochę bardziej wyrafinowanych zadań, to na <link url='https://cp-algorithms.com/'>CP-Algorithms</link> i <link url='https://usaco.guide/'>USACO Guide</link> zwykle są podlinkowane zadania dla danej techniki.
 </answer>
 
-<answer question='Gdzie mogę znaleźć implementacje algorytmów?'>
+<answer question='Gdzie mogę znaleźć implementacje algorytmów?' id='biblioteczki'>
 <list>
 <item>Jeśli się uczysz, to <link url='https://cp-algorithms.com/'>CP-Algorithms</link> i <link url='https://usaco.guide/'>USACO Guide</link> zawierają też przykładowe implementacje.</item>
 
@@ -308,13 +308,13 @@ Najlepiej jednak jest napisać <important>własną biblioteczkę</important>.
 </list>
 </answer>
 
-<answer question='Jakie zadania robić?'>
+<answer question='Jakie zadania robić?' id='zadania'>
 <list>
 <item>Przede wszystkim: <important>Jeśli przygotowujesz się do jakiegoś konkursu, to rób archiwalne zadania z tego konkursu.</important> Naprawdę. Przygotowujesz się do OI? Rób <link url='https://szkopul.edu.pl/task_archive/oi/'>zadania ze starych edycji OI</link>. Przygotowujesz się do OIJ? Rób <link url='https://szkopul.edu.pl/task_archive/oig/'>zadania ze starych edycji OIJ</link>. Przygotowujesz się do matury z polskiego? Rób oficjalne arkusze maturalne od CKE. Na każdym konkursie zadania są układane przez inne osoby, z inną wizją, jak ten konkurs ma wyglądać. Nawet zadania z drugiego etapu OI są lekko inne od zadań z finału.</item>
 
 <item>Oczywiście robienie ciągle tego samego bywa nie tylko żmudne, ale też umysłowo ograniczające, więc od czasu do czasu trzeba też porobić <emphasis>coś innego</emphasis>.</item>
 
-<item>Warto też czasami robić zadania, które robią twoi koledzy i koleżanki. Na kanale <discord-only>&lt;#876036802132185098&gt;</discord-only><download-only><code>#fajne-zadanka</code> na <link url='https://discord.gg/AMGxG4TvDS'>naszym serwerze Discord</link></download-only> znajdziesz zadania, które spodobały się im, i ty też możesz dzielić się fajnymi zadaniami na nim.</item>
+<item>Warto też czasami robić zadania, które robią twoi koledzy i koleżanki. Na kanale <discord-only>&lt;#876036802132185098&gt;</discord-only><external-only><code>#fajne-zadanka</code> na <link url='https://discord.gg/AMGxG4TvDS'>naszym serwerze Discord</link></external-only> znajdziesz zadania, które spodobały się im, i ty też możesz dzielić się fajnymi zadaniami na nim.</item>
 </list>
 </answer>
 
@@ -328,19 +328,19 @@ Najlepszym narzędziem do ćwiczenia przed testem wiedzy OIJ jest <link url='htt
 Jeśli zabraknie ci zadań z OI, to następnym najbardziej podobnym do nich zestawem zadań są zadania z obozów ONTAK dostępne na SIO2 w konkursach pod nazwą "Wiekuisty ONTAK".
 </answer>
 
-<answer question='Jak zadania ze starszych edycji OI różnią się od aktualnych?'>
+<answer question='Jak zadania ze starszych edycji OI różnią się od aktualnych?' id='stare-vs-nowe-zadania-oi'>
 Zadania z nowych Olimpiad są od tych starszych łatwiejsze pod kątem wiedzy algorytmicznej i trudniejsze pod kątem koncepcyjnym, a ich rozwiązania wzorcowe wymagają mniej żyłowania czasu i pamięci. Taki kurs zmian zbliża je bardziej do stylu zadań z IOI. Jednocześnie ogólna trudność Olimpiady zwiększa się, gdyż co raz więcej uczniów wie o jej istnieniu oraz bierze w niej udział i zaangażowanie średniego uczestnika jest też większe niż kiedyś.
 </answer>
 
-<answer question='Jak zadania z OI różnią się od zadań z Codeforces?'>
+<answer question='Jak zadania z OI różnią się od zadań z Codeforces?' id='zadania-oi-vs-codeforces'>
 Rozwiązywanie zadania z OI to przygoda, w której musisz dokonać wiele małych obserwacji, podczas gdy zadania z Codeforces zwykle wymagają wpadnięcia na jeden duży pomysł. Zadania na Codeforces (może za wyjątkiem rund Educational) wymagają też znacznie mniej wiedzy algorytmicznej.
 </answer>
 
-<answer question='Czy są gdzieś dostępne omówienia lub rozwiązania zadań z dawnych ONTAKów?'>
+<answer question='Czy są gdzieś dostępne omówienia lub rozwiązania zadań z dawnych ONTAKów?' id='omowienia-ontak'>
 Niestety nie. Nic jednak nie powstrzymuje ciebie przed samodzielnym rozwiązaniem jednego z zadań i spisaniem swojego rozwiązania dla użytku innych. <important>Krok po kroku uzbierałby się przyzwoity zbiór omówień zadań z ONTAKów.</important>
 </answer>
 
-<answer question='Jak robić zadania, żeby wynieść z tego jak najwięcej?' important='yes'>
+<answer question='Jak robić zadania, żeby wynieść z tego jak najwięcej?' important='yes' id='jak-robic-zadania'>
 <todo>Trzeba zmierzyć poziom prawdy w tej odpowiedzi sięgając po opinię innych.</todo>
 
 Celem robienia zadań, nie jest zrobienie ich jak najwięcej - nieważne jak bardzo satysfakcjonująca może być ściana pełna zielonych OK-ejek. Celem robienia zadań jest ustawienie twojego mózgu tak, aby po pierwsze <emphasis>potrafił</emphasis> rozwiązywać podobne zadania w przyszłości i po drugie rozwiązywał je szybciej. <important>To wymaga stopniowego zauważania kolejnych schematów i wzorców, którymi kierują się twórcy zadań.</important> Do tego musisz nie tylko wpadać na rozwiązania, ale też analizować w jaki sposób, do nich doszedłeś albo nie doszedłeś.
@@ -356,7 +356,7 @@ Dobrze też nauczyć się rozpoznawać, kiedy twój mózg faktycznie angażuje s
 Gdy skończysz zadanie, najpierw zadaj sobie pytanie, jak doszedłeś do rozwiązania, dlaczego nie wpadłeś sam na przeczytane wskazówki z omówienia, dokąd zamiast tego zawędrowałeś i dlaczego. Jeśli w zadaniu spotkałeś się z nowymi metodami rozwiązywania problemów, <important>spróbuj uogólnić nowopoznane podejścia i wymyśleć sobie co raz to bardziej odległe warianty oryginalnego zadania. Następnie wyodrebnij je od reszty zadania i analizuj je same w ten sposób.</important> Nie jest to proste ćwiczenie, ale jakże rozwijające. Człowiek szybko zapomina, więc możesz sobie robić krótkie notatki z tych przemyśleń, żeby lepiej je pamiętać.
 </answer>
 
-<answer question='Czy mogę korzystać z AI podczas rozwiązywania zadań?'>
+<answer question='Czy mogę korzystać z AI podczas rozwiązywania zadań?' id='ai'>
 Tak, pod warunkiem, że będziesz traktować go tak jak <important>kolegę z lukami w pamięci</important>.
 
 Jeśli poprosisz kolegę lub AI o rozwiązanie zadania bez uprzedniego samodzielnego rozmyślania nad nim, to zbyt wiele z tego nie wyniesiesz. Jeśli spytasz kolegę lub AI "Co mam źle?" bez wnikania "Dlaczego mam to źle?", to zbyt wiele z tego nie wyniesiesz. Możesz spytać kolegę lub AI o wskazówkę, gdy już brakuje ci pomysłów, choć omówienie autorów zadania pewnie i tak ma lepsze wskazówki.
@@ -364,7 +364,7 @@ Jeśli poprosisz kolegę lub AI o rozwiązanie zadania bez uprzedniego samodziel
 Musisz uważać na to, że LLMy <important>lubią zmyślać</important> w tematach, w których się nie znają. Drugą sprawą jest to, że LLMy słyną z tego, że rozwiązania produkowane przez nie są <important>zawiłe, nieścisłe i słabo tłumaczą</important>. To są dwa argumenty za korzystaniem z materiałów napisanych przez prawdziwych ludzi.
 </answer>
 
-<answer question='Jak się nie wypalić podczas przygotowań do Olimpiady?'>
+<answer question='Jak się nie wypalić podczas przygotowań do Olimpiady?' id='wypalenie'>
 <todo>Ta odpowiedź jest słaba. Próbka badawcza zdecydowanie za mała.</todo>
 
 Większość ludzi pracując nad tym samym przez długi okres czasu przestaje odczuwać z tego tak silną satysfakcję jak na początku. To jest zupełnie normalne. W takich sytuacjach, aby walczyć dalej, musisz być po prostu przekonany o tym, że to, co robisz, <emphasis>ma sens</emphasis> dla ciebie, i być świadomym faktu, że nauka do Olimpiady trwa długo i rozwój często postępuje skokowo. Do tego dobrze jest sobie przypominać, dokładnie dlaczego przygotowujesz się do Olimpiady. Jeśli powód jest dobry, to z pewnością wystarczy ci do walczenia dalej.
@@ -414,11 +414,11 @@ Zawsze trzeba mieć też plan B: <important>Ostatnią godzinę konkursu potraktu
 </subanswer>
 </answer>
 
-<answer question='Do czego służą kartki i długopis na drugim etapie?'>
+<answer question='Do czego służą kartki i długopis na drugim etapie?' id='kartki-i-dlugopis'>
 Do wizualizowania sobie testów i treści zadania, zapisywania pomysłów i debugowania. Możesz je zabrać ze sobą do domu.
 </answer>
 
-<answer question='Ile wynosi próg do finału...'>
+<answer question='Ile wynosi próg do finału...' id='prog'>
 <subanswer subquestion='...OI?'>
 W ostatnich 10 lat próg wahał się od 100 do 200 punktów, ale zawodnicy wolą go mierzyć jakościowo: Zwykło się mówić, że 1 wzorcówka i 3 solidne bruty gwarantują przejście do finału.
 </subanswer>
@@ -469,7 +469,7 @@ done
 ]]></code>
 </answer>
 
-<answer question='Jakie konkursy istnieją poza Olimpiadą?'>
+<answer question='Jakie konkursy istnieją poza Olimpiadą?' id='konkursy'>
 <subanswer subquestion='Dla wszystkich'>
 <list>
 <item>Rundy na <link url='https://codeforces.com/contests'>Codeforces</link> - najbardziej znana platforma programowania sportowego na świecie; podzielone trudnością na trzy "dywizje"; średnio 2 rundy na tydzień.</item>
@@ -495,15 +495,13 @@ done
 </answer>
 
 <footer>
-Ten przewodnik został <download-only>stworzony przez i dla otwartej społeczności <link url='https://discord.gg/AMGxG4TvDS'>OKI OI OIJ Zjednoczenie</link> i</download-only> udostępniony na licencji <link url='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</link>. Znalezione błędy prosimy zgłaszać na <link url='https://github.com/OOOZet/Przewodnik/issues'>GitHubie</link> lub na <discord-only>&lt;#708664789970452490&gt;</discord-only><download-only><link url='https://discord.gg/AMGxG4TvDS'>Discordzie</link></download-only>. Do powstania tej wersji przewodnika bezpośrednio przyczynili się: <placeholder for='contributors'/>.
+Ten przewodnik został <external-only>stworzony przez i dla otwartej społeczności <link url='https://discord.gg/AMGxG4TvDS'>OKI OI OIJ Zjednoczenie</link> i</external-only> udostępniony na licencji <link url='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</link>. Znalezione błędy prosimy zgłaszać na <link url='https://github.com/OOOZet/Przewodnik/issues'>GitHubie</link> lub na <discord-only>&lt;#708664789970452490&gt;</discord-only><external-only><link url='https://discord.gg/AMGxG4TvDS'>Discordzie</link></external-only>. Do powstania tej wersji przewodnika bezpośrednio przyczynili się: <placeholder for='contributors'/>.
 
 <todo>Czy używać form żeńskich czasowników przeszłych II os.?</todo>
 
 <todo>Ujednolicić konstrukcje imperatywne do zwykłego czasownika w trybie rozkazującym.</todo>
 
 <todo>Jakaś grafika w tle na pierwszej stronie.</todo>
-
-<todo>Wydanie w formie strony internetowej.</todo>
 </footer>
 
 <contributor name='Karol "digitcrusher" Łacina' discord-id='536253933778370580' website='https://lacina.io/' contribution='wszystko'/>

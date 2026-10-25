@@ -26,9 +26,6 @@
 {{ render_inlines(node) | escape_typst_line_markup }}
   {% elif node.tag == 'subanswer' %}
 == {{ render_text(node.attrib['subquestion']) }}
-    {% if 'id' in node.attrib %}
-#label({{ node.attrib['id'] | escape_typst_string }})
-    {% endif %}
 {{ render_blocks(node) }}
   {% elif node.tag == 'warning' %}
 #warning[
@@ -50,10 +47,10 @@
     #link({{ node.attrib['url'] | escape_typst_string }})[{{ render_inlines(node) }}]
   {%- elif node.tag == 'placeholder' -%}
     {{ placeholder_values[node.attrib['for']] }}
-  {%- elif node.tag == 'ref' -%}
-    #link(label({{ node.attrib['id'] | escape_typst_string }}))[{{ render_inlines(node) }}]
   {%- elif node.tag == 'problem' -%}
     #problem({{ node.attrib['id'] | escape_typst_string }})
+  {%- elif node.tag == 'ref' -%}
+    #link(label({{ node.attrib['id'] | escape_typst_string }}))[{{ render_inlines(node) }}]
   {%- else %}
     {{ error('Unknown inline tag: ' ~ repr(node.tag)) }}
   {% endif %}
@@ -66,7 +63,9 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 {{ node.text | escape_typst_string }})
 {%- endmacro %}
 
-{% macro render_text(text) %}{{ (text or '').replace(' - ', ' --- ') | escape_typst_markup }}{% endmacro %}
+{% macro render_text(text) %}{{
+  (text or '').replace(' - ', ' --- ') | re_sub('\\b(\\w) ', '\\1\xa0') | escape_typst_markup
+}}{% endmacro %}
 
 {% macro render_blocks(node) %}
   {% for child in node %}
@@ -126,13 +125,12 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 #set par(justify: true)
 #set text(lang: "pl")
 #show "C++": box
-#show regex(`\W\w `.text): it => [#it.text.trim(at: end)~]
 
 // Other
 #set list(marker: ([•], [◦]))
 #show link: set text(blue)
 #show raw.where(block: true): set align(center)
-#show raw.where(block: true): set block(fill: color.luma(97%), inset: block-inset)
+#show raw.where(block: true): set block(fill: color.oklch(98%, 0, 0deg), inset: block-inset)
 
 // Macros and symbols
 #let highlight-block(hue, icon, hint, content) = block(
@@ -172,9 +170,9 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 #let problem(id) = {
   let problem = problems.at(id)
   let color = (
-    "próbny II etap": color.oklch(95%, 20%, 100deg),
+    "próbny II etap": color.oklch(95%, 25%, 100deg),
     "II etap":        color.oklch(90%, 50%, 100deg),
-    "próbny finał":   color.oklch(95%, 20%, 20deg),
+    "próbny finał":   color.oklch(95%, 25%, 20deg),
     "finał":          color.oklch(90%, 50%, 20deg),
   ).at(problem.stage, default: none)
   show: rest => link(problem.url, rest)

@@ -1,4 +1,8 @@
 beautifulsoup4 [lxml]
+htmlmin2
 Jinja2
+Pygments
+pyphen
+rcssmin
 requests
 watchdog

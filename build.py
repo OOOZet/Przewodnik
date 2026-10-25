@@ -1,11 +1,20 @@
 #!/usr/bin/env python3
 
-import os, re, subprocess, sys, unicodedata
+import csv, htmlmin, os, pygments, re, subprocess, sys, unicodedata
 from argparse import ArgumentParser
+from bs4 import BeautifulSoup
+from collections import namedtuple
 from contextlib import contextmanager
 from datetime import datetime
 from enum import auto, Enum
 from jinja2 import Environment, FileSystemLoader
+from markupsafe import Markup
+from pygments.formatters import HtmlFormatter
+from pygments.lexers import get_lexer_by_name
+from pygments.style import Style
+from pygments.token import Comment, Keyword, Name, Number, Operator, String
+from pyphen import Pyphen
+from rcssmin import cssmin
 from threading import Event
 from watchdog.events import RegexMatchingEventHandler
 from watchdog.observers import Observer
@@ -42,7 +51,7 @@ def watch():
     while True:
       sys.stderr.write('\x1b[2J\x1b[1;1H')
       log_info(f'Running build now at {datetime.now()}')
-      subprocess.run([__file__])
+      subprocess.run([sys.executable, __file__])
       log_info('Waiting for changes to source files')
       # We don't clear before building because formatting source.xml overwrites it.
       change_event.clear()
@@ -79,6 +88,14 @@ def build():
     if typst.returncode != 0:
       sys.exit(1)
 
+  log_info('Building webpage')
+  with log_indent():
+    preprocess_source(Target.webpage)
+
+    render(Target.webpage)
+
+    minify_html('build/webpage.html')
+
 def format_text_file(path):
   log_info(f'Formatting {path!r}')
   with log_indent():
@@ -109,7 +126,11 @@ def format_text_file(path):
       line, col = 1, 1
       for c in new:
         if not any(a <= ord(c) <= b for a, b in permitted_ranges):
-          log_error(f'Found U+{ord(c):04X} {unicodedata.name(c)} at {line}:{col}')
+          try:
+            name = ' ' + unicodedata.name(c)
+          except ValueError:
+            name = ''
+          log_error(f'Found U+{ord(c):04X}{name} at {line}:{col}')
           had_errors = True
         if c == '\n':
           line += 1
@@ -178,7 +199,8 @@ def expand_conditionals(parent, target):
       continue
 
     del parent[i]
-    is_kept = child.tag.removesuffix('-only') == target.name
+    is_kept = child.tag.removesuffix('-only') == target.name or \
+              child.tag == 'external-only' and target in {Target.download, Target.webpage}
 
     if is_kept and child.text is not None:
       if i == 0:
@@ -284,14 +306,24 @@ def normalize_whitespace(node):
 def render(target):
   template_name = {
     Target.download: 'download.typ',
+    Target.webpage: 'webpage.html',
   }[target]
   log_info(f'Rendering {template_name}')
 
   tree = ElementTree.parse(f'build/{target.name}.xml')
+
+  problems = {}
+  with open('problems.csv', 'r', newline='') as f:
+    reader = csv.reader(f)
+    Problem = namedtuple('Problem', next(reader))
+    for row in reader:
+      problem = Problem._make(row)
+      problems[problem.id] = problem
+
   env = Environment(
     loader=FileSystemLoader('templates'),
-    # Autoescaping escapes only HTML tags, which obviously
-    # is not only insufficient but also harmful to our needs.
+    # Autoescaping escapes only HTML tags, which obviously is not only
+    # insufficient but also harmful to our needs in the case of Typst.
     autoescape=False,
     lstrip_blocks=True,
     trim_blocks=True,
@@ -301,18 +333,25 @@ def render(target):
   env.globals |= {
     'datetime': datetime,
     'error': error,
+    'highlights_css': highlights_css,
     'repr': repr,
   }
   env.filters |= {
     'escape_typst_line_markup': escape_typst_line_markup,
     'escape_typst_markup': escape_typst_markup,
     'escape_typst_string': escape_typst_string,
+    'highlight': highlight,
     'human_date': human_date,
+    'hyphenate': hyphenate,
+    're_sub': re_sub,
   }
 
-  out = env.get_template(template_name).render(document=tree.getroot())
+  out = env.get_template(template_name).render(document=tree.getroot(), problems=problems)
   with open(f'build/{template_name}', 'w') as f:
     f.write(out)
+
+def highlights_css(parent_selector):
+  return HtmlFormatter(style=TypstLight).get_style_defs(parent_selector)
 
 def escape_typst_line_markup(text):
   return re.sub(r'^(\s*)([+-/=]) ', r'\1\\\2 ', text)
@@ -322,6 +361,34 @@ def escape_typst_markup(text):
 
 def escape_typst_string(text):
   return '"' + re.sub(r'(["\\])', r'\\\1', text) + '"'
+
+def highlight(code, lang):
+  formatter = HtmlFormatter(style=TypstLight, nowrap=True)
+  return Markup(pygments.highlight(code, get_lexer_by_name(lang), formatter))
+
+# BUG: Pygments' and syntect's (used by Typst) differ visibly in the token types they detect.
+# WARNING: This is by no means a complete translation of Typst's theme
+#          and it omits many tokens, which we didn't need at the time.
+# Based on: https://github.com/typst/typst/blob/64c5e8c/crates/typst-library/src/text/raw.rs#L1097
+class TypstLight(Style):
+  name = 'typst_light'
+  styles = {
+    Comment: '#74747c',
+    Comment.Preproc: '#d73948',
+    Comment.PreprocFile: '#198810',
+    Keyword: '#d73948',
+    Name.Builtin: '#4b69c6',
+    Name.Class: '#4b69c6',
+    Name.Decorator: '#4b69c6',
+    Name.Function: '#4b69c6',
+    Number: '#b60157',
+    Operator: '#d73948',
+    String: '#198810',
+    String.Affix: '#d73948',
+    String.Doc: '#74747c',
+    String.Escape: '#1d6c76',
+    String.Interpol: '#8b41b1',
+  }
 
 def human_date(iso_date):
   months = [
@@ -341,9 +408,30 @@ def human_date(iso_date):
   dt = datetime.fromisoformat(iso_date)
   return f'{dt.day} {months[dt.month - 1]} {dt.year}'
 
+def hyphenate(text):
+  result = Pyphen(lang='pl', cache=True).inserted(text, '\xad')
+  for pattern, repl in [(r'\xad\B', ''), (r'\b(\w)\xad', r'\1'), (r'\xad(\w)\b', r'\1')]:
+    result = re.sub(pattern, repl, result)
+  return result
+
+def re_sub(string, *args):
+  return re.sub(*args, string)
+
+def minify_html(path):
+  log_info(f'Minifying {path!r}')
+  with open(path, 'r') as f:
+    html = f.read()
+  html = BeautifulSoup(html, 'lxml')
+  for node in html.find_all('style'):
+    node.string = cssmin(node.string)
+  html = htmlmin.minify(str(html), remove_comments=True, remove_empty_space=True)
+  with open(path, 'w') as f:
+    f.write(html)
+
 class Target(Enum):
   discord = auto()
   download = auto()
+  webpage = auto()
 
 def log_info(msg):
   log_any(msg, None)

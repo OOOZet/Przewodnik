@@ -4,16 +4,17 @@ Najnowszy build przewodnika można znaleźć na kanale `#przewodnik` na [naszym 
 
 ## Buildowanie
 
-1. Zainstaluj programy Git LFS, Python 3 oraz [Typst](https://typst.app/open-source/#download).
-2. Zainstaluj potrzebne pakiety w Pythonie za pomocą `pip3 install -r requirements.txt`.
-3. Uruchom `./build.py --watch`. Od teraz przewodnik będzie buildowany po każdej zmianie w plikach źródłowych. Jeśli chcesz tylko jednorazowo zbuildować przewodnik, to usuń opcję `--watch`.
+1. Zainstaluj programy Git LFS (jeśli chcesz pracować z gitem), Python 3 oraz [Typst](https://typst.app/open-source/#download).
+2. Stwórz wirtualne środowisko za pomocą `python3 -m venv ./venv/`. (Pyphen w Debianie nie ma języka polskiego.)
+3. Zainstaluj potrzebne pakiety w Pythonie za pomocą `./venv/bin/pip3 install -r requirements.txt`.
+4. Uruchom `./venv/bin/python3 build.py --watch`. Od teraz przewodnik będzie buildowany po każdej zmianie w plikach źródłowych. Jeśli chcesz tylko jednorazowo zbuildować przewodnik, to usuń opcję `--watch`.
 
 ## Praca z treścią
 
 > [!WARNING]
 > Z każdą nową edycja przewodnika trzeba zaktualizować daty i linki w pytaniu "Jakie korzyści przynosi sukces w...", "Jak wystartować w…" i "Jak wygląda drugi i trzeci etap…".
 
-Ze względu na to, iż przewodnik jest wydawany w dwóch zupełnie niepodobnych formach prezentacji (Discordowy Markdown i Typst), zastosowany został bardzo wyraźny podział na warstwę semantyczną i warstwę prezentacji dokumentu. Całość tej pierwszej znajduje się w pliku `source.xml` i, jak można się domyśleć, jest ona napisana w XML-u - języku spokrewnionym z HTML-em, ale mniej odjechanym. Sam XML oczywiście nie definiuje, jakie są typy znaczników; to robi użytkownik, czyli w tym przypadku my. Znaczniki dostępne w `source.xml` zostały opisane poniżej.
+Ze względu na to, iż przewodnik jest wydawany w trzech zupełnie niepodobnych formach prezentacji (Discordowy Markdown, HTML/CSS i Typst), zastosowany został bardzo wyraźny podział na warstwę semantyczną i warstwę prezentacji dokumentu. Całość tej pierwszej znajduje się w pliku `source.xml` i, jak można się domyśleć, jest ona napisana w XML-u - języku spokrewnionym z HTML-em, ale mniej odjechanym. Sam XML oczywiście nie definiuje, jakie są typy znaczników; to robi użytkownik, czyli w tym przypadku my. Znaczniki dostępne w `source.xml` zostały opisane poniżej.
 
 Kontynuując temat warstwy "semantycznej": Znaczniki, które tłumaczą się na pogrubiony tekst lub kursywę, nie przyjmują nazwy od ich wyglądu (np. "bold" czy "italic"), tylko od funkcji, jaką one pełnią w tekście (np. "important" lub "emphasis"). Takie rozwiązanie przy okazji wymusza jednolity wygląd dokumentu poprzez ograniczenie dostępu do komend stylizujących docelowego systemu prezentacji.
 
@@ -94,8 +95,8 @@ Poniżej jest warstwa semantyczna przykładowego dokumentu prezentująca wszystk
 
   <answer
     question='O co pytać na…'
-    id='Do pytań można dodawać ID, do którego można później się odnosić za
-        pomocą <ref>.'>
+    id='Każde pytanie musi mieć unikalne ID. Dzięki temu można się do nich
+        odnosić za pomocą <ref>.'>
 
     Na początku pytania z podpytaniami może być tekst. <ref
     id='jakies-pytanie'>O! Link do pytania!</ref>
@@ -186,4 +187,4 @@ Pomysły na przyszłe odpowiedzi na pytania:
 
 Przestrzenią kolorów, w której pracujemy, jest Oklab w cylindrycznym układzie współrzędnych (Oklch). Pod żadnym pozorem nie używaj sRGB ani innych percepcyjnie niejednorodnych przestrzeni.
 
-Zestaw ikon, który używamy to Google Material Symbols. Ich wyszukiwarkę znajdziesz [tutaj](https://fonts.google.com/icons). W repozytorium jest ustalona wersja tej czcionki, więc jeśli ikonka na stronie wygląda inaczej w zbuildowanym dokumencie, to oznacza, że pewnie trzeba zaktualizować czcionkę w repozytorium.
+Zestaw ikon, który używamy to Google Material Symbols. Ich wyszukiwarkę znajdziesz [tutaj](https://fonts.google.com/icons). W repozytorium jest ustalona wersja tej czcionki, więc jeśli ikonka na stronie wygląda inaczej w zbuildowanym PDF-ie, to oznacza, że pewnie trzeba zaktualizować czcionkę w repozytorium. W HTML-u nowe ikony trzeba dodawać do `@import`-a importującego tę czcionkę.

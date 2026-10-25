@@ -1,0 +1,375 @@
+{% autoescape true %}
+
+{% macro render_block(node) %}
+  {% if node.tag == 'code' %}
+    {{ render_code(node, true) }}
+
+  {% elif node.tag == 'list' %}
+    <ul>
+    {% for item in node.findall('item') %}
+      <li>{{ render_blocks(item) }}</li>
+    {% endfor %}
+    </ul>
+
+  {% elif node.tag == 'note' %}
+    <div class='note'>
+      <small class='hint'><span class='material-symbols-sharp'>info</span> Pamiętaj...</small>
+      {{ render_blocks(node) }}
+    </div>
+
+  {% elif node.tag == 'todo' %}
+    <div class='todo'><div class='todo-inner'>{{ render_blocks(node) }}</div></div>
+
+  {% elif node.tag == 'paragraph' %}
+    <p>{{ render_inlines(node) }}</p>
+
+  {% elif node.tag == 'subanswer' %}
+    <h3>{{ render_text(node.attrib['subquestion']) }}</h3>
+    {{ render_blocks(node) }}
+
+  {% elif node.tag == 'warning' %}
+    <div class='warning'>
+      <small class='hint'><span class='material-symbols-sharp'>warning</span> Uważaj!</small>
+      {{ render_blocks(node) }}
+    </div>
+
+  {% else %}
+    {{ error('Unknown block tag: ' ~ repr(node.tag)) }}
+  {% endif %}
+{% endmacro %}
+
+{% macro render_inline(node) %}
+  {% if node.tag == 'code' -%}
+    {{ render_code(node, false) }}
+
+  {%- elif node.tag == 'emphasis' -%}
+    <em>{{ render_inlines(node) }}</em>
+
+  {%- elif node.tag == 'important' -%}
+    <strong>{{ render_inlines(node) }}</strong>
+
+  {%- elif node.tag == 'link' -%}
+    <a href='{{ node.attrib['url'] }}'>{{ render_inlines(node) }}</a>
+
+  {%- elif node.tag == 'placeholder' -%}
+    {{ placeholder_values[node.attrib['for']] }}
+
+  {%- elif node.tag == 'problem' -%}
+    {% set problem = problems[node.attrib['id']] %}
+    <a class='problem {{
+      {
+        'próbny II etap': 'probny-ii-etap',
+        'II etap': 'ii-etap',
+        'próbny finał': 'probny-final',
+        'finał': 'final',
+      }.get(problem.stage, 'unknown-stage')
+    }}' href='{{ problem.url }}'>{{ render_text(problem.name) }} ({{ render_text(problem.competition) }})</a>
+
+  {%- elif node.tag == 'ref' -%}
+    <a href='#{{ node.attrib['id'] }}'>{{ render_inlines(node) }}</a>
+
+  {%- else %}
+    {{ error('Unknown inline tag: ' ~ repr(node.tag)) }}
+  {% endif %}
+{% endmacro %}
+
+{% macro render_code(node, is_block) %}
+  {% set content = node.text | highlight(node.attrib['lang']) if 'lang' in node.attrib else node.text %}
+  {% if is_block %}
+    <pre><code>{{ content }}</code></pre>
+  {% else -%}
+    <code>{{ content }}</code>
+  {%- endif %}
+{% endmacro %}
+
+{# Third to last regex replaces both closing single quotation marks and apostrophes. #}
+{% macro render_text(text) %}{{
+  (text or '')
+  | re_sub(' - ', ' — ')
+  | re_sub('\\b(\\w) ', '\\1\xa0')
+  | re_sub('\\B"\\b', '„')
+  | re_sub('\\b"\\B', '”')
+  | re_sub("\\B'\\b", '‚')
+  | re_sub("'", '’')
+  | re_sub('\\.\\.\\.', '…')
+  | re_sub('>=', '≥')
+  | hyphenate
+}}{% endmacro %}
+
+{% macro render_blocks(node) %}
+  {% for child in node %}
+    {{ render_block(child) }}
+  {% endfor %}
+{% endmacro %}
+
+{% macro render_inlines(node) %}
+{{ render_text(node.text) }}{% for child in node %}{{ render_inline(child) }}{{ render_text(child.tail) }}{% endfor %}
+{% endmacro %}
+
+{% set contributors %}
+  {% for node in document.findall('contributor') %}
+    {% if 'website' in node.attrib %}<a href='{{ node.attrib['website'] }}'>{% endif %}
+    {{ render_text(node.attrib['name']) }}
+    {%- if 'website' in node.attrib %}</a>{% endif %}
+    ({{ render_text(node.attrib['contribution']) }})
+    {%- if not loop.last %}, {% endif %}
+  {% endfor %}
+{% endset %}
+{% set placeholder_values = {
+  'contributors': contributors,
+} %}
+
+<!DOCTYPE html>
+<html lang='pl'>
+  <head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>{{ document.attrib['title'] }}</title>
+    <style>
+
+@import url('https://rsms.me/inter/inter.css'); /* Google Fonts doesn't have Inter Display yet. */
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:FILL@1&icon_names=info,warning');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+/*
+ * We treat the downloadable file as a canon of beauty, which
+ * we strive to imitate as much as possible in this stylesheet.
+ */
+
+/* General constants */
+:root {
+  --typst-blue: #0074d9;
+  --typst-yellow: #ffdc00;
+  --typst-page-width: 21cm;
+  --typst-page-margin: calc(var(--typst-page-width) * 2.5 / 21);
+  --scale: 1.2;
+}
+
+/* Typography */
+:root { --text-vertical-margin: -0.24em; }
+body { font: 300 calc(var(--scale) * 10pt) 'Inter', sans-serif; line-height: 1.4; }
+code, pre { font: 320 calc(var(--scale) * 10.26pt) 'Roboto Mono', monospace; }
+h1, h2, h3 { font-family: 'InterDisplay', 'Inter', sans-serif; }
+h1 { font-size: calc(var(--scale) * 30pt); }
+h2 { font-size: calc(var(--scale) * 16pt); }
+h3 { font-size: calc(var(--scale) * 14pt); }
+strong { font-weight: 600; }
+.hint { font-family: 'InterDisplay', 'Inter', sans-serif; font-weight: 600; }
+.hint, .hint * { font-size: calc(var(--scale) * 8pt); }
+.material-symbols-sharp { vertical-align: calc(var(--scale) * -1pt); }
+.todo { font-weight: 400; }
+
+/* General spacing */
+:root { --block-inset: 1em; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { box-sizing: content-box; }
+pre, .note, .warning { padding: var(--block-inset); }
+.todo { padding: calc(0.75 * var(--block-inset)); }
+.todo-inner { padding: calc(0.50 * var(--block-inset)); max-width: fit-content; margin: auto; }
+
+/* Horizontal spacing */
+main {
+  max-width: calc(var(--scale) * (var(--typst-page-width) - 2 * var(--typst-page-margin)));
+  margin-left:  auto;
+  margin-right: auto;
+  padding-left:  var(--block-inset);
+  padding-right: var(--block-inset);
+}
+pre { max-width: fit-content; margin-left: auto; margin-right: auto; }
+ul { padding-left: 1em; }
+
+/* Vertical spacing */
+/*
+ * This --text-vertical-margin thing is a major hack trying to work around the
+ * unfortunate fact that the text-box property hadn't been invented a decade earlier.
+ */
+:root { --par-spacing: 1.4em; }
+h1, h2, h3 {
+  margin-top:    calc(1.2em + 2 * var(--text-vertical-margin));
+  margin-bottom: calc(1em   + 2 * var(--text-vertical-margin));
+}
+p {
+  margin-top:    calc(var(--par-spacing) + 2 * var(--text-vertical-margin));
+  margin-bottom: calc(var(--par-spacing) + 2 * var(--text-vertical-margin));
+}
+pre, .note, .todo, .warning {
+  margin-top:    var(--par-spacing);
+  margin-bottom: var(--par-spacing);
+}
+p  + pre, p  + .note, p  + .todo, p  + .warning,
+h1 + pre, h1 + .note, h1 + .todo, h1 + .warning,
+h2 + pre, h2 + .note, h2 + .todo, h2 + .warning,
+h3 + pre, h3 + .note, h3 + .todo, h3 + .warning
+{
+  margin-top: calc(var(--par-spacing) + var(--text-vertical-margin));
+}
+pre:has(+ p ), .note:has(+ p ), .todo:has(+ p ), .warning:has(+ p ),
+pre:has(+ h1), .note:has(+ h1), .todo:has(+ h1), .warning:has(+ h1),
+pre:has(+ h2), .note:has(+ h2), .todo:has(+ h2), .warning:has(+ h2),
+pre:has(+ h3), .note:has(+ h3), .todo:has(+ h3), .warning:has(+ h3)
+{
+  margin-bottom: calc(var(--par-spacing) + var(--text-vertical-margin));
+}
+li > :first-child, .todo-inner > :first-child {
+  margin-top: 0;
+}
+li:first-child > h1:first-child, .todo-inner > h1:first-child,
+li:first-child > h2:first-child, .todo-inner > h2:first-child,
+li:first-child > h3:first-child, .todo-inner > h3:first-child,
+li:first-child >  p:first-child, .todo-inner >  p:first-child
+{
+  margin-top: var(--text-vertical-margin);
+}
+li > :last-child, .note > :last-child, .todo-inner > :last-child, .warning > :last-child {
+  margin-bottom: 0;
+}
+li:last-child > h1:last-child, .note > h1:last-child, .todo-inner > h1:last-child, .warning > h1:last-child,
+li:last-child > h2:last-child, .note > h2:last-child, .todo-inner > h2:last-child, .warning > h2:last-child,
+li:last-child > h3:last-child, .note > h3:last-child, .todo-inner > h3:last-child, .warning > h3:last-child,
+li:last-child >  p:last-child, .note >  p:last-child, .todo-inner >  p:last-child, .warning >  p:last-child
+{
+  margin-bottom: var(--text-vertical-margin);
+}
+main > * {
+  margin-top:    calc(var(--scale) * 1.5cm + 2 * var(--text-vertical-margin));
+  margin-bottom: calc(var(--scale) * 1.5cm + 2 * var(--text-vertical-margin));
+}
+main {
+  margin-top:    calc(var(--scale) * var(--typst-page-margin));
+  margin-bottom: calc(var(--scale) * var(--typst-page-margin));
+}
+.hint + * { margin-top: 0.9em; }
+.hint + h1, .hint + h2, .hint + h3, .hint + p { margin-top: calc(0.9em + var(--text-vertical-margin)); }
+.hint { margin-bottom: calc(2 * var(--text-vertical-margin)); }
+@supports (text-box: trim-both cap alphabetic) {
+  :root { --text-vertical-margin: 0em; }
+  * { text-box-edge: cap alphabetic; }
+  p, h1, h2, h3, ul { text-box-trim: trim-both; }
+  li > :first-child, .hint { text-box-trim: trim-end; }
+  li > :last-child { text-box-trim: trim-start; }
+  li > :only-child { text-box-trim: none; }
+}
+
+/* Text flow */
+/*
+ * We have to hyphenate manually because: https://issues.chromium.org/issues/40268487
+ * As a side effect this actually produces worse hyphenation on Firefox.
+ */
+body { hyphens: manual; text-align: justify; }
+h2, h3 { text-align: initial; }
+header, #preface, nav, nav h2, footer, .todo { hyphens: none; text-align: center; }
+
+/* Inline element highlights */
+a:hover, .problem:not(.unknown-stage) {
+  --background-extent: 0.1em;
+  background-color: var(--background-color);
+  box-shadow: var(--background-extent) 0 var(--background-color),
+              calc(-1 * var(--background-extent)) 0 var(--background-color);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Links */
+a { color: var(--typst-blue); text-decoration: none; }
+a:hover { --background-color: var(--typst-blue); color: white; }
+h2 a { color: black; }
+h2 a:hover { --background-color: black; }
+
+/* Code blocks */
+pre { background-color: oklch(98% 0 0); overflow: auto; }
+
+/* Highlight blocks */
+.hint { display: block; }
+.note    { background-color: oklch(95% 30% 260deg); }
+.warning { background-color: oklch(95% 30%  80deg); }
+.note    .hint { color: oklch(70% 80% 260deg); }
+.warning .hint { color: oklch(70% 80%  80deg); }
+.todo {
+  --stripe-width: calc(var(--scale) * 1cm / 1.414);
+  background: repeating-linear-gradient(
+    135deg,
+    black,
+    black calc(var(--stripe-width) / 2),
+    var(--typst-yellow) calc(var(--stripe-width) / 2),
+    var(--typst-yellow) var(--stripe-width)
+  );
+  color: white;
+}
+.todo-inner { background-color: rgb(0 0 0 / 75%); }
+
+/* Problems */
+.problem:not(.unknown-stage) { color: black; }
+.problem:not(.unknown-stage):hover { --background-color: black; color: white; }
+.probny-ii-etap { --background-color: oklch(95% 25% 100deg); }
+.ii-etap        { --background-color: oklch(90% 50% 100deg); }
+.probny-final   { --background-color: oklch(95% 25%  20deg); }
+.final          { --background-color: oklch(90% 50%  20deg); }
+
+/* Code syntax highlighting */
+{{ highlights_css('code') }}
+code { background: revert; }
+
+/* Imitate downloadable file's page dimensions */
+/*
+:root { --scale: 1; }
+body {
+  width: var(--typst-page-width);
+  box-sizing: content-box;
+  border: 1px solid black;
+  text-rendering: geometricPrecision;
+  margin: auto;
+}
+main {
+  max-width: none;
+  margin: var(--typst-page-margin);
+  padding: 0;
+}
+*/
+
+    </style>
+  </head>
+  <body>
+    <main>
+
+      <header>
+        <h1>{{ render_text(document.attrib['title']) }}</h1>
+        {% if 'version' in document.attrib %}
+          <p><time datetime='{{ document.attrib['version'] }}'>
+            {{ document.attrib['version'] | human_date }}
+          </time></p>
+        {% endif %}
+      </header>
+
+      <section id='preface'>
+        {{ render_blocks(document.find('preface')) }}
+      </section>
+
+      <nav>
+        <h2>Spis treści</h2>
+        {% for node in document.findall('answer') %}
+          <a href='#{{ node.attrib['id'] }}'>
+            {% if node.attrib['important'] == 'yes' %}<strong>{% endif %}
+            {{ render_text(node.attrib['question']) }}
+            {% if node.attrib['important'] == 'yes' %}</strong>{% endif %}
+          </a>
+          <br>
+        {% endfor %}
+      </nav>
+
+      {% for node in document.findall('answer') %}
+        <section class='answer' id='{{ node.attrib['id'] }}'>
+          <h2><a href='#{{ node.attrib['id'] }}'>{{ render_text(node.attrib['question']) }}</a></h2>
+          {{ render_blocks(node) }}
+        </section>
+      {% endfor %}
+
+      <footer>
+        {{ render_blocks(document.find('footer')) }}
+      </footer>
+
+    </main>
+  </body>
+</html>
+
+{% endautoescape %}
