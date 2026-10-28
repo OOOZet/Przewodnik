@@ -1,13 +1,13 @@
 # Repozytorium przewodnika OOOZ
 
-Najnowszy build przewodnika można znaleźć na kanale `#przewodnik` na [naszym serwerze Discord](https://discord.gg/AMGxG4TvDS).
+Najnowszy build przewodnika można znaleźć na [naszej stronie internetowej](https://oooz.edu.pl/przewodnik/) i na kanale `#przewodnik` na [naszym serwerze Discord](https://discord.gg/AMGxG4TvDS).
 
 ## Buildowanie
 
 1. Zainstaluj programy Git LFS (jeśli chcesz pracować z gitem), Python 3 oraz [Typst](https://typst.app/open-source/#download).
 2. Stwórz wirtualne środowisko za pomocą `python3 -m venv ./venv/`. (Pyphen w Debianie nie ma języka polskiego.)
 3. Zainstaluj potrzebne pakiety w Pythonie za pomocą `./venv/bin/pip3 install -r requirements.txt`.
-4. Uruchom `./venv/bin/python3 build.py --watch`. Od teraz przewodnik będzie buildowany po każdej zmianie w plikach źródłowych. Jeśli chcesz tylko jednorazowo zbuildować przewodnik, to usuń opcję `--watch`.
+4. Uruchom `./build.py --watch`. Od teraz przewodnik będzie buildowany po każdej zmianie w plikach źródłowych. Jeśli chcesz tylko jednorazowo zbuildować przewodnik, to usuń opcję `--watch`.
 
 ## Praca z treścią
 

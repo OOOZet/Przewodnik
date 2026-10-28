@@ -6,19 +6,21 @@
 
   {% elif node.tag == 'list' %}
     <ul>
-    {% for item in node.findall('item') %}
-      <li>{{ render_blocks(item) }}</li>
-    {% endfor %}
+      {% for item in node.findall('item') %}
+        <li>{{ render_blocks(item) }}</li>
+      {% endfor %}
     </ul>
 
   {% elif node.tag == 'note' %}
     <div class='note'>
-      <small class='hint'><span class='material-symbols-sharp'>info</span> Pamiętaj...</small>
+      <small class='hint'><span class='material-symbols-sharp'>info</span> Pamiętaj…</small>
       {{ render_blocks(node) }}
     </div>
 
   {% elif node.tag == 'todo' %}
-    <div class='todo'><div class='todo-inner'>{{ render_blocks(node) }}</div></div>
+    {% if 'version' not in document.attrib %}
+      <div class='todo'><div class='todo-inner'>{{ render_blocks(node) }}</div></div>
+    {% endif %}
 
   {% elif node.tag == 'paragraph' %}
     <p>{{ render_inlines(node) }}</p>
@@ -111,7 +113,7 @@
     {% if 'website' in node.attrib %}<a href='{{ node.attrib['website'] }}'>{% endif %}
     {{ render_text(node.attrib['name']) }}
     {%- if 'website' in node.attrib %}</a>{% endif %}
-    ({{ render_text(node.attrib['contribution']) }})
+    ({{ render_inlines(node) }})
     {%- if not loop.last %}, {% endif %}
   {% endfor %}
 {% endset %}
@@ -146,15 +148,33 @@
 }
 
 /* Typography */
-:root { --text-vertical-margin: -0.24em; }
-body { font: 300 calc(var(--scale) * 10pt) 'Inter', sans-serif; line-height: 1.4; }
-code, pre { font: 320 calc(var(--scale) * 10.26pt) 'Roboto Mono', monospace; }
-h1, h2, h3 { font-family: 'InterDisplay', 'Inter', sans-serif; }
+* {
+  line-height: var(--line-height);
+  --text-vertical-margin: calc(-1 * (var(--line-height) * 1em - var(--cap-height)) / 2);
+}
+body {
+  font-family: 'Inter', sans-serif;
+  --cap-height: 1490 / 2048 * 1em; /* sCapHeight (OS/2 table) / unitsPerEm (head table) */
+  font-size: calc(var(--scale) * 10pt);
+  font-weight: 300;
+  --line-height: 1.5;
+}
+code, pre {
+  font-family: 'Roboto Mono', monospace;
+  --cap-height: 1456 / 2048 * 1em;
+  font-size: calc(var(--scale) * 10.26pt);
+  font-weight: 320;
+  --line-height: 1.4;
+}
+h1, h2, h3 { --line-height: 1.3; }
+h1, h2, h3, .hint, #version {
+  font-family: 'InterDisplay', 'Inter', sans-serif;
+  --cap-height: 1490 / 2048 * 1em;
+}
 h1 { font-size: calc(var(--scale) * 30pt); }
 h2 { font-size: calc(var(--scale) * 16pt); }
 h3 { font-size: calc(var(--scale) * 14pt); }
-strong { font-weight: 600; }
-.hint { font-family: 'InterDisplay', 'Inter', sans-serif; font-weight: 600; }
+strong, .hint { font-weight: 600; }
 .hint, .hint * { font-size: calc(var(--scale) * 8pt); }
 .material-symbols-sharp { vertical-align: calc(var(--scale) * -1pt); }
 .todo { font-weight: 400; }
@@ -166,85 +186,101 @@ body { margin: 0; }
 main { box-sizing: content-box; }
 pre, .note, .warning { padding: var(--block-inset); }
 .todo { padding: calc(0.75 * var(--block-inset)); }
-.todo-inner { padding: calc(0.50 * var(--block-inset)); max-width: fit-content; margin: auto; }
+.todo-inner { padding: calc(0.50 * var(--block-inset)); }
 
 /* Horizontal spacing */
 main {
   max-width: calc(var(--scale) * (var(--typst-page-width) - 2 * var(--typst-page-margin)));
   margin-left:  auto;
   margin-right: auto;
-  padding-left:  var(--block-inset);
-  padding-right: var(--block-inset);
+  padding-left:  calc(1.5 * var(--block-inset));
+  padding-right: calc(1.5 * var(--block-inset));
 }
-pre { max-width: fit-content; margin-left: auto; margin-right: auto; }
+nav ul { padding-left: 0; }
+pre, .todo-inner { max-width: fit-content; margin-left: auto; margin-right: auto; }
 ul { padding-left: 1em; }
 
 /* Vertical spacing */
 /*
  * This --text-vertical-margin thing is a major hack trying to work around the
- * unfortunate fact that the text-box property hadn't been invented a decade earlier.
+ * unfortunate fact that the text-box property hadn't been invented a decade
+ * earlier.
+ *
+ * What we do here is we take the intended top margin and subtract from it the
+ * distance from the text box's top to the mean line of the current element's
+ * font (if it's a text element) and the distance from the baseline to the text
+ * box's bottom for the previous element (also only if it's a text element). As
+ * a necessary approximation, it's the text box bottom for the current element,
+ * even though it should be the *previous* element's text box bottom. We
+ * additionally assume that both distances are equal to simplify things.
+ *
+ * This scheme is pretty much how trimming the text box to cap height works.
+ * We apply an analogous one for bottom margins.
  */
-:root { --par-spacing: 1.4em; }
+h1, h2, h3, p, pre, ul, .note, .todo, .warning,
+li > :first-child, main > * > :first-child, .todo-inner > :first-child,
+.hint + *
+{
+  margin-top: calc(var(--margin-top) + var(--lines-top) * var(--text-vertical-margin));
+  --margin-top: 0px;
+  --lines-top: 0;
+}
+h1, h2, h3, p, pre, ul, .note, .todo, .warning,
+li > :last-child, main > * > :last-child, .todo-inner > :last-child,
+.hint, .note > :last-child, .warning > :last-child
+{
+  margin-bottom: calc(var(--margin-bottom) + var(--lines-bottom) * var(--text-vertical-margin));
+  --margin-bottom: 0px;
+  --lines-bottom: 0;
+}
 h1, h2, h3 {
-  margin-top:    calc(1.2em + 2 * var(--text-vertical-margin));
-  margin-bottom: calc(1em   + 2 * var(--text-vertical-margin));
+  --margin-top:    1.2em;
+  --margin-bottom: 1em;
 }
-p {
-  margin-top:    calc(var(--par-spacing) + 2 * var(--text-vertical-margin));
-  margin-bottom: calc(var(--par-spacing) + 2 * var(--text-vertical-margin));
+p, pre, ul, .note, .todo, .warning {
+  --margin-top:    1.5em;
+  --margin-bottom: 1.5em;
 }
-pre, .note, .todo, .warning {
-  margin-top:    var(--par-spacing);
-  margin-bottom: var(--par-spacing);
+.hint + * {
+  --margin-top: 0.9em;
 }
-p  + pre, p  + .note, p  + .todo, p  + .warning,
-h1 + pre, h1 + .note, h1 + .todo, h1 + .warning,
-h2 + pre, h2 + .note, h2 + .todo, h2 + .warning,
-h3 + pre, h3 + .note, h3 + .todo, h3 + .warning
+h1, h2, h3, p {
+  --lines-top:    2;
+  --lines-bottom: 2;
+}
+h1 + pre, h1 + ul, ul:has(> :first-child > h1:first-child), h1 + .note, h1 + .todo, h1 + .warning,
+h2 + pre, h2 + ul, ul:has(> :first-child > h2:first-child), h2 + .note, h2 + .todo, h2 + .warning,
+h3 + pre, h3 + ul, ul:has(> :first-child > h3:first-child), h3 + .note, h3 + .todo, h3 + .warning,
+ p + pre,  p + ul, ul:has(> :first-child >  p:first-child),  p + .note,  p + .todo,  p + .warning,
+ul:has(> :last-child > h1:last-child) + h1, li:first-child > h1:first-child, main > * > h1:first-child, .todo-inner > h1:first-child, .hint + h1,
+ul:has(> :last-child > h2:last-child) + h2, li:first-child > h2:first-child, main > * > h2:first-child, .todo-inner > h2:first-child, .hint + h2,
+ul:has(> :last-child > h3:last-child) + h3, li:first-child > h3:first-child, main > * > h3:first-child, .todo-inner > h3:first-child, .hint + h3,
+ul:has(> :last-child >  p:last-child) +  p, li:first-child >  p:first-child, main > * >  p:first-child, .todo-inner >  p:first-child, .hint +  p
 {
-  margin-top: calc(var(--par-spacing) + var(--text-vertical-margin));
+  --lines-top: 1;
 }
-pre:has(+ p ), .note:has(+ p ), .todo:has(+ p ), .warning:has(+ p ),
-pre:has(+ h1), .note:has(+ h1), .todo:has(+ h1), .warning:has(+ h1),
-pre:has(+ h2), .note:has(+ h2), .todo:has(+ h2), .warning:has(+ h2),
-pre:has(+ h3), .note:has(+ h3), .todo:has(+ h3), .warning:has(+ h3)
+.hint,
+pre:has(+ h1), ul:has(+ h1), ul:has(> :last-child > h1:last-child), .note:has(+ h1), .todo:has(+ h1), .warning:has(+ h1),
+pre:has(+ h2), ul:has(+ h2), ul:has(> :last-child > h2:last-child), .note:has(+ h2), .todo:has(+ h2), .warning:has(+ h2),
+pre:has(+ h3), ul:has(+ h3), ul:has(> :last-child > h3:last-child), .note:has(+ h3), .todo:has(+ h3), .warning:has(+ h3),
+pre:has(+  p), ul:has(+  p), ul:has(> :last-child >  p:last-child), .note:has(+  p), .todo:has(+  p), .warning:has(+  p),
+h1:has(+ ul > :first-child > h1:first-child), li:last-child > h1:last-child, main > * > h1:last-child, .todo-inner > h1:last-child, .note > h1:last-child, .warning > h1:last-child,
+h2:has(+ ul > :first-child > h2:first-child), li:last-child > h2:last-child, main > * > h2:last-child, .todo-inner > h2:last-child, .note > h2:last-child, .warning > h2:last-child,
+h3:has(+ ul > :first-child > h3:first-child), li:last-child > h3:last-child, main > * > h3:last-child, .todo-inner > h3:last-child, .note > h3:last-child, .warning > h3:last-child,
+ p:has(+ ul > :first-child >  p:first-child), li:last-child >  p:last-child, main > * >  p:last-child, .todo-inner >  p:last-child, .note >  p:last-child, .warning >  p:last-child
 {
-  margin-bottom: calc(var(--par-spacing) + var(--text-vertical-margin));
-}
-li > :first-child, .todo-inner > :first-child {
-  margin-top: 0;
-}
-li:first-child > h1:first-child, .todo-inner > h1:first-child,
-li:first-child > h2:first-child, .todo-inner > h2:first-child,
-li:first-child > h3:first-child, .todo-inner > h3:first-child,
-li:first-child >  p:first-child, .todo-inner >  p:first-child
-{
-  margin-top: var(--text-vertical-margin);
-}
-li > :last-child, .note > :last-child, .todo-inner > :last-child, .warning > :last-child {
-  margin-bottom: 0;
-}
-li:last-child > h1:last-child, .note > h1:last-child, .todo-inner > h1:last-child, .warning > h1:last-child,
-li:last-child > h2:last-child, .note > h2:last-child, .todo-inner > h2:last-child, .warning > h2:last-child,
-li:last-child > h3:last-child, .note > h3:last-child, .todo-inner > h3:last-child, .warning > h3:last-child,
-li:last-child >  p:last-child, .note >  p:last-child, .todo-inner >  p:last-child, .warning >  p:last-child
-{
-  margin-bottom: var(--text-vertical-margin);
+  --lines-bottom: 1;
 }
 main > * {
-  margin-top:    calc(var(--scale) * 1.5cm + 2 * var(--text-vertical-margin));
-  margin-bottom: calc(var(--scale) * 1.5cm + 2 * var(--text-vertical-margin));
+  margin-top:    calc(var(--scale) * 1.5cm);
+  margin-bottom: calc(var(--scale) * 1.5cm);
 }
 main {
   margin-top:    calc(var(--scale) * var(--typst-page-margin));
   margin-bottom: calc(var(--scale) * var(--typst-page-margin));
 }
-.hint + * { margin-top: 0.9em; }
-.hint + h1, .hint + h2, .hint + h3, .hint + p { margin-top: calc(0.9em + var(--text-vertical-margin)); }
-.hint { margin-bottom: calc(2 * var(--text-vertical-margin)); }
 @supports (text-box: trim-both cap alphabetic) {
-  :root { --text-vertical-margin: 0em; }
-  * { text-box-edge: cap alphabetic; }
+  * { --text-vertical-margin: 0em; text-box-edge: cap alphabetic; }
   p, h1, h2, h3, ul { text-box-trim: trim-both; }
   li > :first-child, .hint { text-box-trim: trim-end; }
   li > :last-child { text-box-trim: trim-start; }
@@ -306,6 +342,9 @@ pre { background-color: oklch(98% 0 0); overflow: auto; }
 .probny-final   { --background-color: oklch(95% 25%  20deg); }
 .final          { --background-color: oklch(90% 50%  20deg); }
 
+/* Table of contents */
+nav ul { list-style: none; }
+
 /* Code syntax highlighting */
 {{ highlights_css('code') }}
 code { background: revert; }
@@ -335,8 +374,8 @@ main {
       <header>
         <h1>{{ render_text(document.attrib['title']) }}</h1>
         {% if 'version' in document.attrib %}
-          <p><time datetime='{{ document.attrib['version'] }}'>
-            {{ document.attrib['version'] | human_date }}
+          <p id='version'><time datetime='{{ document.attrib['version'] }}'>
+            {{ render_text(document.attrib['version'] | human_date) }}
           </time></p>
         {% endif %}
       </header>
@@ -347,14 +386,15 @@ main {
 
       <nav>
         <h2>Spis treści</h2>
-        {% for node in document.findall('answer') %}
-          <a href='#{{ node.attrib['id'] }}'>
-            {% if node.attrib['important'] == 'yes' %}<strong>{% endif %}
-            {{ render_text(node.attrib['question']) }}
-            {% if node.attrib['important'] == 'yes' %}</strong>{% endif %}
-          </a>
-          <br>
-        {% endfor %}
+        <ul>
+          {% for node in document.findall('answer') %}
+            <li><p><a href='#{{ node.attrib['id'] }}'>
+              {% if node.attrib['important'] == 'yes' %}<strong>{% endif %}
+              {{ render_text(node.attrib['question']) }}
+              {% if node.attrib['important'] == 'yes' %}</strong>{% endif %}
+            </a></p></li>
+          {% endfor %}
+        </ul>
       </nav>
 
       {% for node in document.findall('answer') %}

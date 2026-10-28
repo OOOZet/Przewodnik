@@ -2,7 +2,7 @@
 <document title='Przewodnik OOOZ'>
 
 <preface>
-Ten przewodnik adresowany jest do wszystkich osób, które mogą wystartować w <link url='https://oi.edu.pl/'>Olimpiadzie Informatycznej</link> (OI) lub <link url='https://oij.edu.pl/'>Olimpiadzie Informatycznej Juniorów</link> (OIJ), czyli uczniów szkół średnich i podstawowych. Jego celem jest wprowadzenie czytelnika w uniwersum Olimpiady z perspektywy doświadczonego uczestnika oraz odpowiedzenie na częste pytania pojawiające się na <discord-only>tym serwerze</discord-only><external-only>publicznym serwerze Discord <link url='https://discord.gg/AMGxG4TvDS'>OKI OI OIJ Zjednoczenie</link></external-only>. W zamyśle ma służyć jako wszechstronny "przewodnik", który będzie towarzyszyć ci w twojej olimpijskiej przygodzie zarówno teraz, gdy być może pierwszy raz słyszysz o Olimpiadzie, jak i później, gdy będziesz walczyć o pierwsze miejsce. <important>Jeśli pierwszy raz słyszysz o OI, prosimy przeczytaj przynajmniej 3 pierwsze odpowiedzi na pytania.</important>
+Ten przewodnik adresowany jest do wszystkich osób, które mogą wystartować w <link url='https://oi.edu.pl/'>Olimpiadzie Informatycznej</link> (OI) lub <link url='https://oij.edu.pl/'>Olimpiadzie Informatycznej Juniorów</link> (OIJ), czyli uczniów szkół średnich i podstawowych. Jego celem jest wprowadzenie czytelnika w uniwersum Olimpiady z perspektywy doświadczonego uczestnika oraz odpowiedzenie na częste pytania pojawiające się na <discord-only>tym serwerze</discord-only><external-only>publicznym serwerze Discord <link url='https://discord.gg/AMGxG4TvDS'>OKI OI OIJ Zjednoczenie</link></external-only>. W zamyśle ma służyć jako wszechstronny "przewodnik", który będzie towarzyszyć ci w twojej olimpijskiej przygodzie zarówno teraz, gdy być może pierwszy raz słyszysz o Olimpiadzie, jak i później, gdy będziesz walczyć o pierwsze miejsce. <important>Jeśli pierwszy raz słyszysz o OI, prosimy przeczytaj odpowiedzi na przynajmniej 3 pierwsze pytania.</important>
 </preface>
 
 <answer question='Na czym polega Olimpiada?' important='yes' id='na-czym-polega-olimpiada'>
@@ -10,7 +10,7 @@ Olimpiada kręci się w zasadzie wokół jednej rzeczy: rozwiązywaniu <emphasis
 
 <todo>Przykładowe zadanie. Musi być <emphasis>fajne</emphasis>.</todo>
 
-...i sprawdzaczka nagradza twoją pracę napisem "AC" na zielonym tle.
+...i sprawdzaczka nagradza twoją pracę liczbą 100 na zielonym tle.
 </answer>
 
 <answer question='Czy warto wystartować w Olimpiadzie?' important='yes' id='czy-warto'>
@@ -310,7 +310,7 @@ Najlepiej jednak jest napisać <important>własną biblioteczkę</important>.
 
 <answer question='Jakie zadania robić?' id='zadania'>
 <list>
-<item>Przede wszystkim: <important>Jeśli przygotowujesz się do jakiegoś konkursu, to rób archiwalne zadania z tego konkursu.</important> Naprawdę. Przygotowujesz się do OI? Rób <link url='https://szkopul.edu.pl/task_archive/oi/'>zadania ze starych edycji OI</link>. Przygotowujesz się do OIJ? Rób <link url='https://szkopul.edu.pl/task_archive/oig/'>zadania ze starych edycji OIJ</link>. Przygotowujesz się do matury z polskiego? Rób oficjalne arkusze maturalne od CKE. Na każdym konkursie zadania są układane przez inne osoby, z inną wizją, jak ten konkurs ma wyglądać. Nawet zadania z drugiego etapu OI są lekko inne od zadań z finału.</item>
+<item>Przede wszystkim: <important>Jeśli przygotowujesz się do jakiegoś konkursu, to rób archiwalne zadania z tego konkursu.</important> Naprawdę. Przygotowujesz się do OI? Rób <link url='https://szkopul.edu.pl/task_archive/oi/'>zadania ze starych edycji OI</link>. Przygotowujesz się do OIJ? Rób <link url='https://szkopul.edu.pl/task_archive/oig/'>zadania ze starych edycji OIJ</link>. Przygotowujesz się do matury z polskiego? Rób oficjalne arkusze maturalne od CKE. Na każdym konkursie zadania są układane przez inne osoby, z inną wizją, jak ten konkurs ma wyglądać. Nawet zadania z drugiego etapu OI lekko się różnią od zadań z finału.</item>
 
 <item>Oczywiście robienie ciągle tego samego bywa nie tylko żmudne, ale też umysłowo ograniczające, więc od czasu do czasu trzeba też porobić <emphasis>coś innego</emphasis>.</item>
 
@@ -460,7 +460,7 @@ declare -i i=0
 while true; do
   echo test $i
   ./generatorka > test.in
-  n=<LICZBA-NIEZMIENNYCH-LINIJEK>
+  n=1 # liczba niezmiennych linijek
   ./naiwny_brut < test.in | head -n $n > brut.out
   ./wzorcowka < test.in | head -n $n > wzor.out
   diff -w brut.out wzor.out || exit 1
@@ -472,7 +472,7 @@ done
 <answer question='Jakie konkursy istnieją poza Olimpiadą?' id='konkursy'>
 <subanswer subquestion='Dla wszystkich'>
 <list>
-<item>Rundy na <link url='https://codeforces.com/contests'>Codeforces</link> - najbardziej znana platforma programowania sportowego na świecie; podzielone trudnością na trzy "dywizje"; średnio 2 rundy na tydzień.</item>
+<item>Rundy na <link url='https://codeforces.com/contests'>Codeforces</link> - najbardziej znana platforma programowania sportowego na świecie; podzielone trudnością na cztery "dywizje"; średnio 2 rundy na tydzień.</item>
 <item>Kontesty na <link url='https://atcoder.jp/contests/'>AtCoder</link> - szanowane na całym świecie za wysoką jakość zadań; podzielone trudnością na "Beginner", "Regular" i "Grand"; średnio 3 rundy na 2 tygodnie; checklista zadań: <link url='https://kenkoooo.com/atcoder/'>Kenkoooo</link>.</item>
 <item><link url='https://potyczki.mimuw.edu.pl/'>Potyczki Algorytmiczne</link> - coroczny ogólnopolski konkurs trwający cały tydzień i cieszący się sporym uznaniem wśród polskich algorytmików.</item>
 </list>
@@ -504,6 +504,6 @@ Ten przewodnik został <external-only>stworzony przez i dla otwartej społeczno�
 <todo>Jakaś grafika w tle na pierwszej stronie.</todo>
 </footer>
 
-<contributor name='Karol "digitcrusher" Łacina' discord-id='536253933778370580' website='https://lacina.io/' contribution='wszystko'/>
+<contributor name='Karol "digitcrusher" Łacina' discord-id='536253933778370580' website='https://lacina.io/'>pomysł, treść, wygląd, oprogramowanie, infrastruktura</contributor>
 
 </document>

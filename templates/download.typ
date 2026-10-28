@@ -82,11 +82,11 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
     {% if 'website' in node.attrib %}
 #link({{ node.attrib['website'] | escape_typst_string }})[
     {%- endif %}
-{{ node.attrib['name'] | escape_typst_markup }}
+{{ render_text(node.attrib['name']) }}
     {%- if 'website' in node.attrib %}
 ]
     {%- endif %}
- ({{ node.attrib['contribution'] }})
+ ({{ render_inlines(node) }})
     {%- if not loop.last %}, {% endif %}
   {% endfor %}
 {% endset %}
@@ -105,12 +105,21 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 )
 
 // Typography
+/*
+ * The last two parameters are specific to each font and are defined in
+ * the "OS/2" and "head" tables in the font file. To read them you can use:
+ * https://fonttools.readthedocs.io/en/latest/ttx.html
+ */
+#let css-line-height(x, sCapHeight, unitsPerEm) = (x - sCapHeight / unitsPerEm) * 1em
 #let heading-font = "Inter Display"
+#set par(leading: css-line-height(1.5, 1490, 2048))
 #set text(font: "Inter", weight: 300, size: 10pt)
+#show heading: set par(leading: css-line-height(1.3, 1490, 2048))
 #show heading: set text(font: heading-font)
 #show heading.where(level: 1): set text(size: 16pt)
 #show heading.where(level: 2): set text(size: 14pt)
 #show raw: set text(font: "Roboto Mono", weight: 320, size: 10.26pt)
+#show raw.where(block: true): set par(leading: css-line-height(1.4, 1456, 2048))
 #show raw.where(block: true): set text(weight: 330)
 #show title: set text(font: heading-font, size: 30pt)
 
@@ -118,7 +127,7 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 #let block-inset = 1em
 #let section-break() = v(1.5cm, weak: true)
 #set highlight(extent: 0.1em)
-#set par(spacing: 1.4em)
+#set par(spacing: 1.5em)
 #show heading: set block(above: 1.2em, below: 1em)
 
 // Text flow
@@ -187,7 +196,7 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
   #title()
 
   {% if 'version' in document.attrib %}
-  #text(font: heading-font)[{{ document.attrib['version'] | human_date }}]
+  #text(font: heading-font)[{{ render_text(document.attrib['version'] | human_date) }}]
   {% endif %}
 
   #section-break()

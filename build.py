@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S /bin/sh -c 'exec "$(dirname "$0")/venv/bin/python3" "$0" "$@"'
 
 import csv, htmlmin, os, pygments, re, subprocess, sys, unicodedata
 from argparse import ArgumentParser
