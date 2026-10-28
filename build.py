@@ -343,7 +343,8 @@ def render(target):
     'highlight': highlight,
     'human_date': human_date,
     'hyphenate': hyphenate,
-    're_sub': re_sub,
+    'render_ascii_approximations': render_ascii_approximations,
+    'render_nonbreaking_spaces': render_nonbreaking_spaces,
   }
 
   out = env.get_template(template_name).render(document=tree.getroot(), problems=problems)
@@ -414,8 +415,24 @@ def hyphenate(text):
     result = re.sub(pattern, repl, result)
   return result
 
-def re_sub(string, *args):
-  return re.sub(*args, string)
+def render_ascii_approximations(text):
+  for pattern, repl in [
+    (r'\B"\b', '„'),
+    (r'\b"\B', '”'),
+    (r"\B'\b", '‚'),
+    (r'(?<=\s)-(?=\s)', '—'),
+  ]:
+    text = re.sub(pattern, repl, text)
+  for pattern, repl in [
+    ("'", '’'), # This replaces both closing single quotation marks and apostrophes.
+    ('...', '…'),
+    ('>=', '≥'),
+  ]:
+    text = text.replace(pattern, repl)
+  return text
+
+def render_nonbreaking_spaces(text):
+  return re.sub(r'(?<=\b\w) ', '\xa0', text)
 
 def minify_html(path):
   log_info(f'Minifying {path!r}')

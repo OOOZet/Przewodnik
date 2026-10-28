@@ -63,9 +63,9 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 {{ node.text | escape_typst_string }})
 {%- endmacro %}
 
-{% macro render_text(text) %}{{
-  (text or '').replace(' - ', ' --- ') | re_sub('\\b(\\w) ', '\\1\xa0') | escape_typst_markup
-}}{% endmacro %}
+{% macro render_text(text) %}
+  {{- text | render_ascii_approximations | render_nonbreaking_spaces | escape_typst_markup -}}
+{% endmacro %}
 
 {% macro render_blocks(node) %}
   {% for child in node %}
@@ -74,7 +74,11 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 {% endmacro %}
 
 {% macro render_inlines(node) %}
-{{ render_text(node.text) }}{% for child in node %}{{ render_inline(child) }}{{ render_text(child.tail) }}{% endfor %}
+  {{- render_text(node.text or '') -}}
+  {% for child in node %}
+    {{- render_inline(child) -}}
+    {{- render_text(child.tail or '') -}}
+  {% endfor %}
 {% endmacro %}
 
 {% set contributors %}
@@ -141,7 +145,7 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 #show raw.where(block: true): set align(center)
 #show raw.where(block: true): set block(fill: color.oklch(98%, 0, 0deg), inset: block-inset)
 
-// Macros and symbols
+// Macros
 #let highlight-block(hue, icon, hint, content) = block(
   fill: color.oklch(95%, 30%, hue),
   width: 100%,
@@ -188,7 +192,6 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
   set text(fill: black) if color != none
   highlight(fill: color)[#problem.name (#problem.competition)]
 }
-#show ">=": [≥]
 
 #align(center)[
   #set par(justify: false)

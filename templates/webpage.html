@@ -84,19 +84,9 @@
   {%- endif %}
 {% endmacro %}
 
-{# Third to last regex replaces both closing single quotation marks and apostrophes. #}
-{% macro render_text(text) %}{{
-  (text or '')
-  | re_sub(' - ', ' — ')
-  | re_sub('\\b(\\w) ', '\\1\xa0')
-  | re_sub('\\B"\\b', '„')
-  | re_sub('\\b"\\B', '”')
-  | re_sub("\\B'\\b", '‚')
-  | re_sub("'", '’')
-  | re_sub('\\.\\.\\.', '…')
-  | re_sub('>=', '≥')
-  | hyphenate
-}}{% endmacro %}
+{% macro render_text(text) %}
+  {{- text | render_ascii_approximations | render_nonbreaking_spaces | hyphenate -}}
+{% endmacro %}
 
 {% macro render_blocks(node) %}
   {% for child in node %}
@@ -105,12 +95,16 @@
 {% endmacro %}
 
 {% macro render_inlines(node) %}
-{{ render_text(node.text) }}{% for child in node %}{{ render_inline(child) }}{{ render_text(child.tail) }}{% endfor %}
+  {{- render_text(node.text or '') -}}
+  {% for child in node %}
+    {{- render_inline(child) -}}
+    {{- render_text(child.tail or '') -}}
+  {% endfor %}
 {% endmacro %}
 
 {% set contributors %}
   {% for node in document.findall('contributor') %}
-    {% if 'website' in node.attrib %}<a href='{{ node.attrib['website'] }}'>{% endif %}
+    {% if 'website' in node.attrib %}<a href='{{ node.attrib['website'] }}'>{% endif -%}
     {{ render_text(node.attrib['name']) }}
     {%- if 'website' in node.attrib %}</a>{% endif %}
     ({{ render_inlines(node) }})
