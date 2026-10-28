@@ -57,7 +57,7 @@
     {{ placeholder_values[node.attrib['for']] }}
 
   {%- elif node.tag == 'problem' -%}
-    {% set problem = problems[node.attrib['id']] %}
+    {% set problem = problems[node.attrib['id']] -%}
     <a class='problem {{
       {
         'próbny II etap': 'probny-ii-etap',
@@ -127,6 +127,29 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>{{ document.attrib['title'] }}</title>
+    <link rel='canonical' href='{{ document.attrib['url'] }}'>
+    <link rel='license' href='https://creativecommons.org/licenses/by-sa/4.0/'>
+    {% with preface = render_blocks(document.find('preface')) | striptags %}
+      <meta name='description' content='{{ preface }}'>
+      <meta name='og:description' content='{{ preface }}'>
+    {% endwith %}
+    <meta name='og:locale' content='pl_PL'>
+    <meta name='og:site_name' content='{{ document.attrib['website-name'] }}'>
+    <meta name='og:title' content='{{ document.attrib['title'] }}'>
+    <meta name='og:type' content='article'>
+    {% if 'version' in document.attrib %}
+      <meta name='article:modified_date' content='{{ document.attrib['version'] }}'>
+    {% endif %}
+    {% for node in document.findall('contributor') %}
+      {% set name = node.attrib['name'] %}
+      <meta name='article:author:first_name' content='{{ name.partition(' ')[0] }}'>
+      <meta name='article:author:last_name' content='{{ name.rpartition(' ')[2] }}'>
+      {% set nickname = name.partition('"')[2].partition('"')[0] %}
+      {% if nickname %}
+        <meta name='artitle:author:username' content='{{ nickname }}'>
+      {% endif %}
+    {% endfor %}
+    <meta name='og:url' content='{{ document.attrib['url'] }}'>
     <style>
 
 @import url('https://rsms.me/inter/inter.css'); /* Google Fonts doesn't have Inter Display yet. */
