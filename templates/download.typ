@@ -1,36 +1,30 @@
-{#
- # Being extra nitpicky about generated whitespace helps keep
- # the output Typst code human-readable and easier to debug.
- #}
-
 {% macro render_block(node) %}
   {% if node.tag == 'code' %}
-{{ render_code(node, true) }}
+    {{ render_code(node, true) }}
+
   {% elif node.tag == 'list' %}
-#list(
-    {% for item in node.findall('item') %}
-[
-{{ render_blocks(item) }}
-],
-    {% endfor %}
-)
+    #list(
+      {% for item in node.findall('item') %}
+        [{{ render_blocks(item) }}],
+      {% endfor %}
+    )
+
   {% elif node.tag == 'note' %}
-#note[
-{{ render_blocks(node) }}
-]
+    #note[{{ render_blocks(node) }}]
+
   {% elif node.tag == 'todo' %}
-#todo[
-{{ render_blocks(node) }}
-]
+    #todo[{{ render_blocks(node) }}]
+
   {% elif node.tag == 'paragraph' %}
-{{ render_inlines(node) | escape_typst_line_markup }}
+    {{ render_inlines(node) | escape_typst_line_markup }}
+
   {% elif node.tag == 'subanswer' %}
-== {{ render_text(node.attrib['subquestion']) }}
-{{ render_blocks(node) }}
+    == {{ render_text(node.attrib['subquestion']) }}
+    {{ render_blocks(node) }}
+
   {% elif node.tag == 'warning' %}
-#warning[
-{{ render_blocks(node) }}
-]
+    #warning[{{ render_blocks(node) }}]
+
   {% else %}
     {{ error('Unknown block tag: ' ~ repr(node.tag)) }}
   {% endif %}
@@ -39,28 +33,36 @@
 {% macro render_inline(node) %}
   {% if node.tag == 'code' -%}
     {{ render_code(node, false) }}
+
   {%- elif node.tag == 'emphasis' -%}
     _{{ render_inlines(node) }}_
+
   {%- elif node.tag == 'important' -%}
     *{{ render_inlines(node) }}*
+
   {%- elif node.tag == 'link' -%}
     #link({{ node.attrib['url'] | escape_typst_string }})[{{ render_inlines(node) }}]
+
   {%- elif node.tag == 'placeholder' -%}
     {{ placeholder_values[node.attrib['for']] }}
+
   {%- elif node.tag == 'problem' -%}
     #problem({{ node.attrib['id'] | escape_typst_string }})
+
   {%- elif node.tag == 'ref' -%}
     #link(label({{ node.attrib['id'] | escape_typst_string }}))[{{ render_inlines(node) }}]
+
   {%- else %}
     {{ error('Unknown inline tag: ' ~ repr(node.tag)) }}
   {% endif %}
 {% endmacro %}
 
-{% macro render_code(node, is_block) %}
-#raw(block: {{ is_block | lower }},
-{%- if 'lang' in node.attrib %}
-lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
-{{ node.text | escape_typst_string }})
+{% macro render_code(node, is_block) -%}
+  #raw(block: {{ is_block | lower }},
+  {%- if 'lang' in node.attrib -%}
+    lang: {{ node.attrib['lang'] | escape_typst_string }},
+  {%- endif -%}
+  {{ node.text | escape_typst_string }})
 {%- endmacro %}
 
 {% macro render_text(text) %}
@@ -69,7 +71,7 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 
 {% macro render_blocks(node) %}
   {% for child in node %}
-{{ render_block(child) }}
+    {{ render_block(child) }}
   {% endfor %}
 {% endmacro %}
 
@@ -83,14 +85,14 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 
 {% set contributors %}
   {% for node in document.findall('contributor') %}
-    {% if 'website' in node.attrib %}
-#link({{ node.attrib['website'] | escape_typst_string }})[
-    {%- endif %}
-{{ render_text(node.attrib['name']) }}
-    {%- if 'website' in node.attrib %}
-]
-    {%- endif %}
- ({{ render_inlines(node) }})
+    {% if 'website' in node.attrib -%}
+      #link({{ node.attrib['website'] | escape_typst_string }})[
+    {%- endif -%}
+    {{ render_text(node.attrib['name']) }}
+    {%- if 'website' in node.attrib -%}
+      ]
+    {%- endif -%}
+    {{ ' ' }}({{ render_inlines(node) }})
     {%- if not loop.last %}, {% endif %}
   {% endfor %}
 {% endset %}
@@ -100,12 +102,12 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 
 #set document(
   title: [{{ render_text(document.attrib['title']) }}],
-{% if 'version' in document.attrib %}
-  {% set version = datetime.fromisoformat(document.attrib['version']) %}
-  date: datetime(year: {{ version.year }}, month: {{ version.month }}, day: {{ version.day }}),
-{% else %}
-  date: none,
-{% endif %}
+  {% if 'version' in document.attrib %}
+    {% set version = datetime.fromisoformat(document.attrib['version']) %}
+    date: datetime(year: {{ version.year }}, month: {{ version.month }}, day: {{ version.day }}),
+  {% else %}
+    date: none,
+  {% endif %}
 )
 
 // Typography
@@ -161,23 +163,23 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 #let note(content) = highlight-block(260deg, [\u{e88e}], [Pamiętaj...], content)
 #let warning(content) = highlight-block(80deg, [\u{e002}], [Uważaj!], content)
 {% if 'version' in document.attrib %}
-#let todo(content) = none
+  #let todo(content) = none
 {% else %}
-#let todo(content) = block(
-  fill: tiling(size: (1cm, 1cm), {
-    place(square(fill: black, width: 100%))
-    place(polygon(fill: yellow, (100%, 0%), (50%, 0%), (0%, 50%), (0%, 100%)))
-    place(polygon(fill: yellow, (100%, 50%), (100%, 100%), (50%, 100%)))
-  }),
-  width: 100%,
-  inset: 75% * block-inset,
-  {
-    set align(center)
-    show: rest => block(fill: black.transparentize(25%), inset: 50% * block-inset, rest)
-    set text(white, weight: 400)
-    content
-  },
-)
+  #let todo(content) = block(
+    fill: tiling(size: (1cm, 1cm), {
+      place(square(fill: black, width: 100%))
+      place(polygon(fill: yellow, (100%, 0%), (50%, 0%), (0%, 50%), (0%, 100%)))
+      place(polygon(fill: yellow, (100%, 50%), (100%, 100%), (50%, 100%)))
+    }),
+    width: 100%,
+    inset: 75% * block-inset,
+    {
+      set align(center)
+      show: rest => block(fill: black.transparentize(25%), inset: 50% * block-inset, rest)
+      set text(white, weight: 400)
+      content
+    },
+  )
 {% endif %}
 #let problems = csv("../problems.csv", row-type: dictionary).map(x => (x.id, x)).to-dict()
 #let problem(id) = {
@@ -199,7 +201,7 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
   #title()
 
   {% if 'version' in document.attrib %}
-  #text(font: heading-font)[{{ render_text(document.attrib['version'] | human_date) }}]
+    #text(font: heading-font)[{{ render_text(document.attrib['version'] | human_date) }}]
   {% endif %}
 
   #section-break()
@@ -220,16 +222,16 @@ lang: {{ node.attrib['lang'] | escape_typst_string }}, {% endif %}
 #pagebreak()
 
 {% for node in document.findall('answer') %}
-= {{ render_text(node.attrib['question']) }} #metadata(
-  (important: {{ (node.attrib.get('important') == 'yes') | lower }}),
-)
+  = {{ render_text(node.attrib['question']) }} #metadata(
+    (important: {{ (node.attrib.get('important') == 'yes') | lower }}),
+  )
   {% if 'id' in node.attrib %}
-#label({{ node.attrib['id'] | escape_typst_string }})
+    #label({{ node.attrib['id'] | escape_typst_string }})
   {% endif %}
 
-{{ render_blocks(node) }}
+  {{ render_blocks(node) }}
 
-#section-break()
+  #section-break()
 {% endfor %}
 
 #align(center)[
