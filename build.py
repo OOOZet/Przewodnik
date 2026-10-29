@@ -159,6 +159,8 @@ def preprocess_source(target):
   with log_indent():
     source = ElementTree.parse('source.xml')
 
+    set_document_version(source)
+
     log_info('Expanding conditionals')
     expand_conditionals(source.getroot(), target)
 
@@ -194,6 +196,23 @@ def preprocess_source(target):
       node.text = node.text.strip()
 
     source.write(f'build/{target.name}.xml')
+
+def set_document_version(source):
+  log_info('Getting version from git')
+  document = source.getroot()
+  dirty_check = subprocess.run(['git', 'diff', '--quiet'])
+  if dirty_check.returncode == 0:
+    stdout = subprocess.run(
+      ['git', 'log', '-1', '--format=%H%x00%cd', '--date=iso-strict'],
+      stdout=subprocess.PIPE,
+      check=True,
+    ).stdout.decode()
+    document.attrib['git-commit'], document.attrib['version'] = stdout.strip().split('\0')
+  else:
+    try:
+      del document.attrib['version']
+    except KeyError:
+      pass
 
 def expand_conditionals(parent, target):
   i = 0

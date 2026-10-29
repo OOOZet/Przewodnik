@@ -340,8 +340,8 @@ a:hover, .problem:not(.unknown-stage) {
 /* Links */
 a { color: var(--typst-blue); text-decoration: none; }
 a:hover { --background-color: var(--typst-blue); color: white; }
-h2 a { color: black; }
-h2 a:hover { --background-color: black; }
+h2 a, #version a { color: black; }
+h2 a:hover, #version a:hover { --background-color: black; color: white; }
 
 /* Code blocks */
 pre { background-color: oklch(98% 0 0); overflow: auto; }
@@ -462,9 +462,13 @@ main {
       <header>
         <h1>{{ render_text(document.attrib['title']) }}</h1>
         {% if 'version' in document.attrib %}
-          <p id='version'><time datetime='{{ document.attrib['version'] }}'>
-            {{ render_text(document.attrib['version'] | human_date) }}
-          </time></p>
+          <p id='version'>
+            <a href='{{ document.attrib['github-url'] }}/commit/{{ document.attrib['git-commit'] }}'>
+              <time datetime='{{ document.attrib['version'] }}'>
+                {{ render_text(document.attrib['version'] | human_date) }}
+              </time>
+            </a>
+          </p>
         {% endif %}
       </header>
 

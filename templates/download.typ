@@ -201,7 +201,10 @@
   #title()
 
   {% if 'version' in document.attrib %}
-    #text(font: heading-font)[{{ render_text(document.attrib['version'] | human_date) }}]
+    #link({{ (document.attrib['github-url'] + '/commit/' + document.attrib['git-commit']) | escape_typst_string }})[
+      #set text(black, font: heading-font)
+      {{ render_text(document.attrib['version'] | human_date) }}
+    ]
   {% endif %}
 
   #section-break()
