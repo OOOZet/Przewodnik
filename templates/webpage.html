@@ -121,6 +121,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>{{ document.attrib['title'] }}</title>
+    <link rel='alternate' type='application/pdf' href='{{ document.attrib['title'] }}.pdf'>
     <link rel='canonical' href='{{ document.attrib['url'] }}'>
     <link rel='license' href='https://creativecommons.org/licenses/by-sa/4.0/'>
     {% with preface = render_blocks(document.find('preface')) | striptags %}
@@ -133,6 +134,7 @@
     <meta name='og:type' content='article'>
     {% if 'version' in document.attrib %}
       <meta name='article:modified_date' content='{{ document.attrib['version'] }}'>
+      <meta name='article:published_date' content='{{ document.attrib['version'] }}'>
     {% endif %}
     {% for node in document.findall('contributor') %}
       {% set name = node.attrib['name'] %}
@@ -147,7 +149,7 @@
     <style>
 
 @import url('https://rsms.me/inter/inter.css'); /* Google Fonts doesn't have Inter Display yet. */
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:FILL@1&icon_names=info,warning');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:FILL@1&icon_names=arrow_drop_down,arrow_drop_up,arrow_left,download,info,warning');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 /*
@@ -157,11 +159,14 @@
 
 /* General constants */
 :root {
+  {% set typst_page_width %} 21cm {% endset %}
+  {% set typst_page_margin %} calc({{ typst_page_width }} * 2.5 / 21) {% endset %}
+  {% set scale %} 1.2 {% endset %}
   --typst-blue: #0074d9;
   --typst-yellow: #ffdc00;
-  --typst-page-width: 21cm;
-  --typst-page-margin: calc(var(--typst-page-width) * 2.5 / 21);
-  --scale: 1.2;
+  --typst-page-width: {{ typst_page_width }};
+  --typst-page-margin: {{ typst_page_margin }};
+  --scale: {{ scale }};
 }
 
 /* Typography */
@@ -193,11 +198,14 @@ h2 { font-size: calc(var(--scale) * 16pt); }
 h3 { font-size: calc(var(--scale) * 14pt); }
 strong, .hint { font-weight: 600; }
 .hint, .hint * { font-size: calc(var(--scale) * 8pt); }
-.material-symbols-sharp { vertical-align: calc(var(--scale) * -1pt); }
+.hint .material-symbols-sharp { vertical-align: calc(var(--scale) * -1pt); }
 .todo { font-weight: 400; }
 
 /* General spacing */
-:root { --block-inset: 1em; }
+:root {
+  {% set block_inset %} 1em {% endset %}
+  --block-inset: {{ block_inset }};
+}
 * { box-sizing: border-box; }
 body { margin: 0; }
 main { box-sizing: content-box; }
@@ -206,14 +214,20 @@ pre, .note, .warning { padding: var(--block-inset); }
 .todo-inner { padding: calc(0.50 * var(--block-inset)); }
 
 /* Horizontal spacing */
+:root {
+  {% set main_max_width %} calc({{ scale }} * ({{ typst_page_width }} - 2 * {{ typst_page_margin }})) {% endset %}
+  {% set main_horizontal_padding %} calc(1.5 * {{ block_inset }}) {% endset %}
+  --main-max-width: {{ main_max_width }};
+  --main-horizontal-padding: {{ main_horizontal_padding }};
+}
 main {
-  max-width: calc(var(--scale) * (var(--typst-page-width) - 2 * var(--typst-page-margin)));
+  max-width: var(--main-max-width);
   margin-left:  auto;
   margin-right: auto;
-  padding-left:  calc(1.5 * var(--block-inset));
-  padding-right: calc(1.5 * var(--block-inset));
+  padding-left:  var(--main-horizontal-padding);
+  padding-right: var(--main-horizontal-padding);
 }
-nav ul { padding-left: 0; }
+#toc ul { padding-left: 0; }
 pre, .todo-inner { max-width: fit-content; margin-left: auto; margin-right: auto; }
 ul { padding-left: 1em; }
 
@@ -311,7 +325,7 @@ main {
  */
 body { hyphens: manual; text-align: justify; }
 h2, h3 { text-align: initial; }
-header, #preface, nav, nav h2, footer, .todo { hyphens: none; text-align: center; }
+header, #preface, #toc, #toc h2, footer, .todo { hyphens: none; text-align: center; }
 
 /* Inline element highlights */
 a:hover, .problem:not(.unknown-stage) {
@@ -359,8 +373,56 @@ pre { background-color: oklch(98% 0 0); overflow: auto; }
 .probny-final   { --background-color: oklch(95% 25%  20deg); }
 .final          { --background-color: oklch(90% 50%  20deg); }
 
+/* Navigation buttons */
+:root {
+  {% set button_size %} 64px {% endset %}
+  --button-count: 4;
+  --button-size: {{ button_size }};
+}
+#buttons {
+  position: fixed;
+  top: var(--main-horizontal-padding);
+  left: calc(50vw + var(--main-max-width) / 2 + var(--main-horizontal-padding));
+  overflow: hidden;
+}
+#buttons, #buttons-items { display: flex; flex-direction: column; }
+#buttons-items {
+  --offset-when-hidden: calc(-1 * (var(--button-count) - 1) * var(--button-size));
+  position: relative;
+  top: var(--offset-when-hidden);
+  transition: all 0.2s;
+}
+#buttons:hover #buttons-items { top: 0; }
+.button, .button * {
+  display: block;
+  width:     var(--button-size);
+  height:    var(--button-size);
+  font-size: var(--button-size);
+  fill: currentColor;
+  --background-extent: 0px !important;
+}
+#buttons-expander { background-color: white; z-index: 1; }
+#buttons-expander::before                { content: 'arrow_drop_up';   }
+#buttons:hover #buttons-expander::before { content: 'arrow_drop_down'; }
+#button-github > * {
+  width:  calc(var(--button-size) * 3 / 4);
+  height: calc(var(--button-size) * 3 / 4);
+  margin: calc(var(--button-size) / 8);
+}
+/* Media queries don't support variables. :( */
+@media (max-width: calc({{ main_max_width }} + 2 * {{ main_horizontal_padding }} + 2 * {{ button_size }})) {
+  #buttons { position: absolute; left: auto; right: var(--main-horizontal-padding); }
+  #buttons, #buttons-items { flex-direction: row-reverse; }
+  #buttons-items { top: auto; right: var(--offset-when-hidden); }
+  #buttons:hover #buttons-items { top: auto; right: 0; }
+  #buttons:hover #buttons-expander::before { content: 'arrow_left'; }
+}
+
 /* Table of contents */
-nav ul { list-style: none; }
+#toc ul { list-style: none; }
+
+/* Icon selectability */
+.material-symbols-sharp { user-select: none; -moz-user-select: none; -webkit-user-select: none; }
 
 /* Code syntax highlighting */
 {{ highlights_css('code') }}
@@ -386,6 +448,15 @@ main {
     </style>
   </head>
   <body>
+
+    <nav id='buttons'>
+      <span id='buttons-expander' class='button material-symbols-sharp'></span>
+      <div id='buttons-items'>
+        <a href='{{ document.attrib['title'] }}.pdf' download class='button material-symbols-sharp'>download</a>
+        <a id='button-github' href='{{ document.attrib['github-url'] }}' class='button'>{{ embed_file('images/octicons/mark-github-24.svg') }}</a>
+      </div>
+    </nav>
+
     <main>
 
       <header>
@@ -401,7 +472,7 @@ main {
         {{ render_blocks(document.find('preface')) }}
       </section>
 
-      <nav>
+      <nav id='toc'>
         <h2>Spis treści</h2>
         <ul>
           {% for node in document.findall('answer') %}

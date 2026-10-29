@@ -1,6 +1,6 @@
 #!/usr/bin/env -S /bin/sh -c 'exec "$(dirname "$0")/venv/bin/python3" "$0" "$@"'
 
-import csv, htmlmin, os, pygments, re, subprocess, sys, unicodedata
+import csv, htmlmin, os, pygments, re, shutil, subprocess, sys, unicodedata
 from argparse import ArgumentParser
 from bs4 import BeautifulSoup
 from collections import namedtuple
@@ -19,6 +19,7 @@ from threading import Event
 from watchdog.events import RegexMatchingEventHandler
 from watchdog.observers import Observer
 from xml.etree import ElementTree
+from zoneinfo import ZoneInfo
 
 def main():
   os.chdir(sys.path[0])
@@ -95,6 +96,11 @@ def build():
     render(Target.webpage)
 
     minify_html('build/webpage.html')
+
+    log_info('Structuring output directory')
+    os.makedirs('build/webpage/', exist_ok=True)
+    os.rename('build/webpage.html', 'build/webpage/index.html')
+    shutil.copy('build/download.pdf', 'build/webpage/Przewodnik OOOZ.pdf')
 
 def format_text_file(path):
   log_info(f'Formatting {path!r}')
@@ -328,10 +334,9 @@ def render(target):
     lstrip_blocks=True,
     trim_blocks=True,
   )
-  def error(s):
-    raise Exception(s)
   env.globals |= {
     'datetime': datetime,
+    'embed_file': embed_file,
     'error': error,
     'highlights_css': highlights_css,
     'repr': repr,
@@ -353,6 +358,13 @@ def render(target):
 
 def highlights_css(parent_selector):
   return HtmlFormatter(style=TypstLight).get_style_defs(parent_selector)
+
+def embed_file(path):
+  with open(path, 'r') as f:
+    return Markup(f.read())
+
+def error(s):
+  raise Exception(s)
 
 def escape_typst_line_markup(text):
   return re.sub(r'^(\s*)([+-/=]) ', r'\1\\\2 ', text)
@@ -406,7 +418,7 @@ def human_date(iso_date):
     'listopada',
     'grudnia',
   ]
-  dt = datetime.fromisoformat(iso_date)
+  dt = datetime.fromisoformat(iso_date).astimezone(ZoneInfo('Europe/Warsaw'))
   return f'{dt.day} {months[dt.month - 1]} {dt.year}'
 
 def hyphenate(text):
