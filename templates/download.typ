@@ -111,21 +111,15 @@
 )
 
 // Typography
-/*
- * The last two parameters are specific to each font and are defined in
- * the "OS/2" and "head" tables in the font file. To read them you can use:
- * https://fonttools.readthedocs.io/en/latest/ttx.html
- */
-#let css-line-height(x, sCapHeight, unitsPerEm) = (x - sCapHeight / unitsPerEm) * 1em
 #let heading-font = "Inter Display"
-#set par(leading: css-line-height(1.5, 1490, 2048))
+#set par(leading: 0.7724609375em)
 #set text(font: "Inter", weight: 300, size: 10pt)
-#show heading: set par(leading: css-line-height(1.3, 1490, 2048))
+#show heading: set par(leading: 0.5724609375em)
 #show heading: set text(font: heading-font)
 #show heading.where(level: 1): set text(size: 16pt)
 #show heading.where(level: 2): set text(size: 14pt)
 #show raw: set text(font: "Roboto Mono", weight: 320, size: 10.26pt)
-#show raw.where(block: true): set par(leading: css-line-height(1.4, 1456, 2048))
+#show raw.where(block: true): set par(leading: 0.6890625em)
 #show raw.where(block: true): set text(weight: 330)
 #show title: set text(font: heading-font, size: 30pt)
 
