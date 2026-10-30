@@ -1,5 +1,11 @@
 {% autoescape true %}
 
+{% set state = namespace(next_id=1) %}
+{% macro next_id() -%}
+  anon-{{ state.next_id }}
+  {%- set state.next_id = state.next_id + 1 %}
+{% endmacro %}
+
 {% macro render_block(node) %}
   {% if node.tag == 'code' %}
     {{ render_code(node, true) }}
@@ -12,26 +18,33 @@
     </ul>
 
   {% elif node.tag == 'note' %}
-    <div class='note'>
-      <small class='hint'><span class='material-symbols-sharp'>info</span> Pamiętaj…</small>
+    <div class='note' role='note'>
+      <small class='hint'>
+        <span class='material-symbols-sharp' aria-hidden='true'>info</span> Pamiętaj…
+      </small>
       {{ render_blocks(node) }}
     </div>
 
   {% elif node.tag == 'todo' %}
     {% if 'version' not in document.attrib %}
-      <div class='todo'><div class='todo-inner'>{{ render_blocks(node) }}</div></div>
+      <div class='todo' role='note'><div class='todo-inner'>{{ render_blocks(node) }}</div></div>
     {% endif %}
 
   {% elif node.tag == 'paragraph' %}
     <p>{{ render_inlines(node) }}</p>
 
   {% elif node.tag == 'subanswer' %}
-    <h3>{{ render_text(node.attrib['subquestion']) }}</h3>
-    {{ render_blocks(node) }}
+    {% set heading_id = next_id() %}
+    <section aria-labelledby='{{ heading_id }}'>
+      <h3 id='{{ heading_id }}'>{{ render_text(node.attrib['subquestion']) }}</h3>
+      {{ render_blocks(node) }}
+    </section>
 
   {% elif node.tag == 'warning' %}
-    <div class='warning'>
-      <small class='hint'><span class='material-symbols-sharp'>warning</span> Uważaj!</small>
+    <div class='warning' role='note'>
+      <small class='hint'>
+        <span class='material-symbols-sharp' aria-hidden='true'>warning</span> Uważaj!
+      </small>
       {{ render_blocks(node) }}
     </div>
 
@@ -340,8 +353,8 @@ a:hover, .problem:not(.unknown-stage) {
 /* Links */
 a { color: var(--typst-blue); text-decoration: none; }
 a:hover { --background-color: var(--typst-blue); color: white; }
-h2 a, a.button, #version a { color: black; }
-h2 a:hover, a.button:hover, #version a:hover { --background-color: black; color: white; }
+h2 a, #buttons a, #version a { color: black; }
+h2 a:hover, #buttons a:hover, #version a:hover { --background-color: black; color: white; }
 
 /* Code blocks */
 pre { background-color: oklch(98% 0 0); overflow: auto; }
@@ -385,37 +398,41 @@ pre { background-color: oklch(98% 0 0); overflow: auto; }
   left: calc(50vw + var(--main-max-width) / 2 + var(--main-horizontal-padding));
   overflow: hidden;
 }
-#buttons, #buttons-items { display: flex; flex-direction: column; }
-#buttons-items {
+#buttons, #buttons ul { display: flex; flex-direction: column; }
+#buttons ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   --offset-when-hidden: calc(-1 * (var(--button-count) - 1) * var(--button-size));
   position: relative;
   top: var(--offset-when-hidden);
   transition: all 0.2s;
 }
-#buttons:hover #buttons-items { top: 0; }
-.button, .button * {
+#buttons:hover ul, #buttons:focus-within ul { top: 0; }
+#buttons-expander, #buttons a, #buttons svg {
   display: block;
-  width:     var(--button-size);
-  height:    var(--button-size);
-  font-size: var(--button-size);
-  fill: currentColor;
-  --background-extent: 0px !important;
+  width:  var(--button-size);
+  height: var(--button-size);
 }
+#buttons a { --background-extent: 0px; }
+#buttons svg { fill: currentColor; padding: calc(var(--button-size) / 8); }
+#buttons .material-symbols-sharp { font-size: var(--button-size); }
 #buttons-expander { background-color: white; z-index: 1; }
-#buttons-expander::before                { content: 'arrow_drop_up';   }
-#buttons:hover #buttons-expander::before { content: 'arrow_drop_down'; }
-#button-github > * {
-  width:  calc(var(--button-size) * 3 / 4);
-  height: calc(var(--button-size) * 3 / 4);
-  margin: calc(var(--button-size) / 8);
+#buttons-expander::before {
+  content: 'arrow_drop_up';
+}
+#buttons:hover #buttons-expander::before, #buttons:focus-within #buttons-expander::before {
+  content: 'arrow_drop_down';
 }
 /* Media queries don't support variables. :( */
 @media (max-width: calc({{ main_max_width }} + 2 * {{ main_horizontal_padding }} + 2 * {{ button_size }})) {
   #buttons { position: absolute; left: auto; right: var(--main-horizontal-padding); }
-  #buttons, #buttons-items { flex-direction: row-reverse; }
-  #buttons-items { top: auto; right: var(--offset-when-hidden); }
-  #buttons:hover #buttons-items { top: auto; right: 0; }
-  #buttons:hover #buttons-expander::before { content: 'arrow_left'; }
+  #buttons, #buttons ul { flex-direction: row-reverse; }
+  #buttons ul { top: auto; right: var(--offset-when-hidden); }
+  #buttons:hover ul, #buttons:focus-within ul { top: auto; right: 0; }
+  #buttons:hover #buttons-expander::before, #buttons:focus-within #buttons-expander::before {
+    content: 'arrow_left';
+  }
 }
 
 /* Table of contents */
@@ -449,20 +466,24 @@ main {
   </head>
   <body>
 
-    <nav id='buttons'>
-      <span id='buttons-expander' class='button material-symbols-sharp'></span>
-      <div id='buttons-items'>
-        <a href='{{ document.attrib['title'] }}.pdf' download class='button material-symbols-sharp'>download</a>
-        <a id='button-github' href='{{ document.attrib['github-url'] }}' class='button'>{{ embed_file('images/octicons/mark-github-24.svg') }}</a>
-      </div>
+    <nav id='buttons' aria-label='Skróty'>
+      <span id='buttons-expander' class='material-symbols-sharp' aria-hidden='true'></span>
+      <ul>
+        <li><a title='Pobierz PDF' href='{{ document.attrib['title'] }}.pdf' download>
+          <span class='material-symbols-sharp' aria-hidden='true'>download</span>
+        </a></li>
+        <li><a title='Kod źródłowy' href='{{ document.attrib['github-url'] }}'>
+          <span aria-hidden='true'>{{ embed_file('images/octicons/mark-github-24.svg') }}</span>
+        </a></li>
+      </ul>
     </nav>
 
-    <main>
+    <main aria-labelledby='title'>
 
       <header>
-        <h1>{{ render_text(document.attrib['title']) }}</h1>
+        <h1 id='title'>{{ render_text(document.attrib['title']) }}</h1>
         {% if 'version' in document.attrib %}
-          <p id='version'>
+          <p id='version' role='none'>
             <a href='{{ document.attrib['github-url'] }}/commit/{{ document.attrib['git-commit'] }}'>
               <time datetime='{{ document.attrib['version'] }}'>
                 {{ render_text(document.attrib['version'] | human_date) }}
@@ -472,31 +493,34 @@ main {
         {% endif %}
       </header>
 
-      <section id='preface'>
+      <section id='preface' aria-label='Przedmowa'>
         {{ render_blocks(document.find('preface')) }}
       </section>
 
-      <nav id='toc'>
-        <h2>Spis treści</h2>
+      <nav id='toc' aria-labelledby='toc-heading'>
+        <h2 id='toc-heading'>Spis treści</h2>
         <ul>
           {% for node in document.findall('answer') %}
-            <li><p><a href='#{{ node.attrib['id'] }}'>
+            <li><p role='none'>
               {% if node.attrib['important'] == 'yes' %}<strong>{% endif %}
-              {{ render_text(node.attrib['question']) }}
+              <a href='#{{ node.attrib['id'] }}'>{{ render_text(node.attrib['question']) }}</a>
               {% if node.attrib['important'] == 'yes' %}</strong>{% endif %}
-            </a></p></li>
+            </p></li>
           {% endfor %}
         </ul>
       </nav>
 
       {% for node in document.findall('answer') %}
-        <section class='answer' id='{{ node.attrib['id'] }}'>
-          <h2><a href='#{{ node.attrib['id'] }}'>{{ render_text(node.attrib['question']) }}</a></h2>
+        {% set heading_id = next_id() %}
+        <section class='answer' id='{{ node.attrib['id'] }}' aria-labelledby='{{ heading_id }}'>
+          <h2 id='{{ heading_id }}'>
+            <a href='#{{ node.attrib['id'] }}'>{{ render_text(node.attrib['question']) }}</a>
+          </h2>
           {{ render_blocks(node) }}
         </section>
       {% endfor %}
 
-      <footer>
+      <footer role='contentinfo' aria-label='Stopka'>
         {{ render_blocks(document.find('footer')) }}
       </footer>
 
