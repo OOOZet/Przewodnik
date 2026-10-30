@@ -340,8 +340,8 @@ a:hover, .problem:not(.unknown-stage) {
 /* Links */
 a { color: var(--typst-blue); text-decoration: none; }
 a:hover { --background-color: var(--typst-blue); color: white; }
-h2 a, #version a { color: black; }
-h2 a:hover, #version a:hover { --background-color: black; color: white; }
+h2 a, a.button, #version a { color: black; }
+h2 a:hover, a.button:hover, #version a:hover { --background-color: black; color: white; }
 
 /* Code blocks */
 pre { background-color: oklch(98% 0 0); overflow: auto; }
@@ -375,7 +375,7 @@ pre { background-color: oklch(98% 0 0); overflow: auto; }
 
 /* Navigation buttons */
 :root {
-  {% set button_size %} 64px {% endset %}
+  {% set button_size %} 60px {% endset %}
   --button-count: 4;
   --button-size: {{ button_size }};
 }

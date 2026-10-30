@@ -200,7 +200,7 @@ def preprocess_source(target):
 def set_document_version(source):
   log_info('Getting version from git')
   document = source.getroot()
-  dirty_check = subprocess.run(['git', 'diff', '--quiet'])
+  dirty_check = subprocess.run(['git', 'diff', '--quiet', 'HEAD'])
   if dirty_check.returncode == 0:
     stdout = subprocess.run(
       ['git', 'log', '-1', '--format=%H%x00%cd', '--date=iso-strict'],
