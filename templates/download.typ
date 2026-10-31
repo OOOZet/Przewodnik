@@ -112,14 +112,14 @@
 
 // Typography
 #let heading-font = "Inter Display"
-#set par(leading: 0.7724609375em)
+#set par(leading: 0.76em)
 #set text(font: "Inter", weight: 300, size: 10pt)
-#show heading: set par(leading: 0.5724609375em)
+#show heading: set par(leading: 0.59em)
 #show heading: set text(font: heading-font)
 #show heading.where(level: 1): set text(size: 16pt)
 #show heading.where(level: 2): set text(size: 14pt)
 #show raw: set text(font: "Roboto Mono", weight: 320, size: 10.26pt)
-#show raw.where(block: true): set par(leading: 0.6890625em)
+#show raw.where(block: true): set par(leading: 0.68em)
 #show raw.where(block: true): set text(weight: 330)
 #show title: set text(font: heading-font, size: 30pt)
 

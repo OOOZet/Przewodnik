@@ -161,6 +161,8 @@
     <meta name='og:url' content='{{ document.attrib['url'] }}'>
     <style>
 
+{% set should_imitate_download = false %}
+
 @import url('https://rsms.me/inter/inter.css'); /* Google Fonts doesn't have Inter Display yet. */
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:FILL@1&icon_names=arrow_drop_down,arrow_drop_up,arrow_left,download,info,warning');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
@@ -174,7 +176,9 @@
 :root {
   {% set typst_page_width %} 21cm {% endset %}
   {% set typst_page_margin %} calc({{ typst_page_width }} * 2.5 / 21) {% endset %}
-  {% set scale %} 1.2 {% endset %}
+  {% set scale %}
+    {% if should_imitate_download %} 1 {% else %} 1.2 {% endif %}
+  {% endset %}
   --typst-blue: #0074d9;
   --typst-yellow: #ffdc00;
   --typst-page-width: {{ typst_page_width }};
@@ -198,16 +202,16 @@ body {
   --cap-height: 1490 / 2048 * 1em;
   font-size: calc(var(--scale) * 10pt);
   font-weight: 300;
-  --line-spacing: 0.7724609375em;
+  --line-spacing: 0.76em;
 }
 code, pre {
   font-family: 'Roboto Mono', monospace;
   --cap-height: 1456 / 2048 * 1em;
   font-size: calc(var(--scale) * 10.26pt);
   font-weight: 320;
-  --line-spacing: 0.6890625em;
+  --line-spacing: 0.68em;
 }
-h1, h2, h3 { --line-spacing: 0.5724609375em; }
+h1, h2, h3 { --line-spacing: 0.59em; }
 h1, h2, h3, .hint, #version {
   font-family: 'InterDisplay', 'Inter', sans-serif;
   --cap-height: 1490 / 2048 * 1em;
@@ -394,7 +398,7 @@ pre { background-color: oklch(98% 0 0); overflow: auto; }
 
 /* Navigation buttons */
 :root {
-  {% set button_size %} 60px {% endset %}
+  {% set button_size %} calc({{ scale }} * 50px) {% endset %}
   --button-count: 4;
   --button-size: {{ button_size }};
 }
@@ -452,21 +456,20 @@ pre { background-color: oklch(98% 0 0); overflow: auto; }
 code { background: revert; }
 
 /* Imitate downloadable file's page dimensions */
-/*
-:root { --scale: 1; }
-body {
-  width: var(--typst-page-width);
-  box-sizing: content-box;
-  border: 1px solid black;
-  text-rendering: geometricPrecision;
-  margin: auto;
-}
-main {
-  max-width: none;
-  margin: var(--typst-page-margin);
-  padding: 0;
-}
-*/
+{% if should_imitate_download %}
+  body {
+    width: var(--typst-page-width);
+    box-sizing: content-box;
+    border: 1px solid black;
+    text-rendering: geometricPrecision;
+    margin: auto;
+  }
+  main {
+    max-width: none;
+    margin: var(--typst-page-margin);
+    padding: 0;
+  }
+{% endif %}
 
     </style>
   </head>
