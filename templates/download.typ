@@ -26,7 +26,7 @@
     #warning[{{ render_blocks(node) }}]
 
   {% else %}
-    {{ error('Unknown block tag: ' ~ repr(node.tag)) }}
+    {{ error('Unknown block tag: ' ~ node.tag | repr) }}
   {% endif %}
 {% endmacro %}
 
@@ -53,7 +53,7 @@
     #link(label({{ node.attrib['id'] | escape_typst_string }}))[{{ render_inlines(node) }}]
 
   {%- else %}
-    {{ error('Unknown inline tag: ' ~ repr(node.tag)) }}
+    {{ error('Unknown inline tag: ' ~ node.tag | repr) }}
   {% endif %}
 {% endmacro %}
 
@@ -195,7 +195,8 @@
   #title()
 
   {% if 'version' in document.attrib %}
-    #link({{ (document.attrib['github-url'] + '/commit/' + document.attrib['git-commit']) | escape_typst_string }})[
+    {% set url = document.attrib['github-url'] ~ '/commit/' ~ document.attrib['git-commit'] %}
+    #link({{ url | escape_typst_string }})[
       #set text(black, font: heading-font)
       {{ render_text(document.attrib['version'] | human_date) }}
     ]

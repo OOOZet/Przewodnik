@@ -1,6 +1,9 @@
 #!/usr/bin/env -S /bin/sh -c 'exec "$(dirname "$0")/venv/bin/python3" "$0" "$@"'
 
-import csv, htmlmin, os, pygments, re, shutil, subprocess, sys, unicodedata
+# TODO: Integrate spell checker
+# IDEA: Show tooltips for competitive programming jargon
+
+import csv, htmlmin, markupsafe, os, pygments, re, shutil, subprocess, sys, unicodedata
 from argparse import ArgumentParser
 from bs4 import BeautifulSoup
 from collections import namedtuple
@@ -50,7 +53,7 @@ def watch():
 
   try:
     while True:
-      sys.stderr.write('\x1b[2J\x1b[1;1H')
+      sys.stderr.write('\x1b[2J\n\n\n\x1b[1;1H')
       log_info(f'Running build now at {datetime.now()}')
       subprocess.run([sys.executable, __file__])
       log_info('Waiting for changes to source files')
@@ -72,6 +75,8 @@ def build():
   log_info('Building for Discord')
   with log_indent():
     preprocess_source(Target.discord)
+
+    render(Target.discord)
 
   log_info('Building downloadable file')
   with log_indent():
@@ -195,7 +200,8 @@ def preprocess_source(target):
     for node in source.findall('.//code'):
       node.text = node.text.strip()
 
-    source.write(f'build/{target.name}.xml')
+    os.makedirs('build/source/', exist_ok=True)
+    source.write(f'build/source/{target.name}.xml')
 
 def set_document_version(source):
   log_info('Getting version from git')
@@ -215,6 +221,9 @@ def set_document_version(source):
       pass
 
 def expand_conditionals(parent, target):
+  if parent.text is None:
+    parent.text = ''
+
   i = 0
   while i < len(parent):
     child = parent[i]
@@ -330,12 +339,13 @@ def normalize_whitespace(node):
 
 def render(target):
   template_name = {
+    Target.discord: 'discord.xml',
     Target.download: 'download.typ',
     Target.webpage: 'webpage.html',
   }[target]
   log_info(f'Rendering {template_name}')
 
-  tree = ElementTree.parse(f'build/{target.name}.xml')
+  source = ElementTree.parse(f'build/source/{target.name}.xml')
 
   problems = {}
   with open('problems.csv', 'r', newline='') as f:
@@ -355,23 +365,31 @@ def render(target):
   )
   env.globals |= {
     'datetime': datetime,
+    'ElementTree': ElementTree,
     'embed_file': embed_file,
     'error': error,
     'highlights_css': highlights_css,
-    'repr': repr,
   }
   env.filters |= {
+    'escape_discord_code_block': escape_discord_code_block,
+    'escape_discord_line_markup': escape_discord_line_markup,
+    'escape_discord_markup': escape_discord_markup,
+    'escape_discord_url': escape_discord_url,
     'escape_typst_line_markup': escape_typst_line_markup,
     'escape_typst_markup': escape_typst_markup,
     'escape_typst_string': escape_typst_string,
+    'expand_xml_tags': expand_xml_tags,
+    'fix_discord_link_label': fix_discord_link_label,
     'highlight': highlight,
     'human_date': human_date,
     'hyphenate': hyphenate,
     'render_ascii_approximations': render_ascii_approximations,
     'render_nonbreaking_spaces': render_nonbreaking_spaces,
+    'split_long_discord_message': split_long_discord_message,
+    'repr': repr,
   }
 
-  out = env.get_template(template_name).render(document=tree.getroot(), problems=problems)
+  out = env.get_template(template_name).render(document=source.getroot(), problems=problems)
   with open(f'build/{template_name}', 'w') as f:
     f.write(out)
 
@@ -385,14 +403,78 @@ def embed_file(path):
 def error(s):
   raise Exception(s)
 
+def escape_discord_code_block(code):
+  return code.replace('```', '`\u2060`\u2060`')
+
+def escape_discord_line_markup(string):
+  root = ElementTree.fromstring(f'<root>{markupsafe.escape(string)}</root>')
+  apply_regex = lambda init_char, text: re.sub(
+    r'(' + init_char + r'\s*)(?:(\d+)(?=\.)|(?=#+ |[->] ))', r'\1\2\\', text,
+  )
+  if root.text is not None:
+    root.text = apply_regex(r'^', root.text)
+  for node in root:
+    if node.tail is not None:
+      node.tail = apply_regex(r'\n', node.tail)
+  return Markup(ElementTree.tostring(root, 'unicode').removeprefix('<root>').removesuffix('</root>'))
+
+def escape_discord_markup(text):
+  return re.sub(r'(?=[*[\\_`~])', r'\\', text)
+
+def escape_discord_url(text):
+  return re.sub(r'(?=[)\\])', r'\\', text)
+
 def escape_typst_line_markup(text):
-  return re.sub(r'^(\s*)([+-/=]) ', r'\1\\\2 ', text)
+  return re.sub(r'^(\s*)(?=[+-/] |=+ )', r'\1\\', text)
 
 def escape_typst_markup(text):
-  return re.sub(r'([#$*<>@[\\\]_`~])', r'\\\1', text)
+  return re.sub(r'(?=[#$*<>@[\\\]_`~])', r'\\', text)
 
 def escape_typst_string(text):
-  return '"' + re.sub(r'(["\\])', r'\\\1', text) + '"'
+  return '"' + re.sub(r'(?=["\\])', r'\\', text) + '"'
+
+def expand_xml_tags(string, tag):
+  root = ElementTree.fromstring(f'<root>{markupsafe.escape(string)}</root>')
+  _expand_xml_tags(root, tag)
+  return Markup(ElementTree.tostring(root, 'unicode').removeprefix('<root>').removesuffix('</root>'))
+
+def _expand_xml_tags(parent, tag):
+  if parent.text is None:
+    parent.text = ''
+
+  i = 0
+  while i < len(parent):
+    child = parent[i]
+    _expand_xml_tags(child, tag)
+    if child.tag != tag:
+      i += 1
+      continue
+
+    del parent[i]
+
+    if child.text is not None:
+      if i == 0:
+        parent.text += child.text
+      else:
+        sibling = parent[i - 1]
+        sibling.tail = ('' if sibling.tail is None else sibling.tail) + child.text
+
+    for grandchild in child:
+      parent.insert(i, grandchild)
+      i += 1
+
+    if child.tail is not None:
+      if i == 0:
+        parent.text += child.tail
+      else:
+        sibling = parent[i - 1]
+        sibling.tail = ('' if sibling.tail is None else sibling.tail) + child.tail
+
+def fix_discord_link_label(markup):
+  # Basically, we try to unrender non-breaking spaces and unescape markup that
+  # doesn't need escaping in this context. The selection thereof is definitely
+  # incomplete here.
+  return markup.replace('\xa0', ' ').replace('\\[', '[')
 
 def highlight(code, lang):
   formatter = HtmlFormatter(style=TypstLight, nowrap=True)
@@ -464,6 +546,76 @@ def render_ascii_approximations(text):
 
 def render_nonbreaking_spaces(text):
   return re.sub(r'(?<=\b\w) ', '\xa0', text)
+
+def split_long_discord_message(string):
+  longest_snowflake = str(2**64 - 1)
+  max_ref_len = len(f'https://discord.com/channels/{longest_snowflake}/{longest_snowflake}/{longest_snowflake}')
+  lines = line_wrap_xml(string, 2000, {
+    'ref': lambda _: max_ref_len,
+  })
+  return Markup('<message>' + '</message><message>'.join(lines) + "</message>")
+
+def line_wrap_xml(string, max_line_len, len_funcs={}):
+  lines = [[[], 0]]
+
+  def append_breakable(text):
+    while text:
+      if lines[-1][1] + len(text) <= max_line_len:
+        lines[-1][0].append(text)
+        lines[-1][1] += len(text)
+        text = ''
+      else:
+        cutoff = max_line_len - lines[-1][1]
+        head, sep, tail = text[:cutoff].rpartition(' ')
+        if sep:
+          lines[-1][0].append(head)
+          lines[-1][1] += len(head)
+          lines.append([[], 0])
+          text = tail + text[cutoff:]
+        elif lines[-1]:
+          lines.append([[], 0])
+        else:
+          head, _, text = text.partition(' ')
+          lines[-1] = [[head], len(head)]
+
+  def append_unbreakable(string, printable_len):
+    if lines[-1][1] + printable_len <= max_line_len:
+      lines[-1][0].append(string)
+      lines[-1][1] += printable_len
+    else:
+      lines.append([[string], printable_len])
+
+  root = ElementTree.fromstring(f'<root>{markupsafe.escape(string)}</root>')
+  if root.text is not None:
+    append_breakable(root.text)
+
+  for node in root:
+    tail = node.tail
+    node.tail = None
+
+    if node.tag in len_funcs:
+      printable_len = len_funcs[node.tag](node)
+    else:
+      printable_len = xml_content_len(node, len_funcs)
+    append_unbreakable(Markup(ElementTree.tostring(node, 'unicode')), printable_len)
+
+    if tail is not None:
+      append_breakable(tail)
+
+  if not lines[-1][0]:
+    lines.pop()
+
+  return [Markup(''.join(markupsafe.escape(i) for i in parts)) for parts, _ in lines]
+
+def xml_content_len(node, len_funcs):
+  result = 0 if node.text is None else len(node.text)
+  for child in node:
+    if child.tag in len_funcs:
+      result += len_funcs[child.tag](child)
+    else:
+      result += xml_content_len(child, len_funcs)
+    result += 0 if child.tail is None else len(child.tail)
+  return result
 
 def minify_html(path):
   log_info(f'Minifying {path!r}')

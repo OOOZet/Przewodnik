@@ -1,0 +1,183 @@
+{% autoescape true %}
+
+{% macro render_block(node) %}
+  {% if node.tag == 'code' %}
+    <message>
+      ```{{ node.attrib['lang'] | escape_discord_code_block }}{{ '\n' -}}
+      {{ node.text | escape_discord_code_block }}{{ '\n' -}}
+      ```
+    </message>
+
+  {% elif node.tag == 'list' %}
+    {% filter split_long_discord_message %}
+      {% for item in node.findall('item') -%}
+        <no-break>- {{ join_messages(render_blocks(item), '\n').replace('\n', '\n  ') }}</no-break>
+      {% endfor %}
+    {% endfilter %}
+
+  {% elif node.tag == 'note' %}
+    <message>
+      > -# **📝 Pamiętaj…**{{ '\n' -}}
+      > {{ join_messages(render_blocks(node), '\n\n').replace('\n', '\n> ') }}
+    </message>
+
+  {% elif node.tag == 'todo' %}
+    {% if 'version' not in document.attrib %}
+      <message>
+        > -# **🛠️ TODO**{{ '\n' -}}
+        > {{ join_messages(render_blocks(node), '\n\n').replace('\n', '\n> ') }}
+      </message>
+    {% endif %}
+
+  {% elif node.tag == 'paragraph' %}
+    {{ render_inlines(node) | escape_discord_line_markup | split_long_discord_message }}
+
+  {% elif node.tag == 'subanswer' %}
+    <message>
+      ### {{ render_text(node.attrib['subquestion']) }}
+    </message>
+    {{ render_blocks(node) }}
+
+  {% elif node.tag == 'warning' %}
+    <message>
+      > -# **⚠️ Uważaj!**{{ '\n' -}}
+      > {{ join_messages(render_blocks(node), '\n\n').replace('\n', '\n> ') }}
+    </message>
+
+  {% else %}
+    {{ error('Unknown block tag: ' ~ node.tag | repr) }}
+  {% endif %}
+{% endmacro %}
+
+{% macro render_inline(node) %}
+  {% if node.tag == 'code' -%}
+    <no-break>`{{ node.text }}`</no-break>
+
+  {%- elif node.tag == 'emphasis' -%}
+    <no-break>*{{ render_inlines(node) }}*</no-break>
+
+  {%- elif node.tag == 'important' -%}
+    <no-break>**{{ render_inlines(node) }}**</no-break>
+
+  {%- elif node.tag == 'link' -%}
+    {{ render_link(render_inlines(node), node.attrib['url']) }}
+
+  {%- elif node.tag == 'placeholder' -%}
+    {{ placeholder_values[node.attrib['for']] }}
+
+  {%- elif node.tag == 'problem' -%}
+    {% set problem = problems[node.attrib['id']] %}
+    {% set label -%}
+      `{{ render_text(problem.name) }} ({{ render_text(problem.competition) }})`
+    {%- endset -%}
+    {{ render_link(label, problem.url) }}
+
+  {%- elif node.tag == 'ref' -%}
+    {{ render_ref(render_inlines(node), node.attrib['id']) }}
+
+  {%- else %}
+    {{ error('Unknown inline tag: ' ~ node.tag | repr) }}
+  {% endif %}
+{% endmacro %}
+
+{% macro render_link(label, url) -%}
+  <no-break>[{{ label | fix_discord_link_label }}]({{ url | escape_discord_url }})</no-break>
+{%- endmacro %}
+
+{% macro render_ref(label, id) -%}
+  <no-break>[{{ label | fix_discord_link_label }}](<ref id='{{ id }}'/>)</no-break>
+{%- endmacro %}
+
+{% macro render_text(text) %}
+  {{- text | render_ascii_approximations | render_nonbreaking_spaces | escape_discord_markup -}}
+{% endmacro %}
+
+{% macro render_blocks(node) %}
+  {% for child in node %}
+    {{ render_block(child) }}
+  {% endfor %}
+{% endmacro %}
+
+{% macro render_inlines(node) %}
+  {{- render_text(node.text or '') -}}
+  {% for child in node %}
+    {{- render_inline(child) -}}
+    {{- render_text(child.tail or '') -}}
+  {% endfor %}
+{% endmacro %}
+
+{% macro join_messages(messages, sep) %}
+  {% for msg in ElementTree.fromstring('<root>' | safe ~ messages ~ '</root>' | safe) %}
+    {{- (msg.text or '').strip() if msg | length == 0 else (msg.text or '').lstrip() -}}
+    {% for node in msg %}
+      {% set string = ElementTree.tostring(node, 'unicode') | safe %}
+      {{- string.rstrip() if loop.last else string -}}
+    {% endfor %}
+    {{- '' if loop.last else sep -}}
+  {% endfor %}
+{% endmacro %}
+
+{% set contributors %}
+  {% for node in document.findall('contributor') -%}
+    &lt;@{{ node.attrib['discord-id'] }}&gt; ({{ render_inlines(node) }})
+    {%- if not loop.last %}, {% endif %}
+  {% endfor %}
+{% endset %}
+{% set placeholder_values = {
+  'contributors': contributors,
+} %}
+
+{% filter expand_xml_tags('no-break') %}
+  <discord-document>
+    <message>
+      # {{ render_text(document.attrib['title']) | escape_discord_line_markup }}
+      {% if 'version' in document.attrib %}
+        {% set label = render_text(document.attrib['version'] | human_date) %}
+        {% set url = document.attrib['github-url'] ~ '/commit/' ~ document.attrib['git-commit'] %}
+        {{- render_link(label, url) | escape_discord_line_markup -}}
+      {% endif %}
+    </message>
+
+    <message>_ _</message>
+
+    {{ render_blocks(document.find('preface')) }}
+
+    <message>_ _</message>
+
+    {% filter split_long_discord_message %}
+      <no-break>## Spis treści</no-break>
+      {% for node in document.findall('answer') %}
+        {% set label = render_text(node.attrib['question']) %}
+        {% set label = '**' ~ label ~ '**' if node.attrib['important'] == 'yes' else label -%}
+        <no-break>- {{ render_ref(label, node.attrib['id']) | escape_discord_line_markup }}</no-break>
+      {% endfor %}
+    {% endfilter %}
+
+    {% for node in document.findall('answer') %}
+      <message>_ _</message>
+
+      <message>
+        ## <anchor id='{{ node.attrib['id'] }}'/>{{
+          render_text(node.attrib['question']) | escape_discord_line_markup
+        }}
+      </message>
+
+      {{ render_blocks(node) }}
+    {% endfor %}
+
+    <message>_ _</message>
+
+    <message>
+      {% set link = render_link('stronie internetowej', document.attrib['url']) %}
+      Ten dokument dostępny jest również w&#160;lepszej oprawie na {{ link }} oraz w&#160;pliku PDF:
+      <file src='build/download.pdf' name='{{ document.attrib['title'] }}.pdf'/>
+    </message>
+
+    <channel-topic>
+      {{ join_messages(render_blocks(document.find('footer')), '\n\n') }}
+    </channel-topic>
+
+  </discord-document>
+{% endfilter %}
+
+{% endautoescape %}

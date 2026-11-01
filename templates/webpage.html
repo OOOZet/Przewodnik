@@ -49,7 +49,7 @@
     </div>
 
   {% else %}
-    {{ error('Unknown block tag: ' ~ repr(node.tag)) }}
+    {{ error('Unknown block tag: ' ~ node.tag | repr) }}
   {% endif %}
 {% endmacro %}
 
@@ -84,7 +84,7 @@
     <a href='#{{ node.attrib['id'] }}'>{{ render_inlines(node) }}</a>
 
   {%- else %}
-    {{ error('Unknown inline tag: ' ~ repr(node.tag)) }}
+    {{ error('Unknown inline tag: ' ~ node.tag | repr) }}
   {% endif %}
 {% endmacro %}
 
