@@ -2,8 +2,9 @@
 
 # TODO: Integrate spell checker
 # IDEA: Show tooltips for competitive programming jargon
+# IDEA: Schematron schema
 
-import csv, htmlmin, markupsafe, os, pygments, re, shutil, subprocess, sys, unicodedata
+import csv, htmlmin, lxml, markupsafe, os, pygments, re, shutil, subprocess, sys, unicodedata
 from argparse import ArgumentParser
 from bs4 import BeautifulSoup
 from collections import namedtuple
@@ -11,6 +12,7 @@ from contextlib import contextmanager
 from datetime import datetime
 from enum import auto, Enum
 from jinja2 import Environment, FileSystemLoader
+from lxml.etree import RelaxNG
 from markupsafe import Markup
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import get_lexer_by_name
@@ -65,6 +67,8 @@ def watch():
 
 def build():
   format_text_file('source.xml')
+
+  validate_source()
 
   log_info('Creating build directory')
   try:
@@ -159,8 +163,23 @@ def format_text_file(path):
       os.rename(f'{path}.new', path)
       log_notice('Overwritten')
 
+def validate_source():
+  log_info('Validating source')
+  with log_indent():
+    relax_ng = RelaxNG(file='source.rnc')
+    if relax_ng.validate(lxml.etree.parse('source.xml')):
+      return
+    for error in relax_ng.error_log:
+      assert error.level_name == 'ERROR', error
+      msg = f'Line {error.line}'
+      if error.column != 0:
+        msg += f', column {error.column}'
+      msg += f': {error.message}'
+      log_error(msg)
+    sys.exit(1)
+
 def preprocess_source(target):
-  log_info(f'Preprocessing source')
+  log_info('Preprocessing source')
   with log_indent():
     source = ElementTree.parse('source.xml')
 

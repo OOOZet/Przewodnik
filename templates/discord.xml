@@ -3,7 +3,7 @@
 {% macro render_block(node) %}
   {% if node.tag == 'code' %}
     <message>
-      ```{{ node.attrib['lang'] | escape_discord_code_block }}{{ '\n' -}}
+      ```{{ node.attrib['lang'] | default | escape_discord_code_block }}{{ '\n' -}}
       {{ node.text | escape_discord_code_block }}{{ '\n' -}}
       ```
     </message>

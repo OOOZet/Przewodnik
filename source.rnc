@@ -1,0 +1,58 @@
+start = element document {
+  attribute title { nonempty-text },
+  attribute url { xsd:anyURI },
+  attribute website-name { nonempty-text },
+  attribute github-url { xsd:anyURI },
+  element preface { blocks },
+  element answer {
+    attribute question { nonempty-text },
+    attribute important { bool }?,
+    attribute id { xsd:ID },
+    (
+      blocks |
+      (
+        (block | inline | text)*,
+        element subanswer {
+          attribute subquestion { nonempty-text },
+          blocks
+        }+
+      )
+    )
+  }+,
+  element footer { blocks },
+  element contributor {
+    attribute name { nonempty-text },
+    attribute discord-id { xsd:nonNegativeInteger },
+    attribute website { xsd:anyURI }?,
+    inlines
+  }+
+}
+
+blocks  = nonempty-text | mixed { (block | inline)+ }
+inlines = nonempty-text | mixed { inline+ }
+
+block =
+  element list    { element item { blocks }+ } |
+  element note    { blocks } |
+  element todo    { blocks } |
+  element warning { blocks } |
+  block_or_inline
+
+inline =
+  element discord-only  { inlines } |
+  element download-only { inlines } |
+  element emphasis      { inlines } |
+  element external-only { inlines } |
+  element important     { inlines } |
+  element link          { attribute url { xsd:anyURI }, inlines } |
+  element placeholder   { attribute for { nonempty-text }, empty } |
+  element problem       { attribute id { nonempty-text }, empty } |
+  element ref           { attribute id { xsd:IDREF }, inlines } |
+  element website-only  { inlines } |
+  block_or_inline
+
+block_or_inline =
+  element code { attribute lang { nonempty-text }?, nonempty-text  }
+
+bool = "yes" | "no"
+nonempty-text = xsd:string { minLength = "1" }

@@ -2,8 +2,10 @@ beautifulsoup4 [lxml]
 discord
 htmlmin2
 Jinja2
+lxml
 Pygments
 pyphen
 rcssmin
 requests
+rnc2rng
 watchdog
