@@ -3,6 +3,7 @@
 # TODO: Integrate spell checker
 # IDEA: Show tooltips for competitive programming jargon
 # IDEA: Schematron schema
+# IDEA: Changelog
 
 import csv, htmlmin, lxml, markupsafe, os, pygments, re, shutil, subprocess, sys, unicodedata
 from argparse import ArgumentParser
@@ -29,7 +30,7 @@ from zoneinfo import ZoneInfo
 def main():
   os.chdir(sys.path[0])
   parser = ArgumentParser()
-  parser.add_argument('--watch', action='store_true')
+  parser.add_argument('--watch', action='store_true', help='rebuilds on any change in the project directory')
   args = parser.parse_args()
   if args.watch:
     watch()

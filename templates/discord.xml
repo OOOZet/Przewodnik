@@ -68,7 +68,7 @@
   {%- elif node.tag == 'problem' -%}
     {% set problem = problems[node.attrib['id']] %}
     {% set label -%}
-      `{{ render_text(problem.name) }} ({{ render_text(problem.competition) }})`
+      `{{ render_text(problem.name) }} ({{ render_text(problem.stage) }} {{ render_text(problem.competition) }})`
     {%- endset -%}
     {{ render_link(label, problem.url) }}
 
@@ -130,7 +130,7 @@
 {% filter expand_xml_tags('no-break') %}
   <discord-document>
     <message>
-      # {{ render_text(document.attrib['title']) | escape_discord_line_markup }}
+      # <anchor id='top'/>{{ render_text(document.attrib['title']) | escape_discord_line_markup }}
       {% if 'version' in document.attrib %}
         {% set label = render_text(document.attrib['version'] | human_date) %}
         {% set url = document.attrib['github-url'] ~ '/commit/' ~ document.attrib['git-commit'] %}
@@ -168,8 +168,9 @@
     <message>_ _</message>
 
     <message>
+      {% set goto_top = render_ref('**Kliknij tutaj, aby przejść do początku.**', 'top') %}
       {% set link = render_link('stronie internetowej', document.attrib['url']) %}
-      Ten dokument dostępny jest również w&#160;lepszej oprawie na {{ link }} oraz w&#160;pliku PDF:
+      {{ goto_top }} Ten dokument dostępny jest również w&#160;lepszej oprawie na {{ link }} oraz w&#160;pliku PDF:
       <file src='build/download.pdf' name='{{ document.attrib['title'] }}.pdf'/>
     </message>
 

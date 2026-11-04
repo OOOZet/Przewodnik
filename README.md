@@ -2,6 +2,8 @@
 
 Najnowszy build przewodnika można znaleźć na [naszej stronie internetowej](https://oooz.edu.pl/przewodnik/) i na kanale `#przewodnik` na [naszym serwerze Discord](https://discord.gg/AMGxG4TvDS).
 
+Znalezione błędy prosimy zgłaszać tutaj w zakładce "Issues" lub na Discordzie.
+
 ## Buildowanie
 
 1. Zainstaluj programy Git LFS (jeśli chcesz pracować z gitem), Python 3 oraz [Typst](https://typst.app/open-source/#download).
