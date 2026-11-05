@@ -26,9 +26,7 @@
     </div>
 
   {% elif node.tag == 'todo' %}
-    {% if 'version' not in document.attrib %}
-      <div class='todo' role='note'><div class='todo-inner'>{{ render_blocks(node) }}</div></div>
-    {% endif %}
+    <div class='todo' role='note'><div class='todo-inner'>{{ render_blocks(node) }}</div></div>
 
   {% elif node.tag == 'paragraph' %}
     <p>{{ render_inlines(node) }}</p>

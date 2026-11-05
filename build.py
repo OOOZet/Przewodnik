@@ -4,6 +4,7 @@
 # IDEA: Show tooltips for competitive programming jargon
 # IDEA: Schematron schema
 # IDEA: Changelog
+# IDEA: Jakaś grafika w tle na pierwszej stronie
 
 import csv, htmlmin, lxml, markupsafe, os, pygments, re, shutil, subprocess, sys, unicodedata
 from argparse import ArgumentParser

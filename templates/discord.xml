@@ -22,12 +22,10 @@
     </message>
 
   {% elif node.tag == 'todo' %}
-    {% if 'version' not in document.attrib %}
-      <message>
-        > -# **🛠️ TODO**{{ '\n' -}}
-        > {{ join_messages(render_blocks(node), '\n\n').replace('\n', '\n> ') }}
-      </message>
-    {% endif %}
+    <message>
+      > -# **🛠️ TODO**{{ '\n' -}}
+      > {{ join_messages(render_blocks(node), '\n\n').replace('\n', '\n> ') }}
+    </message>
 
   {% elif node.tag == 'paragraph' %}
     {{ render_inlines(node) | escape_discord_line_markup | split_long_discord_message }}

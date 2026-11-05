@@ -156,25 +156,21 @@
 )
 #let note(content) = highlight-block(260deg, [\u{e88e}], [Pamiętaj...], content)
 #let warning(content) = highlight-block(80deg, [\u{e002}], [Uważaj!], content)
-{% if 'version' in document.attrib %}
-  #let todo(content) = none
-{% else %}
-  #let todo(content) = block(
-    fill: tiling(size: (1cm, 1cm), {
-      place(square(fill: black, width: 100%))
-      place(polygon(fill: yellow, (100%, 0%), (50%, 0%), (0%, 50%), (0%, 100%)))
-      place(polygon(fill: yellow, (100%, 50%), (100%, 100%), (50%, 100%)))
-    }),
-    width: 100%,
-    inset: 75% * block-inset,
-    {
-      set align(center)
-      show: rest => block(fill: black.transparentize(25%), inset: 50% * block-inset, rest)
-      set text(white, weight: 400)
-      content
-    },
-  )
-{% endif %}
+#let todo(content) = block(
+  fill: tiling(size: (1cm, 1cm), {
+    place(square(fill: black, width: 100%))
+    place(polygon(fill: yellow, (100%, 0%), (50%, 0%), (0%, 50%), (0%, 100%)))
+    place(polygon(fill: yellow, (100%, 50%), (100%, 100%), (50%, 100%)))
+  }),
+  width: 100%,
+  inset: 75% * block-inset,
+  {
+    set align(center)
+    show: rest => block(fill: black.transparentize(25%), inset: 50% * block-inset, rest)
+    set text(white, weight: 400)
+    content
+  },
+)
 #let problems = csv("../problems.csv", row-type: dictionary).map(x => (x.id, x)).to-dict()
 #let problem(id) = {
   let problem = problems.at(id)
