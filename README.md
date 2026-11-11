@@ -6,7 +6,7 @@ Znalezione błędy prosimy zgłaszać tutaj w zakładce "Issues" lub na Discordz
 
 ## Buildowanie
 
-1. Zainstaluj programy Git LFS (jeśli chcesz pracować z gitem), Python 3 oraz [Typst](https://typst.app/open-source/#download).
+1. Zainstaluj programy Git LFS (jeśli chcesz pracować z gitem), Graphviz, Python 3 oraz [Typst](https://typst.app/open-source/#download).
 2. Stwórz wirtualne środowisko za pomocą `python3 -m venv ./venv/`. (Pyphen w Debianie nie ma języka polskiego.)
 3. Zainstaluj potrzebne pakiety w Pythonie za pomocą `./venv/bin/pip3 install -r requirements.txt`.
 4. Uruchom `./build.py --watch`. Od teraz przewodnik będzie buildowany po każdej zmianie w plikach źródłowych. Jeśli chcesz tylko jednorazowo zbuildować przewodnik, to usuń opcję `--watch`.
@@ -127,6 +127,8 @@ Poniżej jest warstwa semantyczna przykładowego dokumentu prezentująca wszystk
 </document>
 ```
 
+https://typst.app/docs/guides/accessibility/#textual-representations
+
 ## Komentarze do treści
 
 Przewodnik ma przede wszystkim charakter informacyjny - ma przekazać najważniejsze informacje. Nie chcemy zanudzać czytelnika długimi wywodami, które też są obciążeniem dla nas, gdyż trzeba dbać o ich aktualność.
@@ -136,6 +138,20 @@ Znaczna część wiedzy olimpijskiej, którą posiadają uczniowie ze szkół ol
 Aby lepiej dotrzeć do czytelnika, staramy się pisać zadania w taki sposób, aby bezpośrednio zwracały się do niego. To, jakie emocje i myśli wzbudzimy w nim, jest o wiele ważniejsze niż gramatyka czy składnia. Wstęp oraz pierwsze trzy pytania muszą być szczególnie kontrolowane pod względem skuteczności przekazu (użytych słów, ich nacechowania, spójności zdań itd.) - bo są najważniejsze. Drugą rzeczą, która polepsza przekaz, są *przykłady*. Dobrze jest skupić się na konkretach, które pozwolą czytelnikowi zobaczyć coś na własne oczy, zamiast na abstrakcyjnych opisach.
 
 Poniżej znajdują się komentarzę do poszczególnych pytań.
+
+### "Na czym polega Olimpiada?"
+
+Przykładowe zadanie zostało wybrane ze względu na następujące kryteria:
+- **Pokazuje, jak wielkie oszczędności obliczeniowe można uzyskać dzięki algorytmice.** To jest właśnie jej kwintesencja. Wykładnicza a wielomianowa złożność to wielka przepaść, co zostało naświetlone w odpowiedzi na pytanie.
+- Powyższy punkt oznacza też, że wybrane zadanie jest faktycznie zadaniem algorytmicznym, a nie matematycznym tak, jak się czasami zdarza na Olimpiadzie.
+- Trudnością zadania nie jest samo wymyślenie jakiegokolwiek rozwiązania, a przyśpiesenie go. Algorytmy zachłanne często nie spełniają tego warunku. W wybranym zadaniu rozwiązanie brutalne jest bardzo łatwe do zrozumienia i samodzielnego wymyślenia: W każdym punkcie albo przykładamy wałek albo nie, co modelujemy za pomocą jednowymiarowej tablicy zer i jedynek.
+- Rozwiązanie wzorcowe jest nieoczywiste, a mimo to proste do zrozumienia. Nie ma takich koncepcyjnych przeskoków, jakie by były, gdybyśmy mieli tłumaczyć np. drzewa przedziałowe. A pewne niewygodne szczegóły (algorytm na silnie spójne składowe) jesteśmy w stanie przemilczeć nieprzeszkadzając na zrozumieniu rozwiązania wzorcowego.
+- Całość można zwięźle wytłumaczyć. Nie ma żadnej przypadkologii i nie ma długich rozważań.
+- Nawiązuje do bardzo znanego problemu P=NP, co nie jest wymagane, ale jest mile widziane.
+
+Najważniejszą częścią opisu tak naprawdę nie jest rozwiązanie wzorcowe, tylko treść zadania i rozwiązanie brutalne. Jeśli chcemy zainteresować czytelnika tą algorytmiką, to musi najpierw bardzo dobrze zrozumieć, jaki problem ona rozwiązuje.
+
+W całym tekście musimy powstrzymywać się od używania znanego nam żargonu algorytmicznego i innych abstrakcyjnych sformułowań. O wiele bliższą codzienności i pobudzającą wyobraźnię zwykłego człowieka frazą jest "sieć połączeń" aniżeli "graf skierowany". Takie techniczne sformułowania zostawiamy na koniec bardziej jako dopisek na marginesie. Tak samo nie wprowadzamy abstrakcji tam, gdzie nie trzeba, i na literały formuły CNF mówimy po prostu "równania", bo akurat możemy.
 
 ### "Czy umiejętności algorytmiczne przydają się później w życiu?"
 
@@ -176,7 +192,7 @@ Jako notatkę dla przyszłych analizujących omówienia zostawiamy poniższą li
 ### Todo
 
 Pomysły na przyszłe odpowiedzi na pytania:
-- o tym, że matematycy są dobrzy też w informatyce
+- o tym, że matematycy są dobrzy też w informatyce
 - coś o tym, że dziewczyny też biorą udział w Olimpiadzie
 - "Jak wygrać OI/OIJ?"
 - "Jak dużo czasu muszę poświecić żeby zdobyć tytuł finalisty OI lub OIJ?"

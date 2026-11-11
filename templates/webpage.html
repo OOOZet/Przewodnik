@@ -6,9 +6,23 @@
   {%- set state.next_id = state.next_id + 1 %}
 {% endmacro %}
 
+{% set should_imitate_download = false %}
+
+{% set scale = 1 if should_imitate_download else 1.2 %}
+
 {% macro render_block(node) %}
   {% if node.tag == 'code' %}
     {{ render_code(node, true) }}
+
+  {% elif node.tag == 'graph' %}
+    <div class='graph' role='img' aria-label='{{ node.attrib['description'] }}'>
+      {#
+       # 96 DPI is what SVGs are assumed to be on the Web. (That's probably a lie on higher-DPI
+       # screens though.) CSS does not have any sane way of scaling images, hence we have to do it
+       # here.
+       #}
+      <div aria-hidden='true'>{{ embed_file((node | render_graph(dpi=96 * scale)).svg) }}</div>
+    </div>
 
   {% elif node.tag == 'list' %}
     <ul>
@@ -63,6 +77,9 @@
 
   {%- elif node.tag == 'link' -%}
     <a href='{{ node.attrib['url'] }}'>{{ render_inlines(node) }}</a>
+
+  {%- elif node.tag == 'math' -%}
+    <span class='math' role='math'>{{ node | render_math_html }}</span>
 
   {%- elif node.tag == 'placeholder' -%}
     {{ placeholder_values[node.attrib['for']] }}
@@ -159,8 +176,6 @@
     <meta name='og:url' content='{{ document.attrib['url'] }}'>
     <style>
 
-{% set should_imitate_download = false %}
-
 @import url('https://rsms.me/inter/inter.css'); /* Google Fonts doesn't have Inter Display yet. */
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:FILL@1&icon_names=arrow_drop_down,arrow_drop_up,arrow_left,download,info,warning');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
@@ -174,9 +189,6 @@
 :root {
   {% set typst_page_width %} 21cm {% endset %}
   {% set typst_page_margin %} calc({{ typst_page_width }} * 2.5 / 21) {% endset %}
-  {% set scale %}
-    {% if should_imitate_download %} 1 {% else %} 1.2 {% endif %}
-  {% endset %}
   --typst-blue: #0074d9;
   --typst-yellow: #ffdc00;
   --typst-page-width: {{ typst_page_width }};
@@ -217,9 +229,14 @@ h1, h2, h3, .hint, #version {
 h1 { font-size: calc(var(--scale) * 30pt); }
 h2 { font-size: calc(var(--scale) * 16pt); }
 h3 { font-size: calc(var(--scale) * 14pt); }
+pre, pre code { font-size: calc(var(--scale) * 10pt); }
 strong, .hint { font-weight: 600; }
 .hint, .hint * { font-size: calc(var(--scale) * 8pt); }
 .hint .material-symbols-sharp { vertical-align: calc(var(--scale) * -1pt); }
+/* TODO: Different font that fits in with Inter better. */
+/* TODO: We need to provide this font to the web browser. */
+.math { font-family: 'Latin Modern Math'; font-size: calc(var(--scale) * 11.5pt); line-height: 0; }
+.math sub, .math sup { line-height: 0; font-size: 70%; }
 .todo { font-weight: 400; }
 
 /* General spacing */
@@ -249,8 +266,9 @@ main {
   padding-right: var(--main-horizontal-padding);
 }
 #toc ul { padding-left: 0; }
-pre, .todo-inner { max-width: fit-content; margin-left: auto; margin-right: auto; }
+pre, .graph, .todo-inner { max-width: fit-content; margin-left: auto; margin-right: auto; }
 ul { padding-left: 1em; }
+.graph svg { max-width: {{ main_max_width }}; }
 
 /* Vertical spacing */
 /*
@@ -445,6 +463,9 @@ pre { background-color: oklch(98% 0 0); overflow: auto; }
 
 /* Table of contents */
 #toc ul { list-style: none; }
+
+/* Graphs */
+.graph { overflow: auto; }
 
 /* Icon selectability */
 .material-symbols-sharp { user-select: none; -moz-user-select: none; -webkit-user-select: none; }

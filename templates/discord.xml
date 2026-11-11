@@ -2,16 +2,34 @@
 
 {% macro render_block(node) %}
   {% if node.tag == 'code' %}
-    <message>
+    {% set message -%}
       ```{{ node.attrib['lang'] | default | escape_discord_code_block }}{{ '\n' -}}
       {{ node.text | escape_discord_code_block }}{{ '\n' -}}
       ```
+    {%- endset %}
+    {% if message | length <= 2000 %}
+      <message>{{ message }}</message>
+    {% else %}
+      {% set extensions = {'bash': 'sh', 'cpp': 'cpp', 'python': 'py'} %}
+      <message>
+        <file name='kod.{{ extensions.get(node.attrib['lang'], 'txt') }}'>{{ node.text }}</file>
+      </message>
+    {% endif %}
+
+  {% elif node.tag == 'graph' %}
+    <message>
+      <file
+        src='{{ (node | render_graph(color='white', dpi=192)).png }}'
+        description='{{ node.attrib['description'] }}'/>
     </message>
 
   {% elif node.tag == 'list' %}
     {% filter split_long_discord_message %}
       {% for item in node.findall('item') -%}
-        <no-break>- {{ join_messages(render_blocks(item), '\n').replace('\n', '\n  ') }}</no-break>
+        <no-break>
+          {%- if node.attrib['ordered'] == 'yes' %}{{ loop.index }}. {% else %}- {% endif %}
+          {{- join_messages(render_blocks(item), '\n').replace('\n', '\n  ') -}}
+        </no-break>
       {% endfor %}
     {% endfilter %}
 
@@ -59,6 +77,9 @@
 
   {%- elif node.tag == 'link' -%}
     {{ render_link(render_inlines(node), node.attrib['url']) }}
+
+  {%- elif node.tag == 'math' -%}
+    <no-break>{{ node | render_math_discord }}</no-break>
 
   {%- elif node.tag == 'placeholder' -%}
     {{ placeholder_values[node.attrib['for']] }}

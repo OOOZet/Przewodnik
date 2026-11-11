@@ -2,8 +2,19 @@
   {% if node.tag == 'code' %}
     {{ render_code(node, true) }}
 
+  {% elif node.tag == 'graph' %}
+    #image(
+      {# Typst assumes SVG images are 96 DPI. #}
+      {{ ('/' ~ (node | render_graph(dpi=96)).svg) | escape_typst_string }},
+      alt: {{ node.attrib['description'] | escape_typst_string }},
+    )
+
   {% elif node.tag == 'list' %}
+    {% if node.attrib['ordered'] == 'yes' %}
+    #enum(
+    {% else %}
     #list(
+    {% endif %}
       {% for item in node.findall('item') %}
         [{{ render_blocks(item) }}],
       {% endfor %}
@@ -42,6 +53,9 @@
 
   {%- elif node.tag == 'link' -%}
     #link({{ node.attrib['url'] | escape_typst_string }})[{{ render_inlines(node) }}]
+
+  {%- elif node.tag == 'math' -%}
+    ${{ node | render_math_typst }}$
 
   {%- elif node.tag == 'placeholder' -%}
     {{ placeholder_values[node.attrib['for']] }}
@@ -118,9 +132,10 @@
 #show heading: set text(font: heading-font)
 #show heading.where(level: 1): set text(size: 16pt)
 #show heading.where(level: 2): set text(size: 14pt)
+#show math.equation: set text(weight: 300, size: 11.5pt)
 #show raw: set text(font: "Roboto Mono", weight: 320, size: 10.26pt)
 #show raw.where(block: true): set par(leading: 0.68em)
-#show raw.where(block: true): set text(weight: 330)
+#show raw.where(block: true): set text(weight: 330, size: 10pt)
 #show title: set text(font: heading-font, size: 30pt)
 
 // Spacing
@@ -137,6 +152,7 @@
 
 // Other
 #set list(marker: ([•], [◦]))
+#show image: set align(center)
 #show link: set text(blue)
 #show raw.where(block: true): set align(center)
 #show raw.where(block: true): set block(fill: color.oklch(98%, 0, 0deg), inset: block-inset)
@@ -171,7 +187,7 @@
     content
   },
 )
-#let problems = csv("../problems.csv", row-type: dictionary).map(x => (x.id, x)).to-dict()
+#let problems = csv("/problems.csv", row-type: dictionary).map(x => (x.id, x)).to-dict()
 #let problem(id) = {
   let problem = problems.at(id)
   let color = (

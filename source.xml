@@ -8,9 +8,230 @@ Ten przewodnik adresowany jest do wszystkich osób, które mogą wystartować w 
 <answer question='Na czym polega Olimpiada?' important='yes' id='na-czym-polega-olimpiada'>
 Olimpiada kręci się w zasadzie wokół jednej rzeczy: rozwiązywaniu <emphasis>zadań algorytmicznych</emphasis>. Zadanie algorytmiczne polega na napisaniu krótkiego programu w C++ lub Python, który wczytuje dane w formacie określonym w zadaniu, przetwarza je wedle algorytmu wymyślonego przez ciebie, a następnie wypisuje dane, których sens i związek z danymi wejściowymi też jest określony w zadaniu. To oczywiście implikuje, że nie musisz wymyślać dokładnie tego samego algorytmu co inni.
 
-<todo>Przykładowe zadanie. Musi być <emphasis>fajne</emphasis>.</todo>
+Spójrzmy więc na jakieś przykładowe zadanie! W zadaniu <problem id='oi26-rem'/> z finału Olimpiady Informatycznej Bajtazar - główny bohater tego uniwersum - chce pomalować jedną ze ścian w swoim domu w paski. Paski na ścianie będą przebiegać z góry na dół, mieć równą szerokość i będzie ich dokładnie <math>n</math>. Każdy z nich Bajtazar chce pomalować na jeden z wybranych <math>k</math> kolorów i ma już gotowy projekt, jaki kolor dostanie każdy z <math>n</math> pasków. Dla uproszczenia kolory ponumerujemy kolejnymi liczbami od <math>1</math> do <math>k</math> i nie będziemy się przejmować, czy to fioletowy, czy purpurowy.
 
-...i sprawdzaczka nagradza twoją pracę liczbą 100 na zielonym tle.
+Bajtazar wypatrzył w sklepie budowlanym promocję na dwukolorowe wałki - lewa połówka wałka maluje jeden pasek na jeden kolor, druga maluje pasek na prawo od pierwszego na inny lub ten sam kolor. Na każdy wałek została już naniesiona farba, więc Bajtazar nie ma możliwości zmiany jej koloru. Nie może nawet obrócić wałka, żeby zamienić miejscami kolory na nim, bo producent zainstalował na nim "ochronną" osłonę od strony malarza. Co gorsza, farby na każdym wałku starczy tylko na pomalowanie jednej pary sąsiadujących pasków. Dobrą wiadomością jest to, że wałków w zestawie jest dokładnie <math>k^2</math> - jeden na każdy możliwy lewy i prawy kolor wałka.
+
+I w tym momencie pojawia się pytanie Bajtazara, który pyta nas, czy będzie w stanie zrealizować swoją wizję architektoniczną wałkami z zestawu? <important>Nasz program na wejściu dostanie liczby <math>n</math> i <math>k</math> oraz liczby <math>c_1</math>, <math>c_2</math>, ..., <math>c_n</math>, czyli listę <math>n</math> kolorów od <math>1</math> do <math>k</math>, na które trzeba pomalować kolejne paski; a na wyjściu będzie musiał wypisać "TAK" albo "NIE" - odpowiedź na dylemat Bajtazara.</important>
+
+Zastanówmy się, jaki algorytm napisać dla komputera, żeby był w stanie krok po kroku rozwiązać ten problem. Zauważmy, że każdą z <math>n - 1</math> par sąsiadujących pasków możemy albo pomalować albo nie. To znaczy: jeśli Bajtazar miałby zrealizować swoją wizję, to mógłby zawczasu ustalić sobie dla każdej pary, czy użyje do niej wałka, czy nie. <important>Taki ciąg decyzji możemy przedstawić jako tablicę <math>n - 1</math> zer lub jedynek. Jedynka na <math>i</math>-tym miejscu znaczy "pociągniemy odpowiedni wałek po <math>i</math>-tym i <math>(i + 1)</math>-szym pasku". Zero znaczy, że tego nie zrobimy.</important> <math>i</math>-ty element tablicy <math>x</math> będziemy oznaczać <math>x_i</math>.
+
+Musimy sobie też jasno powiedzieć, jakie warunki dany ciąg decyzji zakodowany w tablicy <math>x</math> musi spełniać, aby był poprawny i był dowodem na to, że Bajtazar może pomalować swoją ścianę dwukolorowymi wałkami z marketu:
+
+<list ordered='yes'>
+<item><important>Każdy pasek na ścianie musi zostać zamalowany</important> - prawą połową wałka lub lewą połową wałka. Innymi słowy: pasek <math>i</math> musi zostać zamalowany wałkiem pociągniętym po paskach <math>i - 1</math> i <math>i</math> lub wałkiem pociągniętym po <math>i</math> i <math>i + 1</math>. <important>Symbolicznie: dla każdego paska zachodzi <math>x_i-1 = 1</math> lub <math>x_i = 1</math>, gdzie <math>i</math> to jego numer.</important></item>
+
+<item><important>Żaden wałek nie może zostać użyty więcej niż raz.</important> To znaczy: jeśli mamy na ścianie dwie różne pary sąsiadujących pasków, które mają ten sam kolor lewy i prawy, to nie może się stać tak, że pociągniemy jakiś wałek najpierw po pierwszej parze, a potem po drugiej parze, bo dla każdego wyboru lewego i prawego koloru wałka mamy tylko jeden taki wałek w zestawie. <important>Symbolicznie: jeśli <math>c_i c_i+1 = c_j c_j+1</math>, to <math>x_i = 0</math> lub <math>x_j = 0</math>.</important></item>
+</list>
+
+<important>To są warunki zarówno konieczne jak i wystarczające</important>. Jeśli znajdziemy tablicę spełniającą je, to Bajtazar będzie w stanie pomalować swoją ścianę postępując wedle ciągu decyzji zakodowanego w niej. A jeśli żadna tablica nie spełnia obu z tych warunków, to nieważne, co Bajtazar zrobi - nie pomaluje swojej ściany tak, jak chce, niełamiąc praw fizyki.
+
+No to co. <important>Najprostszym sposobem sprawdzenia, czy któraś tablica spełnia warunki, jest sprawdzenie ich wszystkich</important>, co nie? Możemy łatwo na komputerze przeiterować się po wszystkich możliwych tablicach <math>n - 1</math> zer i jedynek i dla każdej pozycji <math>i</math> sprawdzić symboliczne postacie wyżej zdefiniowanych dwóch warunków poprawności tablicy. Różnych tablic jest <math>2^n-1</math>, a elementów w tablicy jest <math>n - 1</math>. Zatem te dwie zagnieżdżone pętle wykonają sumarycznie <math>2^n-1 * (n - 1)</math> operacji.
+
+Ile to będzie nas kosztować? No cóż, jeśli założymy, że jedna operacja na komputerze zajmuje <math>1 microseconds</math> (co jest bardzo rozsądnym założeniem), to przy <math>n = 20</math> paskach, będziemy musieli poczekać <math>2^20-1 * (20 - 1) * 1 microseconds = 9961472 microseconds ~= 10 seconds</math>. No ale, paski na ścianie są cienkie, przez co jest ich bardzo dużo. Gdyby były grube, to nie musielibyśmy w ogóle kupować żadnych specjalnych wałków - po prostu wzielibyśmy normalny wałek i nim pomalowali całą ścianę. <important>Zatem jeśli <math>n = 100</math>, ten algorytm zajmie już aż <math>2^100-1 * (100 - 1) * 1 microseconds = 62748704711297355374086808666112 microseconds</math> - o wiele za dużo</important>.
+
+W tym momencie moglibyśmy zacząć dziubać w naszym rozwiązaniu i znajdywać <link url='https://oi.edu.pl/l/oi26_3_rem/'>kolejne drobne optymalizacje</link>, ale w najlepszym przypadku zbijemy liczbę operacji do <math>1.33^n-1 * (n - 1)</math>, czyli wciąż o wiele za dużo. <important>Czy da się lepiej?</important>
+
+<important>Spróbujmy sprowadzić wszystkie nasze warunki na poprawność tablicy do jednej zwięzłej postaci - do <emphasis>formuły logicznej</emphasis>.</important> Zauważmy, że symboliczna wersja 1. warunku na poprawność tablicy sprowadza się do długiego ciągu równań i spójników "lub" i "oraz": <math>(x_1 = 1) and (x_1 = 1 or x_2 = 1) and (x_2 = 1 or x_3 = 1) and ... and (x_n-2 = 1 or x_n-1 = 1) and (x_n-1 = 1)</math>. Od razu skróciliśmy tutaj słowo "lub" do symbolu <math>or</math> i "oraz" do <math>and</math>. Istotnym szczegółem w tym ciągu jest to, że każde <math>or</math> zawsze łączy dokładnie dwa równania, a każde <math>and</math> łączy tylko warunki z <math>or</math> lub pojedyncze równania. Każdy warunek stojący pomiędzy <math>and</math> w formule będziemy od teraz nazywać <emphasis>klauzulą</emphasis>. Na taką formułę logiczną mówi się, że jest w postaci "<link url='https://pl.wikipedia.org/wiki/Koniunkcyjna_posta%C4%87_normalna'>CNF</link>".
+
+Analogicznie możemy rozwinąć 2. warunek poprawności, ale tutaj już nie możemy od razu teraz napisać całego ciągu klauzul, bo to, jakie klazule w nim będą, zależy od tego, jak wygląda projekt Bajtazara. Musimy popatrzeć na jakiś konkretny przykład.
+
+A więc oto jak będzie wyglądać formuła dla projektu, w którym kolory kolejnych pasków to 1, 2, 3, 2, 3: <math>(x_1 = 1) and (x_1 = 1 or x_2 = 1) and (x_2 = 1 or x_3 = 1) and (x_3 = 1 or x_4 = 1) and (x_4 = 1) and (x_2 = 0 or x_4 = 0)</math>. Pierwsze 5 klauzul wynika z 1. warunku poprawności, a ostatnia z 2. warunku. Jedyna tablica <math>x</math> spełniająca tę formułę to 1, 0, 1, 1.
+
+Wracając do przypadku ogólnego załóżmy, że jesteśmy pewni, że <math>x_1 = 1</math> lub <math>x_2 = 1</math>. Gdy odkryjemy, że <math>x_1 = 0</math>, to będziemy od razu wiedzieli, że <math>x_2 = 1</math> musi zachodzić - i vice versa. Ogólniej: <important>Gdy w naszej formule mamy klauzulę postaci <math>(p or q)</math>, to mamy dwa wymuszenia: Jeśli <math>p</math> nie zachodzi, to <math>q</math> <emphasis>musi</emphasis> zachodzić. Jeśli <math>q</math> nie zachodzi, to <math>p</math> <emphasis>musi</emphasis> zachodzić.</important> Dla formalności powiemy jeszcze, że klauzule postaci <math>(x_i = 1)</math> wprowadzają wymuszenie z <math>x_i = 0</math> do <math>x_i = 1</math>. Także <math>x_i = 0</math> zawsze prowadzi do sprzeczności.
+
+<important>Takie wymuszenia pomiędzy równaniami tworzą <emphasis>sieć</emphasis> połączeń.</important> Możemy - a nawet <emphasis>powinniśmy</emphasis> - zwizualizować ją sobie na kartce za pomocą punktów połączonych strzałkami. Punkty odpowiadają równaniom w formule, a strzałka z równania <math>p</math> do równania <math>q</math> oznacza, że <math>p</math> wymusza <math>q</math>. W naturalny sposób strzałki tworzą ścieżki w sieci. Jeśli z jakiegoś równania <math>r</math> da się przejść taką ścieżką złożoną z wielu strzałek do jakiegoś innego równania <math>s</math>, to widzimy, że <math>r</math> <emphasis>pośrednio</emphasis> wymusza <math>s</math>. Formalna nazwa na takie punkty i strzałki to "<link url='https://pl.wikipedia.org/wiki/Graf_skierowany'>graf skierowany</link>".
+
+Oto jak wygląda sieć wymuszeń dla wcześniejszego przykładu 1, 2, 3, 2, 3:
+
+<graph description='Przykładowa sieć wymuszeń'><![CDATA[
+digraph {
+  pad=0;
+  rankdir=LR;
+  // The font size matches the one set for math in HTML and Typst.
+  node [fontname="Latin Modern Math" fontsize=11.5 shape=none];
+  edge [arrowhead=vee arrowsize=0.6 penwidth=0.5];
+  1.0 [label=<&#x1D465;<SUB>1</SUB> = 0>];
+  1.1 [label=<&#x1D465;<SUB>1</SUB> = 1>];
+  2.0 [label=<&#x1D465;<SUB>2</SUB> = 0>];
+  2.1 [label=<&#x1D465;<SUB>2</SUB> = 1>];
+  3.0 [label=<&#x1D465;<SUB>3</SUB> = 0>];
+  3.1 [label=<&#x1D465;<SUB>3</SUB> = 1>];
+  4.0 [label=<&#x1D465;<SUB>4</SUB> = 0>];
+  4.1 [label=<&#x1D465;<SUB>4</SUB> = 1>];
+  1.0 -> 1.1;
+  1.0 -> 2.1;
+  2.0 -> 1.1;
+  2.0 -> 3.1;
+  2.1 -> 4.0;
+  3.0 -> 2.1;
+  3.0 -> 4.1;
+  4.0 -> 3.1;
+  4.0 -> 4.1;
+  4.1 -> 2.0;
+}
+]]></graph>
+
+Jednym z pośrednich wymuszeń w tym przykładzie jest <math>x_3 = 0</math> pośrednio wymuszające <math>x_1 = 1</math>.
+
+Zauważmy teraz, że jeśli <math>x_i = 1</math> pośrednio lub bezpośrednio wymusza <math>x_i = 0</math>, a <math>x_i = 0</math> tak samo wymusza <math>x_i = 1</math>, to żadna tablica nie będzie poprawna, bo żadna tablica nie może mieć jednocześnie dwóch różnych wartości w tej samej komórce. Tablice są zbyt duże, żeby zachodziło w nich zjawisko kwantowej superpozycji.
+
+Ponadto można udowodnić, że jest też na odwrót: Załóżmy, że żadna tablica nie jest poprawna. Spójrzmy na dowolną tablicę <math>x</math>. Skoro jest niepoprawna, to któraś z klazul w naszej formule logicznej (w której zapisaliśmy warunki na poprawność tablicy) musi być niespełniona. No to spróbujmy naprawić tablicę tak, żeby ta klauzula była znowu spełniona. To będzie wymagało od nas zmienienia jednej komórki w tablicy, bo, jak dobrze pamiętamy, każda klazula (oprócz tych z jednym równaniem) mówi, że jakieś <math>x_i</math> równa się 0 (albo 1) lub jakieś <math>x_j</math> równa się 0 (albo 1). Widzimy, że w jednym miejscu coś naprawimy, przez co w innym miejscu coś się zepsuje. I tak w nieskończoność będziemy psuć naprawiając. Ale nasza tablica ma skończoną długość, więc pewną komórkę będziemy musieli zmienić nieskończenie wiele razy. W szczególności to oznacza, że ustawienie jej na 0 pośrednio lub bezpośrednio wymusza ustawienie jej na 1, a to z kolei wymusza znowu ustawienie jej na 0. I mamy tę pętlę w sieci wymuszeń, którą chcieliśmy. To oczywiście nie jest pełny obraz sytuacji, bo po drodze popsujemy i naprawimy wiele pobocznych klauzul i równań, ale nas interesuje tylko ten główny łańcuch zepsuć i napraw.
+
+<important>Zatem to, że pewne równanie i jego zaprzeczenie wzajemnie się wymuszają, jest równoznaczne z tym, że żadna tablica nie jest poprawna.</important>
+
+No to co. <important>Teraz najprostszym sposobem sprawdzenia, czy żadna tablica nie jest poprawna, jest sprawdzenie dla każdego równania, czy istnieje ścieżka z niego do jego zaprzeczenia i spowrotem</important>, co nie? Możemy dla każdego z ok. <math>2n</math> równań puścić z niego algorytm <link url='https://cp-algorithms.com/graph/depth-first-search.html'>przeszukiwania grafu w głąb</link>, który wykonuje liczbę operacji wprost proporcjonalną do liczby punktów i strzałek w sieci, których tutaj jest ok. <math>n^2 / 2</math> w najgorszym przypadku. <important>Zatem nasz ulepszony algorytm zajmie czas wprost proporcjonalny do <math>n^3</math>.</important> Nieźle, co nie? Dokładne wyliczenie liczby równań, punktów i strzałek pozostawiamy jako ćwiczenie dla czytelnika.
+
+Do pełnego rozwiązania tego zadania zostały nam jeszcze do poczynienia dwie optymalizacje:
+
+<list>
+<item>Pierwsza z nich polega na skorzystaniu z <link url='https://cp-algorithms.com/graph/strongly-connected-components.html'>algorytmu Kosaraju</link>, który znajduje w sieci wszystkie <emphasis>silnie spójne składowe</emphasis>, czyli grupy punktów takie, że w obrębie jednej grupy z każdego punktu da się dojść do każdego innego. Algorytm wypluwa tablicę mowiącą, do której składowej należy każdy punkt, wykonując przy tym liczbę operacji wprost proporcjonalną do liczby punktów i strzałek w sieci.</item>
+
+<item>Druga zbija liczbę klauzul potrzebną do pełnego opisania 2. warunku poprawności z <math>(n - 1) * (n - 2) / 2</math> w najgorszym przypadku (gdy Bajtazar postanowił pomalować wszystkie paski na jeden kolor) do <math>6n - 10</math>. Zamiast tworzyć klauzulę dla każdych dwóch różnych par sąsiadujących pasków wymagających tego samego wałka, tworzymy sobie pomocnicze <emphasis>zdania logiczne</emphasis> <math>l_i</math> i <math>p_i</math> (i klauzule dla nich) znaczące odpowiednio "<math>x_j = 0</math> dla wszystkich <math>j &lt; i</math> takich, że <math>c_j c_j+1 = c_i c_i+1</math>" oraz "<math>x_j = 0</math> dla wszystkich <math>j &gt; i</math> takich, że <math>c_j c_j+1 = c_i c_i+1</math>".</item>
+</list>
+
+<important>Ostateczny algorytm wykonuje liczbę operacji wprost proporcjonalną do liczby pasków.</important>
+
+Oczywiście wymyślenie algorytmu to nie wszystko. <important>Olimpiada ma też w sobie element praktyczny i wymaga od nas bezbłędnego zaprogramowania naszego algorytmu na prawdziwym komputerze.</important> Dla zawodników jest to w sumie wygodne, bo nie muszą tłumaczyć się innemu człowiekowi ze swojego algorytmu tak jak powyżej i zamiast tego mogą po prostu powiedzieć komputerowi, co ma po kolei zrobić. Poniżej jest kod w języku C++ implementujący powyższe rozwiązanie:
+
+<code lang='cpp'><![CDATA[
+#include <bits/stdc++.h>
+using namespace std;
+
+void rozpatrz_projekt() {
+  /* Wczytujemy projekt Bajtazara. */
+
+  int n, k;
+  cin >> n >> k;
+  vector<int> c(n + 1);
+  for(int i = 1; i <= n; i++) {
+    cin >> c[i];
+  }
+
+  /* Konstruujemy sieć wymuszeń pomiędzy zdaniami logicznymi. */
+
+  int liczba_zdan = 6 * n; // Zgrubne przybliżenie.
+  #define zaprzeczenie(zdanie) (zdanie ^ 1)
+  #define jedynka_w(i) (i << 1)
+  #define zera_na_lewo_od(i) ((i + n) << 1)
+  #define zera_na_prawo_od(i) ((i + 2 * n) << 1)
+  vector<vector<int>> wymuszenia(liczba_zdan + 1);
+  vector<vector<int>> odwrocone_wymuszenia(liczba_zdan + 1);
+
+  // Funkcja pomocnicza dodająca klauzulę "p lub q":
+  auto lub = [&](int p, int q) {
+    wymuszenia[zaprzeczenie(p)].push_back(q);
+    wymuszenia[zaprzeczenie(q)].push_back(p);
+    odwrocone_wymuszenia[q].push_back(zaprzeczenie(p));
+    odwrocone_wymuszenia[p].push_back(zaprzeczenie(q));
+  };
+  // Funkcja pomocnicza dodająca klauzulę znaczącą "jeśli p, to q":
+  auto implikuje = [&](int p, int q) {
+    lub(zaprzeczenie(p), q);
+  };
+  // Funkcja pomocnicza dodająca klazulę znaczącą "p zachodzi":
+  auto zachodzi = [&](int p) {
+    lub(p, p);
+  };
+
+  // Dodajemy wszystkie klauzule wynikające z 1. warunku na poprawność
+  // tablicy:
+  zachodzi(jedynka_w(1));
+  for(int i = 2; i <= n - 1; i++) {
+    lub(jedynka_w(i - 1), jedynka_w(i));
+  }
+  zachodzi(jedynka_w(n - 1));
+
+  // Dodajemy wszystkie klazule wynikające z 2. warunku na poprawność
+  // tablicy:
+  map<pair<int, int>, int> poprzednia_pozycja;
+  for(int i = 1; i <= n - 1; i++) {
+    pair<int, int> para_kolorow = {c[i], c[i + 1]};
+    implikuje(jedynka_w(i), zera_na_lewo_od(i));
+    implikuje(jedynka_w(i), zera_na_prawo_od(i));
+    auto it = poprzednia_pozycja.find(para_kolorow);
+    if(it != poprzednia_pozycja.end()) {
+      int j = it->second; // j < i
+      implikuje(zera_na_lewo_od(i), zaprzeczenie(jedynka_w(j)));
+      implikuje(zera_na_prawo_od(j), zaprzeczenie(jedynka_w(i)));
+      implikuje(zera_na_lewo_od(i), zera_na_lewo_od(j));
+      implikuje(zera_na_prawo_od(j), zera_na_prawo_od(i));
+    }
+    poprzednia_pozycja[para_kolorow] = i;
+  }
+
+  /* Znajdujemy silnie spójne składowe w sieci wymuszeń. */
+
+  vector<int> post_order;
+  vector<bool> bylo_odwiedzone(liczba_zdan + 1, false);
+  function<void(int)> dfs_1 = [&](int zdanie) {
+    if(!bylo_odwiedzone[zdanie]) {
+      bylo_odwiedzone[zdanie] = true;
+      for(int zdanie_wymuszone: wymuszenia[zdanie]) {
+        dfs_1(zdanie_wymuszone);
+      }
+      post_order.push_back(zdanie);
+    }
+  };
+  for(int zdanie = 1; zdanie <= liczba_zdan; zdanie++) {
+    dfs_1(zdanie);
+  }
+
+  vector<int> skladowa(liczba_zdan + 1, -1);
+  function<void(int)> dfs_2 = [&](int zdanie) {
+    for(int zdanie_wymuszajace: odwrocone_wymuszenia[zdanie]) {
+      if(skladowa[zdanie_wymuszajace] == -1) {
+        skladowa[zdanie_wymuszajace] = skladowa[zdanie];
+        dfs_2(zdanie_wymuszajace);
+      }
+    }
+  };
+  reverse(post_order.begin(), post_order.end());
+  for(int zdanie: post_order) {
+    if(skladowa[zdanie] == -1) {
+      skladowa[zdanie] = zdanie;
+      dfs_2(zdanie);
+    }
+  }
+
+  /* Sprawdzamy, czy formuła skonstruowanej sieci jest spełnialna. */
+
+  bool formula_jest_spelnialna = true;
+  for(int zdanie = 1; zdanie <= liczba_zdan; zdanie += 2) {
+    if(skladowa[zdanie] == skladowa[zaprzeczenie(zdanie)]) {
+      formula_jest_spelnialna = false;
+      break;
+    }
+  }
+
+  /* Wypisujemy odpowiedź na pytanie Bajtazara. */
+
+  cout << (formula_jest_spelnialna ? "TAK\n" : "NIE\n");
+}
+
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // W jednym wywołaniu programu Bajtazar daje nam wiele różnych
+  // projektów do rozważenia.
+  int liczba_projektow;
+  cin >> liczba_projektow;
+  for(int i = 0; i < liczba_projektow; i++) {
+    rozpatrz_projekt();
+  }
+}
+]]></code>
+
+Po ciężkiej sesji kminienia, kodowania i debugowania, wysyłasz taki kod na <link url='https://sio2.mimuw.edu.pl/'>SIO2</link> (na Olimpiadzie) lub na <link url='https://szkopul.edu.pl/'>Szkopuła</link> (ćwicząc samemu), czekasz w napięciu na jego automatyczne sprawdzenie spamując klawisz F5, aż wreszcie sprawdzaczka wynagradza twój trud liczbą 100 na zielonym tle.
+
+Przypomnijmy sobie: nasz pierwszy banalny algorytm przy 100 paskach na ścianie potrzebował więcej czasu, niż jesteśmy w stanie zapamiętać, a tym bardziej sobie wyobrazić. <important>Ten nowy algorytm potrzebuje tylko <math>1094.2 microseconds</math></important> na procesorze z 2019 roku (AMD Ryzen 5 3600). Aż trudno uwierzyć, że oba algorytmy rozwiązują ten sam problem - że dostając te same dane wejściowe zawsze zwracają dokładnie ten sam wynik.
+
+<important>I na tym własnie polega Olimpiada: Na robieniu rzeczy szybciej i efektywniej, oszczędzając twój czas i cykle procesora, czyniąc niemożliwe problemy możliwymi.</important>
+
+Nie martw się, jeśli czegoś nie zrozumiałeś z tego omówienia. <link url='https://oi.edu.pl/l/26oi_3etap_wyniki/'>Na faktycznych zawodach finałowych to zadanie rozwiązało tylko 5 z 95 finalistów z całej Polski.</link> Najprostsze pomysły są najtrudniejsze do wymyślenia. Jeśli pierwszy raz słyszysz o Olimpiadzie, to tym bardziej się nie martw, bo nikt się nie rodzi od razu mistrzem w algorytmice. Mistrz się rodzi z <ref id='jak-zaczac'>praktyki</ref>.
+
+Na koniec ciekawostka: Problem rozstrzygnięcia, czy formuła logiczna rodząca się w tym zadaniu jest spełnialna, nazywa się "2-SAT". Nasz algorytm właśnie go rozwiązuje. Gdybyśmy w klauzulach formuły mieli nie 2 a 3 równania, to problem ten przyjąłby nazwę "3-SAT" i to już jest o wiele trudniejszy problem. O tyle trudniejszy, że wymyślenie algorytmu rozwiązującego 3-SAT i wykonującego liczbę operacji wyrażalną jakimkolwiek wielomianem od długości formuły byłoby pozytywną odpowiedzią na odwieczne pytanie, czy <link url='https://pl.wikipedia.org/wiki/Problem_P_vs_NP'>P równa się NP</link> - jeden z siedmiu problemów milenijnych wartych 1 000 000 $.
 </answer>
 
 <answer question='Czy warto wystartować w Olimpiadzie?' important='yes' id='czy-warto'>

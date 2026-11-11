@@ -2,6 +2,7 @@
 
 import discord, sys
 from argparse import ArgumentParser
+from io import StringIO
 from xml.etree import ElementTree
 
 parser = ArgumentParser()
@@ -56,7 +57,11 @@ async def on_ready():
               anchor_entity[node.attrib['id']] = entity
 
             case 'file':
-              files.append(discord.File(node.attrib['src'], node.attrib['name']))
+              files.append(discord.File(
+                node.attrib.get('src', StringIO(node.text)),
+                node.attrib.get('name'),
+                description=node.attrib.get('description'),
+              ))
 
             case 'ref':
               longest_snowflake = str(2**64 - 1)

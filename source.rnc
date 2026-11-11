@@ -32,7 +32,8 @@ blocks  = nonempty-text | mixed { (block | inline)+ }
 inlines = nonempty-text | mixed { inline+ }
 
 block =
-  element list    { element item { blocks }+ } |
+  element graph   { attribute description { nonempty-text }, nonempty-text } |
+  element list    { attribute ordered { bool }?, element item { blocks }+ } |
   element note    { blocks } |
   element todo    { blocks } |
   element warning { blocks } |
@@ -45,6 +46,7 @@ inline =
   element external-only { inlines } |
   element important     { inlines } |
   element link          { attribute url { xsd:anyURI }, inlines } |
+  element math          { nonempty-text } |
   element placeholder   { attribute for { nonempty-text }, empty } |
   element problem       { attribute id { nonempty-text }, empty } |
   element ref           { attribute id { xsd:IDREF }, inlines } |
@@ -52,7 +54,7 @@ inline =
   block_or_inline
 
 block_or_inline =
-  element code { attribute lang { nonempty-text }?, nonempty-text  }
+  element code { attribute lang { "bash" | "cpp" | "python" }?, nonempty-text  }
 
 bool = "yes" | "no"
 nonempty-text = xsd:string { minLength = "1" }

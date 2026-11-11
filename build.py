@@ -11,6 +11,7 @@ from argparse import ArgumentParser
 from bs4 import BeautifulSoup
 from collections import namedtuple
 from contextlib import contextmanager
+from dataclasses import dataclass
 from datetime import datetime
 from enum import auto, Enum
 from jinja2 import Environment, FileSystemLoader
@@ -27,6 +28,112 @@ from watchdog.events import RegexMatchingEventHandler
 from watchdog.observers import Observer
 from xml.etree import ElementTree
 from zoneinfo import ZoneInfo
+
+inline_tags = {
+  'emphasis',
+  'important',
+  'link',
+  'math',
+  'placeholder',
+  'problem',
+  'ref',
+}
+block_or_inline_tags = {
+  'code',
+}
+block_content_xpaths = [
+  './/answer',
+  './/footer',
+  './/list/item',
+  './/note',
+  './/preface',
+  './/subanswer',
+  './/todo',
+  './/warning',
+]
+inline_content_xpaths = [
+  './/emphasis',
+  './/important',
+  './/link',
+  './/paragraph',
+  './/ref',
+]
+
+math_symbols = {
+  '*': '×',             # U+00D7 MULTIPLICATION SIGN
+  '-': '−',             # U+2212 MINUS SIGN
+  '...': '⋯',           # U+22EF MIDLINE HORIZONTAL ELLIPSIS
+  '/': '÷',             # U+00F7 DIVISION SIGN
+  'and': '∧',           # U+2227 LOGICAL AND
+  'microseconds': 'μs', # U+03BC GREEK SMALL LETTER MU, U+0073 LATIN SMALL LETTER S
+  'not': '¬',           # U+00AC NOT SIGN
+  'or': '∨',            # U+2228 LOGICAL OR
+  'seconds': 's',       # U+0073 LATIN SMALL LETTER S
+  '~=': '≈',            # U+2248 ALMOST EQUAL TO
+}
+math_symbols_typst = {
+  '*': 'times',
+  '/': 'div',
+  'microseconds': 'upright(mu s)',
+  'seconds': 'upright(s)',
+  '~=': 'approx',
+}
+superscripts = { # Includes superscripts only for ASCII characters.
+  '(': '⁽', # U+207D SUPERSCRIPT LEFT PARENTHESIS
+  ')': '⁾', # U+207E SUPERSCRIPT RIGHT PARENTHESIS
+  '+': '⁺', # U+207A SUPERSCRIPT PLUS SIGN
+  '-': '⁻', # U+207B SUPERSCRIPT MINUS
+  '=': '⁼', # U+207C SUPERSCRIPT EQUALS SIGN
+  '0': '⁰', # U+2070 SUPERSCRIPT ZERO
+  '1': '¹', # U+00B9 SUPERSCRIPT ONE
+  '2': '²', # U+00B2 SUPERSCRIPT TWO
+  '3': '³', # U+00B3 SUPERSCRIPT THREE
+  '4': '⁴', # U+2074 SUPERSCRIPT FOUR
+  '5': '⁵', # U+2075 SUPERSCRIPT FIVE
+  '6': '⁶', # U+2076 SUPERSCRIPT SIX
+  '7': '⁷', # U+2077 SUPERSCRIPT SEVEN
+  '8': '⁸', # U+2078 SUPERSCRIPT EIGHT
+  '9': '⁹', # U+2079 SUPERSCRIPT NINE
+  'i': 'ⁱ', # U+2071 SUPERSCRIPT LATIN SMALL LETTER I
+  'n': 'ⁿ', # U+207F SUPERSCRIPT LATIN SMALL LETTER N
+}
+subscripts = { # Includes subscripts only for ASCII characters.
+  '(': '₍', # U+208D SUBSCRIPT LEFT PARENTHESIS
+  ')': '₎', # U+208E SUBSCRIPT RIGHT PARENTHESIS
+  '+': '₊', # U+208A SUBSCRIPT PLUS SIGN
+  '-': '₋', # U+208B SUBSCRIPT MINUS
+  '=': '₌', # U+208C SUBSCRIPT EQUALS SIGN
+  '0': '₀', # U+2080 SUBSCRIPT ZERO
+  '1': '₁', # U+2081 SUBSCRIPT ONE
+  '2': '₂', # U+2082 SUBSCRIPT TWO
+  '3': '₃', # U+2083 SUBSCRIPT THREE
+  '4': '₄', # U+2084 SUBSCRIPT FOUR
+  '5': '₅', # U+2085 SUBSCRIPT FIVE
+  '6': '₆', # U+2086 SUBSCRIPT SIX
+  '7': '₇', # U+2087 SUBSCRIPT SEVEN
+  '8': '₈', # U+2088 SUBSCRIPT EIGHT
+  '9': '₉', # U+2089 SUBSCRIPT NINE
+  'a': 'ₐ', # U+2090 LATIN SUBSCRIPT SMALL LETTER A
+  'e': 'ₑ', # U+2091 LATIN SUBSCRIPT SMALL LETTER E
+  'h': 'ₕ', # U+2095 LATIN SUBSCRIPT SMALL LETTER H
+  'i': 'ᵢ', # U+1D62 LATIN SUBSCRIPT SMALL LETTER I
+  'j': 'ⱼ', # U+2C7C LATIN SUBSCRIPT SMALL LETTER J
+  'k': 'ₖ', # U+2096 LATIN SUBSCRIPT SMALL LETTER K
+  'l': 'ₗ', # U+2097 LATIN SUBSCRIPT SMALL LETTER L
+  'm': 'ₘ', # U+2098 LATIN SUBSCRIPT SMALL LETTER M
+  'n': 'ₙ', # U+2099 LATIN SUBSCRIPT SMALL LETTER N
+  'o': 'ₒ', # U+2092 LATIN SUBSCRIPT SMALL LETTER O
+  'p': 'ₚ', # U+209A LATIN SUBSCRIPT SMALL LETTER P
+  'r': 'ᵣ', # U+1D63 LATIN SUBSCRIPT SMALL LETTER R
+  's': 'ₛ', # U+209B LATIN SUBSCRIPT SMALL LETTER S
+  't': 'ₜ', # U+209C LATIN SUBSCRIPT SMALL LETTER T
+  'u': 'ᵤ', # U+1D64 LATIN SUBSCRIPT SMALL LETTER U
+  'v': 'ᵥ', # U+1D65 LATIN SUBSCRIPT SMALL LETTER V
+  'w': '₝', # U+209D LATIN SUBSCRIPT SMALL LETTER W
+  'x': 'ₓ', # U+2093 LATIN SUBSCRIPT SMALL LETTER X
+  'y': '₞', # U+209E LATIN SUBSCRIPT SMALL LETTER Y
+  'z': '₟', # U+209F LATIN SUBSCRIPT SMALL LETTER Z
+}
 
 def main():
   os.chdir(sys.path[0])
@@ -95,7 +202,7 @@ def build():
       'typst', 'compile', 'build/download.typ',
       '--root', '.',
       '--font-path', 'fonts',
-      '--ignore-system-fonts', # Uncomment this, if you want to use fonts installed on your system.
+      '--ignore-system-fonts', # Comment this, if you want to use fonts installed on your system.
     ])
     if typst.returncode != 0:
       sys.exit(1)
@@ -191,35 +298,22 @@ def preprocess_source(target):
     expand_conditionals(source.getroot(), target)
 
     log_info('Splitting text into paragraphs')
-    block_xpaths = [
-      './/answer',
-      './/footer',
-      './/list/item',
-      './/note',
-      './/preface',
-      './/subanswer',
-      './/todo',
-      './/warning',
-    ]
-    for xpath in block_xpaths:
+    for xpath in block_content_xpaths:
       for node in source.findall(xpath):
         split_into_paragraphs(node)
 
     log_info('Normalizing whitespace')
-    text_xpaths = {
-      './/emphasis',
-      './/important',
-      './/link',
-      './/paragraph',
-      './/ref',
-    }
-    for xpath in text_xpaths:
+    for xpath in inline_content_xpaths:
       for node in source.findall(xpath):
         normalize_whitespace(node)
 
     log_info('Trimming whitespace in "code" nodes')
     for node in source.findall('.//code'):
       node.text = node.text.strip()
+
+    log_info('Parsing math')
+    for node in source.findall('.//math'):
+      parse_math(node)
 
     os.makedirs('build/source/', exist_ok=True)
     source.write(f'build/source/{target.name}.xml')
@@ -327,17 +421,6 @@ def split_into_paragraphs(parent):
   append(parent.text)
   parent.text = None
   for child in children:
-    inline_tags = {
-      'emphasis',
-      'important',
-      'link',
-      'placeholder',
-      'problem',
-      'ref',
-    }
-    block_or_inline_tags = {
-      'code',
-    }
     if child.tag in inline_tags or paragraph is not None and child.tag in block_or_inline_tags:
       begin()
       paragraph.append(child)
@@ -357,6 +440,48 @@ def normalize_whitespace(node):
   for child in node:
     if child.tail is not None:
       child.tail = re.sub(r'\s+', ' ', child.tail)
+
+def parse_math(node):
+  whole_input = input = node.text
+  node.text = None
+
+  group_stack = [node]
+  token = ''
+  def flush_token():
+    nonlocal token
+    if token:
+      ElementTree.SubElement(group_stack[-1], 'token').text = token
+      token = ''
+
+  while input:
+    c = input[0]
+    input = input[1:]
+
+    if c == '(':
+      flush_token()
+      group_stack.append(ElementTree.SubElement(group_stack[-1], 'group'))
+
+    elif c == ')':
+      flush_token()
+      group_stack.pop()
+
+    elif c == '^' or c == '_':
+      assert token, whole_input
+      flush_token()
+      [subtoken, sep, input] = re.split(r'([\s()]|$)', input, maxsplit=1)
+      input = sep + input
+      assert subtoken, whole_input
+      tag = 'superscript' if c == '^' else 'subscript'
+      ElementTree.SubElement(group_stack[-1], tag).text = subtoken
+
+    elif c.isspace():
+      flush_token()
+
+    else:
+      token += c
+
+  flush_token()
+  assert len(group_stack) == 1, whole_input
 
 def render(target):
   template_name = {
@@ -405,6 +530,10 @@ def render(target):
     'human_date': human_date,
     'hyphenate': hyphenate,
     'render_ascii_approximations': render_ascii_approximations,
+    'render_graph': render_graph,
+    'render_math_discord': render_math_discord,
+    'render_math_html': render_math_html,
+    'render_math_typst': render_math_typst,
     'render_nonbreaking_spaces': render_nonbreaking_spaces,
     'split_long_discord_message': split_long_discord_message,
     'repr': repr,
@@ -564,6 +693,134 @@ def render_ascii_approximations(text):
   ]:
     text = text.replace(pattern, repl)
   return text
+
+@dataclass(kw_only=True)
+class RenderedGraph:
+  png: str
+  svg: str
+
+rendered_graphc = 0
+def render_graph(node, *, color='black', dpi):
+  global rendered_graphc
+  rendered_graphc += 1
+
+  os.makedirs('build/graph/', exist_ok=True)
+  dot_path = f'build/graph/{rendered_graphc}.dot'
+  png_path = f'build/graph/{rendered_graphc}.png'
+  svg_path = f'build/graph/{rendered_graphc}.svg'
+  with open(dot_path, 'w') as f:
+    f.write(node.text)
+
+  cmd = [
+    'dot', dot_path,
+    '-Gbgcolor=transparent', f'-Gdpi={dpi}', f'-Gfontcolor={color}',
+    f'-Ncolor={color}', f'-Nfontcolor={color}',
+    f'-Ecolor={color}', f'-Efontcolor={color}',
+  ]
+  subprocess.run(cmd + ['-o', svg_path, '-Tsvg:cairo'], check=True)
+  subprocess.run(cmd + ['-o', png_path, '-Tpng:cairo'], check=True)
+
+  '''
+  # Graphviz does not save the DPI in the image metadata, so we have to do it ourselves. We need the
+  # DPI because Typst, by default, assumes images are only 72 DPI, which results in awful bluriness.
+  # That bluriness occurs only when we're using the PNG output. With SVG, the DPI does still matter
+  # because we want the length measurements in the DOT file (font size etc.) to be the same as in
+  # Typst.
+  os.rename(png_path, f'{png_path}.old')
+  subprocess.run(['ffmpeg', '-i', f'{png_path}.old', '-dpi', str(dpi), png_path], check=True)
+  os.remove(f'{png_path}.old')
+  '''
+
+  return RenderedGraph(png=png_path, svg=svg_path)
+
+def render_math_discord(node):
+  result = ''
+  for child in node:
+    match child.tag:
+      case 'group':
+        if result:
+          result += '\N{medium mathematical space}'
+        result += f'({render_math_discord(child)})'
+      case 'subscript':
+        result += ''.join(subscripts[c] for c in child.text)
+      case 'superscript':
+        result += ''.join(superscripts[c] for c in child.text)
+      case 'token':
+        if result:
+          result += '\N{medium mathematical space}'
+        s = child.text
+        if s in math_symbols:
+          result += math_symbols[s]
+        elif s.isalpha():
+          result += f'*{s}*'
+        else:
+          result += s
+      case _:
+        assert False, child
+  return re.sub(r'(?<!\\)\*\*', '', result).rstrip()
+
+def render_math_html(node):
+  result = Markup()
+  for child in node:
+    match child.tag:
+      case 'group':
+        if result:
+          result += '\N{medium mathematical space}'
+        result += '(' + render_math_html(child) + ')'
+      case 'subscript':
+        result += Markup('<sub>') + render_math_html_subscript_or_superscript(child.text) + Markup('</sub>')
+      case 'superscript':
+        result += Markup('<sup>') + render_math_html_subscript_or_superscript(child.text) + Markup('</sup>')
+      case 'token':
+        if result:
+          result += '\N{medium mathematical space}'
+        s = child.text
+        if s in math_symbols:
+          result += math_symbols[s]
+        elif s.isdigit():
+          result += f'{int(s):,}'.replace(',', '\N{thin space}')
+        else:
+          for c in s:
+            if 'A' <= c <= 'Z':
+              result += chr(ord(c) - ord('A') + 0x1D434)
+            elif 'a' <= c <= 'z':
+              result += chr(ord(c) - ord('a') + 0x1D44E)
+            else:
+              result += c
+      case _:
+        assert False, child
+  return result
+
+def render_math_html_subscript_or_superscript(text):
+  result = ''
+  for c in text:
+    if 'A' <= c <= 'Z':
+      result += chr(ord(c) - ord('A') + 0x1D434)
+    elif 'a' <= c <= 'z':
+      result += chr(ord(c) - ord('a') + 0x1D44E)
+    else:
+      result += math_symbols.get(c, c)
+  return result
+
+def render_math_typst(node):
+  result = ''
+  for child in node:
+    match child.tag:
+      case 'group':
+        if result:
+          result += ' '
+        result += f'({render_math_typst(child)})'
+      case 'subscript':
+        result += f'_({child.text})'
+      case 'superscript':
+        result += f'^({child.text})'
+      case 'token':
+        if result:
+          result += ' '
+        result += math_symbols_typst.get(child.text, child.text)
+      case _:
+        assert False, child
+  return result
 
 def render_nonbreaking_spaces(text):
   return re.sub(r'(?<=\b\w) ', '\xa0', text)
