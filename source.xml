@@ -307,13 +307,13 @@ Zwykle 2.5 tygodnia po zakończeniu ostatniej tury na stronie OI pojawia się og
 
 <answer question='Jak wygląda drugi etap i finał...' id='drugi-etap-i-final'>
 <subanswer subquestion='...OIJ?'>
-<todo>Potrzebny jest ktoś, kto faktycznie uczestniczył w stacjonarnym drugim etapie OIJ.</todo>
+Zawody drugiego stopnia Olimpiady Informatycznej Juniorów trwają jeden dzień w styczniu i odbywają się jednocześnie w wielu <link url='https://oij.edu.pl/oij20/etap2/osrodki/'>ośrodkach lokalnych</link>. Godzina po godzinie wyglądają one następująco: O 9-tej w każdym ośrodku otwiera się rejestracja dla zawodników. W chwili rejestrowania się każdy uczestnik otrzymuje pamiątkową koszulkę z logiem Olimpiady. O 10-tej wszyscy zbierają się na oficjalne rozpoczęcie oraz omówienie zasad. Zaraz po nim następuje runda próbna, podczas której uczestnicy mogą zapoznać się ze środowiskiem zawodów i zgłosić ewentualne niedogodności. O 12-tej zaczynają się zawody właściwe. Uczestnicy otrzymują do samodzielnego rozwiązania od 2 do 4 zadań. W trakcie konkursu uczniowie mogą wychodzić do bufetu. Wieczorem tego samego dnia każdy uczestnik zawodów poznaje swój indywidualny wynik punktowy. Lista rankingowa i próg publikowane są około 10 dni po drugim etapie.
 
-<link url='https://oij.edu.pl/oij20/etap2/osrodki/'>lista ośrodków lokalnych w zeszłym roku</link>
+Trzeci etap OIJ trwa trzy dni. W przeciwieństwie do drugiego etapu jest on przeprowadzany jedynie w Warszawie, a dla uczestników z poza Warszawy zapewniony jest nocleg i opieka. Pierwszego dnia jest sesja próbna. Drugiego i trzeciego dnia są zawody właściwe, na których uczestnicy każdego dnia mają 4 godziny na rozwiązanie 3 zadań. Inaczej niż na drugim etapie wyniki punktowe zgłoszeń są widoczne dla uczestników od razu po ich sprawdzeniu. Wyniki całościowe zawodów podawane są trzeciego dnia na uroczystej ceremonii zakończenia. Dla wszystkich finalistów są przewidziane nagrody rzeczowe, a dla laureatów - pamiątkowe medale. Jako że większość uczestników spoza Warszawy jest zakwaterowana razem w jednym ośrodku, to organizowane są dla nich wspólne wyjścia rekreacyjne, które są świetną okazją do zawarcia nowych znajomości i porozmawiania z innymi osobami zainteresowanymi algorytmiką.
 </subanswer>
 
 <subanswer subquestion='...OI?'>
-Zawody drugiego stopnia Olimpiady Informatycznej trwają trzy dni w środku lutego i odbywają się w jednym z <link url='https://oi.edu.pl/l/34oi_komitety_okregowe/'>ośrodków lokalnych</link>. Uczestnicy, którzy zadeklarowali taką potrzebę, otrzymują na czas zawodów zakwaterowanie razem z innymi zawodnikami. Pierwszego dnia jest runda próbna i inne mniej ciekawe rzeczy. Zawodnicy mogą się wtedy zapoznać ze swoim stanowiskiem i olimpiadowym systemem Linux.
+Zawody drugiego stopnia Olimpiady Informatycznej trwają trzy dni w środku lutego i z perspektywy ucznia odbywają się w jednym z <link url='https://oi.edu.pl/l/34oi_komitety_okregowe/'>ośrodków lokalnych</link>. Uczestnicy, którzy zadeklarowali taką potrzebę, otrzymują na czas zawodów zakwaterowanie razem z innymi zawodnikami. Pierwszego dnia jest runda próbna i inne mniej ciekawe rzeczy. Zawodnicy mogą się wtedy zapoznać ze swoim stanowiskiem i olimpiadowym systemem Linux.
 
 Drugiego i trzeciego dnia odbywają się już zawody właściwe, które każdego dnia trwają od 9:00 do 14:00. Na każdej rundzie zawodnicy otrzymują do samodzielnego rozwiązania zwykle 2 zadania - podobne jak na turze zdalnej, ale oczywiście trudniejsze. W trakcie konkursu zawodnicy mogą wychodzić do bufetu ze słodkimi przekąskami i zdrowszymi kanapkami. Po każdym dniu zadania mogą zostać omówione lokalnie na żywo w zależności od poziomu możliwości ośrodka. Wieczorem otrzymują wgląd do swoich wyników z danego dnia. Po ostatnim omówieniu jest lokalne zakończenie, na którym każdy dostaje pamiątkową koszulkę.
 
@@ -725,5 +725,6 @@ Przewodnik OOOZ został <external-only>stworzony przez i dla otwartej społeczno
 </footer>
 
 <contributor name='Karol "digitcrusher" Łacina' discord-id='536253933778370580' website='https://lacina.io/'>pomysł, treść, wygląd, oprogramowanie, infrastruktura</contributor>
+<contributor name='Lena "zawka18" Zawodzińska' discord-id='1242023030276755486' website='https://github.com/zawka18'><ref id='drugi-etap-i-final'>opis drugiego etapu i finału OIJ</ref></contributor>
 
 </document>
