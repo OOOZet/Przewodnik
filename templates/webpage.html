@@ -179,6 +179,7 @@
 @import url('https://rsms.me/inter/inter.css'); /* Google Fonts doesn't have Inter Display yet. */
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:FILL@1&icon_names=arrow_drop_down,arrow_drop_up,arrow_left,download,info,warning');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://mathfonts.github.io/ConcMath/mathfonts.css');
 
 /*
  * We treat the downloadable file as a canon of beauty, which
@@ -230,13 +231,14 @@ h1 { font-size: calc(var(--scale) * 30pt); }
 h2 { font-size: calc(var(--scale) * 16pt); }
 h3 { font-size: calc(var(--scale) * 14pt); }
 pre, pre code { font-size: calc(var(--scale) * 10pt); }
+sub, sup { line-height: 0; font-size: 70%; }
+sub { vertical-align: -0.2rem; }
+sup { vertical-align: 0.4rem; }
 strong, .hint { font-weight: 600; }
 .hint, .hint * { font-size: calc(var(--scale) * 8pt); }
 .hint .material-symbols-sharp { vertical-align: calc(var(--scale) * -1pt); }
-/* TODO: Different font that fits in with Inter better. */
-/* TODO: We need to provide this font to the web browser. */
-.math { font-family: 'Latin Modern Math'; font-size: calc(var(--scale) * 11.5pt); line-height: 0; }
-.math sub, .math sup { line-height: 0; font-size: 70%; }
+/* IDEA: https://github.com/TypeTogether/Playwrite for math italic letters */
+.math { font-family: 'Inter', 'Concrete Math', math; font-feature-settings: 'tnum'; }
 .todo { font-weight: 400; }
 
 /* General spacing */

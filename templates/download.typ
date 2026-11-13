@@ -55,7 +55,7 @@
     #link({{ node.attrib['url'] | escape_typst_string }})[{{ render_inlines(node) }}]
 
   {%- elif node.tag == 'math' -%}
-    ${{ node | render_math_typst }}$
+    #text(number-width: "tabular")[{{ node | render_math_typst }}]
 
   {%- elif node.tag == 'placeholder' -%}
     {{ placeholder_values[node.attrib['for']] }}
@@ -114,6 +114,8 @@
   'contributors': contributors,
 } %}
 
+#import "@preview/zero:0.7.1"
+
 #set document(
   title: [{{ render_text(document.attrib['title']) }}],
   {% if 'version' in document.attrib %}
@@ -127,12 +129,13 @@
 // Typography
 #let heading-font = "Inter Display"
 #set par(leading: 0.76em)
-#set text(font: "Inter", weight: 300, size: 10pt)
+#set sub(typographic: false, baseline: 0.2em, size: 0.7em)
+#set super(typographic: false, baseline: -0.4em, size: 0.7em)
+#set text(font: ("Inter", "Concrete Math"), weight: 300, size: 10pt)
 #show heading: set par(leading: 0.59em)
 #show heading: set text(font: heading-font)
 #show heading.where(level: 1): set text(size: 16pt)
 #show heading.where(level: 2): set text(size: 14pt)
-#show math.equation: set text(weight: 300, size: 11.5pt)
 #show raw: set text(font: "Roboto Mono", weight: 320, size: 10.26pt)
 #show raw.where(block: true): set par(leading: 0.68em)
 #show raw.where(block: true): set text(weight: 330, size: 10pt)

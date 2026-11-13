@@ -48,8 +48,7 @@ Oto jak wygląda sieć wymuszeń dla wcześniejszego przykładu 1, 2, 3, 2, 3:
 digraph {
   pad=0;
   rankdir=LR;
-  // The font size matches the one set for math in HTML and Typst.
-  node [fontname="Latin Modern Math" fontsize=11.5 shape=none];
+  node [fontname="Concrete Math" fontsize=11 shape=none];
   edge [arrowhead=vee arrowsize=0.6 penwidth=0.5];
   1.0 [label=<&#x1D465;<SUB>1</SUB> = 0>];
   1.1 [label=<&#x1D465;<SUB>1</SUB> = 1>];

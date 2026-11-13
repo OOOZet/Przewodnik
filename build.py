@@ -72,11 +72,16 @@ math_symbols = {
   '~=': '≈',            # U+2248 ALMOST EQUAL TO
 }
 math_symbols_typst = {
-  '*': 'times',
-  '/': 'div',
-  'microseconds': 'upright(mu s)',
-  'seconds': 'upright(s)',
-  '~=': 'approx',
+  '*': '#(sym.times)',
+  '-': '#(sym.minus)',
+  '...': '#(sym.dots.h.c)',
+  '/': '#(sym.div)',
+  'and': '#(sym.and)',
+  'microseconds': '#(zero.quan(math: false, "us"))',
+  'not': '#(sym.not)',
+  'or': '#(sym.or)',
+  'seconds': '#(zero.quan(math: false, "s"))',
+  '~=': '#(sym.approx)',
 }
 superscripts = { # Includes superscripts only for ASCII characters.
   '(': '⁽', # U+207D SUPERSCRIPT LEFT PARENTHESIS
@@ -717,8 +722,11 @@ def render_graph(node, *, color='black', dpi):
     f'-Ncolor={color}', f'-Nfontcolor={color}',
     f'-Ecolor={color}', f'-Efontcolor={color}',
   ]
-  subprocess.run(cmd + ['-o', svg_path, '-Tsvg:cairo'], check=True)
-  subprocess.run(cmd + ['-o', png_path, '-Tpng:cairo'], check=True)
+  env = os.environ | {
+    'FONTCONFIG_FILE': os.path.abspath('fonts/fonts.conf'),
+  }
+  subprocess.run(cmd + ['-o', svg_path, '-Tsvg:cairo'], check=True, env=env)
+  subprocess.run(cmd + ['-o', png_path, '-Tpng:cairo'], check=True, env=env)
 
   '''
   # Graphviz does not save the DPI in the image metadata, so we have to do it ourselves. We need the
@@ -751,13 +759,15 @@ def render_math_discord(node):
         s = child.text
         if s in math_symbols:
           result += math_symbols[s]
+        elif s.isdigit():
+          result += f'{int(s):,}'.replace(',', '\N{thin space}')
         elif s.isalpha():
           result += f'*{s}*'
         else:
           result += s
       case _:
         assert False, child
-  return re.sub(r'(?<!\\)\*\*', '', result).rstrip()
+  return re.sub(r'(?<!\\)\*\*', '', result)
 
 def render_math_html(node):
   result = Markup()
@@ -768,9 +778,11 @@ def render_math_html(node):
           result += '\N{medium mathematical space}'
         result += '(' + render_math_html(child) + ')'
       case 'subscript':
-        result += Markup('<sub>') + render_math_html_subscript_or_superscript(child.text) + Markup('</sub>')
+        # The + operator of Markup automatically escapes plain strings and you don't get the same
+        # behavior with string interpolation.
+        result += Markup('<sub>') + render_math_letters(child.text, math_symbols) + Markup('</sub>')
       case 'superscript':
-        result += Markup('<sup>') + render_math_html_subscript_or_superscript(child.text) + Markup('</sup>')
+        result += Markup('<sup>') + render_math_letters(child.text, math_symbols) + Markup('</sup>')
       case 'token':
         if result:
           result += '\N{medium mathematical space}'
@@ -780,26 +792,9 @@ def render_math_html(node):
         elif s.isdigit():
           result += f'{int(s):,}'.replace(',', '\N{thin space}')
         else:
-          for c in s:
-            if 'A' <= c <= 'Z':
-              result += chr(ord(c) - ord('A') + 0x1D434)
-            elif 'a' <= c <= 'z':
-              result += chr(ord(c) - ord('a') + 0x1D44E)
-            else:
-              result += c
+          result += render_math_letters(s)
       case _:
         assert False, child
-  return result
-
-def render_math_html_subscript_or_superscript(text):
-  result = ''
-  for c in text:
-    if 'A' <= c <= 'Z':
-      result += chr(ord(c) - ord('A') + 0x1D434)
-    elif 'a' <= c <= 'z':
-      result += chr(ord(c) - ord('a') + 0x1D44E)
-    else:
-      result += math_symbols.get(c, c)
   return result
 
 def render_math_typst(node):
@@ -808,18 +803,35 @@ def render_math_typst(node):
     match child.tag:
       case 'group':
         if result:
-          result += ' '
-        result += f'({render_math_typst(child)})'
+          result += '#(sym.space.med)'
+        result += f'\\({render_math_typst(child)}\\)'
       case 'subscript':
-        result += f'_({child.text})'
+        result += f'#sub[{render_math_letters(child.text, math_symbols_typst)}]'
       case 'superscript':
-        result += f'^({child.text})'
+        result += f'#super[{render_math_letters(child.text, math_symbols_typst)}]'
       case 'token':
         if result:
-          result += ' '
-        result += math_symbols_typst.get(child.text, child.text)
+          result += '#(sym.space.med)'
+        s = child.text
+        if s in math_symbols_typst:
+          result += math_symbols_typst[s]
+        elif s.isdigit():
+          result += f'#zero.num(math: false)[{s}]'
+        else:
+          result += render_math_letters(s)
       case _:
         assert False, child
+  return result
+
+def render_math_letters(text, symbols_map={}):
+  result = ''
+  for c in text:
+    if 'A' <= c <= 'Z':
+      result += chr(ord(c) - ord('A') + 0x1D434)
+    elif 'a' <= c <= 'z':
+      result += chr(ord(c) - ord('a') + 0x1D44E)
+    else:
+      result += symbols_map.get(c, c)
   return result
 
 def render_nonbreaking_spaces(text):
