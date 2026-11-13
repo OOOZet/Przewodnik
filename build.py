@@ -60,10 +60,10 @@ inline_content_xpaths = [
 ]
 
 math_symbols = {
-  '*': '×',             # U+00D7 MULTIPLICATION SIGN
+  '*': '⋅',             # U+22C5 DOT OPERATOR
   '-': '−',             # U+2212 MINUS SIGN
   '...': '⋯',           # U+22EF MIDLINE HORIZONTAL ELLIPSIS
-  '/': '÷',             # U+00F7 DIVISION SIGN
+  '/': '∶',             # U+2236 RATIO
   'and': '∧',           # U+2227 LOGICAL AND
   'microseconds': 'μs', # U+03BC GREEK SMALL LETTER MU, U+0073 LATIN SMALL LETTER S
   'not': '¬',           # U+00AC NOT SIGN
@@ -72,10 +72,10 @@ math_symbols = {
   '~=': '≈',            # U+2248 ALMOST EQUAL TO
 }
 math_symbols_typst = {
-  '*': '#(sym.times)',
+  '*': '#(sym.dot.op)',
   '-': '#(sym.minus)',
   '...': '#(sym.dots.h.c)',
-  '/': '#(sym.div)',
+  '/': '#(sym.ratio)',
   'and': '#(sym.and)',
   'microseconds': '#(zero.quan(math: false, "us"))',
   'not': '#(sym.not)',
