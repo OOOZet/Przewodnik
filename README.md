@@ -192,7 +192,6 @@ Jako notatkę dla przyszłych analizujących omówienia zostawiamy poniższą li
 ### Todo
 
 Pomysły na przyszłe odpowiedzi na pytania:
-- o tym, że matematycy są dobrzy też w informatyce
 - coś o tym, że dziewczyny też biorą udział w Olimpiadzie
 - "Jak wygrać OI/OIJ?"
 - "Jak dużo czasu muszę poświecić żeby zdobyć tytuł finalisty OI lub OIJ?"

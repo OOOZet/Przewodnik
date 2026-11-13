@@ -269,7 +269,13 @@ Tak, i na studiach i w pracy. Na studiach z oczywistych względów: Olimpiada je
 Tak. Jeśli umiesz już programować w C++ lub innym języku, to masz już za sobą ciężki etap próbowania zrozumieć, jak przełożyć myśli na instrukcje komputera. A jeśli jesteś nawet niezły w programowaniu, to pewnie twoje umiejętności rozwiązywania problemów też są nawet niezłe, a właśnie to się liczy na Olimpiadzie. <link url='https://lacina.io/'>Ja</link> tak <link url='https://oij.edu.pl/olimpiada/zwyciezcy/'>miałem</link>.
 </answer>
 
-<answer question='Czy do Olimpiady trzeba być dobrym z matematyki?' id='matematyka'>
+<answer question='Czy algorytmika może być dla mnie, jeśli interesuję się matematyką?' id='matematycy-w-algorytmice'>
+Zdecydowanie. Te dwie dziedziny zdają się mieć wiele wspólnego ze sobą. Bycie dobrym w jednym często przekłada się na bycie dobrym w drugim i vice versa. I ten związek matematyki z informatyką jest silniejszy niż z jakimikolwiek innymi naukami ścisłymi: Gdyby wybrać tylko jedną inną dziedzinę, która dominuje jako drugi wybór dla wielu osób, których głównym hobby jest matematyka, to byłaby nią własnie algorytmika. I na odwrót jest tak samo: dla prawie wszystkich uczestników Olimpiady Informatycznej matematyka olimpijska jest ich drugim zainteresowaniem. Najsilniejszym dowodem tego jest liczba osób, które pojawiają się zarówno na listach rankingowych OI jak i OM. W roku szkolnym 2025/2026 były 34 takie osoby na finałach obu olimpiad, czyli odpowiednio 26% i 20% wszystkich finalistów OI i OM.
+
+Dla niektórych interesujących się matematyką algorytmika może być nawet lepszym wyborem: <link url='https://www.youtube.com/@Errichto'>Kamil "Errichto" Dębowski</link> - sławny w świecie programowania sportowego - <link url='https://youtu.be/F4rykKLcduI?t=626'>całą swoją młodość spędził na matematyce, a dopiero na studiach rozwinął swoje skrzydła w algorytmice osiągając świetne wyniki w międzynarodowych konkursach</link>.
+</answer>
+
+<answer question='Czy do Olimpiady trzeba być dobrym z matematyki?' id='koniecznosc-matematyki'>
 Niekoniecznie. W zadaniach olimpijskich ma się przeważnie do czynienia z <link url='https://pl.wikipedia.org/wiki/Matematyka_dyskretna'>dyskretnymi</link> obiektami matematycznymi takimi jak grafy reprezentujące sieć dróg Bajtocji, czasochłonne zadania domowa z różnych przedmiotów, które Bajtek musi zrobić w kolejnych dniach tygodnia, czy <link url='https://pl.wikipedia.org/wiki/Lemmings_(gra_komputerowa)'>lemingi</link> chodzące po i spadające z jednej długiej platformy, a do wymyślania na przykład algorytmów zachłannych trzeba mieć tylko dobrą intuicję, co się najbardziej opłaca w różnych sytuacjach.
 </answer>
 
