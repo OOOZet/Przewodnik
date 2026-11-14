@@ -1,0 +1,70 @@
+start = element document {
+  attribute title { nonempty-text },
+  attribute url { xsd:anyURI },
+  attribute website-name { nonempty-text },
+  attribute github-url { xsd:anyURI },
+  (
+    attribute version { xsd:dateTime },
+    attribute git-commit { xsd:string { pattern = "[0-9a-f]{7,}" } }
+  )?,
+  element preface { block+ },
+  element answer {
+    attribute question { nonempty-text },
+    attribute important { bool }?,
+    attribute id { xsd:ID },
+    (
+      block+ |
+      (
+        block*,
+        element subanswer {
+          attribute subquestion { nonempty-text },
+          block+
+        }+
+      )
+    )
+  }+,
+  element footer { block+ },
+  element contributor {
+    attribute name { nonempty-text },
+    attribute discord-id { xsd:nonNegativeInteger },
+    attribute website { xsd:anyURI }?,
+    inlines
+  }+
+}
+
+inlines = nonempty-text | mixed { inline+ }
+
+block =
+  element graph     { attribute description { nonempty-text }, nonempty-text } |
+  element list      {
+    attribute ordered { bool }?,
+    attribute compact { bool }?,
+    element item { block+ }+
+  } |
+  element note      { block+ } |
+  element paragraph { inlines } |
+  element todo      { block+ } |
+  element warning   { block+ } |
+  block_or_inline
+
+inline =
+  element emphasis    { inlines } |
+  element important   { inlines } |
+  element link        { attribute url { xsd:anyURI }, inlines } |
+  element math        { math+ } |
+  element placeholder { attribute for { nonempty-text }, empty } |
+  element problem     { attribute id { nonempty-text }, empty } |
+  element ref         { attribute id { xsd:IDREF }, inlines } |
+  block_or_inline
+
+block_or_inline =
+  element code { attribute lang { "bash" | "cpp" | "python" }?, nonempty-text }
+
+math =
+  element group       { math+ } |
+  element subscript   { nonempty-text } |
+  element superscript { nonempty-text } |
+  element token       { nonempty-text }
+
+bool = "yes" | "no"
+nonempty-text = xsd:string { minLength = "1" }

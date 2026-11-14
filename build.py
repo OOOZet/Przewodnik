@@ -182,7 +182,7 @@ def watch():
 def build():
   format_text_file('source.xml')
 
-  validate_source()
+  validate_xml('source.xml', 'source.rnc')
 
   log_info('Creating build directory')
   try:
@@ -277,11 +277,11 @@ def format_text_file(path):
       os.rename(f'{path}.new', path)
       log_notice('Overwritten')
 
-def validate_source():
-  log_info('Validating source')
+def validate_xml(xml_path, rnc_path):
+  log_info(f'Validating {xml_path!r}')
   with log_indent():
-    relax_ng = RelaxNG(file='source.rnc')
-    if relax_ng.validate(lxml.etree.parse('source.xml')):
+    relax_ng = RelaxNG(file=rnc_path)
+    if relax_ng.validate(lxml.etree.parse(xml_path)):
       return
     for error in relax_ng.error_log:
       assert error.level_name == 'ERROR', error
@@ -320,8 +320,11 @@ def preprocess_source(target):
     for node in source.findall('.//math'):
       parse_math(node)
 
-    os.makedirs('build/source/', exist_ok=True)
-    source.write(f'build/source/{target.name}.xml')
+    path = f'build/source/{target.name}.xml'
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    source.write(path)
+
+    validate_xml(path, 'preprocessed_source.rnc')
 
 def set_document_version(source):
   log_info('Getting version from git')

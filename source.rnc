@@ -58,7 +58,7 @@ inline =
   block_or_inline
 
 block_or_inline =
-  element code { attribute lang { "bash" | "cpp" | "python" }?, nonempty-text  }
+  element code { attribute lang { "bash" | "cpp" | "python" }?, nonempty-text }
 
 bool = "yes" | "no"
 nonempty-text = xsd:string { minLength = "1" }
