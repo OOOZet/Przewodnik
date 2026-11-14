@@ -33,7 +33,11 @@ inlines = nonempty-text | mixed { inline+ }
 
 block =
   element graph   { attribute description { nonempty-text }, nonempty-text } |
-  element list    { attribute ordered { bool }?, element item { blocks }+ } |
+  element list    {
+    attribute ordered { bool }?,
+    attribute compact { bool }?,
+    element item { blocks }+
+  } |
   element note    { blocks } |
   element todo    { blocks } |
   element warning { blocks } |

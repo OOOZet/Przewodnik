@@ -25,11 +25,12 @@
     </div>
 
   {% elif node.tag == 'list' %}
-    <ul>
+    {% set tag = 'ol' if node.attrib['ordered'] == 'yes' else 'ul' %}
+    <{{ tag }} {% if node.attrib['compact'] != 'no' %} class='compact' {% endif %}>
       {% for item in node.findall('item') %}
         <li>{{ render_blocks(item) }}</li>
       {% endfor %}
-    </ul>
+    </{{ tag }}>
 
   {% elif node.tag == 'note' %}
     <div class='note' role='note'>
@@ -269,7 +270,7 @@ main {
 }
 #toc ul { padding-left: 0; }
 pre, .graph, .todo-inner { max-width: fit-content; margin-left: auto; margin-right: auto; }
-ul { padding-left: 1em; }
+ol, ul { padding-left: 1em; }
 .graph svg { max-width: {{ main_max_width }}; }
 
 /* Vertical spacing */
@@ -289,16 +290,16 @@ ul { padding-left: 1em; }
  * This scheme is pretty much how trimming the text box to cap height works.
  * We apply an analogous one for bottom margins.
  */
-h1, h2, h3, p, pre, ul, .note, .todo, .warning,
-li > :first-child, main > * > :first-child, .todo-inner > :first-child,
+h1, h2, h3, ol, p, pre, ul, .note, .todo, .warning,
+li:first-child > :first-child, .compact > li > :first-child, main > * > :first-child, .todo-inner > :first-child,
 .hint + *
 {
   margin-top: calc(var(--margin-top) + var(--lines-top) * var(--text-vertical-margin));
   --margin-top: 0px;
   --lines-top: 0;
 }
-h1, h2, h3, p, pre, ul, .note, .todo, .warning,
-li > :last-child, main > * > :last-child, .todo-inner > :last-child,
+h1, h2, h3, ol, p, pre, ul, .note, .todo, .warning,
+li:last-child > :last-child, .compact > li > :last-child, main > * > :last-child, .todo-inner > :last-child,
 .hint, .note > :last-child, .warning > :last-child
 {
   margin-bottom: calc(var(--margin-bottom) + var(--lines-bottom) * var(--text-vertical-margin));
@@ -309,7 +310,7 @@ h1, h2, h3 {
   --margin-top:    1.2em;
   --margin-bottom: 1em;
 }
-p, pre, ul, .note, .todo, .warning {
+ol, p, pre, ul, .note, .todo, .warning {
   --margin-top:    1.5em;
   --margin-bottom: 1.5em;
 }
@@ -320,26 +321,26 @@ h1, h2, h3, p {
   --lines-top:    2;
   --lines-bottom: 2;
 }
-h1 + pre, h1 + ul, ul:has(> :first-child > h1:first-child), h1 + .note, h1 + .todo, h1 + .warning,
-h2 + pre, h2 + ul, ul:has(> :first-child > h2:first-child), h2 + .note, h2 + .todo, h2 + .warning,
-h3 + pre, h3 + ul, ul:has(> :first-child > h3:first-child), h3 + .note, h3 + .todo, h3 + .warning,
- p + pre,  p + ul, ul:has(> :first-child >  p:first-child),  p + .note,  p + .todo,  p + .warning,
-ul:has(> :last-child > h1:last-child) + h1, li:first-child > h1:first-child, main > * > h1:first-child, .todo-inner > h1:first-child, .hint + h1,
-ul:has(> :last-child > h2:last-child) + h2, li:first-child > h2:first-child, main > * > h2:first-child, .todo-inner > h2:first-child, .hint + h2,
-ul:has(> :last-child > h3:last-child) + h3, li:first-child > h3:first-child, main > * > h3:first-child, .todo-inner > h3:first-child, .hint + h3,
-ul:has(> :last-child >  p:last-child) +  p, li:first-child >  p:first-child, main > * >  p:first-child, .todo-inner >  p:first-child, .hint +  p
+h1 + ol, h1 + pre, h1 + ul, ol:has(> :first-child > h1:first-child), ul:has(> :first-child > h1:first-child), h1 + .note, h1 + .todo, h1 + .warning,
+h2 + ol, h2 + pre, h2 + ul, ol:has(> :first-child > h2:first-child), ul:has(> :first-child > h2:first-child), h2 + .note, h2 + .todo, h2 + .warning,
+h3 + ol, h3 + pre, h3 + ul, ol:has(> :first-child > h3:first-child), ul:has(> :first-child > h3:first-child), h3 + .note, h3 + .todo, h3 + .warning,
+ p + ol,  p + pre,  p + ul, ol:has(> :first-child >  p:first-child), ul:has(> :first-child >  p:first-child),  p + .note,  p + .todo,  p + .warning,
+ol:has(> :last-child > h1:last-child) + h1, ul:has(> :last-child > h1:last-child) + h1, li:first-child > h1:first-child, main > * > h1:first-child, .todo-inner > h1:first-child, .hint + h1,
+ol:has(> :last-child > h2:last-child) + h2, ul:has(> :last-child > h2:last-child) + h2, li:first-child > h2:first-child, main > * > h2:first-child, .todo-inner > h2:first-child, .hint + h2,
+ol:has(> :last-child > h3:last-child) + h3, ul:has(> :last-child > h3:last-child) + h3, li:first-child > h3:first-child, main > * > h3:first-child, .todo-inner > h3:first-child, .hint + h3,
+ol:has(> :last-child >  p:last-child) +  p, ul:has(> :last-child >  p:last-child) +  p, li:first-child >  p:first-child, main > * >  p:first-child, .todo-inner >  p:first-child, .hint +  p
 {
   --lines-top: 1;
 }
 .hint,
-pre:has(+ h1), ul:has(+ h1), ul:has(> :last-child > h1:last-child), .note:has(+ h1), .todo:has(+ h1), .warning:has(+ h1),
-pre:has(+ h2), ul:has(+ h2), ul:has(> :last-child > h2:last-child), .note:has(+ h2), .todo:has(+ h2), .warning:has(+ h2),
-pre:has(+ h3), ul:has(+ h3), ul:has(> :last-child > h3:last-child), .note:has(+ h3), .todo:has(+ h3), .warning:has(+ h3),
-pre:has(+  p), ul:has(+  p), ul:has(> :last-child >  p:last-child), .note:has(+  p), .todo:has(+  p), .warning:has(+  p),
-h1:has(+ ul > :first-child > h1:first-child), li:last-child > h1:last-child, main > * > h1:last-child, .todo-inner > h1:last-child, .note > h1:last-child, .warning > h1:last-child,
-h2:has(+ ul > :first-child > h2:first-child), li:last-child > h2:last-child, main > * > h2:last-child, .todo-inner > h2:last-child, .note > h2:last-child, .warning > h2:last-child,
-h3:has(+ ul > :first-child > h3:first-child), li:last-child > h3:last-child, main > * > h3:last-child, .todo-inner > h3:last-child, .note > h3:last-child, .warning > h3:last-child,
- p:has(+ ul > :first-child >  p:first-child), li:last-child >  p:last-child, main > * >  p:last-child, .todo-inner >  p:last-child, .note >  p:last-child, .warning >  p:last-child
+ol:has(+ h1), pre:has(+ h1), ul:has(+ h1), ol:has(> :last-child > h1:last-child), ul:has(> :last-child > h1:last-child), .note:has(+ h1), .todo:has(+ h1), .warning:has(+ h1),
+ol:has(+ h2), pre:has(+ h2), ul:has(+ h2), ol:has(> :last-child > h2:last-child), ul:has(> :last-child > h2:last-child), .note:has(+ h2), .todo:has(+ h2), .warning:has(+ h2),
+ol:has(+ h3), pre:has(+ h3), ul:has(+ h3), ol:has(> :last-child > h3:last-child), ul:has(> :last-child > h3:last-child), .note:has(+ h3), .todo:has(+ h3), .warning:has(+ h3),
+ol:has(+  p), pre:has(+  p), ul:has(+  p), ol:has(> :last-child >  p:last-child), ul:has(> :last-child >  p:last-child), .note:has(+  p), .todo:has(+  p), .warning:has(+  p),
+h1:has(+ ol > :first-child > h1:first-child), h1:has(+ ul > :first-child > h1:first-child), li:last-child > h1:last-child, main > * > h1:last-child, .todo-inner > h1:last-child, .note > h1:last-child, .warning > h1:last-child,
+h2:has(+ ol > :first-child > h2:first-child), h2:has(+ ul > :first-child > h2:first-child), li:last-child > h2:last-child, main > * > h2:last-child, .todo-inner > h2:last-child, .note > h2:last-child, .warning > h2:last-child,
+h3:has(+ ol > :first-child > h3:first-child), h3:has(+ ul > :first-child > h3:first-child), li:last-child > h3:last-child, main > * > h3:last-child, .todo-inner > h3:last-child, .note > h3:last-child, .warning > h3:last-child,
+ p:has(+ ol > :first-child >  p:first-child),  p:has(+ ul > :first-child >  p:first-child), li:last-child >  p:last-child, main > * >  p:last-child, .todo-inner >  p:last-child, .note >  p:last-child, .warning >  p:last-child
 {
   --lines-bottom: 1;
 }
@@ -529,7 +530,7 @@ code { background: revert; }
 
       <nav id='toc' aria-labelledby='toc-heading'>
         <h2 id='toc-heading'>Spis treści</h2>
-        <ul>
+        <ul class='compact'>
           {% for node in document.findall('answer') %}
             <li><p role='none'>
               {% if node.attrib['important'] == 'yes' %}<strong>{% endif %}

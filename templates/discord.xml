@@ -24,14 +24,23 @@
     </message>
 
   {% elif node.tag == 'list' %}
-    {% filter split_long_discord_message %}
-      {% for item in node.findall('item') -%}
-        <no-break>
-          {%- if node.attrib['ordered'] == 'yes' %}{{ loop.index }}. {% else %}- {% endif %}
-          {{- join_messages(render_blocks(item), '\n').replace('\n', '\n  ') -}}
-        </no-break>
+    {% macro render_item(item, idx) -%}
+      <no-break>
+        {%- if node.attrib['ordered'] == 'yes' %}{{ idx }}. {% else %}- {% endif %}
+        {{- join_messages(render_blocks(item), '\n').replace('\n', '\n  ') -}}
+      </no-break>
+    {% endmacro %}
+    {% if node.attrib['compact'] != 'no' %}
+      {% filter split_long_discord_message %}
+        {% for item in node.findall('item') %}
+          {{- render_item(item, loop.index) -}}
+        {% endfor %}
+      {% endfilter %}
+    {% else %}
+      {% for item in node.findall('item') %}
+        <message>{{ render_item(item, loop.index) }}</message>
       {% endfor %}
-    {% endfilter %}
+    {% endif %}
 
   {% elif node.tag == 'note' %}
     <message>
