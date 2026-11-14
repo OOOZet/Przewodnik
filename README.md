@@ -11,123 +11,99 @@ Znalezione błędy prosimy zgłaszać tutaj w zakładce "Issues" lub na Discordz
 3. Zainstaluj potrzebne pakiety w Pythonie za pomocą `./venv/bin/pip3 install -r requirements.txt`.
 4. Uruchom `./build.py --watch`. Od teraz przewodnik będzie buildowany po każdej zmianie w plikach źródłowych. Jeśli chcesz tylko jednorazowo zbuildować przewodnik, to usuń opcję `--watch`.
 
+Produkty tego procesu to:
+- `build/discord.xml` - Przewodnik w formie dla Discorda. Ten plik jest konsumowany przez komendę: `./deploy-discord.py --token TOKEN_BOTA --guild ID_SERWERA --channel ID_KANAŁU --purge`
+- `build/download.pdf` - Przewodnik w formie PDF-a.
+- `build/webpage/` - Przewodnik w formie strony internetowej. Zdeployowana strona musi otrzymać URL taki jak w atrybucie `url` w korzeniu `source.xml`.
+
 ## Praca z treścią
 
 > [!WARNING]
-> Z każdą nową edycja przewodnika trzeba zaktualizować daty i linki w pytaniu "Jakie korzyści przynosi sukces w...", "Jak wystartować w…" i "Jak wygląda drugi i trzeci etap…".
+> Z każdym nowym rokiem szkolnym trzeba zaktualizować daty i linki w "Jakie korzyści przynosi sukces w...", "Jak wystartować w…" i "Jak wygląda drugi i trzeci etap…".
 
-Ze względu na to, iż przewodnik jest wydawany w trzech zupełnie niepodobnych formach prezentacji (Discordowy Markdown, HTML/CSS i Typst), zastosowany został bardzo wyraźny podział na warstwę semantyczną i warstwę prezentacji dokumentu. Całość tej pierwszej znajduje się w pliku `source.xml` i, jak można się domyśleć, jest ona napisana w XML-u - języku spokrewnionym z HTML-em, ale mniej odjechanym. Sam XML oczywiście nie definiuje, jakie są typy znaczników; to robi użytkownik, czyli w tym przypadku my. Znaczniki dostępne w `source.xml` zostały opisane poniżej.
+> [!NOTE]
+> Informacje w "Jakie są kursy/obozy przygotowujące do Olimpiady?", "Które zajęcia OKI wybrać?", "Ile wynosi próg do finału…" i "Jakie konkursy istnieją poza Olimpiadą?" mogą się nagle zdezaktualnić.
 
-Kontynuując temat warstwy "semantycznej": Znaczniki, które tłumaczą się na pogrubiony tekst lub kursywę, nie przyjmują nazwy od ich wyglądu (np. "bold" czy "italic"), tylko od funkcji, jaką one pełnią w tekście (np. "important" lub "emphasis"). Takie rozwiązanie przy okazji wymusza jednolity wygląd dokumentu poprzez ograniczenie dostępu do komend stylizujących docelowego systemu prezentacji.
+Cała treść przewodnika mieści się w pliku `source.xml`. XML to taki HTML, ale mniej odjechany i taki, w którym można definiować własne znaczniki. Strukturę gramatyczną `source.xml` opisuje plik `source.rnc` - schemat w języku RELAX NG Compact Syntax ([dokumentacja](https://relaxng.org/compact-tutorial-20030326.html)). Najważniejsze, co należy z niej wyciągnąć, to idea, że każdy znacznik może występować inline (czyli wewnątrz paragrafu) lub jako blok (czyli zajmując całą szerokość strony, wizualnie tworząc blok). Poniżej jest lista interesujących znaczników i ich znaczenie.
 
-Istnieją dwa różne "konteksty" tekstu, w których mogą występować znaczniki: "inline" (czyli elementy wewnątrz paragrafu) oraz "block" (elementy, które zajmują całą szerokość strony, wizualnie tworząc blok).
+### `<answer>`
 
-|    Znacznik     | Może być w inline? | Może być w block? | Jaki kontekst wprowadza? |
-| --------------- | :----------------: | :---------------: | :----------------------: |
-| `code`          |         ✅         |         ✅        |  *Nie wprowadza tekstu*  |
-| `emphasis`      |         ✅         |         ❌        |          Inline          |
-| `important`     |         ✅         |         ❌        |          Inline          |
-| `item` w `list` |  *Tylko w `list`*  |  *Tylko w `list`* |          Block           |
-| `link`          |         ✅         |         ❌        |          Inline          |
-| `list`          |         ❌         |         ✅        |  *Zawiera tylko `item`*  |
-| `note`          |         ❌         |         ✅        |          Block           |
-| `placeholder`   |         ✅         |         ❌        |   *Nie wprowadza nic*    |
-| `problem`       |         ✅         |         ❌        |   *Nie wprowadza nic*    |
-| `ref`           |         ✅         |         ❌        |          Inline          |
-| `todo`          |         ❌         |         ✅        |          Block           |
-| `warning`       |         ❌         |         ✅        |          Block           |
+Odpowiedź na pytanie umieszczone w atrybucie `question`. Musi mieć unikalny na cały dokument atrybut `id`. Opcjonalnie można oznaczyć odpowiedź jako wartą uwagi w kontekście całego przewodnika ustawiając atrybut `important` na `yes`.
 
-Poniżej jest warstwa semantyczna przykładowego dokumentu prezentująca wszystkie dostępne znaczniki w `source.xml`. Wartości atrybutów oczywiście nie są poprawnie sformatowane i tylko opisują, co w nich *miałoby* się znaleźć.
+### `<code>`, blok/inline
 
-```xml
-<?xml version='1.0' encoding='UTF-8'?>
-<document
-  title='Tytuł dokumentu'
-  version='(opcjonalnie) Data wydania dokumentu w formacie YYYY-MM-DD'>
+Po prostu kod. Może występować zarówno inline jak i jako blok. W tym drugim przypadku trzeba oddzielić go od paragrafów otaczających go co najmniej jedną pustą linią. Przyjmuje opcjonalny atrybut `lang`. Dostępne języki to `bash`, `cpp` i `python`. Można łatwo dodać więcej, ale trzeba przy tym dokonać odpowiednich zmian w całym codebase'ie.
 
-  <preface>
-    Wstęp dokumentu.
-    <discord-only>Tekst widoczny tylko na Discordzie.</discord-only>
-    <download-only>Tekst widoczny tylko w wydaniu pobieranym.</download-only>
-  </preface>
+### `<contributor>`
 
-  <!-- Pytania są dzielone na dwie kategorie: "ważne" i mniej ważne. -->
-  <answer question='Treść pytania?' id='jakies-pytanie' important='yes'>
-    <todo>
-      Notatka autorów dokumentu dla nich samych, co trzeba dopisać, zmienić,
-      poprawić...
-    </todo>
+Opisuje osobę, która miała "istotny wkład" do powstania obecnej wersji przewodnika. Zawartość znacznika to opis tego wkładu.
 
-    Przykładowe zdanie z <important>ważną informacją</important>, <code>kodem
-    </code>, <emphasis>wymawianym naciskiem na słowo lub krótką frazę
-    </emphasis>, <problem id='oi10-mal'/> (nazwą zadania z linkiem i kolorem)
-    oraz <link url='https://example.com'>linkiem</link>.
+Atrybuty:
+- `name` - `Imię "Pseudonim" Nazwisko` lub `Imię Nazwisko`.
+- `discord-id` - ID użytkownika na Discordzie.
+- `website` (opcjonalny) - Link do osobistej strony internetowej lub innego profilu internetowego (np. GitHub).
 
-    Kolejne paragrafy są oddzielane od siebie dwoma znakami nowej linii.
-    Paragrafy mogą być rozbite na kilka kolejnych linii.
-    Znaczniki, które mogą występować tylko w kontekście block, nie muszą być
-    oddzielane dwoma znakami nowej linii od paragrafów.
-    <note>
-      Informacja, która niekoniecznie jest <emphasis>ważna</emphasis>, ale którą
-      warto zapamiętać.
-    </note>
-    <warning>
-      Ostrzeżenie.
-    </warning>
-    Blok kodu:
+Trudno zdefiniować, jak bardzo wkład musi być istotny, aby był "istotny". Na pewno sama recenzja czy znajdywanie błędów nie jest "istotnym wkładem" - tak uważa też prawo autorskie. Najbezpieczniej będzie powiedzieć, że to po prostu lista osób, które posiadają prawa autorskie osobiste do tego utworu. Gdyby ktoś w przyszłości udzielił hosting, to pewnie też wypadałoby o tej osobie wspomnieć.
 
-    <code lang='bash'>
-      echo Musisz oddzielić go dwoma nowymi liniami od okalających paragrafów, \
-           gdyż może również występować w kontekście inline tak, jak to \
-           zostało zaprezentowane wyżej. Dostępne języki to bash i cpp.
-    </code>
+### `<emphasis>`, inline
 
-    Tekst po bloku kodu.
-    <list>
-      <item>Podpunkt listy.</item>
-      <item>
-        Elementy listy wprowadzają kontekst block, więc można mieć nawet i podlisty:
-        <list>
-          <item>Podpodpunkt 1</item>
-          <item>Podpodpunkt 2</item>
-        </list>
-      </item>
-    </list>
-  </answer>
+Słowo lub krótka fraza z wymawianym naciskiem, czyli takim, który możnaby usłyszeć, gdyby autor czytał ten tekst.
 
-  <answer
-    question='O co pytać na…'
-    id='Każde pytanie musi mieć unikalne ID. Dzięki temu można się do nich
-        odnosić za pomocą <ref>.'>
+### `<graph>`, blok
 
-    Na początku pytania z podpytaniami może być tekst. <ref
-    id='jakies-pytanie'>O! Link do pytania!</ref>
-    <subanswer subquestion='…SIO2?'>
-      ...
-    </subanswer>
-    <subanswer subquestion='…Discordzie?'>
-      ...
-    </subanswer>
-  </answer>
+Graf w języku DOT ([dokumentacja](https://graphviz.org/documentation/)). Przyjmuje atrybut `description`, który ma opisywać graf w taki sposób, że osoba, która nie widzi obrazka, będzie w stanie zrozumieć, co na tym obrazku jest. [Bardziej szczegółowe wyjaśnienie, jak takie opisy pisać.](https://typst.app/docs/guides/accessibility/#textual-representations)
 
-  <footer>
-    Stopka dokumentu. W wydaniu pobieranym faktycznie jest na dole dokumentu,
-    a na Discordzie jest wsadzana do opisu kanału. Znacznik <placeholder
-    for='contributors'/> zostanie podczas renderowania zastąpiony listą
-    contributorów pooddzielaną przecinkami. Na Discordzie będą wzmianki
-    użytkowników, a w wydaniu pobieranym będą ich nazwy z opcjonalnym linkiem do
-    ich strony.
-  </footer>
+Kolory elementów grafu są automatycznie zmieniane przez `render_graph` w `build.py`, aby był widoczny na i czarnym i na białym tle. Obecny kod nie został napisany z myślą, że ktoś będzie w `<graph>` ustawiać jakieś kolory, więc jak tak zrobisz i nie wyjdzie, to nie martw się, że coś zrobiłeś źle. Błąd jest najpewniej w `build.py`.
 
-  <contributor
-    name='Imię "Pseudonim" Nazwisko'
-    discord-id='Jego ID użytkownika na Discordzie'
-    website='(opcjonalnie) Link do jego strony internetowej'
-    contribution='Krótki opis jego wkładu w powstanie przewodnika'/>
-</document>
-```
+### `<important>`, inline
 
-https://typst.app/docs/guides/accessibility/#textual-representations
+Ważna informacja, którą czytelnik *musi* zobaczyć, gdyby tylko przeglądał tekst pobieżnie. Najlepsze użycie tego znacznika jest w pytaniu "Jaka jest najlepsza strategia na drugim etapie...".
+
+### `<link>`, inline
+
+Link do URL-a, który jest w atrybucie `url`. Znacznik musi zawierać jakiś tekst.
+
+### `<list>`, blok
+
+Lista `<item>`-ów, które z kolei zawierają po prostu zwykłe znaczniki blokowe. Czyli po prostu zwykła lista, jaką byś ujrzał w druku.
+
+Atrybuty:
+- `ordered` (domyślnie `no`) - `yes` jeśli lista jest ponumerowana. `no` jeśli jest wypunktowana.
+- `compact` (domyślnie `yes`) - `yes` jeśli kolejne elementy listy nie powinny być oddzielone odstępem blokowym. `no` jeśli powinny być.
+
+### `<math>`, inline
+
+Wyrażenie matematyczne. Zawartość to taki mini-język. Kolejne "tokeny" (symbole, liczby, operatory itd.) muszą być oddzielone spacjami (z wyjątkiem nawiasów okrągłych). Przykład: `(1 + 2) * 3`. Dostępne symbole są zdefiniowane w `math_symbols` na początku `build.py`; nie jest to lista zamknięta na nowe dodatki. Do każdego tokenu można dodać indeks dolny lub górny poprzez dopisanie odpowiednio `_` lub `^` oraz ciągu znaków bez spacji. Przykład: `x_i+1 + 2^n`. [Zestaw dostępnych znaków w indeksach](https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts) jest bardzo ograniczony przez standard Unicode.
+
+### `<note>`, blok
+
+Informacja dla czytelnika, która niekoniecznie jest *ważna*, ale którą warto zapamiętać.
+
+### `<placeholer>`, inline
+
+W trakcie renderowania zastępywany przez automatycznie wygenerowany tekst. Klucz jest w atrybucie `for` i na razie jedyny zdefiniowana wartość to `contributors` - lista wszystkich wkładodawców.
+
+### `<problem>`, inline
+
+Odniesienie do zadania z OI lub OIJ z kolorem odpowiadającym etapowi. Przyjmuje atrybut `id`, który dla zadań z OI ma format `oi{EDYCJA}-{TRZYLITEROWY KOD ZADANIA}`, a dla zadań z OIJ - `oij{EDYCJA}-{ETAP JAKO LICZBA}-{TRZYLITEROWY KOD ZADANIA}`. Przykłady: `oi10-mal`, `oij15-3-cie`.
+
+### `<ref>`, inline
+
+Link do innego miejsca w dokumencie - na razie tylko do znaczników `<answer>`. Miejsce docelowe jest w atrybucie `id`.
+
+### `<subanswer>`
+
+Pododpowiedź na podpytanie w atrybucie `subanswer`.
+
+### `<todo>`, blok
+
+Notatka autorów dokumentu dla nich samych, co trzeba dopisać, zmienić, poprawić...
+
+### `<warning>`, blok
+
+Ostrzeżenie dla czytelnika.
+
+**Komentarz:** Ze względu na to, iż przewodnik jest wydawany w trzech zupełnie niepodobnych formach prezentacji (Discordowy Markdown, HTML/CSS i Typst), zastosowany został bardzo wyraźny podział na warstwę semantyczną i warstwę prezentacji dokumentu. Znaczniki, które tłumaczą się na pogrubiony tekst lub kursywę, nie przyjmują nazwy od ich wyglądu (np. "bold" czy "italic"), tylko od funkcji, jaką one pełnią w tekście (np. "important" lub "emphasis"). Takie rozwiązanie przy okazji wymusza jednolity wygląd dokumentu poprzez ograniczenie dostępu do komend stylizujących docelowego systemu prezentacji.
 
 ## Komentarze do treści
 
@@ -152,6 +128,8 @@ Przykładowe zadanie zostało wybrane ze względu na następujące kryteria:
 Najważniejszą częścią opisu tak naprawdę nie jest rozwiązanie wzorcowe, tylko treść zadania i rozwiązanie brutalne. Jeśli chcemy zainteresować czytelnika tą algorytmiką, to musi najpierw bardzo dobrze zrozumieć, jaki problem ona rozwiązuje.
 
 W całym tekście musimy powstrzymywać się od używania znanego nam żargonu algorytmicznego i innych abstrakcyjnych sformułowań. O wiele bliższą codzienności i pobudzającą wyobraźnię zwykłego człowieka frazą jest "sieć połączeń" aniżeli "graf skierowany". Takie techniczne sformułowania zostawiamy na koniec bardziej jako dopisek na marginesie. Tak samo nie wprowadzamy abstrakcji tam, gdzie nie trzeba, i na literały formuły CNF mówimy po prostu "równania", bo akurat możemy.
+
+Jeśli nazwiemy jakieś pojęcie lub obiekt konkretną nazwą, to musimy używać tylko i wyłącznie tej nazwy przez całe omówienie, żeby nie mieszać czytelnikowi w głowie. Ubogość języka w naszym przypadku tylko zwiększa jego ekspresywność.
 
 ### "Czy umiejętności algorytmiczne przydają się później w życiu?"
 
@@ -189,7 +167,7 @@ A czemu na przykład wyraźnym przeskokiem w "przydatności" algorytmu nie miał
 
 Jako notatkę dla przyszłych analizujących omówienia zostawiamy poniższą listę pojęć, na które warto uważać czytając omówienia: [Scalanie do podwyniku z największego poddrzewa](https://usaco.guide/adv/comb-sub?lang=cpp), Arytmetyka modularna (bardziej dla OIJ), Dziel i zwyciężaj, Funkcja low, Kolejka monotoniczna, Najkrótsze ścieżki pomiędzy każdą parą, Najkrótsze ścieżki z jednego źródła z ujemnymi wagami krawędzi, Mosty i punkty artykulacji, Normalizacja wektorów o współrzędnych całkowitych, Odwrotność modularna, Przekorzenianie w programowaniu dynamicznym na drzewie, Rozkład grafu funkcyjnego, Stars and bars, Średnica drzewa, Wzór Stirlinga. Dodatkowa lista, którą można się zainspirować, znajduje się [w biblioteczce digitcrushera](https://github.com/digitcrusher/algorytmy#algorytmy).
 
-### Todo
+### TODO
 
 Pomysły na przyszłe odpowiedzi na pytania:
 - "Jak testować interaktywy?"
@@ -203,6 +181,12 @@ Pomysły na przyszłe odpowiedzi na pytania:
 
 ## Praca z wyglądem
 
-Przestrzenią kolorów, w której pracujemy, jest Oklab w cylindrycznym układzie współrzędnych (Oklch). Pod żadnym pozorem nie używaj sRGB ani innych percepcyjnie niejednorodnych przestrzeni.
+Typst jest najlepszym systemem składu ze wszystkich, które targetujemy, więc najpierw tam powinny być rozwijane wszystkie zmiany w wyglądzie.
 
-Zestaw ikon, który używamy to Google Material Symbols. Ich wyszukiwarkę znajdziesz [tutaj](https://fonts.google.com/icons). W repozytorium jest ustalona wersja tej czcionki, więc jeśli ikonka na stronie wygląda inaczej w zbuildowanym PDF-ie, to oznacza, że pewnie trzeba zaktualizować czcionkę w repozytorium. W HTML-u nowe ikony trzeba dodawać do `@import`-a importującego tę czcionkę.
+Przestrzenią kolorów, w której pracujemy, jest Oklab w cylindrycznym układzie współrzędnych (Oklch). Nie używaj innych przestrzeni, bo kolor będzie odstawać od reszty, i pod żadnym pozorem nie używaj sRGB ani innych percepcyjnie niejednorodnych przestrzeni, bo wtedy pójdziesz do piekła.
+
+Zestaw ikon, który używamy to Google Material Symbols ([wyszukiwarka](https://fonts.google.com/icons)). W repozytorium jest już pobrana jedna wersja tej czcionki, więc jeśli ikonka na stronie wygląda inaczej niż w zbuildowanym PDF-ie, to oznacza, że pewnie trzeba zaktualizować czcionkę w repozytorium. W HTML-u nowe ikony trzeba dodawać do `@import`-a importującego tę czcionkę.
+
+## Praca z szablonami
+
+Szablony są napisane w języku Jinja ([dokumentacja](https://jinja.palletsprojects.com/en/stable/templates/)) i żyją sobie w folderze `templates/`. Dla nas to produkt końcowy. Po nas pałeczkę przejmuje odpowiedni interpreter danej formy prezentacji. Szablony przyjmują tekst źródłowy zpreprocesowany przez `process_source` w `build.py`, strukturę którego opisuje `preprocessed_source.rnc`. Korzeń dokumentu przekazywany jest w zmiennej globalnej `document`. `problems.csv` - jako słownik wierszy po polu `id` w zmiennej globalnej `problems`. Wszystkie zmienne globalne i filtry są wylistowane w `render` w `build.py`. Powodzenia!

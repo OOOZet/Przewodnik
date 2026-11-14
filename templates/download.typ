@@ -24,15 +24,15 @@
   {% elif node.tag == 'note' %}
     #note[{{ render_blocks(node) }}]
 
-  {% elif node.tag == 'todo' %}
-    #todo[{{ render_blocks(node) }}]
-
   {% elif node.tag == 'paragraph' %}
     {{ render_inlines(node) | escape_typst_line_markup }}
 
   {% elif node.tag == 'subanswer' %}
     == {{ render_text(node.attrib['subquestion']) }}
     {{ render_blocks(node) }}
+
+  {% elif node.tag == 'todo' %}
+    #todo[{{ render_blocks(node) }}]
 
   {% elif node.tag == 'warning' %}
     #warning[{{ render_blocks(node) }}]

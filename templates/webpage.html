@@ -1,5 +1,7 @@
 {% autoescape true %}
 
+{# Generally, we try not to depend on HTML and CSS features that are younger than 10 years. #}
+
 {% set state = namespace(next_id=1) %}
 {% macro next_id() -%}
   anon-{{ state.next_id }}
@@ -40,9 +42,6 @@
       {{ render_blocks(node) }}
     </div>
 
-  {% elif node.tag == 'todo' %}
-    <div class='todo' role='note'><div class='todo-inner'>{{ render_blocks(node) }}</div></div>
-
   {% elif node.tag == 'paragraph' %}
     <p>{{ render_inlines(node) }}</p>
 
@@ -52,6 +51,9 @@
       <h3 id='{{ heading_id }}'>{{ render_text(node.attrib['subquestion']) }}</h3>
       {{ render_blocks(node) }}
     </section>
+
+  {% elif node.tag == 'todo' %}
+    <div class='todo' role='note'><div class='todo-inner'>{{ render_blocks(node) }}</div></div>
 
   {% elif node.tag == 'warning' %}
     <div class='warning' role='note'>
@@ -181,11 +183,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:FILL@1&icon_names=arrow_drop_down,arrow_drop_up,arrow_left,download,info,warning');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://mathfonts.github.io/ConcMath/mathfonts.css');
-
-/*
- * We treat the downloadable file as a canon of beauty, which
- * we strive to imitate as much as possible in this stylesheet.
- */
 
 /* General constants */
 :root {
