@@ -15,7 +15,7 @@
     {% else %}
     #list(
     {% endif %}
-      tight: {{ (node.attrib.get('compact') != 'no') | lower }},
+      tight: {{ (node.attrib.get('compact') == 'yes') | lower }},
       {% for item in node.findall('item') %}
         [{{ render_blocks(item) }}],
       {% endfor %}

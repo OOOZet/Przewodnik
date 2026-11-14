@@ -304,6 +304,13 @@ def preprocess_source(target):
     log_info('Expanding conditionals')
     expand_conditionals(source.getroot(), target)
 
+    log_info('Setting default node attributes')
+    for node in source.findall('.//answer'):
+      node.attrib.setdefault('important', 'no')
+    for node in source.findall('.//list'):
+      node.attrib.setdefault('ordered', 'no')
+      node.attrib.setdefault('compact', 'yes')
+
     log_info('Splitting text into paragraphs')
     for xpath in block_content_xpaths:
       for node in source.findall(xpath):

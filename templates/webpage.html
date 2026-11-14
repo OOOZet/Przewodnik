@@ -26,7 +26,7 @@
 
   {% elif node.tag == 'list' %}
     {% set tag = 'ol' if node.attrib['ordered'] == 'yes' else 'ul' %}
-    <{{ tag }} {% if node.attrib['compact'] != 'no' %} class='compact' {% endif %}>
+    <{{ tag }} {% if node.attrib['compact'] == 'yes' %} class='compact' {% endif %}>
       {% for item in node.findall('item') %}
         <li>{{ render_blocks(item) }}</li>
       {% endfor %}

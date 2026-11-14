@@ -10,7 +10,7 @@ start = element document {
   element preface { block+ },
   element answer {
     attribute question { nonempty-text },
-    attribute important { bool }?,
+    attribute important { bool },
     attribute id { xsd:ID },
     (
       block+ |
@@ -37,8 +37,8 @@ inlines = nonempty-text | mixed { inline+ }
 block =
   element graph     { attribute description { nonempty-text }, nonempty-text } |
   element list      {
-    attribute ordered { bool }?,
-    attribute compact { bool }?,
+    attribute ordered { bool },
+    attribute compact { bool },
     element item { block+ }+
   } |
   element note      { block+ } |

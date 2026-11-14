@@ -30,7 +30,7 @@
         {{- join_messages(render_blocks(item), '\n').replace('\n', '\n  ') -}}
       </no-break>
     {% endmacro %}
-    {% if node.attrib['compact'] != 'no' %}
+    {% if node.attrib['compact'] == 'yes' %}
       {% filter split_long_discord_message %}
         {% for item in node.findall('item') %}
           {{- render_item(item, loop.index) -}}
