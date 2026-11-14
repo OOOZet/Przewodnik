@@ -45,7 +45,7 @@ block =
   element paragraph { inlines } |
   element todo      { block+ } |
   element warning   { block+ } |
-  block_or_inline
+  block-or-inline
 
 inline =
   element emphasis    { inlines } |
@@ -55,9 +55,9 @@ inline =
   element placeholder { attribute for { nonempty-text }, empty } |
   element problem     { attribute id { nonempty-text }, empty } |
   element ref         { attribute id { xsd:IDREF }, inlines } |
-  block_or_inline
+  block-or-inline
 
-block_or_inline =
+block-or-inline =
   element code { attribute lang { "bash" | "cpp" | "python" }?, nonempty-text }
 
 math =

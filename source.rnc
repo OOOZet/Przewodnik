@@ -41,7 +41,7 @@ block =
   element note    { blocks } |
   element todo    { blocks } |
   element warning { blocks } |
-  block_or_inline
+  block-or-inline
 
 inline =
   element discord-only  { inlines } |
@@ -55,9 +55,9 @@ inline =
   element problem       { attribute id { nonempty-text }, empty } |
   element ref           { attribute id { xsd:IDREF }, inlines } |
   element website-only  { inlines } |
-  block_or_inline
+  block-or-inline
 
-block_or_inline =
+block-or-inline =
   element code { attribute lang { "bash" | "cpp" | "python" }?, nonempty-text }
 
 bool = "yes" | "no"

@@ -14,7 +14,7 @@ Treść przewodnika, czyli plik `source.xml`, jest udostępniona na licencji [CC
 4. Uruchom `./build.py --watch`. Od teraz przewodnik będzie buildowany po każdej zmianie w plikach źródłowych. Jeśli chcesz tylko jednorazowo zbuildować przewodnik, to usuń opcję `--watch`.
 
 Produkty tego procesu to:
-- `build/discord.xml` - Przewodnik w formie dla Discorda. Ten plik jest konsumowany przez komendę: `./deploy-discord.py --token TOKEN_BOTA --guild ID_SERWERA --channel ID_KANAŁU --purge`
+- `build/discord.xml` - Przewodnik w formie dla Discorda. Ten plik jest konsumowany przez komendę: `./deploy-discord.py --token TOKEN-BOTA --guild ID-SERWERA --channel ID-KANAŁU --purge`
 - `build/download.pdf` - Przewodnik w formie PDF-a.
 - `build/webpage/` - Przewodnik w formie strony internetowej. Zdeployowana strona musi otrzymać URL taki jak w atrybucie `url` w korzeniu `source.xml`.
 
@@ -191,4 +191,4 @@ Zestaw ikon, który używamy to Google Material Symbols ([wyszukiwarka](https://
 
 ## Praca z szablonami
 
-Szablony są napisane w języku Jinja ([dokumentacja](https://jinja.palletsprojects.com/en/stable/templates/)) i żyją sobie w folderze `templates/`. Dla nas to produkt końcowy. Po nas pałeczkę przejmuje odpowiedni interpreter danej formy prezentacji. Szablony przyjmują tekst źródłowy zpreprocesowany przez `process_source` w `build.py`, strukturę którego opisuje `preprocessed_source.rnc`. Korzeń dokumentu przekazywany jest w zmiennej globalnej `document`. `problems.csv` - jako słownik wierszy po polu `id` w zmiennej globalnej `problems`. Wszystkie zmienne globalne i filtry są wylistowane w `render` w `build.py`. Powodzenia!
+Szablony są napisane w języku Jinja ([dokumentacja](https://jinja.palletsprojects.com/en/stable/templates/)) i żyją sobie w folderze `templates/`. Dla nas to produkt końcowy. Po nas pałeczkę przejmuje odpowiedni interpreter danej formy prezentacji. Szablony przyjmują tekst źródłowy zpreprocesowany przez `process_source` w `build.py`, strukturę którego opisuje `preprocessed-source.rnc`. Korzeń dokumentu przekazywany jest w zmiennej globalnej `document`. `problems.csv` - jako słownik wierszy po polu `id` w zmiennej globalnej `problems`. Wszystkie zmienne globalne i filtry są wylistowane w `render` w `build.py`. Powodzenia!

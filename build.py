@@ -351,7 +351,7 @@ def preprocess_source(target):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     source.write(path)
 
-    validate_xml(path, 'preprocessed_source.rnc')
+    validate_xml(path, 'preprocessed-source.rnc')
 
 def set_document_version(source):
   log_info('Getting version from git')
