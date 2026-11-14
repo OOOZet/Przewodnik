@@ -6,11 +6,11 @@ Ten przewodnik adresowany jest do wszystkich osób, które mogą wystartować w 
 </preface>
 
 <answer question='Na czym polega Olimpiada?' important='yes' id='na-czym-polega-olimpiada'>
-Olimpiada kręci się w zasadzie wokół jednej rzeczy: rozwiązywaniu <emphasis>zadań algorytmicznych</emphasis>. Zadanie algorytmiczne polega na napisaniu krótkiego programu w C++ lub Python, który wczytuje dane w formacie określonym w zadaniu, przetwarza je wedle algorytmu wymyślonego przez ciebie, a następnie wypisuje dane, których sens i związek z danymi wejściowymi też jest określony w zadaniu. To oczywiście implikuje, że nie musisz wymyślać dokładnie tego samego algorytmu co inni.
+Olimpiada kręci się w zasadzie wokół jednej rzeczy: rozwiązywaniu <emphasis>zadań algorytmicznych</emphasis>. Zadanie algorytmiczne polega na napisaniu krótkiego programu w C++ lub Python, który wczytuje dane w formacie określonym w zadaniu, przetwarza je wedle algorytmu wymyślonego przez ciebie, a następnie wypisuje dane, których sens i związek z danymi wejściowymi też jest określony w zadaniu. To oczywiście oznacza, że nie musisz wymyślać dokładnie tego samego algorytmu co inni.
 
 Spójrzmy więc na jakieś przykładowe zadanie! W zadaniu <problem id='oi26-rem'/> z finału Olimpiady Informatycznej Bajtazar - główny bohater tego uniwersum - chce pomalować jedną ze ścian w swoim domu w paski. Paski na ścianie będą przebiegać z góry na dół, mieć równą szerokość i będzie ich dokładnie <math>n</math>. Każdy z nich Bajtazar chce pomalować na jeden z wybranych <math>k</math> kolorów i ma już gotowy projekt, jaki kolor dostanie każdy z <math>n</math> pasków. Dla uproszczenia kolory ponumerujemy kolejnymi liczbami od <math>1</math> do <math>k</math> i nie będziemy się przejmować, czy to fioletowy, czy purpurowy.
 
-Bajtazar wypatrzył w sklepie budowlanym promocję na dwukolorowe wałki - lewa połówka wałka maluje jeden pasek na jeden kolor, druga maluje pasek na prawo od pierwszego na inny lub ten sam kolor. Na każdy wałek została już naniesiona farba, więc Bajtazar nie ma możliwości zmiany jej koloru. Nie może nawet obrócić wałka, żeby zamienić miejscami kolory na nim, bo producent zainstalował na nim "ochronną" osłonę od strony malarza. Co gorsza, farby na każdym wałku starczy tylko na pomalowanie jednej pary sąsiadujących pasków. Dobrą wiadomością jest to, że wałków w zestawie jest dokładnie <math>k^2</math> - jeden na każdy możliwy lewy i prawy kolor wałka.
+Bajtazar wypatrzył w sklepie budowlanym promocję na dwukolorowe wałki - lewa połówka wałka maluje jeden pasek na jeden kolor, druga maluje pasek na prawo od pierwszego na inny lub ten sam kolor. Na każdy wałek została już naniesiona farba, więc Bajtazar nie ma możliwości zmiany jej koloru. Nie może nawet obrócić wałka, żeby zamienić miejscami kolory na nim, bo producent zainstalował na nim "ochronną" osłonę od strony malarza. Nie może namalować wałkiem tylko jeden pasek, żeby później poprawić kolor tego drugiego, bo farba naniesiona w złym miejscu będzie prześwitywać. Co gorsza, farby na każdym wałku starczy tylko na pomalowanie jednej pary sąsiadujących pasków. Dobrą wiadomością jest to, że wałków w zestawie jest dokładnie <math>k^2</math> - jeden na każdy możliwy lewy i prawy kolor wałka.
 
 I w tym momencie pojawia się pytanie Bajtazara, który pyta nas, czy będzie w stanie zrealizować swoją wizję architektoniczną wałkami z zestawu? <important>Nasz program na wejściu dostanie liczby <math>n</math> i <math>k</math> oraz liczby <math>c_1</math>, <math>c_2</math>, ..., <math>c_n</math>, czyli listę <math>n</math> kolorów od <math>1</math> do <math>k</math>, na które trzeba pomalować kolejne paski; a na wyjściu będzie musiał wypisać "TAK" albo "NIE" - odpowiedź na dylemat Bajtazara.</important>
 
@@ -84,7 +84,7 @@ No to co. <important>Teraz najprostszym sposobem sprawdzenia, czy żadna tablica
 Do pełnego rozwiązania tego zadania zostały nam jeszcze do poczynienia dwie optymalizacje:
 
 <list compact='no'>
-<item>Pierwsza z nich polega na skorzystaniu z <link url='https://cp-algorithms.com/graph/strongly-connected-components.html'>algorytmu Kosaraju</link>, który znajduje w sieci wszystkie <emphasis>silnie spójne składowe</emphasis>, czyli grupy punktów takie, że w obrębie jednej grupy z każdego punktu da się dojść do każdego innego. Algorytm wypluwa tablicę mowiącą, do której składowej należy każdy punkt, wykonując przy tym liczbę operacji wprost proporcjonalną do liczby punktów i strzałek w sieci.</item>
+<item>Pierwsza z nich polega na skorzystaniu z <link url='https://cp-algorithms.com/graph/strongly-connected-components.html'>algorytmu Kosaraju</link>, który znajduje w sieci wszystkie <emphasis>silnie spójne składowe</emphasis>, czyli grupy punktów takie, że w obrębie jednej grupy z każdego punktu da się dojść do każdego innego. Algorytm wypluwa tablicę mówiącą, do której składowej należy każdy punkt, wykonując przy tym liczbę operacji wprost proporcjonalną do liczby punktów i strzałek w sieci.</item>
 
 <item>Druga zbija liczbę klauzul potrzebną do pełnego opisania 2. warunku poprawności z <math>(n - 1) * (n - 2) / 2</math> w najgorszym przypadku (gdy Bajtazar postanowił pomalować wszystkie paski na jeden kolor) do <math>6n - 10</math>. Zamiast tworzyć klauzulę dla każdych dwóch różnych par sąsiadujących pasków wymagających tego samego wałka, tworzymy sobie pomocnicze <emphasis>zdania logiczne</emphasis> <math>l_i</math> i <math>p_i</math> (i klauzule dla nich) znaczące odpowiednio "<math>x_j = 0</math> dla wszystkich <math>j &lt; i</math> takich, że <math>c_j c_j+1 = c_i c_i+1</math>" oraz "<math>x_j = 0</math> dla wszystkich <math>j &gt; i</math> takich, że <math>c_j c_j+1 = c_i c_i+1</math>".</item>
 </list>
@@ -224,7 +224,7 @@ int main() {
 
 Po ciężkiej sesji kminienia, kodowania i debugowania, wysyłasz taki kod na <link url='https://sio2.mimuw.edu.pl/'>SIO2</link> (na Olimpiadzie) lub na <link url='https://szkopul.edu.pl/'>Szkopuła</link> (ćwicząc samemu), czekasz w napięciu na jego automatyczne sprawdzenie spamując klawisz F5, aż wreszcie sprawdzaczka wynagradza twój trud liczbą 100 na zielonym tle.
 
-Przypomnijmy sobie: nasz pierwszy banalny algorytm przy 100 paskach na ścianie potrzebował więcej czasu, niż jesteśmy w stanie zapamiętać, a tym bardziej sobie wyobrazić. <important>Ten nowy algorytm potrzebuje tylko <math>1094.2 microseconds</math></important> na procesorze z 2019 roku (AMD Ryzen 5 3600). Aż trudno uwierzyć, że oba algorytmy rozwiązują ten sam problem - że dostając te same dane wejściowe zawsze zwracają dokładnie ten sam wynik.
+Przypomnijmy sobie: nasz pierwszy banalny algorytm przy 100 paskach na ścianie potrzebował więcej czasu, niż jesteśmy w stanie zapamiętać, a tym bardziej sobie wyobrazić. <important>Dla tych samych danych ten nowy algorytm potrzebuje tylko <math>1094.2 microseconds</math></important> na procesorze z 2019 roku (AMD Ryzen 5 3600). Aż trudno uwierzyć, że oba algorytmy rozwiązują ten sam problem - że dostając te same dane wejściowe zawsze zwracają dokładnie ten sam wynik.
 
 <important>I na tym własnie polega Olimpiada: Na robieniu rzeczy szybciej i efektywniej, oszczędzając twój czas i cykle procesora, czyniąc niemożliwe problemy możliwymi.</important>
 
@@ -279,7 +279,7 @@ Dla niektórych interesujących się matematyką algorytmika może być nawet le
 </answer>
 
 <answer question='Czy do Olimpiady trzeba być dobrym z matematyki?' id='koniecznosc-matematyki'>
-Niekoniecznie. W zadaniach olimpijskich ma się przeważnie do czynienia z <link url='https://pl.wikipedia.org/wiki/Matematyka_dyskretna'>dyskretnymi</link> obiektami matematycznymi takimi jak grafy reprezentujące sieć dróg Bajtocji, czasochłonne zadania domowa z różnych przedmiotów, które Bajtek musi zrobić w kolejnych dniach tygodnia, czy <link url='https://pl.wikipedia.org/wiki/Lemmings_(gra_komputerowa)'>lemingi</link> chodzące po i spadające z jednej długiej platformy, a do wymyślania na przykład algorytmów zachłannych trzeba mieć tylko dobrą intuicję, co się najbardziej opłaca w różnych sytuacjach.
+Niekoniecznie. Podczas gdy na lekcji matematyki w szkole dominuje analiza matematyczna, algebra, geometria czy trygonometria, w algorytmice olimpijskiej ma się przeważnie do czynienia z <link url='https://pl.wikipedia.org/wiki/Matematyka_dyskretna'><emphasis>dyskretnymi</emphasis></link> obiektami matematycznymi takimi jak grafy reprezentujące sieć dróg Bajtocji, czasochłonne zadania domowe z różnych przedmiotów, które Bajtek musi zrobić w kolejnych dniach tygodnia, czy <link url='https://pl.wikipedia.org/wiki/Lemmings_(gra_komputerowa)'>lemingi</link> chodzące po i spadające z jednej długiej platformy. Olimpiada to nie jest żadne dziubanie we wzorkach. Do wymyślania na przykład algorytmów zachłannych trzeba mieć tylko dobrą intuicję, co się najbardziej opłaca w różnych sytuacjach.
 </answer>
 
 <answer question='Jak wystartować w...' important='yes' id='jak-wystartowac'>
@@ -341,9 +341,9 @@ Samemu trudno jest zebrać wszystkie potrzebne informacje (m.in. dlatego powsta�
 <answer question='Jakie są kursy/obozy przygotowujące do Olimpiady?' important='yes' id='kursy'>
 <subanswer subquestion='Samodzielnie'>
 <list>
-<item>Oficjalny <link url='https://kurs.oi.edu.pl/'>kurs OI</link> do nauki podstaw algorytmiki i C++</item>
-<item><link url='https://usaco.guide/'>USACO Guide</link> - obszerny oficjalny kurs amerykańskiego odpowiednika OI</item>
-<item><link url='https://cses.fi/book/book.pdf'>Competitive Programmer's Handbook</link> - książkowy kurs od zera do IOI</item>
+<item>Oficjalny <link url='https://kurs.oi.edu.pl/'>kurs OI</link> do nauki podstaw algorytmiki i C++.</item>
+<item><link url='https://usaco.guide/'>USACO Guide</link> - obszerny oficjalny kurs amerykańskiego odpowiednika OI.</item>
+<item><link url='https://cses.fi/book/book.pdf'>Competitive Programmer's Handbook</link> - książkowy kurs od zera do IOI.</item>
 </list>
 
 Powyższe kursy oczywiście możesz robić sam w domu. <important>Nie należy jednak lekceważyć znaczenia kontaktu społecznego w trakcie nauki i tego, jak bardzo motywująca jest sama świadomość, że masz wokół siebie ludzi, którzy zajmują się tym samym, co ty.</important> Dlatego też liczba kursów i obozów na żywo z innymi ludźmi jest większa:
@@ -530,10 +530,10 @@ Odpowiedzią jest <link url='https://cses.fi/problemset/'>CSES Problem Set</link
 <item>
 Jeśli jesteś <emphasis>absolutnie</emphasis> pewien, że dobrze rozumiesz i potrafisz napisać z głowy dany algorytm, ale jesteś zbyt leniwy lub po prostu pisanie z palca maksymalnych ważonych skojarzeń w grafie ogólnym nie opłaca ci się czasowo na konteście, to możesz skorzystać z ogólnodostępnych "biblioteczek" takich jak:
 <list>
-<item><link url='https://github.com/atcoder/ac-library'>AtCoder Library</link> - dobrze zoptymalizowana, mało czytelna</item>
-<item><link url='https://lib.cp-algorithms.com/'>CP-Algorithms Library</link> - bardzo czytelna i dobrze udokumentowana</item>
-<item><link url='https://github.com/digitcrusher/algorytmy'>digitcrusher/algorytmy</link> - czytelna, korzysta z najnowszych dodatków do C++</item>
-<item><link url='https://github.com/kth-competitive-programming/kactl'>KACTL</link> - bardzo zwięźle napisana, przepisywana z kartki na zawodach studenckich</item>
+<item><link url='https://github.com/atcoder/ac-library'>AtCoder Library</link> - dobrze zoptymalizowana, mało czytelna.</item>
+<item><link url='https://lib.cp-algorithms.com/'>CP-Algorithms Library</link> - bardzo czytelna i dobrze udokumentowana.</item>
+<item><link url='https://github.com/digitcrusher/algorytmy'>digitcrusher/algorytmy</link> - czytelna, korzysta z najnowszych dodatków do C++.</item>
+<item><link url='https://github.com/kth-competitive-programming/kactl'>KACTL</link> - bardzo zwięźle napisana, przepisywana z kartki na zawodach studenckich.</item>
 </list>
 Najlepiej jednak jest napisać <important>własną biblioteczkę</important>.
 </item>
@@ -541,19 +541,15 @@ Najlepiej jednak jest napisać <important>własną biblioteczkę</important>.
 </answer>
 
 <answer question='Jakie zadania robić?' id='zadania'>
-<list compact='no'>
-<item>Przede wszystkim: <important>Jeśli przygotowujesz się do jakiegoś konkursu, to rób archiwalne zadania z tego konkursu.</important> Naprawdę. Przygotowujesz się do OI? Rób <link url='https://szkopul.edu.pl/task_archive/oi/'>zadania ze starych edycji OI</link>. Przygotowujesz się do OIJ? Rób <link url='https://szkopul.edu.pl/task_archive/oig/'>zadania ze starych edycji OIJ</link>. Przygotowujesz się do matury z polskiego? Rób oficjalne arkusze maturalne od CKE. Na każdym konkursie zadania są układane przez inne osoby, z inną wizją, jak ten konkurs ma wyglądać. Nawet zadania z drugiego etapu OI lekko się różnią od zadań z finału.</item>
+Przede wszystkim: <important>Jeśli przygotowujesz się do jakiegoś konkursu, to rób archiwalne zadania z tego konkursu.</important> Naprawdę. Przygotowujesz się do OI? Rób <link url='https://szkopul.edu.pl/task_archive/oi/'>zadania ze starych edycji OI</link>. Przygotowujesz się do OIJ? Rób <link url='https://szkopul.edu.pl/task_archive/oig/'>zadania ze starych edycji OIJ</link>. Przygotowujesz się do matury z polskiego? Rób oficjalne arkusze maturalne od CKE. Na każdym konkursie zadania są układane przez inne osoby, z inną wizją, jak ten konkurs ma wyglądać. Nawet zadania z drugiego etapu OI lekko się różnią od zadań z finału.
 
-<item>Oczywiście robienie ciągle tego samego bywa nie tylko żmudne, ale też umysłowo ograniczające, więc od czasu do czasu trzeba też porobić <emphasis>coś innego</emphasis>.</item>
-
-<item>Warto też czasami robić zadania, które robią twoi koledzy i koleżanki. Na kanale <discord-only>&lt;#876036802132185098&gt;</discord-only><external-only><code>#fajne-zadanka</code> na <link url='https://discord.gg/AMGxG4TvDS'>naszym serwerze Discord</link></external-only> znajdziesz zadania, które spodobały się im, i ty też możesz dzielić się fajnymi zadaniami na nim.</item>
-</list>
+Oczywiście robienie ciągle tego samego bywa nie tylko żmudne, ale też umysłowo ograniczające, więc od czasu do czasu warto też porobić <emphasis>coś innego</emphasis>. Możesz wtedy spojrzeć na zadania z <ref id='konkursy'>konkursów o formacie innym niż Olimpiada</ref> lub na zadania, które spodobały się twoim kolegom i koleżankom i którymi podzielili się na kanale <discord-only>&lt;#876036802132185098&gt;</discord-only><external-only><code>#fajne-zadanka</code> na <link url='https://discord.gg/AMGxG4TvDS'>naszym serwerze Discord</link></external-only>. Ty też możesz dzielić się fajnymi zadaniami na nim.
 </answer>
 
 <answer question='Jak trenować pod Olimpiadę?' important='yes' id='trenowanie'>
 Zakładając, że przyswoiłeś już wszystkie algorytmy i techniki spotykane na twojej wersji Olimpiady, jedyne co ci pozostało, to rozwiązywanie zadań z jej starych edycji (<link url='https://oi.edu.pl/l/oi_zadania/'>zadania OI</link>, <link url='https://oij.edu.pl/zbior_zadan/'>zadania OIJ</link>).
 
-Bardzo dobrym sposobem na trening przed jakimkolwiek konkursem stacjonarnym są tak zwane "wirtualki", czyli symulacje jednego dnia zawodów z dokładnością co do czasu trwania, czasu rozpoczęcia, zestawu zadań, samodzielności pracy i odizolowania od innych ludzi i rozproszeń. W ten sposób możesz m.in. zweryfikować swoją <ref id='strategia'>strategię</ref>.
+Bardzo dobrym sposobem na trening przed jakimkolwiek konkursem stacjonarnym są tak zwane "wirtualki", czyli symulacje jednego dnia zawodów z dokładnością co do czasu trwania, czasu rozpoczęcia, zestawu zadań, samodzielności pracy, skupienia uwagi i odizolowania od innych ludzi i rozproszeń. W ten sposób możesz m.in. zweryfikować swoją <ref id='strategia'>strategię</ref>.
 
 Najlepszym narzędziem do ćwiczenia przed testem wiedzy OIJ jest <link url='https://testy.oij.edu.pl/'>oficjalna platforma treningowa</link>, która automatycznie losuje zestaw pytań taki jak na prawdziwym teście i odmierza czas na jego rozwiązanie.
 
@@ -577,9 +573,9 @@ Celem robienia zadań, nie jest zrobienie ich jak najwięcej - nieważne jak bar
 
 Jeśli od razu wpadłeś na rozwiązanie zadania i omówienie się z tobą zgadza, to możesz sobie odpuścić jego implementację pod warunkiem, że umiesz już <emphasis>szybko i bezbłędnie</emphasis> implementować. Jeśli nie wpadłeś na nie od razu, to wciąż warto je napisać, gdyż w ten sposób utrwalasz je sobie w pamięci.
 
-Gdy nie jesteś w stanie rozwiązać jakiegoś zadania - to znaczy: mimo iż w danym momencie aktywnie starasz się jakoś je ugryźć, ale od N minut nie wpadłeś na żaden pomysł - to zajrzyj do opracowania, przeczytaj pierwszą wskazówkę do tego zadania, na którą jeszcze sam nie wpadłeś (lub nie przeczytałeś wcześniej), i z tym nowym spojrzeniem kontynuuj samodzielne myślenie nad zadaniem. Ta procedura w zamyśle jest powtarzalna. Jeśli twoje opracowanie akurat nie jest podzielone na wskazówki, to zacznij czytać je od początku i zatrzymaj się <emphasis>od razu</emphasis>, gdy napotkasz jakieś podejście, nad którym jeszcze sam nie myślałeś.
+Gdy nie jesteś w stanie rozwiązać jakiegoś zadania - to znaczy: mimo iż w danym momencie aktywnie starasz się jakoś je ugryźć, ale od <math>N</math> minut nie wpadłeś na żaden pomysł - to zajrzyj do opracowania, przeczytaj pierwszą wskazówkę do tego zadania, na którą jeszcze sam nie wpadłeś (lub nie przeczytałeś wcześniej), i z tym nowym spojrzeniem kontynuuj samodzielne myślenie nad zadaniem. Ta procedura w zamyśle jest powtarzalna. Jeśli twoje opracowanie akurat nie jest podzielone na wskazówki, to zacznij czytać je od początku i zatrzymaj się <emphasis>od razu</emphasis>, gdy napotkasz jakieś podejście, nad którym jeszcze sam nie myślałeś.
 
-Jeśli chodzi o samą wartość N, to na początek może być ona niska - równa 10 - gdyż lepiej się po prostu <emphasis>nauczyć</emphasis> fundamentalnych technik, niż na nowo odkrywać Amerykę. Po pokonaniu tego pierwszego etapu N może być równe 60. A jeśli jesteś już profesjonalistą i celujesz w wygranie OI, to spokojnie N minut &gt;= 1 dzień.
+Jeśli chodzi o samą wartość <math>N</math>, to na początek może być ona niska - równa 10 - gdyż lepiej się po prostu <emphasis>nauczyć</emphasis> fundamentalnych technik, niż na nowo odkrywać Amerykę. Po pokonaniu tego pierwszego etapu <math>N</math> może być równe 60. A jeśli jesteś już profesjonalistą i celujesz w wygranie OI, to spokojnie <math>N</math> minut <math>&gt;=</math> 1 dzień.
 
 Dobrze też nauczyć się rozpoznawać, kiedy twój mózg faktycznie angażuje się w rozwiązanie zadania, a kiedy po prostu siedzisz przed nim bezczynnie. Jeśli widzisz, że jesteś w tym drugim stanie, lepiej zrób sobie przerwę, zamiast spojlerować sobie zadanie czytając kolejne wskazówki zgodnie z wyżej opisaną procedurą.
 
@@ -607,7 +603,7 @@ Drugim typem wypalenia się jest to krótkoterminowe - spowodowane zbyt długim 
 
 Kilka dni przed zawodami powtórz sobie wszystkie algorytmy, techniki i podejścia, których się dotąd nauczyłeś lub które sobie zanotowałeś. <important>Nie powtarzaj ani nie ucz się niczego od razu przed zawodami</important>, bo później będziesz widzieć to tam, gdzie tego nie ma.
 
-<important>Przed dniem zawodów zrób sobie co najmniej jeden pełny dzień, w który nie będziesz w ogóle myśleć o zadaniach i utrzymaj to aż do startu zawodów.</important> To jest po to, aby zregenerować swoje chęci i cierpliwość do zadań. Żeby osiągnąć ten stan umysłu, będziesz musiał zająć myśli czymś innym: aktywnością sportową, filmem, spotkaniem z przyjaciółmi, grą komputerową lub czymkolwiek innym, co lubisz. <important>Jeśli konkurs jest rozbity na kilka dni, taką samą abstynencję od zadań przyjmij również pomiędzy jego kolejnymi częściami.</important>
+<important>Przed dniem zawodów zrób sobie co najmniej jeden pełny dzień, w którym nie będziesz w ogóle myśleć o zadaniach i utrzymaj tę czystość umysłu aż do startu zawodów.</important> To jest po to, aby zregenerować swoje chęci i cierpliwość do zadań. Żeby osiągnąć ten stan umysłu, będziesz musiał zająć myśli czymś innym: aktywnością sportową, filmem, spotkaniem z przyjaciółmi, grą komputerową lub czymkolwiek innym, co lubisz. <important>Jeśli konkurs jest rozbity na kilka dni, taką samą abstynencję od zadań przyjmij również pomiędzy jego kolejnymi częściami.</important>
 </answer>
 
 <answer question='Jaka jest najlepsza strategia na drugim etapie...' important='yes' id='strategia'>
@@ -665,7 +661,7 @@ Zawsze trzeba mieć też plan B: <important>Ostatnią godzinę konkursu potraktu
 </answer>
 
 <answer question='Do czego służą kartki i długopis na drugim etapie?' id='kartki-i-dlugopis'>
-Do wizualizowania sobie testów i treści zadania, zapisywania pomysłów i debugowania. Możesz je zabrać ze sobą do domu.
+Do wizualizowania sobie testów i treści zadania, zapisywania pomysłów i debugowania. Możesz je zabrać ze sobą do domu i za kilka lat martwić się ich wolumenem.
 </answer>
 
 <answer question='Ile wynosi próg do finału...' id='prog'>
@@ -679,7 +675,7 @@ Od początku najnowszej inkarnacji OIJ próg wahał się od 70 do 150 punktów.
 </answer>
 
 <answer question='Jak testować rozwiązania?' important='yes' id='testowanie'>
-Jako uzupełnienie <link url='https://oi.edu.pl/l/oi_jak_testowac/'>świetnego poradnika o testowaniu ze strony OI</link> i powyższej <ref id='strategia'>najlepszej strategii na drugim etapie</ref>, przestawiamy tutaj bardziej techniczną stronę testowania rozwiązań:
+Jako uzupełnienie <link url='https://oi.edu.pl/l/oi_jak_testowac/'>świetnego poradnika o testowaniu ze strony OI</link> i powyższej <ref id='strategia'>najlepszej strategii na drugim etapie</ref> przedstawiamy tutaj bardziej techniczną stronę testowania rozwiązań:
 
 Prawdziwą perełką debugowania w C++ jest <important>AddressSanitizer</important> aktywowany za pomocą flag kompilacji <code>-fsanitize=address,undefined -g</code>. Gdy tylko twój program naruszy granice przydzielonej mu pamięci (np. wychodząc poza zakres tablicy) lub doprowadzi do jednego z określonych w standardzie C++ "niezdefiniowanych zachowań" (np. integer overflow), AddressSanitizer wypisze dokładną przycznę błędu i jego miejsce w twoim kodzie oraz - dla błędów pamięci - zawartość stosu wywołań w chwili błędu z dokładnością co do linijki twojego kodu. Bez AddressSanitizera dostałbyś jedynie krótki komunikat "Naruszenie ochrony pamięci" w przypadku błedów pamięci lub nawet nie dostałbyś żadnego komunikatu w przypadku niezdefiniowanych zachowań.
 
@@ -732,7 +728,7 @@ done
 
 <subanswer subquestion='Dla uczniów'>
 <list>
-<item><link url='https://mistrzostwa.solve.edu.pl/'>Mistrzostwa Polski Szkół Średnich w Programowaniu Zespołowym</link> (MPSŚPZ) - coroczny konkurs drużynowy dla uczniów szkół średnich; stacjonarny we Wrocławiu z możliwością udziału zdalnego; poprzedzony serią internetowych turniejów kwalifikacyjnych; każda drużyna składa się z 3 osób z tej samej szkoły.</item>
+<item><link url='https://mistrzostwa.solve.edu.pl/'>Mistrzostwa Polski Szkół Średnich w Programowaniu Zespołowym</link> (MPSŚPZ) - coroczny konkurs drużynowy dla uczniów szkół średnich; stacjonarny we Wrocławiu z możliwością udziału zdalnego; poprzedzony serią <link url='https://turnieje.solve.edu.pl/'>internetowych turniejów</link> kwalifikacyjnych; każda drużyna składa się z 3 osób z tej samej szkoły.</item>
 <item><link url='https://mistrz-programowania.oki.org.pl/'>Mistrz Programowania</link> - coroczny konkurs organizowany przez OKI.</item>
 <item><link url='https://solve.edu.pl/event'>Wrocławskie Sparingi Informatyczne</link> - podzielone na poziomy od finału OIJ aż do finału OI; zdalne z możliwością udziału stacjonarnego we Wrocławiu; sporadycznie organizowane w ciągu roku szkolnego.</item>
 </list>
@@ -747,11 +743,7 @@ done
 </answer>
 
 <footer>
-Przewodnik OOOZ został <external-only>stworzony przez i dla otwartej społeczności <link url='https://discord.gg/AMGxG4TvDS'>OKI OI OIJ Zjednoczenie</link> i</external-only> udostępniony na licencji <link url='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</link>. Znalezione błędy prosimy zgłaszać na <link url='https://github.com/OOOZet/Przewodnik/issues'>GitHubie</link> lub na <discord-only>&lt;#708664789970452490&gt;</discord-only><external-only><link url='https://discord.gg/AMGxG4TvDS'>Discordzie</link></external-only>. Do powstania tej wersji przewodnika bezpośrednio przyczynili się: <placeholder for='contributors'/>.
-
-<todo>Czy używać form żeńskich czasowników przeszłych II os.?</todo>
-
-<todo>Ujednolicić konstrukcje imperatywne do zwykłego czasownika w trybie rozkazującym.</todo>
+Przewodnik OOOZ został <external-only>stworzony przez otwartą społeczność <link url='https://discord.gg/AMGxG4TvDS'>OKI OI OIJ Zjednoczenie</link> i</external-only> udostępniony na licencji <link url='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</link>. Znalezione błędy prosimy zgłaszać na <link url='https://github.com/OOOZet/Przewodnik/issues'>GitHubie</link> lub na <discord-only>&lt;#708664789970452490&gt;</discord-only><external-only><link url='https://discord.gg/AMGxG4TvDS'>Discordzie</link></external-only>. Do powstania tej wersji przewodnika bezpośrednio przyczynili się: <placeholder for='contributors'/>.
 </footer>
 
 <contributor name='Karol "digitcrusher" Łacina' discord-id='536253933778370580' website='https://lacina.io/'>pomysł, treść, wygląd, oprogramowanie, infrastruktura</contributor>

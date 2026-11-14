@@ -4,7 +4,7 @@ Najnowszy build przewodnika można znaleźć na [naszej stronie internetowej](ht
 
 Znalezione błędy prosimy zgłaszać tutaj w zakładce "Issues" lub na Discordzie.
 
-Treść przewodnika, czyli plik `source.xml`, jest udostępniona na licencji [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reszta plików jest udostępniona na licencji GPL-3.0-or-later, jeśli nie zaznaczono inaczej.
+Treść przewodnika, czyli plik `source.xml`, jest udostępniona na licencji [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reszta plików jest udostępniona na licencji GPL-3.0-or-later, jeśli nie zaznaczono inaczej.
 
 ## Buildowanie
 
@@ -24,13 +24,13 @@ Produkty tego procesu to:
 > Z każdym nowym rokiem szkolnym trzeba zaktualizować daty i linki w "Jakie korzyści przynosi sukces w...", "Jak wystartować w…" i "Jak wygląda drugi i trzeci etap…".
 
 > [!NOTE]
-> Informacje w "Jakie są kursy/obozy przygotowujące do Olimpiady?", "Które zajęcia OKI wybrać?", "Ile wynosi próg do finału…" i "Jakie konkursy istnieją poza Olimpiadą?" mogą się nagle zdezaktualnić.
+> Informacje w "Jakie są kursy/obozy przygotowujące do Olimpiady?", "Które zajęcia OKI wybrać?", "Ile wynosi próg do finału…" i "Jakie konkursy istnieją poza Olimpiadą?" mogą się nagle zdezaktualnić.
 
-Cała treść przewodnika mieści się w pliku `source.xml`. XML to taki HTML, ale mniej odjechany i taki, w którym można definiować własne znaczniki. Strukturę gramatyczną `source.xml` opisuje plik `source.rnc` - schemat w języku RELAX NG Compact Syntax ([dokumentacja](https://relaxng.org/compact-tutorial-20030326.html)). Najważniejsze, co należy z niej wyciągnąć, to idea, że każdy znacznik może występować inline (czyli wewnątrz paragrafu) lub jako blok (czyli zajmując całą szerokość strony, wizualnie tworząc blok). Poniżej jest lista interesujących znaczników i ich znaczenie.
+Cała treść przewodnika mieści się w pliku `source.xml`. XML to taki HTML, ale mniej odjechany i taki, w którym można definiować własne znaczniki. Strukturę gramatyczną `source.xml` opisuje plik `source.rnc` - schemat w języku RELAX NG Compact Syntax ([dokumentacja](https://relaxng.org/compact-tutorial-20030326.html)). Najważniejsze, co należy z niej wyciągnąć, to idea, że każdy znacznik może występować inline (czyli wewnątrz paragrafu) lub jako blok (czyli zajmując całą szerokość strony, wizualnie tworząc blok). Poniżej jest lista interesujących znaczników i ich znaczenie.
 
 ### `<answer>`
 
-Odpowiedź na pytanie umieszczone w atrybucie `question`. Musi mieć unikalny na cały dokument atrybut `id`. Opcjonalnie można oznaczyć odpowiedź jako wartą uwagi w kontekście całego przewodnika ustawiając atrybut `important` na `yes`.
+Odpowiedź na pytanie umieszczone w atrybucie `question`. Musi mieć unikalny na cały dokument atrybut `id`. Opcjonalnie można oznaczyć odpowiedź jako wartą uwagi w kontekście całego przewodnika ustawiając atrybut `important` na `yes`.
 
 ### `<code>`, blok/inline
 
@@ -41,11 +41,11 @@ Po prostu kod. Może występować zarówno inline jak i jako blok. W tym drugim 
 Opisuje osobę, która miała "istotny wkład" do powstania obecnej wersji przewodnika. Zawartość znacznika to opis tego wkładu.
 
 Atrybuty:
-- `name` - `Imię "Pseudonim" Nazwisko` lub `Imię Nazwisko`.
+- `name` - `Imię "Pseudonim" Nazwisko` lub `Imię Nazwisko`.
 - `discord-id` - ID użytkownika na Discordzie.
 - `website` (opcjonalny) - Link do osobistej strony internetowej lub innego profilu internetowego (np. GitHub).
 
-Trudno zdefiniować, jak bardzo wkład musi być istotny, aby był "istotny". Na pewno sama recenzja czy znajdywanie błędów nie jest "istotnym wkładem" - tak uważa też prawo autorskie. Najbezpieczniej będzie powiedzieć, że to po prostu lista osób, które posiadają prawa autorskie osobiste do tego utworu. Gdyby ktoś w przyszłości udzielił hosting, to pewnie też wypadałoby o tej osobie wspomnieć.
+Trudno zdefiniować, jak bardzo wkład musi być istotny, aby był "istotny". Na pewno sama recenzja czy znajdywanie błędów nie jest "istotnym wkładem" - tak uważa też prawo autorskie. Najbezpieczniej będzie powiedzieć, że to po prostu lista osób, które posiadają prawa autorskie osobiste do tego utworu. Gdyby ktoś w przyszłości udzielił hosting, to pewnie też wypadałoby o tej osobie wspomnieć.
 
 ### `<emphasis>`, inline
 
@@ -55,7 +55,7 @@ Słowo lub krótka fraza z wymawianym naciskiem, czyli takim, który możnaby us
 
 Graf w języku DOT ([dokumentacja](https://graphviz.org/documentation/)). Przyjmuje atrybut `description`, który ma opisywać graf w taki sposób, że osoba, która nie widzi obrazka, będzie w stanie zrozumieć, co na tym obrazku jest. [Bardziej szczegółowe wyjaśnienie, jak takie opisy pisać.](https://typst.app/docs/guides/accessibility/#textual-representations)
 
-Kolory elementów grafu są automatycznie zmieniane przez `render_graph` w `build.py`, aby był widoczny na i czarnym i na białym tle. Obecny kod nie został napisany z myślą, że ktoś będzie w `<graph>` ustawiać jakieś kolory, więc jak tak zrobisz i nie wyjdzie, to nie martw się, że coś zrobiłeś źle. Błąd jest najpewniej w `build.py`.
+Kolory elementów grafu są automatycznie zmieniane przez `render_graph` w `build.py`, aby był widoczny na i czarnym i na białym tle. Obecny kod nie został napisany z myślą, że ktoś będzie w `<graph>` ustawiać jakieś kolory, więc jak tak zrobisz i nie wyjdzie, to nie martw się, że coś zrobiłeś źle. Błąd jest najpewniej w `build.py`.
 
 ### `<important>`, inline
 
@@ -63,11 +63,11 @@ Ważna informacja, którą czytelnik *musi* zobaczyć, gdyby tylko przeglądał 
 
 ### `<link>`, inline
 
-Link do URL-a, który jest w atrybucie `url`. Znacznik musi zawierać jakiś tekst.
+Link do URL-a, który jest w atrybucie `url`. Znacznik musi zawierać jakiś tekst.
 
 ### `<list>`, blok
 
-Lista `<item>`-ów, które z kolei zawierają po prostu zwykłe znaczniki blokowe. Czyli po prostu zwykła lista, jaką byś ujrzał w druku.
+Lista `<item>`-ów, które z kolei zawierają po prostu zwykłe znaczniki blokowe. Czyli po prostu zwykła lista, jaką byś ujrzał w druku.
 
 Atrybuty:
 - `ordered` (domyślnie `no`) - `yes` jeśli lista jest ponumerowana. `no` jeśli jest wypunktowana.
@@ -75,7 +75,7 @@ Atrybuty:
 
 ### `<math>`, inline
 
-Wyrażenie matematyczne. Zawartość to taki mini-język. Kolejne "tokeny" (symbole, liczby, operatory itd.) muszą być oddzielone spacjami (z wyjątkiem nawiasów okrągłych). Przykład: `(1 + 2) * 3`. Dostępne symbole są zdefiniowane w `math_symbols` na początku `build.py`; nie jest to lista zamknięta na nowe dodatki. Do każdego tokenu można dodać indeks dolny lub górny poprzez dopisanie odpowiednio `_` lub `^` oraz ciągu znaków bez spacji. Przykład: `x_i+1 + 2^n`. [Zestaw dostępnych znaków w indeksach](https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts) jest bardzo ograniczony przez standard Unicode.
+Wyrażenie matematyczne. Zawartość to taki mini-język. Kolejne "tokeny" (symbole, liczby, operatory itd.) muszą być oddzielone spacjami (z wyjątkiem nawiasów okrągłych). Przykład: `(1 + 2) * 3`. Dostępne symbole są zdefiniowane w `math_symbols` na początku `build.py`; nie jest to lista zamknięta na nowe dodatki. Do każdego tokenu można dodać indeks dolny lub górny poprzez dopisanie odpowiednio `_` lub `^` oraz ciągu znaków bez spacji. Przykład: `x_i+1 + 2^n`. [Zestaw dostępnych znaków w indeksach](https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts) jest bardzo ograniczony przez standard Unicode.
 
 ### `<note>`, blok
 
@@ -87,7 +87,7 @@ W trakcie renderowania zastępywany przez automatycznie wygenerowany tekst. Kluc
 
 ### `<problem>`, inline
 
-Odniesienie do zadania z OI lub OIJ z kolorem odpowiadającym etapowi. Przyjmuje atrybut `id`, który dla zadań z OI ma format `oi{EDYCJA}-{TRZYLITEROWY KOD ZADANIA}`, a dla zadań z OIJ - `oij{EDYCJA}-{ETAP JAKO LICZBA}-{TRZYLITEROWY KOD ZADANIA}`. Przykłady: `oi10-mal`, `oij15-3-cie`.
+Odniesienie do zadania z OI lub OIJ z kolorem odpowiadającym etapowi. Przyjmuje atrybut `id`, który dla zadań z OI ma format `oi{EDYCJA}-{TRZYLITEROWY KOD ZADANIA}`, a dla zadań z OIJ - `oij{EDYCJA}-{ETAP JAKO LICZBA}-{TRZYLITEROWY KOD ZADANIA}`. Przykłady: `oi10-mal`, `oij15-3-cie`.
 
 ### `<ref>`, inline
 
@@ -131,7 +131,7 @@ Najważniejszą częścią opisu tak naprawdę nie jest rozwiązanie wzorcowe, t
 
 W całym tekście musimy powstrzymywać się od używania znanego nam żargonu algorytmicznego i innych abstrakcyjnych sformułowań. O wiele bliższą codzienności i pobudzającą wyobraźnię zwykłego człowieka frazą jest "sieć połączeń" aniżeli "graf skierowany". Takie techniczne sformułowania zostawiamy na koniec bardziej jako dopisek na marginesie. Tak samo nie wprowadzamy abstrakcji tam, gdzie nie trzeba, i na literały formuły CNF mówimy po prostu "równania", bo akurat możemy.
 
-Jeśli nazwiemy jakieś pojęcie lub obiekt konkretną nazwą, to musimy używać tylko i wyłącznie tej nazwy przez całe omówienie, żeby nie mieszać czytelnikowi w głowie. Ubogość języka w naszym przypadku tylko zwiększa jego ekspresywność.
+Jeśli nazwiemy jakieś pojęcie lub obiekt konkretną nazwą, to musimy używać tylko i wyłącznie tej nazwy przez całe omówienie, żeby nie mieszać czytelnikowi w głowie. Ubogość języka w naszym przypadku tylko zwiększa jego ekspresywność.
 
 ### "Czy umiejętności algorytmiczne przydają się później w życiu?"
 
@@ -187,8 +187,8 @@ Typst jest najlepszym systemem składu ze wszystkich, które targetujemy, więc 
 
 Przestrzenią kolorów, w której pracujemy, jest Oklab w cylindrycznym układzie współrzędnych (Oklch). Nie używaj innych przestrzeni, bo kolor będzie odstawać od reszty, i pod żadnym pozorem nie używaj sRGB ani innych percepcyjnie niejednorodnych przestrzeni, bo wtedy pójdziesz do piekła.
 
-Zestaw ikon, który używamy to Google Material Symbols ([wyszukiwarka](https://fonts.google.com/icons)). W repozytorium jest już pobrana jedna wersja tej czcionki, więc jeśli ikonka na stronie wygląda inaczej niż w zbuildowanym PDF-ie, to oznacza, że pewnie trzeba zaktualizować czcionkę w repozytorium. W HTML-u nowe ikony trzeba dodawać do `@import`-a importującego tę czcionkę.
+Zestaw ikon, który używamy to Google Material Symbols ([wyszukiwarka](https://fonts.google.com/icons)). W repozytorium jest już pobrana jedna wersja tej czcionki, więc jeśli ikonka na stronie wygląda inaczej niż w zbuildowanym PDF-ie, to oznacza, że pewnie trzeba zaktualizować czcionkę w repozytorium. W HTML-u nowe ikony trzeba dodawać do `@import`-a importującego tę czcionkę.
 
 ## Praca z szablonami
 
-Szablony są napisane w języku Jinja ([dokumentacja](https://jinja.palletsprojects.com/en/stable/templates/)) i żyją sobie w folderze `templates/`. Dla nas to produkt końcowy. Po nas pałeczkę przejmuje odpowiedni interpreter danej formy prezentacji. Szablony przyjmują tekst źródłowy zpreprocesowany przez `process_source` w `build.py`, strukturę którego opisuje `preprocessed_source.rnc`. Korzeń dokumentu przekazywany jest w zmiennej globalnej `document`. `problems.csv` - jako słownik wierszy po polu `id` w zmiennej globalnej `problems`. Wszystkie zmienne globalne i filtry są wylistowane w `render` w `build.py`. Powodzenia!
+Szablony są napisane w języku Jinja ([dokumentacja](https://jinja.palletsprojects.com/en/stable/templates/)) i żyją sobie w folderze `templates/`. Dla nas to produkt końcowy. Po nas pałeczkę przejmuje odpowiedni interpreter danej formy prezentacji. Szablony przyjmują tekst źródłowy zpreprocesowany przez `process_source` w `build.py`, strukturę którego opisuje `preprocessed_source.rnc`. Korzeń dokumentu przekazywany jest w zmiennej globalnej `document`. `problems.csv` - jako słownik wierszy po polu `id` w zmiennej globalnej `problems`. Wszystkie zmienne globalne i filtry są wylistowane w `render` w `build.py`. Powodzenia!

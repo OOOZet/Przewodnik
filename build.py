@@ -80,6 +80,7 @@ math_symbols = {
   '-': '−',             # U+2212 MINUS SIGN
   '...': '⋯',           # U+22EF MIDLINE HORIZONTAL ELLIPSIS
   '/': '∶',             # U+2236 RATIO
+  '>=': '≥',            # U+2265 GREATER-THAN OR EQUAL TO
   'and': '∧',           # U+2227 LOGICAL AND
   'microseconds': 'μs', # U+03BC GREEK SMALL LETTER MU, U+0073 LATIN SMALL LETTER S
   'not': '¬',           # U+00AC NOT SIGN
@@ -92,6 +93,7 @@ math_symbols_typst = {
   '-': '#(sym.minus)',
   '...': '#(sym.dots.h.c)',
   '/': '#(sym.ratio)',
+  '>=': '#(sym.gt.eq)',
   'and': '#(sym.and)',
   'microseconds': '#(zero.quan(math: false, "us"))',
   'not': '#(sym.not)',
@@ -722,7 +724,6 @@ def render_ascii_approximations(text):
   for pattern, repl in [
     ("'", '’'), # This replaces both closing single quotation marks and apostrophes.
     ('...', '…'),
-    ('>=', '≥'),
   ]:
     text = text.replace(pattern, repl)
   return text
