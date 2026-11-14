@@ -4,6 +4,8 @@ Najnowszy build przewodnika można znaleźć na [naszej stronie internetowej](ht
 
 Znalezione błędy prosimy zgłaszać tutaj w zakładce "Issues" lub na Discordzie.
 
+Treść przewodnika, czyli plik `source.xml`, jest udostępniona na licencji [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reszta plików jest udostępniona na licencji GPL-3.0-or-later, jeśli nie zaznaczono inaczej.
+
 ## Buildowanie
 
 1. Zainstaluj programy Git LFS (jeśli chcesz pracować z gitem), Graphviz, Python 3 oraz [Typst](https://typst.app/open-source/#download).
