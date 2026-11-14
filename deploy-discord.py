@@ -2,6 +2,8 @@
 
 import discord, sys
 from argparse import ArgumentParser
+from collections.abc import Awaitable, Callable
+from dataclasses import dataclass
 from io import StringIO
 from xml.etree import ElementTree
 
@@ -18,6 +20,25 @@ client = discord.Client(
   intents=discord.Intents.default(),
   allowed_mentions=discord.AllowedMentions.none(),
 )
+
+@dataclass
+class Ref:
+  start: int
+  end: int
+  id: str
+
+def append_ref(content, ref_node):
+  longest_snowflake = str(2**64 - 1)
+  start = len(content)
+  content += f'https://discord.com/channels/{longest_snowflake}/{longest_snowflake}/{longest_snowflake}'
+  end = len(content)
+  return content, Ref(start, end, ref_node.attrib['id'])
+
+@dataclass
+class Patchable:
+  content: str
+  refs: list[Ref]
+  callback: Callable[[str], Awaitable[None]]
 
 @client.event
 async def on_ready():
@@ -38,56 +59,65 @@ async def on_ready():
 
   anchor_entity = {}
   entity_msg = {}
-  entity_refs = {}
+  to_patch = []
 
   for i, entity in enumerate(document):
     print(f'Processing entity {i + 1} of {len(document)}...')
     match entity.tag:
       case 'channel-topic':
-        assert len(entity) == 0, entity
-        await chan.edit(topic=entity.text)
+        content = entity.text.lstrip()
+        refs = []
+
+        for node in entity:
+          match node.tag:
+            case 'ref':
+              content, ref = append_ref(content, node)
+              refs.append(ref)
+          content += node.tail
+
+        await chan.edit(topic=content)
+
+        if refs:
+          async def callback(content):
+            await chan.edit(topic=content)
+          to_patch.append(Patchable(content, refs, callback))
 
       case 'message':
         content = entity.text.lstrip()
+        refs = []
         files = []
 
         for node in entity:
           match node.tag:
             case 'anchor':
               anchor_entity[node.attrib['id']] = entity
-
             case 'file':
               files.append(discord.File(
                 node.attrib.get('src', StringIO(node.text)),
                 node.attrib.get('name'),
                 description=node.attrib.get('description'),
               ))
-
             case 'ref':
-              longest_snowflake = str(2**64 - 1)
-              start = len(content)
-              content += f'https://discord.com/channels/{longest_snowflake}/{longest_snowflake}/{longest_snowflake}'
-              end = len(content)
-              entity_refs.setdefault(entity, []).append((start, end, node.attrib['id']))
-
-            case _:
-              raise Exception(f'Unknown tag in message: {node.tag!r}')
+              content, ref = append_ref(content, node)
+              refs.append(ref)
           content += node.tail
 
-        entity_msg[entity] = await chan.send(content, files=files, suppress_embeds=True)
+        msg = entity_msg[entity] = await chan.send(content, files=files, suppress_embeds=True)
 
-      case _:
-        raise Exception(f'Unknown entity: {entity.tag!r}')
+        if refs:
+          def closure(msg):
+            async def callback(content):
+              await msg.edit(content=content, suppress=True)
+            return callback
+          to_patch.append(Patchable(content, refs, closure(msg)))
 
-  for i, (entity, refs) in enumerate(entity_refs.items()):
-    msg = entity_msg[entity]
-    print(f'Patching message {i + 1} of {len(entity_refs)}...')
-
-    refs.sort(key=lambda x: x[1], reverse=True)
-    content = msg.content
-    for start, end, id in refs:
-      content = content[:start] + entity_msg[anchor_entity[id]].jump_url + content[end:]
-    await msg.edit(content=content, suppress=True)
+  for i, patchable in enumerate(to_patch):
+    print(f'Patching entity {i + 1} of {len(to_patch)}...')
+    patchable.refs.sort(key=lambda x: x.end, reverse=True)
+    content = patchable.content
+    for ref in patchable.refs:
+      content = content[:ref.start] + entity_msg[anchor_entity[ref.id]].jump_url + content[ref.end:]
+    await patchable.callback(content)
 
   await client.close()
 

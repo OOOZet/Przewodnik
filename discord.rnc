@@ -1,0 +1,20 @@
+element discord-document {
+  element message {
+    mixed {
+      (
+        element anchor { attribute id { xsd:ID }, empty } |
+        element ref { attribute id { xsd:IDREF }, empty }
+      )*
+    },
+    element file {
+      attribute name { text }?,
+      attribute description { text }?,
+      ((attribute src { text }, empty) | text)
+    }*
+  }+ &
+  element channel-topic {
+    mixed {
+      element ref { attribute id { xsd:IDREF }, empty }*
+    }
+  }
+}

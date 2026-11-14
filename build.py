@@ -196,6 +196,8 @@ def build():
 
     render(Target.discord)
 
+    validate_xml('build/discord.xml', 'discord.rnc')
+
   log_info('Building downloadable file')
   with log_indent():
     preprocess_source(Target.download)
