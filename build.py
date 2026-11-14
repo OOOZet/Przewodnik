@@ -685,8 +685,8 @@ def hyphenate(text):
 
 def render_ascii_approximations(text):
   for pattern, repl in [
-    (r'\B"\b', '„'),
-    (r'\b"\B', '”'),
+    (r'\B"\b|\B"$', '„'), # … "<tag>text</tag>" …
+    (r'"\B', '”'), # … "Tak?", …
     (r"\B'\b", '‚'),
     (r'(?<=\s)-(?=\s)', '—'),
   ]:

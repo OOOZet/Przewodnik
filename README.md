@@ -192,6 +192,7 @@ Jako notatkę dla przyszłych analizujących omówienia zostawiamy poniższą li
 ### Todo
 
 Pomysły na przyszłe odpowiedzi na pytania:
+- "Jak testować interaktywy?"
 - "Jak wygrać OI/OIJ?"
 - "Jak dużo czasu muszę poświecić żeby zdobyć tytuł finalisty OI lub OIJ?"
 - "Jaki rating na Codeforces muszę wbić żeby mieć dany etap OI lub OIJ w kieszeni?"

@@ -573,8 +573,6 @@ Niestety nie. Nic jednak nie powstrzymuje ciebie przed samodzielnym rozwiązanie
 </answer>
 
 <answer question='Jak robić zadania, żeby wynieść z tego jak najwięcej?' important='yes' id='jak-robic-zadania'>
-<todo>Trzeba zmierzyć poziom prawdy w tej odpowiedzi sięgając po opinię innych.</todo>
-
 Celem robienia zadań, nie jest zrobienie ich jak najwięcej - nieważne jak bardzo satysfakcjonująca może być ściana pełna zielonych OK-ejek. Celem robienia zadań jest ustawienie twojego mózgu tak, aby po pierwsze <emphasis>potrafił</emphasis> rozwiązywać podobne zadania w przyszłości i po drugie rozwiązywał je szybciej. <important>To wymaga stopniowego zauważania kolejnych schematów i wzorców, którymi kierują się twórcy zadań.</important> Do tego musisz nie tylko wpadać na rozwiązania, ale też analizować w jaki sposób, do nich doszedłeś albo nie doszedłeś.
 
 Jeśli od razu wpadłeś na rozwiązanie zadania i omówienie się z tobą zgadza, to możesz sobie odpuścić jego implementację pod warunkiem, że umiesz już <emphasis>szybko i bezbłędnie</emphasis> implementować. Jeśli nie wpadłeś na nie od razu, to wciąż warto je napisać, gdyż w ten sposób utrwalasz je sobie w pamięci.
@@ -616,7 +614,23 @@ Kilka dni przed zawodami powtórz sobie wszystkie algorytmy, techniki i podejśc
 <note>Poniższe strategie są skuteczne również na finale.</note>
 
 <subanswer subquestion='...OIJ?'>
-<todo>Strategia jest pewnie podobna jak na OI, ale nie jestem pewien.</todo>
+Najlepsza rada, jaką można dać uczestnikowi drugiego etapu, to <important>myśl trzeźwo i trzymaj się planu</important>. A teraz przejdźmy do planu:
+
+Gdy tylko wybije godzina startu, <important>powoli i dokładnie przeczytaj treści wszystkich zadań</important>. Błędne zrozumienie zadania będzie cię kosztować o wiele więcej czasu niż jego powolne przeczytanie. <important>Nie tykaj klawiatury dopóki nie przeczytasz i nie zrozumiesz wszystkich zadań.</important> Nie tylko dlatego, że nie wiesz, które zadanie jest najłatwiejsze, ale też dlatego, że dzięki temu od razu ładujesz całą dzisiejszą pracę do wykonania do swojego mózgu i pozwalasz swojej podświadomości pracować nad zadaniami <emphasis>od samego początku</emphasis>. Brzmi to nieprawdopodobnie, ale tak jest.
+
+Po dokładnym przeczytaniu wszystkich zadań możesz przystąpić do ich rozwiązywania. Ale jak? Okazuje się, że organizatorzy zostawili w treści zadania zakodowaną instrukcję rozwiązywania zwaną "podzadaniami". <important>Robienie kolejnych podzadań prawie zawsze nakierowuje cię na pełne rozwiązanie.</important> Nie musisz każdego implementować; wystarczy, że rozwiążesz je na kartce. Bardzo rzadko zdarza się na Olimpiadzie, że <math>i</math>-te podzadanie jest trudniejsze od podzadania <math>j</math>-tego (<math>i &lt; j</math>) albo że podzadania prowadzą do rowiązań zupełnie odmiennych od rozwiązania wzorcowego. To już pomijając fakt, że łatwiej jest zdobyć 50 punktów z podzadań niż 100 punktów za wzorcówkę.
+
+To, przed czym powinieneś się strzec, jest zacięcie się na jednym zadaniu i próbowanie rozwiązania go na 100 punktów do upadłego. <important>Rób to, co da ci najwięcej punktów, a nie to, co wydaje ci się ciekawe.</important> Konsekwencją tej zasady jest na przykład to, że na każdym zadaniu musisz wbić jakieś punkty, bo na każdym zadaniu zawsze jest jakiś banalny brut do naklepania.
+
+Zanim zaczniesz implementować jakieś rozwiązanie, zatrzymaj się i zastanów się nad jego sensem w myśl przysłowia "<important>Pomyśl dwa razy, żeby nie klepać trzy razy.</important>". Na kartce zweryfikuj poprawność swojego pomysłu na testach przykładowych oraz na innych złośliwych testach, które jesteś w stanie wymyśleć.
+
+Napisanie kodu, który działa na testach przykładowych i paru ręcznie wymyślonych testach, nie oznacza od razu, że będzie działał na <emphasis>wszystkich</emphasis> testach. <important>Rozwiązania trzeba testować.</important> Nieprzetestowane rozwiązanie jest nic niewarte. Temat testowania rozwiązania został wyczerpująco opisany <link url='https://oi.edu.pl/l/oi_jak_testowac/'>na stronie OI</link> oraz <ref id='testowanie'>w naszym jego uzupełnieniu</ref>. Możesz skorzystać z połączenia "testerka + generatorka + poprawny brut" ze strategii dla OI, ale nie jest to konieczne na tym etapie. Kody na OIJ zwykle nie są skomplikowane i da się je okiełznać samym wzrokiem.
+
+<important>Śledź swoje punkty.</important> Notuj sobie wystarczająco informacji, żebyś mógł w dowolnym momencie obliczyć, ile masz punktów napisanych i przetestowanych, ile masz punktów tylko napisanych lub tylko wymyślonych, a ile jest punktów nietkniętych ale w twoim zasięgu. Dzięki temu będziesz wiedział, jak stoisz z czasem względem swojego wyniku, i gdy przyjdzie nieuchronny moment, w którym będziesz się zastanawiał "Co teraz robić?", to będziesz mógł od razu porównać dostępne opcje i wybrać tą, która da ci najwięcej punktów w najkrótszym przewidywanym czasie.
+
+<important>Rób sobie od czasu do czasu przerwę na wyjście z sali i przespacerowanie się po korytarzu lub bufecie</important> - nie tylko po to, aby obudzić mózg dostarczając do niego więcej krwi z serca i świeży tlen z zewnątrz, ale też aby na chwilę przestać myśleć nad zadaniami i móc dzięki temu nabrać świeżego spojrzenia na swoją sytuację.
+
+Zawsze trzeba mieć też plan B: <important>Ostatnią godzinę konkursu potraktuj jak świętą i wyznacz ją sobie jako czas pokuty za zmarnowane pierwsze cztery.</important> Jeśli dałeś się złapać w pułapkę ścigania się za mityczną wzorcówką albo właśnie jesteś w trakcie debugowania jej, bo "już prawie działa", ale mimo to wciąż nie wyłuskałeś wszystkich dostępnych punktów na brutach, to <emphasis>zostaw to i łupaj kolejne podzadania</emphasis>. Możesz mieć pewne 50 punktów za podzadania albo niepewne 100 punktów za rzekomą wzorcówkę. Co jest lepsze - myślę, że wiadomo.
 </subanswer>
 
 <subanswer subquestion='...OI?'>
@@ -624,25 +638,29 @@ Najlepsza rada, jaką można dać uczestnikowi drugiego etapu, to <important>my�
 
 Gdy tylko wybije godzina startu, <important>powoli i dokładnie przeczytaj treści wszystkich zadań</important>. Błędne zrozumienie zadania będzie cię kosztować o wiele więcej czasu niż jego powolne przeczytanie. <important>Nie tykaj klawiatury dopóki nie przeczytasz i nie zrozumiesz wszystkich zadań.</important> Nie tylko dlatego, że nie wiesz, które zadanie jest najłatwiejsze, ale też dlatego, że dzięki temu od razu ładujesz całą dzisiejszą pracę do wykonania do swojego mózgu i pozwalasz swojej podświadomości pracować nad zadaniami <emphasis>od samego początku</emphasis>. Brzmi to nieprawdopodobnie, ale tak jest.
 
-Aby dobrze i sprawnie się pracowało, trzeba najpierw stworzyć sobie do tego odpowiednie środowisko. <important>Dlatego napisz testerkę, generatorkę i najbardziej naiwnego bruta do każdego zadania, zanim w ogóle zaczniesz pracować nad mądrymi rozwiązaniami zadań.</important> Dzięki takiemu połączeniu będziesz miał od razu środowisko, w którym możesz szybko zaimplementować swój pomysł, od razu sprawdzić, czy jest poprawny, i iterować w ten sposób aż do skutku. Nawet jeśli konkurs, który piszesz ma otwarte wyniki, to i tak sama "błędna odpowiedź" nie powie ci, na jakim dokładnie teście twój pomysł lub implementacja nie działa, a z testerką będziesz wiedział od razu.
+<important>Od razu po dokładnym, spokojnym przeczytaniu wszystkich zadań napisz najbardziej naiwnego bruta do każdego zadania.</important> To pozwoli ci zweryfikować na testach przykładowych, czy na pewno dobrze zrozumiałeś treść, i da ci przy okazji odrobinę punktów. Ale najważniejszym powodem, dla którego to robisz, jest potrzeba zdobycia źródła prawdy, które dla każdego testu szybko wygeneruje ci poprawną odpowiedź i którego będziesz potrzebować do testowania. <important>Dlatego twój naiwny brut musi być jak najbardziej oczywisty i nie może wykorzystywać żadnych spostrzeżeń.</important> Jeśli już na tym etapie popełnisz jakieś błędne założenie, to będzie cię to kosztować spokojnie co najmniej godzinę konkursu.
+
+<important>Dopiero gdy już będziesz miał gotowego naiwnego bruta do każdego zadania, możesz przystąpić do "rozwiązywania zadań".</important> Ale jak? Okazuje się, że organizatorzy zostawili w treści zadania zakodowaną instrukcję rozwiązywania zwaną "podzadaniami". <important>Robienie kolejnych podzadań prawie zawsze nakierowuje cię na pełne rozwiązanie.</important> Nie musisz każdego implementować; wystarczy, że rozwiążesz je na kartce. Bardzo rzadko zdarza się na Olimpiadzie, że <math>i</math>-te podzadanie jest trudniejsze od podzadania <math>j</math>-tego (<math>i &lt; j</math>) albo że podzadania prowadzą do rowiązań zupełnie odmiennych od rozwiązania wzorcowego. To już pomijając fakt, że łatwiej jest zdobyć 50 punktów z podzadań niż 100 punktów za wzorcówkę.
+
+<important>Gdy tylko wpadniesz na jakiś pomysł na rozwiązanie, którego nie będziesz pewny, albo zdecydujesz się napisać jakiś kod, napisz najpierw testerkę i generatorkę do danego zadania.</important> Dzięki połączeniu "testerka + generatorka + poprawny brut" będziesz miał od razu środowisko, w którym możesz szybko zaimplementować swój pomysł, od razu sprawdzić, czy jest poprawny, i iterować w ten sposób aż do skutku. To już pomijając fundamentalny fakt, że rozwiązania trzeba testować. <important>Nieprzetestowane rozwiązanie jest nic niewarte.</important> Testerka automatyzuje ten proces i eliminuje z niego osobę, która w ogóle wprowadziła bugi do testowanego kodu (czyli ciebie). Nawet jeśli konkurs, który piszesz, ma otwarte wyniki, to i tak sama "błędna odpowiedź" nie powie ci, na jakim dokładnie teście twój pomysł lub implementacja nie działa, a z testerką będziesz wiedział od razu.
 
 A czym w ogóle są te trzy rzeczy?
 
 <list>
-<item><emphasis>Testerka</emphasis> to skrypt sklejający ze sobą generatorkę, naiwnego bruta i testowane rozwiązanie w nieskończoną pętle testowania. Kod przykładowej testerki został zamieszczony w odpowiedzi w <ref id='testowanie'>osobnym pytaniu</ref>.</item>
+<item>Testerka to skrypt sklejający ze sobą generatorkę, poprawnego bruta i testowane rozwiązanie w nieskończoną pętlę testowania. Kod przykładowej testerki został zamieszczony w <ref id='testowanie'>odpowiedzi na osobne pytanie</ref>.</item>
 
-<item><emphasis>Generatorka</emphasis> przy każdym wywołaniu generuje losowe dane wejściowe do zadania. Zawodnicy zwykle ustawiają ją pod generowanie najpierw małych testów, żeby móc je sprawdzić na kartce, a potem dużych testów, żeby lepiej przetestować swoje rozwiązanie. Miej z tyłu głowy swiadomość, że jednostajny i losowy rozkład danych wejściowych nie zawsze przekłada się na jednostajny rozkład w przypadkach twojego algorytmu. Często jest tak, że prawdziwie losowe testy potrafią (jako przykład) w 90% przypadkach generować odpowiedź "NIE", podczas gdy to odpowiedź "TAK" jest naprawdę tą ciekawą w kontekście twojego algorytmu.</item>
+<item>Generatorka przy każdym wywołaniu generuje losowe dane wejściowe do zadania. Zawodnicy zwykle ustawiają ją najpierw pod generowanie małych testów, żeby móc je sprawdzać na kartce, a potem dużych testów, żeby lepiej przetestować swoje rozwiązanie. Miej z tyłu głowy swiadomość, że jednostajny i losowy rozkład danych wejściowych nie zawsze przekłada się na jednostajny rozkład w przypadkach twojego algorytmu. Często jest tak, że prawdziwie losowe testy potrafią (jako przykład) w 90% przypadkach generować odpowiedź "NIE", podczas gdy to odpowiedź "TAK" jest naprawdę tą ciekawą w kontekście twojego algorytmu.</item>
 
-<item><emphasis>Naiwny brut</emphasis> to rozwiązanie brutalne, które musi być jak najbardziej oczywiste i <important>niewykorzystujące żadnych spostrzeżeń</important>. Jeśli już na tym etapie popełnisz jakieś błędne założenie, to będzie cię to kosztować spokojnie co najmniej godzinę konkursu.</item>
+<item>"Poprawny brut" to rozwiązanie brutalne, co do którego masz pewność, że daje poprawne odpowiedzi. Twoim pierwszym poprawnym brutem jest twój najbardziej naiwny brut, którego napisałeś na początku konkursu. Możesz go po drodze zastępować kolejnymi szybszymi ale wciąż <emphasis>dobrze przetestowanymi</emphasis> brutami, aby móc testować na większych testach, ale wiedz, że z każdym takim przejściem wiąże się ryzyko, że testerka nie wyłapała wszystkich błędów w nowym brucie. Najlepiej testować na wszystkich brutach.</item>
 </list>
-
-<important>Dopiero gdy już będziesz miał gotową testerkę, generatorkę i naiwnego bruta do każdego zadania, możesz przystąpić do "rozwiązywania zadań".</important> Ale jak? Okazuje się, że organizatorzy zostawili w treści zadania zakodowaną instrukcję rozwiązywania zwaną "podzadaniami". <important>Robienie kolejnych podzadań prawie zawsze nakierowuje cię na pełne rozwiązanie.</important> Nie musisz każdego implementować; wystarczy, że rozwiążesz je na kartce. Bardzo rzadko zdarza się na Olimpiadzie, że i-te podzadanie jest trudniejsze od podzadania j-tego (i &lt; j) albo że podzadania prowadzą do rowiązań zupełnie odmiennych od rozwiązania wzorcowego. To już pomijając fakt, że łatwiej jest zdobyć 50 punktów z podzadań niż 100 punktów za wzorcówkę.
-
-<todo>A co z robieniem sobie przerw w trakcie rozwiązywania zadań?</todo>
 
 Zanim zaczniesz implementować jakieś czasochłonne rozwiązanie, warto wpierw zatrzymać się i zastanowić się nad jego sensem w myśl przysłowia "<important>Pomyśl dwa razy, żeby nie klepać trzy razy.</important>".
 
-Zawsze trzeba mieć też plan B: <important>Ostatnią godzinę konkursu potraktuj jak świętą i wyznacz ją sobie jako czas pokuty za zmarnowane pierwsze cztery.</important> Jeśli dałeś się złapać w pułapkę ścigania się za mityczną wzorcówką albo właśnie jesteś w trakcie debugowania jej, bo "już prawie działa", ale mimo to wciąż nie wyłuskałeś wszystkich dostępnych punktów na brutach, <important>to zostaw to i łupaj kolejne podzadania</important>. Możesz mieć pewne 50 punktów za podzadania albo niepewne 100 punktów za rzekomą wzorcówkę. Co jest lepsze - myślę, że wiadomo.
+<important>Śledź swoje punkty.</important> Notuj sobie wystarczająco informacji, żebyś mógł w dowolnym momencie obliczyć, ile masz punktów napisanych i przetestowanych, ile masz punktów tylko wymyślonych, a ile jest punktów nietkniętych ale w twoim zasięgu. Dzięki temu będziesz wiedział, jak stoisz z czasem względem swojego wyniku, i gdy przyjdzie nieuchronny moment, w którym będziesz się zastanawiał "Co teraz robić?", to będziesz mógł od razu porównać dostępne opcje i wybrać tą, która da ci najwięcej punktów w najkrótszym przewidywanym czasie.
+
+<important>Rób sobie od czasu do czasu przerwę na wyjście z sali i przespacerowanie się po korytarzu lub bufecie</important> - nie tylko po to, aby obudzić mózg dostarczając do niego więcej krwi z serca i świeży tlen z zewnątrz, ale też aby na chwilę przestać myśleć nad zadaniami i móc dzięki temu nabrać świeżego spojrzenia na swoją sytuację.
+
+Zawsze trzeba mieć też plan B: <important>Ostatnią godzinę konkursu potraktuj jak świętą i wyznacz ją sobie jako czas pokuty za zmarnowane pierwsze cztery.</important> Jeśli dałeś się złapać w pułapkę ścigania się za mityczną wzorcówką albo właśnie jesteś w trakcie debugowania jej, bo "już prawie działa", ale mimo to wciąż nie wyłuskałeś wszystkich dostępnych punktów na brutach, to <emphasis>zostaw to i łupaj kolejne podzadania</emphasis>. Możesz mieć pewne 50 punktów za podzadania albo niepewne 100 punktów za rzekomą wzorcówkę. Co jest lepsze - myślę, że wiadomo.
 </subanswer>
 </answer>
 
@@ -675,14 +693,14 @@ declare -i i=0
 while true; do
   echo test $i
   ./generatorka > test.in
-  ./naiwny_brut < test.in > brut.out
+  ./poprawny_brut < test.in > brut.out
   ./wzorcowka < test.in > wzor.out
   diff -w brut.out wzor.out || exit 1
   i+=1
 done
 ]]></code>
 
-Na zawodach przepisz ją z głowy, zapisz ją w pliku <code>testerka.sh</code> i spraw, żeby był wykonywalny za pomocą komendy <code>chmod +x testerka.sh</code>. Jak już pewnie się domyśliłeś, zakłada ona, że w katalogu bieżącym znajdują się pliki wykonywalne <code>generatorka</code>, <code>naiwny_brut</code> i <code>wzorcowka</code>. Testerka będzie wykonywać kolejne testy w nieskończoność, dopóki nie znajdzie różnicy w wyjściu bruta i wzorcówki.
+Na zawodach przepisz ją z głowy, zapisz ją w pliku <code>testerka.sh</code> i spraw, żeby był wykonywalny za pomocą komendy <code>chmod +x testerka.sh</code>. Jak już pewnie się domyśliłeś, zakłada ona, że w katalogu bieżącym znajdują się pliki wykonywalne <code>generatorka</code>, <code>poprawny_brut</code> i <code>wzorcowka</code>. Testerka będzie wykonywać kolejne testy w nieskończoność, dopóki nie znajdzie różnicy w wyjściu bruta i wzorcówki.
 
 Czasami zdarza się, że w zadaniu proszą nas nie tylko o najlepszy wynik liczbowy, ale też o konkretną konfigurację obiektów ze świata zadania dającą ten najlepszy wynik liczbowy, przy czym ten sam wynik może dawać wiele różnych konfiguracji. W takiej sytuacji zwykłe porównanie wyjścia bruta i wzorcówki zupełnie nie wystarczy. Zamiast tego polecamy sprawdzanie poprawności tej konfiguracji zaimplementować bezpośrednio w twoim kodzie wykorzystując funkcję <link url='https://cppreference.com/cpp/error/assert'><code>assert</code> w C++</link> lub instrukcję <link url='https://stackoverflow.com/a/5142453'><code>assert</code> w Python</link>. Następnie zakładając, że niezmienne linijki znajdują się na początku wyjścia programu, zmodyfikowana <code>testerka.sh</code> wygląda następująco:
 
@@ -693,7 +711,7 @@ while true; do
   echo test $i
   ./generatorka > test.in
   n=1 # liczba niezmiennych linijek
-  ./naiwny_brut < test.in | head -n $n > brut.out
+  ./poprawny_brut < test.in | head -n $n > brut.out
   ./wzorcowka < test.in | head -n $n > wzor.out
   diff -w brut.out wzor.out || exit 1
   i+=1
