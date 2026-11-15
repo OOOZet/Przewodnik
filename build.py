@@ -244,6 +244,8 @@ def build():
     os.makedirs('build/webpage/', exist_ok=True)
     os.rename('build/webpage.html', 'build/webpage/index.html')
     shutil.copy('build/download.pdf', 'build/webpage/Przewodnik OOOZ.pdf')
+    os.makedirs('build/webpage/images/', exist_ok=True)
+    shutil.copy('images/favicon-512x512.png', 'build/webpage/images/')
 
 def format_text_file(path):
   log_info(f'Formatting {path!r}')

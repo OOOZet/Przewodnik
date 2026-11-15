@@ -16,8 +16,6 @@
  # along with this program.  If not, see <https://www.gnu.org/licenses/>.
  #}
 
-{# TODO: Favicon #}
-
 {% autoescape true %}
 
 {# Generally, we try not to depend on HTML and CSS features that are younger than 10 years. #}
@@ -174,6 +172,7 @@
     <title>{{ document.attrib['title'] }}</title>
     <link rel='alternate' type='application/pdf' href='{{ document.attrib['title'] }}.pdf'>
     <link rel='canonical' href='{{ document.attrib['url'] }}'>
+    <link rel='icon' sizes='512x512' href='images/favicon-512x512.png'>
     <link rel='license' href='https://creativecommons.org/licenses/by-sa/4.0/'>
     {% with preface = render_blocks(document.find('preface')) | striptags %}
       <meta name='description' content='{{ preface }}'>
