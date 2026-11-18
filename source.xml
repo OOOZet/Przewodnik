@@ -14,7 +14,23 @@ Bajtazar wypatrzył w sklepie budowlanym promocję na dwukolorowe wałki - lewa 
 
 I w tym momencie pojawia się pytanie Bajtazara, który pyta nas, czy będzie w stanie zrealizować swoją wizję architektoniczną wałkami z zestawu? <important>Nasz program na wejściu dostanie liczby <math>n</math> i <math>k</math> oraz liczby <math>c_1</math>, <math>c_2</math>, ..., <math>c_n</math>, czyli listę <math>n</math> kolorów od <math>1</math> do <math>k</math>, na które trzeba pomalować kolejne paski; a na wyjściu będzie musiał wypisać "TAK" albo "NIE" - odpowiedź na dylemat Bajtazara.</important>
 
-Zastanówmy się, jaki algorytm napisać dla komputera, żeby był w stanie krok po kroku rozwiązać ten problem. Zauważmy, że każdą z <math>n - 1</math> par sąsiadujących pasków możemy albo pomalować albo nie. To znaczy: jeśli Bajtazar miałby zrealizować swoją wizję, to mógłby zawczasu ustalić sobie dla każdej pary, czy użyje do niej wałka, czy nie. <important>Taki ciąg decyzji możemy przedstawić jako tablicę <math>n - 1</math> zer lub jedynek. Jedynka na <math>i</math>-tym miejscu znaczy "pociągniemy odpowiedni wałek po <math>i</math>-tym i <math>(i + 1)</math>-szym pasku". Zero znaczy, że tego nie zrobimy.</important> <math>i</math>-ty element tablicy <math>x</math> będziemy oznaczać <math>x_i</math>.
+Spójrzmy na parę przykładowych możliwych projektów Bajtazara, żeby lepiej sobie uzmysłowić, o co w ogóle chodzi w tym zadaniu:
+
+<list compact='no'>
+<item>W pierwszym projekcie kolory kolejnych pasków na ścianie mają być takie: 1, 2, 3, 4, 5, 6. Każdy wie, jak coś takiego namalować: Użyjemy 3 wałki: wałki z kolorami (1, 2), (3, 4) i (5, 6). Pierwszy wałek pociągniemy po 1. i 2. pasku, drugi po 3. i 4. pasku, trzeci po 5. i 6. pasku. To jest jeden z wielu sposobów, bo nic (no może poza zdrowym rozsądkiem) nas nie powstrzymuje przed dwukrotnym pomalowaniem jakiegoś paska - o czym właśnie przekonamy się w następnym przykładzie.</item>
+
+<item>W drugim projekcie kolory to 1, 2, 3, 4, 5. Jak widać mamy nieparzyście wiele pasków, więc jakiś będziemy musieli pomalować dwa razy. Ten projekt wciąż nie stanowi wielkiego wyzwania: Jeden z możliwych sposobów na pomalowanie tej ściany to użycie 3 wałków - z kolorami (1, 2), (2, 3), (4, 5).</item>
+
+<item>1, 2, 1. Jedyny sposób na zrealizowanie takiego projektu to użycie wałków (1, 2) i (2, 1).</item>
+
+<item>1, 2, 1, 2. I tu dochodzimy do pierwszego projektu, którego nie da się w ogóle namalować. Nie możemy na przykład wziąć wałka (1, 2) i pomalować nim 1. i 2. paska a zaraz potem 3. i 4. paska, bo każdy wałek można pociągnać po ścianie tylko raz z góry na dół. Próbując różnych strategii można się szybko przekonać, że żadna tu nie zadziała.</item>
+
+<item>1, 2, 3, 2, 3. Tak jak wcześniej są dwie pary sąsiadujących pasków, które powinny zostać pomalowane na te same kolory, ale w odróżnieniu od poprzedniego taki projekt już da się zrealizować. Zrobimy to tak, że weźmiemy wałki z kolorami (1, 2), (3, 2) i (2, 3) i pierwszy pociągniemy po 1. i 2. pasku, drugi po 3. i 4. pasku, a trzeci po 4. i 5. pasku.</item>
+</list>
+
+Zastanówmy się, jaki algorytm napisać dla komputera, żeby był w stanie krok po kroku rozwiązać ten problem. Zauważmy, że każdą z <math>n - 1</math> par sąsiadujących pasków możemy albo pomalować na raz jednym pociągnięciem wałka albo nie. To znaczy: jeśli Bajtazar miałby zrealizować swoją wizję, to mógłby zawczasu ustalić sobie dla każdej pary, czy użyje do niej wałka, czy nie. <important>Taki ciąg decyzji możemy przedstawić jako tablicę <math>n - 1</math> zer lub jedynek. Jedynka na <math>i</math>-tym miejscu znaczy "pociągniemy odpowiedni wałek po <math>i</math>-tym i <math>(i + 1)</math>-szym pasku". Zero znaczy, że tego nie zrobimy.</important> <math>i</math>-ty element tablicy <math>x</math> będziemy oznaczać <math>x_i</math>.
+
+Dla projektu 1, 2, 3, 2, 3 i jego wyżej podanego rozwiązania polegającego na użyciu 3 wałków na paskach 1. i 2., 3. i 4. oraz 4. i 5. ta tablica wygląda tak: 1, 0, 1, 1.
 
 Musimy sobie też jasno powiedzieć, jakie warunki dany ciąg decyzji zakodowany w tablicy <math>x</math> musi spełniać, aby był poprawny i był dowodem na to, że Bajtazar może pomalować swoją ścianę dwukolorowymi wałkami z marketu:
 
@@ -42,7 +58,7 @@ Wracając do przypadku ogólnego załóżmy, że jesteśmy pewni, że <math>x_1 
 
 <important>Takie wymuszenia pomiędzy równaniami tworzą <emphasis>sieć</emphasis> połączeń.</important> Możemy - a nawet <emphasis>powinniśmy</emphasis> - zwizualizować ją sobie na kartce za pomocą punktów połączonych strzałkami. Punkty odpowiadają równaniom w formule, a strzałka z równania <math>p</math> do równania <math>q</math> oznacza, że <math>p</math> wymusza <math>q</math>. W naturalny sposób strzałki tworzą ścieżki w sieci. Jeśli z jakiegoś równania <math>r</math> da się przejść taką ścieżką złożoną z wielu strzałek do jakiegoś innego równania <math>s</math>, to widzimy, że <math>r</math> <emphasis>pośrednio</emphasis> wymusza <math>s</math>. Formalna nazwa na takie punkty i strzałki to "<link url='https://pl.wikipedia.org/wiki/Graf_skierowany'>graf skierowany</link>".
 
-Oto jak wygląda sieć wymuszeń dla wcześniejszego przykładu 1, 2, 3, 2, 3:
+Oto jak wygląda sieć wymuszeń dla wcześniejszego projektu 1, 2, 3, 2, 3:
 
 <graph description='Przykładowa sieć wymuszeń'><![CDATA[
 digraph {

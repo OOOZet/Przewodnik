@@ -133,6 +133,10 @@ W całym tekście musimy powstrzymywać się od używania znanego nam żargonu a
 
 Jeśli nazwiemy jakieś pojęcie lub obiekt konkretną nazwą, to musimy używać tylko i wyłącznie tej nazwy przez całe omówienie, żeby nie mieszać czytelnikowi w głowie. Ubogość języka w naszym przypadku tylko zwiększa jego ekspresywność.
 
+Przykłady tłumaczące treść zadania są potrzebne, gdyż treść jest zbyt długa, żeby każdy był w stanie zapamiętać ją całą; nie każdy jest w stanie od razu zwizualizować sobie ogólny opis tego, co się dzieje w zadaniu; treść nie odpowiada na wszystkie możliwe wątpliwości takie jak, czy można jeden pasek pomalować dwa razy; i przykłady pozbywają się wszelkich błędnych założeń, które czytelnik mógł sobie nieświadomie wyrobić.
+
+Trzeba uważać na sytuacje, w których my - autorzy omówienia - tworzymy sobie w głowie jakiś model zadania i zamiast rzeczywistą treść zadania zaczynamy opisywać ten model - tak, że ten opis odłączony od modelu jest sprzeczny z rzeczywistością zadania. Przykład: "Zauważmy, że każdą z n - 1 par sąsiadujących pasków możemy albo pomalować albo nie." (ale przecież każdy pasek musi zostać zamalowany!) podczas gdy to, co naprawdę mamy na myśli, to "Zauważmy, że każdą z n - 1 par sąsiadujących pasków możemy albo pomalować <ins>na raz jednym pociągnięciem wałka</ins> albo nie.".
+
 ### "Czy umiejętności algorytmiczne przydają się później w życiu?"
 
 Przykłady użycia algorytmiki w pytaniu o przydatności umiejętności algorytmicznych powinny być rzeczami, z których czytelnik korzysta na co dzień. Powinny linkować do dokładnych wytłumaczeń tych algorytmów, nie tylko dla celów dydaktycznych, ale też żeby czytelnik zobaczył na własne oczy te algorytmy, których istnienie próbujemy mu sprzedać.
