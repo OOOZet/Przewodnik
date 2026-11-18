@@ -350,6 +350,7 @@ def preprocess_source(target):
       parse_math(node)
 
     path = f'build/source/{target.name}.xml'
+    log_info(f'Saving to {path!r}')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     source.write(path)
 

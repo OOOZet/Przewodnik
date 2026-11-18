@@ -21,10 +21,13 @@ Produkty tego procesu to:
 ## Praca z treścią
 
 > [!WARNING]
-> Z każdym nowym rokiem szkolnym trzeba zaktualizować daty i linki w "Jakie korzyści przynosi sukces w...", "Jak wystartować w…" i "Jak wygląda drugi i trzeci etap…".
+> Z każdym nowym rokiem szkolnym trzeba zaktualizować daty i linki w "Jakie korzyści przynosi sukces w...", "Jak wystartować w…" i "Jak wygląda drugi i trzeci etap…". Format konkursu też może się lekko zmieniać.
 
 > [!NOTE]
 > Informacje w "Jakie są kursy/obozy przygotowujące do Olimpiady?", "Które zajęcia OKI wybrać?", "Ile wynosi próg do finału…" i "Jakie konkursy istnieją poza Olimpiadą?" mogą się nagle zdezaktualnić.
+
+> [!NOTE]
+> Po każdym drugim etapie i finale OI i OIJ trzeba śledzić ich strony czekając na dodanie oficjalnych omówień zadań. Na ich podstawie trzeba zaktualizować "Jakie algorytmy i techniki muszę znać na...".
 
 Cała treść przewodnika mieści się w pliku `source.xml`. XML to taki HTML, ale mniej odjechany i taki, w którym można definiować własne znaczniki. Strukturę gramatyczną `source.xml` opisuje plik `source.rnc` - schemat w języku RELAX NG Compact Syntax ([dokumentacja](https://relaxng.org/compact-tutorial-20030326.html)). Najważniejsze, co należy z niej wyciągnąć, to idea, że każdy znacznik może występować inline (czyli wewnątrz paragrafu) lub jako blok (czyli zajmując całą szerokość strony, wizualnie tworząc blok). Poniżej jest lista interesujących znaczników i ich znaczenie.
 
@@ -46,6 +49,10 @@ Atrybuty:
 - `website` (opcjonalny) - Link do osobistej strony internetowej lub innego profilu internetowego (np. GitHub).
 
 Trudno zdefiniować, jak bardzo wkład musi być istotny, aby był "istotny". Na pewno sama recenzja czy znajdywanie błędów nie jest "istotnym wkładem" - tak uważa też prawo autorskie. Najbezpieczniej będzie powiedzieć, że to po prostu lista osób, które posiadają prawa autorskie osobiste do tego utworu. Gdyby ktoś w przyszłości udzielił hosting, to pewnie też wypadałoby o tej osobie wspomnieć.
+
+### `<discord-only>`, `<download-only>`, `<external-only>`, `<webpage-only>`
+
+Wyznaczają zawartość, która powinna być dostępna tylko w podanej formie prezentacji. `external` oznacza `download` lub `webpage`. Te znaczniki działają tak: Jeśli test przejdzie, to dokument jest modyfikowany tak, jakby ktoś z pliku źródłowego wyciął sam znacznik otwierający i zamykający. Jeśli test nie przejdzie, to wycinane są znaczniki razem z zawartością pomiędzy nimi.
 
 ### `<emphasis>`, inline
 
@@ -81,9 +88,9 @@ Wyrażenie matematyczne. Zawartość to taki mini-język. Kolejne "tokeny" (symb
 
 Informacja dla czytelnika, która niekoniecznie jest *ważna*, ale którą warto zapamiętać.
 
-### `<placeholer>`, inline
+### `<placeholder>`, inline
 
-W trakcie renderowania zastępywany przez automatycznie wygenerowany tekst. Klucz jest w atrybucie `for` i na razie jedyny zdefiniowana wartość to `contributors` - lista wszystkich wkładodawców.
+W trakcie renderowania zastępywany przez automatycznie wygenerowany tekst. Klucz jest w atrybucie `for` i na razie jedyna zdefiniowana wartość to `contributors` - lista wszystkich wkładodawców.
 
 ### `<problem>`, inline
 
@@ -123,7 +130,7 @@ Przykładowe zadanie zostało wybrane ze względu na następujące kryteria:
 - **Pokazuje, jak wielkie oszczędności obliczeniowe można uzyskać dzięki algorytmice.** To jest właśnie jej kwintesencja. Wykładnicza a wielomianowa złożność to wielka przepaść, co zostało naświetlone w odpowiedzi na pytanie.
 - Powyższy punkt oznacza też, że wybrane zadanie jest faktycznie zadaniem algorytmicznym, a nie matematycznym tak, jak się czasami zdarza na Olimpiadzie.
 - Trudnością zadania nie jest samo wymyślenie jakiegokolwiek rozwiązania, a przyśpiesenie go. Algorytmy zachłanne często nie spełniają tego warunku. W wybranym zadaniu rozwiązanie brutalne jest bardzo łatwe do zrozumienia i samodzielnego wymyślenia: W każdym punkcie albo przykładamy wałek albo nie, co modelujemy za pomocą jednowymiarowej tablicy zer i jedynek.
-- Rozwiązanie wzorcowe jest nieoczywiste, a mimo to proste do zrozumienia. Nie ma takich koncepcyjnych przeskoków, jakie by były, gdybyśmy mieli tłumaczyć np. drzewa przedziałowe. A pewne niewygodne szczegóły (algorytm na silnie spójne składowe) jesteśmy w stanie przemilczeć nieprzeszkadzając na zrozumieniu rozwiązania wzorcowego.
+- Rozwiązanie wzorcowe jest nieoczywiste, a mimo to proste do zrozumienia. Nie ma takich koncepcyjnych przeskoków, jakie by były, gdybyśmy mieli tłumaczyć np. drzewa przedziałowe. A pewne niewygodne szczegóły (algorytm na silnie spójne składowe) jesteśmy w stanie przemilczeć nieprzeszkadzając w zrozumieniu rozwiązania wzorcowego.
 - Całość można zwięźle wytłumaczyć. Nie ma żadnej przypadkologii i nie ma długich rozważań.
 - Nawiązuje do bardzo znanego problemu P=NP, co nie jest wymagane, ale jest mile widziane.
 
