@@ -573,7 +573,7 @@ Jeśli zabraknie ci zadań z OI, to następnym najbardziej podobnym do nich zest
 </answer>
 
 <answer question='Jak zadania ze starszych edycji OI różnią się od aktualnych?' id='stare-vs-nowe-zadania-oi'>
-Zadania z nowych Olimpiad są od tych starszych łatwiejsze pod kątem wiedzy algorytmicznej i trudniejsze pod kątem koncepcyjnym, a ich rozwiązania wzorcowe wymagają mniej żyłowania czasu i pamięci. Taki kurs zmian zbliża je bardziej do stylu zadań z IOI. Jednocześnie ogólna trudność Olimpiady zwiększa się, gdyż co raz więcej uczniów wie o jej istnieniu oraz bierze w niej udział i zaangażowanie średniego uczestnika jest też większe niż kiedyś.
+Wbrew krążącym przekonaniom zadania z nowych Olimpiad nie są od tych starszych ściśle łatwiejsze pod kątem wiedzy algorytmicznej, o czym można się przekonać analizując <ref id='sylabus'>listę algorytmów i technik spotykanych na OI</ref>. Jednak są za to trudniejsze pod kątem koncepcyjnym, przez co sama znajomość algorytmów już nie wystarcza do rozwiązania zadania, tak jak to kiedyś mogło wyglądać. Rozwiązania wzorcowe nowych zadań wymagają też mniej żyłowania czasu i pamięci. Taki kurs zmian zbliża zadania z OI bardziej do stylu zadań z IOI. Jednocześnie ogólna trudność Olimpiady zwiększa się, gdyż co raz więcej uczniów wie o jej istnieniu oraz bierze w niej udział i zaangażowanie średniego uczestnika jest też większe niż kiedyś.
 </answer>
 
 <answer question='Jak zadania z OI różnią się od zadań z Codeforces?' id='zadania-oi-vs-codeforces'>
