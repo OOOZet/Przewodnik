@@ -443,7 +443,7 @@ Lista obejmuje drugie etapy od XIV do XX OIJ i finały od XIV do XVII OIJ.
 </subanswer>
 
 <subanswer subquestion='...OI?'>
-Lista obejmuje drugie etapy i finały od XIV do XXXIII OI z wyjątkiem zadania <problem id='oi32-ogr'/>, do którego omówienie nie jest dostępne. Ogranicza się tylko do ostatnich 10 lat, gdyż Olimpiada ma obecnie tendencję do stawania się bardziej ad-hoc. <important>Pomijamy tutaj kilka algorytmów z OIJ, gdyż są zbyt podstawowe, więc algorytmy i techniki na OIJ też musisz znać.</important>
+Lista obejmuje drugie etapy i finały od XIV do XXXIII OI z wyjątkiem zadania <problem id='oi32-ogr'/>, do którego omówienie nie jest dostępne. <important>Pomijamy tutaj kilka algorytmów z OIJ, gdyż są zbyt podstawowe, więc algorytmy i techniki na OIJ też musisz znać.</important>
 
 <list>
 <item><link url='https://cp-algorithms.com/graph/01_bfs.html'>0-1 BFS</link> - <problem id='oi29-bom'/></item>

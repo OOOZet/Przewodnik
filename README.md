@@ -172,8 +172,6 @@ Szczególnie kontrowersyjnym elementem listy okazał się podział czy też poso
 
 Pierwszą lepszą definicją "przydatności" algorytmu jest liczba zadań, w których się pojawił. No i tuż już od razu dochodzimy do rozdroża, bo co z zadaniami z finałów? Czy je też powinniśmy wliczać do tej metryki? Na finałach w ostatnich latach zwykle pojawia się znacznie więcej algorytmów niż na drugim etapie. Dla kogoś, kto celuje tylko w przejście drugiego etapu, takie algorytmy z finału są zupełnie nieprzydatne. A dla kogoś, kto celuje w wygranie OI, znajomość takich algorytmów może być kluczowa. Nieważne, którą opcję byś wybrał, i tak jedna z tych dwóch osób by tylko straciła na twojej decyzji.
 
-Kolejnym pytaniem, na które musielibyśmy odpowiedzieć w definicji "przydatności", jest to, czy odsuwamy na bok algorytmy, które nie pojawiły się w ostatnich kilku latach - bo bardziej spostrzegawczy zawodnicy wiedzą, że w tych ostatnich kilku latach (mniej więcej od czasów pandemii koronawirusa) zadania OI zaczęły się robić bardziej ad-hocowe z mniejszym naciskiem na wiedzę algorytmiczną. To oczywiście oznacza, że ta wiedza jest mniej przydatna na Olimpiadzie.
-
 A czemu na przykład wyraźnym przeskokiem w "przydatności" algorytmu nie miałoby być to, czy pojawił się co najnmiej dwa razy, czy tylko raz? Przecież raz to mógł być przypadek, a dwa razy - świadoma decyzja, i wtedy uczestnik mógłby podczas nauki odrzucać takie nieprzydatne jednorazowe algorytmy i uczyć się wszystkich co najmniej dwurazowych.
 
 **Zamiast podejmować te wszystkie decyzje za czytelnika, wolimy przedstawić mu nasze rady i dostarczyć mu jak najwięcej informacji, aby sam mógł podjąć odpowiednią dla siebie decyzję.**
